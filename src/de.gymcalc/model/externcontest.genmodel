@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/externcontest/src"
+    editDirectory="/externcontest.edit/src" editorDirectory="/externcontest.editor/src"
+    modelPluginID="externcontest" modelName="Externcontest" importerID="org.eclipse.emf.importer.ecore"
+    usedGenPackages="contest.genmodel#//contest">
+  <foreignModel>externcontest.ecore</foreignModel>
+  <genPackages prefix="Externcontest" basePackage="de.gymcalc" resource="XML"
+      disposableProviderFactory="true" ecorePackage="externcontest.ecore#/">
+    <genClasses ecoreClass="externcontest.ecore#//TransportType">
+      <genFeatures children="true" createChild="true" propertyCategory="" propertyDescription=""
+          propertySortChoices="true" ecoreFeature="ecore:EReference externcontest.ecore#//TransportType/car"/>
+    </genClasses>
+    <genClasses ecoreClass="externcontest.ecore#//VehicleType">
+      <genFeatures createChild="false" propertyCategory="" propertySortChoices="true"
+          ecoreFeature="ecore:EReference externcontest.ecore#//VehicleType/driver"/>
+      <genFeatures children="true" createChild="false" propertyDescription="" propertySortChoices="true"
+          ecoreFeature="ecore:EReference externcontest.ecore#//VehicleType/passenger"/>
+    </genClasses>
+    <genClasses ecoreClass="externcontest.ecore#//PassengerType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference externcontest.ecore#//PassengerType/person"/>
+      <genOperations ecoreOperation="externcontest.ecore#//PassengerType/getName"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

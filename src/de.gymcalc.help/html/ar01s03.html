@@ -1,0 +1,617 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Einrichten eines Wettkampfes</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title=""><link rel="up" href="index.html" title=""><link rel="prev" href="ar01s02.html" title="Installation"><link rel="next" href="ar01s04.html" title="Eingeben der Meldungen"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section.prepare_contest"></a>Einrichten eines Wettkampfes</h2></div></div></div>
+    
+    <p>Ein Wettkampf wird in einer Datei mit der Endung 'contest'
+      verwaltet. In dieser Datei sind alle Aktiven, Kampfrichter,
+      Wettkampfklassen, Riegen und weitere enthalten. Um eine solche
+      Datei neu einzurichten sind folgende Schritte notwendig:
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	  <a class="link" href="ar01s03.html#procedure.start_gymcalc" title="Procedure&nbsp;3.&nbsp;Starten von GymCalc und Anlegen eines Arbeitsplatzes">Starten von GymCalc und Anlegen eines Arbeitsplatzes
+	  </a>
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s03.html#procedure.prepare_workspace" title="Procedure&nbsp;4.&nbsp;Vorbereiten des Arbeitsplatzes">Vorbereiten
+	    des Arbeitsplatzes</a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s03.html#procedure.create_project" title="Procedure&nbsp;5.&nbsp;Anlegen eines Projektes">Anlegen eines Projektes</a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s03.html#procedure.create_contest_file" title="Procedure&nbsp;6.&nbsp;Anlegen der Wettkampfdatei">Anlegen der Wettkampfdatei</a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s03.html#procedure.enter_name_and_date" title="Procedure&nbsp;7.&nbsp;Eingabe der Bezeichung und des Datums">Eingabe der Bezeichung und des Datums</a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s03.html#procedure.create_stations" title="Procedure&nbsp;8.&nbsp;Anlegen von Ger&auml;ten bzw. Stationen">Anlegen von Ger&auml;ten bzw. Stationen</a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s03.html#procedure.create_classes" title="Procedure&nbsp;9.&nbsp; Anlegen von Wettkampfklassen">Anlegen von Wettkampfklassen</a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s03.html#procedure.create_chains" title="Procedure&nbsp;10.&nbsp;Anlegen von Riegen">Anlegen von Riegen</a>
+	  
+	</li></ul></div><p>
+    </p>
+    <div class="procedure"><a name="procedure.start_gymcalc"></a><p class="title"><b>Procedure&nbsp;3.&nbsp;Starten von GymCalc und Anlegen eines
+      Arbeitsplatzes</b></p><p>
+	In der Regel wurde diese Prozedur schon w&auml;hrend der
+	Installation ausgef&uuml;hrt. Will allerdings ein anderer Nutzer
+	als der, der GymCalc installiert hat, GymCalc nutzen, so ist
+	diese Prozedur notwendig.
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  GymCalc wird durch Doppelklick auf
+	  <span class="guiicon">Eclipse</span> im Installationsverzeichis
+	  gestartet da es als "Plugin" d.h. als Zubeh&ouml;r des viel
+	  m&auml;chtigeren Programmes Eclipse entwickelt worden ist.
+	</p>
+      </li><li class="step">
+	<p>
+	  Klicke <span class="guibutton">OK</span> im <span class="guilabel">Select
+	  Workspace</span>-Dialog um das Defaultverzeichis f&uuml;r den
+	  Arbeitsplatz zu verwenden.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-select-workspace.png"></div>
+	</div>
+	<p>
+	  In diesem Verzeichnis werden Arbeitsplatz-spezifische Daten wie
+	  Projekte, Fensteranordnung, Dialogeinstellungen usw. gespeichert.
+	</p>
+      </li><li class="step">
+	<p>
+	  Klicke <span class="guiicon">Workspace</span> im nun einmalig
+	  erscheinenden initialen Fenster um zur eigentlichen
+	  Arbeitsfl&auml;che zu kommen.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/view-eclipse-welcome.png"></div>
+	</div>
+      </li><li class="step">
+	<p>Fahre mit Vorbereiten des Arbeitsplatzes fort.</p>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.prepare_workspace"></a><p class="title"><b>Procedure&nbsp;4.&nbsp;Vorbereiten des Arbeitsplatzes</b></p><p>
+	Nachdem GymCalc erstmalig gestartet wurde, erscheint ein
+	Fenster mit ge&ouml;ffneten Teilfenstern bzw. "Views" wie sie zum
+	Entwickeln neuer Programme h&auml;ufig verwendet werden. Diese
+	Ansicht ist f&uuml;r GymCalc unpraktisch und sollte wie folgt
+	ge&auml;ndert werden.
+	</p><table border="0" summary="Simple list" class="simplelist"><tr><td>
+	    &Ouml;ffnen des "Navigator"-View.
+	  </td></tr><tr><td>
+	    &Ouml;ffnen des "Outline"-View.
+	  </td></tr><tr><td>
+	    Schliessen aller anderen Views.
+	  </td></tr></table><p>
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  W&auml;hle
+	  <span class="guimenu">Window</span> &#8594; <span class="guisubmenu">Show View</span> &#8594; <span class="guimenuitem">Navigator</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  Schlie&szlig;e alle Views au&szlig;er
+	  <span class="guilabel">Navigator</span> und
+	  <span class="guilabel">Outline</span>
+	  durch Dr&uuml;cken auf
+	  <span class="guibutton">
+	    <img src="resources/icon-close-view.png">
+	    </span>.
+	  in den Views.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/part-close-view.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Verschiebe
+	  <span class="guilabel">Navigator</span> und
+	  <span class="guilabel">Outline</span>
+	  entsprechend dem Screenshot.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/window-initial.png"></div>
+	</div>
+      </li><li class="step">
+	<p>Fahre mit Anlegen eines Projektes fort.</p>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.create_project"></a><p class="title"><b>Procedure&nbsp;5.&nbsp;Anlegen eines Projektes</b></p><p>
+	Zur Benutzung von GymCalc ist es notwendig ein
+	Projekt anzulegen. Das Projekt ist in diesem Fall eine
+	Referenzierung auf ein Verzeichnis auf der Festplatte in dem
+	alle zum Wettkampf geh&ouml;renden Dateien wie Ausschreibung,
+	eingehende Meldungen usw. abgelegt werden k&ouml;nnen.
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  W&auml;hle
+	  <span class="guimenu">File</span> &#8594; <span class="guisubmenu">New</span> &#8594; <span class="guimenuitem">Project...</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  Im erscheinenden Dialog w&auml;hle
+	  <span class="guimenu">General</span> &#8594; <span class="guimenuitem">Project</span>
+	  und w&auml;hle <span class="guibutton">Next &gt;</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-new-project.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Hier ist ein Projektname einzusetzen beispielsweise
+	  'gymcalc'. Es kann nat&uuml;rlich auch ein anderer Name gew&auml;hlt werden.
+	</p>
+	<p>
+	  
+	</p>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.create_contest_file"></a><p class="title"><b>Procedure&nbsp;6.&nbsp;Anlegen der Wettkampfdatei</b></p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  W&auml;hle
+	  <span class="guimenu">File</span> &#8594; <span class="guisubmenu">New</span> &#8594; <span class="guimenuitem">Other...</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  Im erscheinenden Dialog w&auml;hle
+	  <span class="guimenu">Example EMF Model Creation Wizards</span> &#8594; <span class="guimenuitem">Contest Model</span>
+	  und w&auml;hle <span class="guibutton">Next &gt;</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-new-contest-model.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle das Projekt und das Verzeichnis in dem die Datei
+	  erstellt werden soll, gib unter <span class="guilabel">File
+	  name:</span> einen Dateinamen mit der Endung ".contest"
+	  an und w&auml;hle <span class="guibutton">Next &gt;</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-new-enter-filename.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  In der erscheinenden Seite ist das <span class="guilabel">Model
+	  Object</span> "Contest" auszuw&auml;hlen und der Dialog mittels
+	  <span class="guibutton">Finish</span> zu beenden.
+	</p>
+	<p>
+	  Damit wird die Wettkampfdatei im zuvor ausgew&auml;hltem Projekt und
+	  Verzeichnis angelegt und die &Uuml;bersicht des Wettkampfes
+	  ge&ouml;ffnet. Folgende Schritte sollten nun sein den Wettkampf
+	  mit entsprechenden Parametern zu versehen.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-new-select-model-object.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.enter_name_and_date"></a><p class="title"><b>Procedure&nbsp;7.&nbsp;Eingabe der Bezeichung und des Datums</b></p><p>Bezeichnung und Datum des Wettkampfes werden mittels
+      "&Uuml;bersicht"-Editor eingegeben. Dieser Editor bzw. dieses
+      Fenster, wird nach Anlegen einer Wettkampfdatei automatisch
+      ge&ouml;ffnet. Manuell kann er mittels <span class="guibutton">Rechts
+      Klick auf Wettkampfdatei im Navigator</span>
+      <span class="guimenu">Open With</span> &#8594; <span class="guimenuitem">&Uuml;bersicht</span>
+      ge&ouml;ffnet werden.
+      </p><div class="screenshot">
+	<div><img src="resources/editor-overview.png"></div>
+      </div><ol class="procedure" type="1"><li class="step">
+	<p>
+	  Eingabe der Wettkampfid: "Id".
+	</p>
+	<p>Die "Id" ist eine Bezeichnung, die den Wettkampf
+	eindeutig identifiziert der Form:
+	'_&lt;Datum&gt;-&lt;wettkampfname&gt;' Beispiel
+	'_2014-03-01-reife-jahresringe'. Darf keine Leerzeichen
+	enthalten und muss mit einem Unterstrich oder Buchstaben
+	beginnen. Die ID wird nur f&uuml;r maschinelle Weiterverarbeitung
+	der Daten verwendet, beispielsweise wenn mehrere Wettk&auml;mpfe
+	verglichen werden sollen.
+	</p>
+      </li><li class="step">
+	<p>
+	  Eingabe des Wettkampfnames: "Name".
+	</p>
+	<p>
+	Name des Wettkampfes wie er in Ausschreibungen und Protokollen
+	erscheint. Beispielsweise :' XIX. Turnen der Reifen
+	Jahresringe Spremberg'
+	</p>
+      </li><li class="step">
+	<p>
+	  Eingabe des Wettkampfdatums "Date" erfolgt durch dr&uuml;cken auf
+	  <span class="guibutton"><img src="resources/icon-date.png"></span>.
+	</p>
+	<p>
+	  Datum, an dem der Wettkampf stattfindet.
+	  Bei mehrt&auml;gigen Wettk&auml;mpfen ist der erste Tag
+	  anzugeben. Die angezeigte Uhrzeit ist nicht notwendig und
+	  programmatisch bedingt. 
+	</p>
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	  <p>Die Darstellung erscheint englisch in der Form
+	  Monat/Tag/Jahr. Diese Darstellung ebenso wie die Anzeige der
+	  Uhrzeit sind programmatisch bedingt und werden in kommenden
+	  Versionen berichtigt.</p>
+	</td></tr></table></div>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.create_stations"></a><p class="title"><b>Procedure&nbsp;8.&nbsp;Anlegen von Ger&auml;ten bzw. Stationen</b></p><p>
+	Ger&auml;te bzw. Stationen sind wichtig, um einen Wettkampf
+	mit riegenweisem Wechsel zwischen Ger&auml;ten zu organisieren.
+	Ausserdem werden an diesen Stationen Kampfrichter
+	eingesetzt. Bei mehrkreisigen Wettk&auml;mpfen sollten die
+	Stationen sich im Namen unterscheiden: 'Balken 1', 'Balken 2'.
+	Auch mehrfach genutzter Boden sollte sich unterscheiden:
+	'Boden 1', 'Boden 2' da jeder Station h&ouml;chstens ein Kampfgericht
+	zugeordnet werden kann.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	<p>
+	  Folgende Schritte beziehen sich auf
+	  den ge&ouml;ffneten "&Uuml;bersicht"-Editor. Ist dieser noch nicht
+	  offen, so kann er wie bei <a class="link" href="ar01s03.html#procedure.enter_name_and_date" title="Procedure&nbsp;7.&nbsp;Eingabe der Bezeichung und des Datums">Eingabe der
+	  Bezeichnung</a> ge&ouml;ffnet werden.
+	</p>
+      </td></tr></table></div><ol class="procedure" type="1"><li class="step">
+	<p>
+	  Im Bereich <span class="guilabel">Ger&auml;te, Stationen</span> klicke auf
+	  <span class="guibutton"><img src="resources/icon-create-and-link.png"></span>. Das
+	  &Ouml;ffnen dauert leider einige Sekunden. Nach diesen
+	  ... Sekunden ... ist der <span class="guilabel">New Reference
+	  Element</span>-Dialog ge&ouml;ffnet. ... beim 2. Mal geht das
+	  deutlich schneller.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-new-reference-element-station.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle die einzige Auswahl
+	  <span class="guilabel">StationType</span> und dr&uuml;cke
+	  <span class="guibutton">Finish</span>. Es erscheint wiederum ein
+	  Dialog zur Eingabe der Informationen bez&uuml;glich einer Station.
+	</p>
+      </li><li class="step">
+	<p>
+	  Gib im Feld <span class="guilabel">Id</span> einen eindeutigen
+	  Bezeichner f&uuml;r diese Station ein. Dieser Bezeichner
+	  wird nur zum Referenzieren verwendet. Er darf keine
+	  Leerzeichen enthalten und muss mit einem Buchstaben oder
+	  einem Unterstrich beginnen. Bei mir hat sich eine
+	  Bezeichnung
+	  'station-'&lt;stationname&gt;
+	  durchgesetzt. Also beispielsweise: 'station-sprung.
+	  K&uuml;nftig wird GymCalc diese Id's verstecken und selbst generieren.
+	</p>
+      </li><li class="step">
+	<p>
+	  Im Feld <span class="guilabel">Name</span> ist der Name der
+	  Station einzugeben.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-station-properties.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Dr&uuml;cke <span class="guibutton">OK</span>.
+	</p>
+      </li><li class="step">
+	<p>
+	  Diese Schritte sind f&uuml;r alle Ger&auml;te bzw. Stationen des
+	  Wettkampfes zu wiederholen. Sind im Wettkampf Pausenger&auml;te,
+	  dann sollten auch diese eingetragen werden. Dies ist
+	  sinnvoll, da die Abfolge der Stationen nach der Zuordnung zu
+	  Riegen, in den Riegenlisten ausgegeben wird.
+	</p>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.create_classes"></a><p class="title"><b>Procedure&nbsp;9.&nbsp;
+	Anlegen von Wettkampfklassen
+      </b></p><p>
+	Eine Wettkampfklasse ist eine Einteilung f&uuml;r die es eine
+	Plazierungsreihenfolge gibt bzw. f&uuml;r die man eine Siegerehrung
+	durchf&uuml;hren kann. Beispiele sind: Einzelwertung im weiblichen
+	Bereich Jugend LK4, Mannschaftswertung im weiblichen Bereich
+	Jugend LK4 oder Finale Boden weiblich Jugend LK4. Finals werden
+	in der Regel aus Einzelwertungen generiert. Hier soll das
+	Anlegen beispielhaft f&uuml;r die Einzelwertungen in einem
+	Wettkampf gezeigt werden.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	<p>
+	  Folgende Schritte beziehen sich auf
+	  den ge&ouml;ffneten "&Uuml;bersicht"-Editor. Ist dieser noch nicht
+	  offen, so kann er wie bei <a class="link" href="ar01s03.html#procedure.enter_name_and_date" title="Procedure&nbsp;7.&nbsp;Eingabe der Bezeichung und des Datums">Eingabe der
+	  Bezeichnung</a> ge&ouml;ffnet werden.
+	</p>
+      </td></tr></table></div><ol class="procedure" type="1"><li class="step">
+	<p>
+	  Im Bereich <span class="guilabel">Wettkampfklassen</span> klicke auf
+	  <span class="guibutton"><img src="resources/icon-create-and-link.png"></span>. Das
+	  &Ouml;ffnen dauert leider einige Sekunden. Nach diesen
+	  ... Sekunden ... ist der <span class="guilabel">New Reference
+	  Element</span>-Dialog ge&ouml;ffnet. ... beim 2. Mal geht das
+	  deutlich schneller.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-new-reference-element-contest.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  In diesem Dialog ist die einzige Auswahl
+	  <span class="guilabel">ClassType</span> zu selektieren und auf
+	  <span class="guibutton">Finish</span> zu klicken. Es &ouml;ffnet sich
+	  ein weiterer Dialog zur Eingabe der Parameter einer Wettkampfklasse.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-classes-properties.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Gib den Namen der Wettkampfklasse im Feld
+	  <span class="guilabel">Name</span>ein. Der Name sollte sich eindeutig
+	  von anderen Wettkampfklassen unterscheiden und er sollte
+	  verst&auml;ndlich sein, da dieser Name sp&auml;ter auch in Protokollen
+	  und anderen Wettkampflisten verwendet wird. Bei mir haben
+	  sich kurze pr&auml;gnante Namen wie 'wJLK4' f&uuml;r weiblich Jugend
+	  LK4 durchgesetzt.
+	</p>
+      </li><li class="step">
+	<p>
+	  Wenn es sich um eine spezielle Berechnung handelt, dann ist
+	  diese Berechnungsmethode im Feld
+	  <span class="guilabel">Calculationkey</span> einzugeben. Ist hier
+	  nichts eingetragen, so werden die einzelnen Wertungen
+	  einfach addiert. Eine spezielle Berechnungsmethode ist
+	  beispielsweise wenn nur die besten 3 Wertungen
+	  zusammenrechnen werden sollen. Welche Berechnungsmethoden
+	  m&ouml;glich sind wird in der <a class="link" href="ar01s11.html#ref.calculationkey-class" title="Calculationkey f&uuml;r Wettkampfklassen">Referenz zum
+	  "Calculationkey"</a> angegeben.
+	</p>
+      </li><li class="step">
+	<p>
+	  Mit <span class="guibutton"><img src="resources/icon-create-and-link.png"></span>
+	  werden einzelne Disziplinen zu einer Wettkampfklasse hinzugef&uuml;gt.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-new-reference-element-diszipline.png"></div>
+	</div>
+	<ol type="a" class="substeps">
+	  <li class="step">
+	    <p>
+	      W&auml;hle die einzige Auswahl
+	      <span class="guilabel">DisziplineType</span> und dr&uuml;cke
+	      <span class="guibutton">Finish</span>. Es erscheint wiederum ein
+	      Dialog zur Eingabe der Informationen bez&uuml;glich einer Wettkampfdisziplin.
+	    </p>
+	    <div class="screenshot">
+	      <div><img src="resources/dialog-diszipline-properties.png"></div>
+	    </div>
+	  </li>
+	  <li class="step">
+	    <p>
+	      Gib im Feld <span class="guilabel">Id</span> einen eindeutigen
+	      Bezeichner f&uuml;r diese Disziplin ein. Dieser Bezeichner
+	      wird nur zum Referenzieren verwendet. Er darf keine
+	      Leerzeichen enthalten und muss mit einem Buchstaben oder
+	      einem Unterstrich beginnen. Bei mir hat sich eine
+	      Bezeichnung
+	      &lt;Wettkampfklasse&gt;-&lt;Disziplinname&gt;
+	      durchgesetzt. Also beispielsweise: 'wjlk4-boden'.
+	      K&uuml;nftig wird GymCalc diese Id's verstecken und selbst generieren.
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      Im Feld <span class="guilabel">Name</span> ist der Name der
+	      Disziplin einzugeben. F&uuml;r das Ger&auml;tturnen sollten das
+	      Sprung, Stuba, Balken, Boden, Pferd, Ringe, Barren oder
+	      Reck sein.
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      Dr&uuml;cke auf <span class="guibutton"><img src="resources/icon-link-element.png"></span> um
+	      der Disziplin ein Ger&auml;t bzw. eine Station zuzuordnen.
+	      Es wird angenommen, dass jede Disziplin an genau einer
+	      Station geturnt wird und von einem Kampfgericht bewertet wird.
+	    </p>
+	    <p>
+	      Hat man noch keine Stationen angelegt, dann kann muss
+	      die Zuordnung nachgeholt werden. Siehe <a class="link" href="ar01s03.html#procedure.create_stations" title="Procedure&nbsp;8.&nbsp;Anlegen von Ger&auml;ten bzw. Stationen">Anlegen einer Station</a>
+	    </p>
+	    <ol type="i" class="substeps">
+	      <li class="step">
+		<p>
+		  W&auml;hle die Station aus, an der die Disziplin geturnt wird
+		  und dr&uuml;cke <span class="guilabel">Finish</span>.
+		</p>
+		<div class="screenshot">
+		  <div><img src="resources/dialog-select-station.png"></div>
+		</div>
+	      </li>
+	      <li class="step">
+		<p>
+		  Dr&uuml;cke <span class="guilabel">OK</span>. Weder
+		  <span class="guilabel">Id</span> noch <span class="guilabel">Name</span>
+		  der Station bzw. des Ger&auml;tes sollen hier ge&auml;ndert werden.
+		</p>
+		<div class="screenshot">
+		  <div><img src="resources/dialog-station-properties.png"></div>
+		</div>
+	      </li>
+	    </ol>
+	  </li>
+	  <li class="step">
+	    <p>
+	      Man kann noch keine
+	      <span class="guilabel">Lookuptable</span> in diesem Dialog
+	      hinzuf&uuml;gen. Lookuptable sind f&uuml;r spezielle Berechnungen
+	      notwendig. Spezielle Berechnungen wenn z.B. Zeiten beim
+	      Sprint in Punkte gem&auml;&szlig; einer Tabelle umgerechnet werden sollen.
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      <span class="guilabel">Calculationkey</span> ist wiederum f&uuml;r
+	      besondere Berechnungsmethoden einer Disziplin
+	      notwendig. Beispiel hier ist 'force', wenn diese
+	      Disziplin bei einer Berechnungsmethode nur die besten 3
+	      Wertungen auf alle F&auml;lle mit dabei sein muss.
+	      Detailierte Informationen finden sich in der <a class="link" href="ar01s11.html#ref.calculationkey-diszipline" title="Calculationkey f&uuml;r Disziplines">Referenz</a>.
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      Dr&uuml;cke auf <span class="guibutton">OK</span>.
+	    </p>
+	    <div class="screenshot">
+	      <div><img src="resources/dialog-diszipline-properties-end.png"></div>
+	    </div>
+	  </li>
+	  <li class="step">
+	    <p>
+	      Wiederhole die vorigen Schritte zum Anlegen einer
+	      Disziplin, bis alle Disziplinen einer Wettkampfklasse
+	      hinzugef&uuml;gt wurden.
+	    </p>
+	  </li>
+	</ol>
+	
+      </li><li class="step">
+	<p>
+	  Dr&uuml;cke <span class="guibutton">OK</span>, wenn alle Disziplinen hinzugef&uuml;gt wurden.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-classes-properties-end.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Wiederhole die vorigen Schritte zum Anlegen einer
+	  Wettkampfklasse, bis alle Wettkampfklassen
+	  hinzugef&uuml;gt wurden.
+	</p>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.create_chains"></a><p class="title"><b>Procedure&nbsp;10.&nbsp;Anlegen von Riegen</b></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	<p>
+	  Folgende Schritte beziehen sich auf
+	  den ge&ouml;ffneten "&Uuml;bersicht"-Editor. Ist dieser noch nicht
+	  offen, so kann er wie bei <a class="link" href="ar01s03.html#procedure.enter_name_and_date" title="Procedure&nbsp;7.&nbsp;Eingabe der Bezeichung und des Datums">Eingabe der
+	  Bezeichnung</a> ge&ouml;ffnet werden.
+	</p>
+      </td></tr></table></div><ol class="procedure" type="1"><li class="step">
+	<p>
+	  Im Bereich <span class="guilabel">Riegen</span> klicke auf
+	  <span class="guibutton"><img src="resources/icon-create-and-link.png"></span>. Das
+	  &Ouml;ffnen dauert leider einige Sekunden. Nach diesen
+	  ... Sekunden ... ist der <span class="guilabel">New Reference
+	  Element</span>-Dialog ge&ouml;ffnet. ... beim 2. Mal geht das
+	  deutlich schneller.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-new-reference-element-chain.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle die einzige Auswahl
+	  <span class="guilabel">ChainType</span> und dr&uuml;cke
+	  <span class="guibutton">Finish</span>. Es erscheint wiederum ein
+	  Dialog zur Eingabe der Informationen bez&uuml;glich einer Riege.
+	</p>
+      </li><li class="step">
+	<p>
+	  Im Feld <span class="guilabel">Name</span> ist der Name der
+	  Riege einzugeben. Gew&ouml;hnlich sind die Riegen einfach
+	  durchnummeriert in der Art: Riege 1, Riege 2 ...
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-chain-properties.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Im Listenfeld <span class="guilabel">Station</span> ist die
+	  Ger&auml;teabfolge der Riege einzugeben.
+	</p>
+	<ol type="a" class="substeps">
+	  <li class="step">
+	    <p>
+	      Dr&uuml;cke auf <span class="guibutton"><img src="resources/icon-link.png"></span>.
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      W&auml;hle die erste Station, bzw. das erste Ger&auml;t f&uuml;r diese
+	      Riege aus, dr&uuml;cke <span class="guilabel">Finish</span>.
+	    </p>
+	    <div class="screenshot">
+	      <div><img src="resources/dialog-select-station.png"></div>
+	    </div>
+	  </li>
+	  <li class="step">
+	    <p>
+	      Dr&uuml;cke <span class="guilabel">OK</span>. Weder
+	      <span class="guilabel">Id</span> noch <span class="guilabel">Name</span>
+	      der Station bzw. des Ger&auml;tes sollen hier ge&auml;ndert werden.
+	    </p>
+	    <div class="screenshot">
+	      <div><img src="resources/dialog-station-properties.png"></div>
+	    </div>
+	  </li>
+	  <li class="step">
+	    <p>
+	      F&uuml;ge so alle Stationen f&uuml;r diese Riege ein. Beachte,
+	      dass die Stationen in der richtigen Reihenfolge
+	      referenziert werden. Leider ist ein Umsortieren mit dem
+	      "&Uuml;bersicht"-Editor leider noch nicht m&ouml;glich.
+	    </p>
+	    <div class="screenshot">
+	      <div><img src="resources/dialog-chain-properties-end.png"></div>
+	    </div>
+	  </li>
+	</ol>
+      </li><li class="step">
+	<p>
+	  Dr&uuml;cke <span class="guibutton">OK</span>.
+	</p>
+      </li><li class="step">
+	<p>
+	  Diese Schritte sind f&uuml;r alle Ger&auml;te bzw. Stationen des
+	  Wettkampfes zu wiederholen. Sind im Wettkampf Pausenger&auml;te,
+	  dann sollten auch diese eingetragen werden. Dies ist
+	  sinnvoll, da die Abfolge der Stationen nach der Zuordnung zu
+	  Riegen, in den Riegenlisten ausgegeben wird.
+	</p>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+      </li></ol></div>
+    <p>
+      Das Resultat sollte nun ein fertig angelegter Wettkampf mit
+      einer Wettkampfklasse sein. Weitere Wettkampfklassen sind analog
+      zu <a class="link" href="ar01s03.html#procedure.create_classes" title="Procedure&nbsp;9.&nbsp; Anlegen von Wettkampfklassen">Anlegen von
+      Wettkampfklassen</a> anzulegen.
+    </p>
+    <div class="screenshot">
+      <div><img src="resources/editor-overview-end.png"></div>
+    </div>
+  </div></body></html>

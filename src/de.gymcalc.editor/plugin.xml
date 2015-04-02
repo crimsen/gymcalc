@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "de.gymcalc.contest.presentation.ContestModelWizardID"
+      name = "%_UI_ContestModelWizard_label"
+      class = "de.gymcalc.contest.presentation.ContestModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/ContestModelFile.gif">
+      <description>%_UI_ContestModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+    <wizard
+          class="de.gymcalc.exercise.presentation.ExerciseModelWizard"
+          icon="icons/full/obj16/ExerciseModelFile.gif"
+          id="de.gymcalc.exercise.presentation.ExerciseModelWizardID"
+          name="%_UI_ExerciseModelWizard_label">
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "de.gymcalc.contest.presentation.ContestEditorID"
+        name = "%_UI_ContestEditor_label"
+        icon = "icons/full/obj16/ContestModelFile.gif"
+        extensions = "gymcalc"
+        class = "de.gymcalc.contest.presentation.ContestEditor" 
+        contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor" >
+    </editor>
+    <editor
+        id = "de.gymcalc.contest.presentation.ContestRootEditorID"
+        name = "%_UI_ContestRootEditor_label"
+        icon = "icons/full/obj16/ContestModelFile.gif"
+        extensions = "gymcalc"
+        class = "de.gymcalc.contest.presentation.ContestRootEditor" 
+        contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor" 
+        default = "true">
+    </editor>
+    <editor
+          class="de.gymcalc.contest.presentation.ContestCalcEditor"
+          contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor"
+          extensions="gymcalc"
+          icon="icons/full/obj16/ContestModelFile.gif"
+          id="de.gymcalc.contest.presentation.ContestCalcEditorID"
+          name="%_UI_ContestCalcEditor_label"/>
+    <editor
+          class="de.gymcalc.exercise.presentation.ExerciseEditor"
+          contributorClass="de.gymcalc.exercise.presentation.ExerciseActionBarContributor"
+          default="false"
+          extensions="exercise"
+          icon="icons/full/obj16/ExerciseModelFile.gif"
+          id="de.gymcalc.exercise.presentation.ExerciseEditorID"
+          name="%_UI_ExerciseEditor_label">
+    </editor>
+    <editor
+          class="de.gymcalc.contest.presentation.RegistrationEditor"
+          contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor"
+          extensions="gymcalc"
+          icon="icons/full/obj16/ContestModelFile.gif"
+          id="de.gymcalc.contest.presentation.RegistrationEditorID"
+          name="%_UI_RegistrationEditor_label"/>
+    <editor
+          class="de.gymcalc.contest.presentation.RegistrationJuristEditor"
+          contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor"
+          extensions="gymcalc"
+          icon="icons/full/obj16/ContestModelFile.gif"
+          id="de.gymcalc.contest.presentation.RegistrationJuristEditorID"
+          name="%_UI_RegistrationJuristEditor_label"/>
+    <editor
+          class="de.gymcalc.contest.presentation.ContestClassEditor"
+          contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor"
+          extensions="gymcalc"
+          icon="icons/full/obj16/ContestModelFile.gif"
+          id="de.gymcalc.contest.presentation.ContestClassEditorID"
+          name="%_UI_ContestClassEditor_label">
+    </editor>
+    <editor
+          class="de.gymcalc.contest.presentation.RegistrationTeamEditor"
+          contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor"
+          extensions="gymcalc"
+          icon="icons/full/obj16/ContestModelFile.gif"
+          id="de.gymcalc.contest.presentation.RegistrationTeamEditorID"
+          name="%_UI_RegistrationTeamEditor_label">
+    </editor>
+  </extension>
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <category
+           id="contest.editor.importWizards.sampleCategory"
+           name="Sql Import">
+     </category>
+     <wizard
+           category="contest.editor.importWizards.sampleCategory"
+           class="de.gymcalc.editor.importWizards.SqlImportWizard"
+           icon="icons/sample.gif"
+           id="contest.editor.importWizards.SqlImportWizard"
+           name="Import Sql">
+        <description>
+           Import a file from the local file system into the workspace.
+        </description>
+     </wizard>
+  </extension>    
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.OpenRegistrationEditorHandler"
+            description="Open Registration Editor"
+            id="de.gymcalc.contest.editor.OpenRegistrationEditor"
+            name="Open Registration Editor">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.OpenRegistrationTeamEditorHandler"
+            description="Open Registration Team Editor"
+            id="de.gymcalc.contest.editor.OpenRegistrationTeamEditor"
+            name="Open Registration Team Editor">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.OpenRegistrationJuristEditorHandler"
+            description="Open Registration Juri Editor"
+            id="de.gymcalc.contest.editor.OpenRegistrationJuristEditor"
+            name="Open Registration Juri Editor">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.OpenCalcEditorHandler"
+            description="Open Calculation Editor"
+            id="de.gymcalc.contest.editor.OpenCalcEditor"
+            name="Open Calculation Editor">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.ExportContactsHandler"
+            description="Exportiert Kontakte des Wettkampfes in die Kontakt-Datenbank"
+            id="de.gymcalc.contest.editor.ExportContacts"
+            name="Exportiere Kontakte">
+      </command>
+      <category
+            id="de.gymcalc.contest"
+            name="Wettkampf">
+      </category>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.CreateAthletHandler"
+            description="Erstellt einen neuen Wettkämpfer und ordnet diesen einer Wettkampfklasse zu"
+            id="de.gymcalc.contest.editor.CreateAthlet"
+            name="Erstelle Wettkämpfer">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.CreateJuristHandler"
+            description="Erstellt eine(n) neue(n) Kampfrichter(In) und ordnet diesen einem Kampfgericht zu"
+            id="de.gymcalc.contest.editor.CreateJurist"
+            name="Erstelle Kampfrichter(In)">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.ViewStatisticHandler"
+            description="%_UI_ViewStatistic_description"
+            id="de.gymcalc.contest.editor.ViewStatistic"
+            name="%_UI_ViewStatistic_label">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.ResetAthletNameHandler"
+            description="Stetzt Wettkämpfernamen gemäß Personennamen"
+            id="de.gymcalc.contest.editor.ResetAthletName"
+            name="Setze Wettkämpfernamen zurück">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.services">
+      <sourceProvider
+            provider="de.gymcalc.contest.presentation.ApplicationContext">
+         <variable
+               name="modelresource"
+               priorityLevel="activePartId">
+         </variable>
+      </sourceProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+        <menu
+              label="%_UI_GymCalc_menu">
+           <command
+                 commandId="de.gymcalc.contest.editor.OpenRegistrationEditor"
+                 label="%_UI_OpenRegistrationEditor_label"
+                 mnemonic="R"
+                 style="push">
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.OpenRegistrationTeamEditor"
+                 label="%_UI_OpenRegistrationTeamEditor_label"
+                 mnemonic="J"
+                 style="push">
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.OpenRegistrationJuristEditor"
+                 label="%_UI_OpenRegistrationJuristEditor_label"
+                 mnemonic="J"
+                 style="push">
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.OpenCalcEditor"
+                 label="%_UI_OpenCalcEditor_label"
+                 mnemonic="C"
+                 style="push">
+           </command>
+           <visibleWhen
+                 checkEnabled="false">
+              <with
+                    variable="activeEditorId">
+                 <or>
+                    <equals
+                          value="de.gymcalc.contest.presentation.ContestCalcEditorID">
+                    </equals>
+                    <equals
+                          value="de.gymcalc.contest.presentation.RegistrationEditorID">
+                    </equals>
+                    <equals
+                          value="de.gymcalc.contest.presentation.RegistrationTeamEditorID">
+                    </equals>
+                    <equals
+                          value="de.gymcalc.contest.presentation.RegistrationJuristEditorID">
+                    </equals>
+                    <equals
+                          value="de.gymcalc.contest.presentation.ContestRootEditorID">
+                    </equals>
+                 </or>
+              </with>
+           </visibleWhen>
+           <command
+                 commandId="de.gymcalc.contest.editor.ExportContacts"
+                 label="%_UI_ExportContacts_label"
+                 style="push">
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.CreateAthlet"
+                 label="Neue(r) Wettkämpfer(In)..."
+                 mnemonic="N"
+                 style="push">
+              <visibleWhen
+                    checkEnabled="false">
+                 <with
+                       variable="activeEditorId">
+                    <equals
+                          value="de.gymcalc.contest.presentation.RegistrationEditorID">
+                    </equals>
+                 </with>
+              </visibleWhen>
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.CreateJurist"
+                 label="Neue(r) Kampfrichter(In)..."
+                 mnemonic="N"
+                 style="push">
+              <visibleWhen
+                    checkEnabled="false">
+                 <with
+                       variable="activeEditorId">
+                    <equals
+                          value="de.gymcalc.contest.presentation.RegistrationJuristEditorID">
+                    </equals>
+                 </with>
+              </visibleWhen>
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.ViewStatistic"
+                 label="%_UI_ViewStatistic_label"
+                 style="push">
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.ResetAthletName"
+                 label="%_UI_ResetAthletName_label"
+                 style="push">
+           </command>
+        </menu>
+	  </menuContribution>
+	</extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated contest -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.gymcalc.contest.presentation.ContestModelWizardID"
+            name="%_UI_ContestModelWizard_label"
+            class="de.gymcalc.contest.presentation.ContestModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ContestModelFile.gif">
+         <description>%_UI_ContestModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated contest -->
+      <editor
+            id="de.gymcalc.addressbook.presentation.AddressBookEditorID"
+            name="%_UI_AddressBookEditor_label"
+            icon="icons/full/obj16/AddressBookModelFile.gif"
+            extensions="addressbook"
+            class="de.gymcalc.addressbook.presentation.AddressBookEditor"
+            contributorClass="de.gymcalc.addressbook.presentation.AddressBookActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated contest -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.gymcalc.addressbook.presentation.AddressBookModelWizardID"
+            name="%_UI_AddressBookModelWizard_label"
+            class="de.gymcalc.addressbook.presentation.AddressBookModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AddressBookModelFile.gif">
+         <description>%_UI_AddressBookModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated exercise -->
+      <editor
+            id="de.gymcalc.exercise.presentation.ExerciseEditorID"
+            name="%_UI_ExerciseEditor_label"
+            icon="icons/full/obj16/ExerciseModelFile.gif"
+            extensions="exercise"
+            class="de.gymcalc.exercise.presentation.ExerciseEditor"
+            contributorClass="de.gymcalc.exercise.presentation.ExerciseActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="de.gymcalc"
+            class="de.gymcalc.contest.presentation.PreferencesPage"
+            id="de.gymcalc.contest.editor.PreferencesPage"
+            name="%_UI_PreferencePageTitle">
+      </page>
+      <page
+            class="de.gymcalc.contest.presentation.RootPreferencesPage"
+            id="de.gymcalc"
+            name="GymCalc">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="de.gymcalc.contest.editor.CreateAthlet"
+            contextId="de.gymcalc.contest.editor.registration"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+N">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            description="Contest Editor"
+            id="de.gymcalc.contest.editor"
+            name="Contest Editor"
+            parentId="org.eclipse.ui.contexts.window">
+      </context>
+      <context
+            description="Registration Editor"
+            id="de.gymcalc.contest.editor.registration"
+            name="RegistrationEditor"
+            parentId="de.gymcalc.contest.editor">
+      </context>
+   </extension>
+
+null
+null
+null
+null
+null</plugin>

@@ -1,0 +1,2418 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- -*- mode: nxml;-*- -->
+<!--<article xml:lang="en" xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xl="http://www.w3.org/1999/xlink">
+-->
+<article>
+<!--  <info>		
+    <title>GymCalc</title>
+  </info>
+-->
+  <section>
+    <title>Einführung</title>
+    <para>
+      GymCalc ist ein Programm zur Berechnung von
+      Turnwettkämpfen. Die von den Kampfgerichten vergebenen
+      Wertungen werden erfasst und zusammengerechnet.
+      Dabei werden Einzel- als auch Mannschaftswettkämpfe unterstützt.
+      Riegen und Gerätekreise können eingerichtet werden.
+    </para>
+    <para>
+      Zudem bietet GymCalc die Ausgabe von Meldebestätigungen,
+      Riegenlisten, Wertungslisten, Protokollen und Urkunden. Diese
+      Ausgaben basieren auf Schablonen, die den eigenen Bedürfnissen
+      angepasst werden können.
+    </para>
+    <screenshot>
+      <graphic fileref="resources/gymcalc.png"/>
+    </screenshot>
+  </section>
+  <section>
+    <title>Installation</title>
+    <para>
+      <itemizedlist>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.install_eclipse">Installieren von Eclipse</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.install_gymcalc">Installieren von GymCalc</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    Optional falls Vorlagen geändert werden sollen ist
+	    LibreOffice oder ein anderes Office-Paket welches *.odt
+	    Dateien editieren kann notwendig.
+	    <link linkend="procedure.install_eclipse">Install LibreOffice</link>
+	  </simpara>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <procedure id="procedure.install_eclipse">
+      <title>Installieren von Eclipse</title>
+      <para>Eclipse ist ein mächtiges Programmpaket auf dessen Basis
+      GymCalc entwickelt wurde. Eclipse ist Vorraussetzung um GymCalc
+      zu benutzen</para>
+      <step>
+	<simpara>
+	  Download von
+	  <ulink url="http://www.eclipse.org/downloads/">Eclipse</ulink>
+	  von der offiziellen
+	  <ulink url="http://www.eclipse.org">Homepage</ulink>.
+	</simpara>
+	<simpara>
+	  Das Eclipse-Paket muss dem eingesetzten Betriebssystem
+	  entsprechen, also z.B. Windows 64Bit für neuere Windows
+	  Rechner.
+	  Es ist sinnvoll ein kleines Eclipse-Paket zu laden. "Eclipse
+	  IDE for Java Developers" ist ein Standard-Paket und mit
+	  158MB relativ klein.
+	  Es ist aber nicht schlimm, wenn ein anderes Paket gewählt wird.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Entpacken der Datei z.B. nach c:\eclipse.
+	</simpara>
+	<substeps>
+	  <step>
+	    <simpara>
+	      Unter Windows7
+	      geschiet dies mit <guibutton>Rechts Klick auf die
+	      Datei</guibutton>.
+	      <menuchoice>
+		<guimenu>Öffnen mit</guimenu>
+		<guimenuitem>Windows Explorer</guimenuitem>
+	      </menuchoice>
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      <guibutton>Rechts Klick auf eclipse im aufgegangenen
+	      Explorer Fenster</guibutton>.
+	      <menuchoice>
+		<guimenu>Kopieren</guimenu>
+	      </menuchoice>
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>Zum Verzeichnis
+	    <guilabel>Computer</guilabel><guilabel>C:</guilabel> navigieren.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      In dieses Verzeichnis das zuvor kopierte
+	      "eclipse" einfügen.
+	      <guibutton>Rechts Klick</guibutton> auf eine freie Fläche im
+	      Verzeichnis <guilabel>Computer</guilabel><guilabel>C:</guilabel>.
+	      <menuchoice>
+		<guimenu>Einfügen</guimenu>
+	      </menuchoice>
+	    </simpara>
+	  </step>
+	</substeps>
+      </step>
+      <step>
+	<simpara>
+	  Starten von Eclipse.
+	  <guibutton>Doppel-Klick</guibutton> auf
+	  <guilabel>eclipse</guilabel> im
+	  Verzeichnis <guilabel>Computer</guilabel>
+	  <guilabel>C:\</guilabel><guilabel>eclipse</guilabel>.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Klicke <guibutton>OK</guibutton> im <guilabel>Select
+	  Workspace</guilabel>-Dialog um das Defaultverzeichis für den
+	  Arbeitsplatz zu verwenden.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-select-workspace.png"/>
+	</screenshot>
+	<simpara>
+	  In diesem Verzeichnis werden Arbeitsplatz-spezifische Daten wie
+	  Projekte, Fensteranordnung, Dialogeinstellungen usw. gespeichert.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Klicke <guiicon>Workspace</guiicon> im nun einmalig
+	  erscheinenden initialen Fenster um zur eigentlichen
+	  Arbeitsfläche zu kommen.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/view-eclipse-welcome.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.install_gymcalc">
+      <title>Installieren von GymCalc</title>
+      <simpara>
+	Vorraussetzung für das Installieren von GymCalc ist, dass
+	Eclipse bereits installiert ist und gestartet wurde. Siehe
+	hierzu <link linkend="procedure.install_eclipse">Installieren
+	von Eclipse</link>
+      </simpara>
+      <step>
+	<simpara>
+	  Wähle
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guisubmenu>New</guisubmenu>
+	    <guimenuitem>Project...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Im aufgehenden Dialog <guilabel>Install</guilabel> drücke
+	  <guibutton>Add...</guibutton>.
+	</simpara>
+      </step>
+      <step>
+	<substeps>
+	  <step>
+	    <simpara>
+	      Wähle als <guilabel>Name</guilabel> GymCalc.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Drücke auf
+	      <guibutton>Archive</guibutton>.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Browse die Datei contactfeature.zip ein und Schließe den
+	      <guilabel>Dateiauswahl</guilabel>-Dialog mit <guibutton>OK</guibutton>
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Schließe den <guilabel>Add Repository</guilabel>-Dialog
+	      ebenfalls mit OK.
+	    </simpara>
+	    <screenshot>
+	      <graphic fileref="resources/dialog-add-repository.png"/>
+	    </screenshot>
+	  </step>
+	</substeps>
+      </step>
+      <step>
+	<simpara>
+	  Schalte die Checkbox <guilabel>Group Items by
+	  Category</guilabel> aus.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle <guilabel>Managing Contacts</guilabel> an und
+	  wähle <guibutton>Next &gt;</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-install-software.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Nun werden zusätzliche Eclipse-Pakete ermittelt, die noch
+	  installiert werden müssen. Dazu ist eine Internet-Verbindung
+	  nötig. Dieses Prüfen der Abhängigkeiten kann einen Moment
+	  (ca. 2min) dauern. Wurden die Abhängigkeiten erfolgreich
+	  geprüft muss man die zu installierenden Pakete nochmals
+	  mittels <guibutton>Next &gt;</guibutton> bestätigen.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-install-software-confirm.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Schlussendlich müssen die Lizenzbestimmungen akzeptiert
+	  werden. Für GymCalc bedeutet dass, das es jeder installieren
+	  und benutzen kann, jedoch sämtliche Haftung ausgeschlossen
+	  ist. Dafür wähle
+	  <guilabel>I accept the terms of the license agreement</guilabel>.
+	  Dies ist mit <guibutton>Finish</guibutton> zu bestätigen.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-install-software-license.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Nun läuft die eigentliche Installation, alle notwendigen
+	  zusätzlichen Eclipse-Pakete werden aus dem Internet
+	  nachgeladen und ebenfalls installiert.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Es erscheint noch ein Sicherheitsdialog, der besagt, dass
+	  unsignierte Programme installiert werden. Für GymCalc hat
+	  das seine Richtigkeit, da ein Signieren nicht unerhebliche
+	  Kosten produzieren würde. Somit ist der <guilabel>Security
+	  Warning</guilabel>-Dialog mit <guibutton>OK</guibutton> zu bestätigen.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-security-warning.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Weiterhin muss den Zertifikaten vertraut werden, mit denen
+	  notwendige zusätzliche Eclipse-Pakete signiert sind.
+	  Wähle <guibutton>Select All</guibutton> und
+	  bestätige mit <guibutton>OK</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-trust-certificate.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Abschließend muss Eclipse neu gestartet werden. Drücke
+	  <guibutton>Yes</guibutton> im abschließenden Dialog.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-restart-eclipse.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+  </section>
+  <section id="section.prepare_contest">
+    <title>Einrichten eines Wettkampfes</title>
+    <para>Ein Wettkampf wird in einer Datei mit der Endung 'contest'
+      verwaltet. In dieser Datei sind alle Aktiven, Kampfrichter,
+      Wettkampfklassen, Riegen und weitere enthalten. Um eine solche
+      Datei neu einzurichten sind folgende Schritte notwendig:
+      <itemizedlist>
+	<listitem><simpara>
+	  <link linkend="procedure.start_gymcalc">Starten von GymCalc und Anlegen eines Arbeitsplatzes
+	  </link>
+	</simpara></listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.prepare_workspace">Vorbereiten
+	    des Arbeitsplatzes</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.create_project">Anlegen eines Projektes</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.create_contest_file">Anlegen der Wettkampfdatei</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.enter_name_and_date">Eingabe der Bezeichung und des Datums</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.create_stations">Anlegen von Geräten bzw. Stationen</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.create_classes">Anlegen von Wettkampfklassen</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.create_chains">Anlegen von Riegen</link>
+	  </simpara>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <procedure id="procedure.start_gymcalc">
+      <title>Starten von GymCalc und Anlegen eines
+      Arbeitsplatzes</title>
+      <simpara>
+	In der Regel wurde diese Prozedur schon während der
+	Installation ausgeführt. Will allerdings ein anderer Nutzer
+	als der, der GymCalc installiert hat, GymCalc nutzen, so ist
+	diese Prozedur notwendig.
+      </simpara>
+      <step>
+	<simpara>
+	  GymCalc wird durch Doppelklick auf
+	  <guiicon>Eclipse</guiicon> im Installationsverzeichis
+	  gestartet da es als "Plugin" d.h. als Zubehör des viel
+	  mächtigeren Programmes Eclipse entwickelt worden ist.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Klicke <guibutton>OK</guibutton> im <guilabel>Select
+	  Workspace</guilabel>-Dialog um das Defaultverzeichis für den
+	  Arbeitsplatz zu verwenden.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-select-workspace.png"/>
+	</screenshot>
+	<simpara>
+	  In diesem Verzeichnis werden Arbeitsplatz-spezifische Daten wie
+	  Projekte, Fensteranordnung, Dialogeinstellungen usw. gespeichert.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Klicke <guiicon>Workspace</guiicon> im nun einmalig
+	  erscheinenden initialen Fenster um zur eigentlichen
+	  Arbeitsfläche zu kommen.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/view-eclipse-welcome.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>Fahre mit Vorbereiten des Arbeitsplatzes fort.</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.prepare_workspace">
+      <title>Vorbereiten des Arbeitsplatzes</title>
+      <para>
+	Nachdem GymCalc erstmalig gestartet wurde, erscheint ein
+	Fenster mit geöffneten Teilfenstern bzw. "Views" wie sie zum
+	Entwickeln neuer Programme häufig verwendet werden. Diese
+	Ansicht ist für GymCalc unpraktisch und sollte wie folgt
+	geändert werden.
+	<simplelist>
+	  <member>
+	    Öffnen des "Navigator"-View.
+	  </member>
+	  <member>
+	    Öffnen des "Outline"-View.
+	  </member>
+	  <member>
+	    Schliessen aller anderen Views.
+	  </member>
+	</simplelist>
+      </para>
+      <step>
+	<simpara>
+	  Wähle
+	  <menuchoice>
+	    <guimenu>Window</guimenu>
+	    <guisubmenu>Show View</guisubmenu>
+	    <guimenuitem>Navigator</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Schließe alle Views außer
+	  <guilabel>Navigator</guilabel> und
+	  <guilabel>Outline</guilabel>
+	  durch Drücken auf
+	  <guibutton>
+	    <inlinegraphic fileref="resources/icon-close-view.png"/>
+	    </guibutton>.
+	  in den Views.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/part-close-view.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Verschiebe
+	  <guilabel>Navigator</guilabel> und
+	  <guilabel>Outline</guilabel>
+	  entsprechend dem Screenshot.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/window-initial.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>Fahre mit Anlegen eines Projektes fort.</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.create_project">
+      <title>Anlegen eines Projektes</title>
+      <simpara>
+	Zur Benutzung von GymCalc ist es notwendig ein
+	Projekt anzulegen. Das Projekt ist in diesem Fall eine
+	Referenzierung auf ein Verzeichnis auf der Festplatte in dem
+	alle zum Wettkampf gehörenden Dateien wie Ausschreibung,
+	eingehende Meldungen usw. abgelegt werden können.
+      </simpara>
+      <step>
+	<simpara>
+	  Wähle
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	      <guisubmenu>New</guisubmenu>
+	      <guimenuitem>Project...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Im erscheinenden Dialog wähle
+	  <menuchoice>
+	    <guimenu>General</guimenu>
+	    <guimenuitem>Project</guimenuitem>
+	  </menuchoice>
+	  und wähle <guibutton>Next &gt;</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-new-project.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Hier ist ein Projektname einzusetzen beispielsweise
+	  'gymcalc'. Es kann natürlich auch ein anderer Name gewählt werden.
+	</simpara>
+	<simpara>
+	  
+	</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.create_contest_file">
+      <title>Anlegen der Wettkampfdatei</title>
+      <step>
+	<simpara>
+	  Wähle
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	      <guisubmenu>New</guisubmenu>
+	      <guimenuitem>Other...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Im erscheinenden Dialog wähle
+	  <menuchoice>
+	    <guimenu>Example EMF Model Creation Wizards</guimenu>
+	    <guimenuitem>Contest Model</guimenuitem>
+	  </menuchoice>
+	  und wähle <guibutton>Next &gt;</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-new-contest-model.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle das Projekt und das Verzeichnis in dem die Datei
+	  erstellt werden soll, gib unter <guilabel>File
+	  name:</guilabel> einen Dateinamen mit der Endung ".contest"
+	  an und wähle <guibutton>Next &gt;</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-new-enter-filename.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  In der erscheinenden Seite ist das <guilabel>Model
+	  Object</guilabel> "Contest" auszuwählen und der Dialog mittels
+	  <guibutton>Finish</guibutton> zu beenden.
+	</simpara>
+	<simpara>
+	  Damit wird die Wettkampfdatei im zuvor ausgewähltem Projekt und
+	  Verzeichnis angelegt und die Übersicht des Wettkampfes
+	  geöffnet. Folgende Schritte sollten nun sein den Wettkampf
+	  mit entsprechenden Parametern zu versehen.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-new-select-model-object.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.enter_name_and_date">
+      <title>Eingabe der Bezeichung und des Datums</title>
+      <simpara>Bezeichnung und Datum des Wettkampfes werden mittels
+      "Übersicht"-Editor eingegeben. Dieser Editor bzw. dieses
+      Fenster, wird nach Anlegen einer Wettkampfdatei automatisch
+      geöffnet. Manuell kann er mittels <guibutton>Rechts
+      Klick auf Wettkampfdatei im Navigator</guibutton>
+      <menuchoice>
+	<guimenu>Open With</guimenu>
+	<guimenuitem>Übersicht</guimenuitem>
+      </menuchoice>
+      geöffnet werden.
+      </simpara>
+      <screenshot>
+	<graphic fileref="resources/editor-overview.png"/>
+      </screenshot>
+      <step>
+	<simpara>
+	  Eingabe der Wettkampfid: "Id".
+	</simpara>
+	<simpara>Die "Id" ist eine Bezeichnung, die den Wettkampf
+	eindeutig identifiziert der Form:
+	'_&lt;Datum&gt;-&lt;wettkampfname&gt;' Beispiel
+	'_2014-03-01-reife-jahresringe'. Darf keine Leerzeichen
+	enthalten und muss mit einem Unterstrich oder Buchstaben
+	beginnen. Die ID wird nur für maschinelle Weiterverarbeitung
+	der Daten verwendet, beispielsweise wenn mehrere Wettkämpfe
+	verglichen werden sollen.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Eingabe des Wettkampfnames: "Name".
+	</simpara>
+	<simpara>
+	Name des Wettkampfes wie er in Ausschreibungen und Protokollen
+	erscheint. Beispielsweise :' XIX. Turnen der Reifen
+	Jahresringe Spremberg'
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Eingabe des Wettkampfdatums "Date" erfolgt durch drücken auf
+	  <guibutton><inlinegraphic fileref="resources/icon-date.png"/></guibutton>.
+	</simpara>
+	<simpara>
+	  Datum, an dem der Wettkampf stattfindet.
+	  Bei mehrtägigen Wettkämpfen ist der erste Tag
+	  anzugeben. Die angezeigte Uhrzeit ist nicht notwendig und
+	  programmatisch bedingt. 
+	</simpara>
+	<note>
+	  <simpara>Die Darstellung erscheint englisch in der Form
+	  Monat/Tag/Jahr. Diese Darstellung ebenso wie die Anzeige der
+	  Uhrzeit sind programmatisch bedingt und werden in kommenden
+	  Versionen berichtigt.</simpara>
+	</note>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.create_stations">
+      <title>Anlegen von Geräten bzw. Stationen</title>
+      <simpara>
+	Geräte bzw. Stationen sind wichtig, um einen Wettkampf
+	mit riegenweisem Wechsel zwischen Geräten zu organisieren.
+	Ausserdem werden an diesen Stationen Kampfrichter
+	eingesetzt. Bei mehrkreisigen Wettkämpfen sollten die
+	Stationen sich im Namen unterscheiden: 'Balken 1', 'Balken 2'.
+	Auch mehrfach genutzter Boden sollte sich unterscheiden:
+	'Boden 1', 'Boden 2' da jeder Station höchstens ein Kampfgericht
+	zugeordnet werden kann.
+      </simpara>
+      <note>
+	<simpara>
+	  Folgende Schritte beziehen sich auf
+	  den geöffneten "Übersicht"-Editor. Ist dieser noch nicht
+	  offen, so kann er wie bei <link
+	  linkend="procedure.enter_name_and_date">Eingabe der
+	  Bezeichnung</link> geöffnet werden.
+	</simpara>
+      </note>
+      <step>
+	<simpara>
+	  Im Bereich <guilabel>Geräte, Stationen</guilabel> klicke auf
+	  <guibutton><inlinegraphic
+	  fileref="resources/icon-create-and-link.png"/></guibutton>. Das
+	  Öffnen dauert leider einige Sekunden. Nach diesen
+	  ... Sekunden ... ist der <guilabel>New Reference
+	  Element</guilabel>-Dialog geöffnet. ... beim 2. Mal geht das
+	  deutlich schneller.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-new-reference-element-station.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle die einzige Auswahl
+	  <guilabel>StationType</guilabel> und drücke
+	  <guibutton>Finish</guibutton>. Es erscheint wiederum ein
+	  Dialog zur Eingabe der Informationen bezüglich einer Station.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Gib im Feld <guilabel>Id</guilabel> einen eindeutigen
+	  Bezeichner für diese Station ein. Dieser Bezeichner
+	  wird nur zum Referenzieren verwendet. Er darf keine
+	  Leerzeichen enthalten und muss mit einem Buchstaben oder
+	  einem Unterstrich beginnen. Bei mir hat sich eine
+	  Bezeichnung
+	  'station-'&lt;stationname&gt;
+	  durchgesetzt. Also beispielsweise: 'station-sprung.
+	  Künftig wird GymCalc diese Id's verstecken und selbst generieren.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Im Feld <guilabel>Name</guilabel> ist der Name der
+	  Station einzugeben.
+	</simpara>
+	<screenshot>
+	  <graphic
+	      fileref="resources/dialog-station-properties.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Drücke <guibutton>OK</guibutton>.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Diese Schritte sind für alle Geräte bzw. Stationen des
+	  Wettkampfes zu wiederholen. Sind im Wettkampf Pausengeräte,
+	  dann sollten auch diese eingetragen werden. Dies ist
+	  sinnvoll, da die Abfolge der Stationen nach der Zuordnung zu
+	  Riegen, in den Riegenlisten ausgegeben wird.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.create_classes">
+      <title>
+	Anlegen von Wettkampfklassen
+      </title>
+      <simpara>
+	Eine Wettkampfklasse ist eine Einteilung für die es eine
+	Plazierungsreihenfolge gibt bzw. für die man eine Siegerehrung
+	durchführen kann. Beispiele sind: Einzelwertung im weiblichen
+	Bereich Jugend LK4, Mannschaftswertung im weiblichen Bereich
+	Jugend LK4 oder Finale Boden weiblich Jugend LK4. Finals werden
+	in der Regel aus Einzelwertungen generiert. Hier soll das
+	Anlegen beispielhaft für die Einzelwertungen in einem
+	Wettkampf gezeigt werden.
+      </simpara>
+      <note>
+	<simpara>
+	  Folgende Schritte beziehen sich auf
+	  den geöffneten "Übersicht"-Editor. Ist dieser noch nicht
+	  offen, so kann er wie bei <link
+	  linkend="procedure.enter_name_and_date">Eingabe der
+	  Bezeichnung</link> geöffnet werden.
+	</simpara>
+      </note>
+      <step>
+	<simpara>
+	  Im Bereich <guilabel>Wettkampfklassen</guilabel> klicke auf
+	  <guibutton><inlinegraphic
+	  fileref="resources/icon-create-and-link.png"/></guibutton>. Das
+	  Öffnen dauert leider einige Sekunden. Nach diesen
+	  ... Sekunden ... ist der <guilabel>New Reference
+	  Element</guilabel>-Dialog geöffnet. ... beim 2. Mal geht das
+	  deutlich schneller.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-new-reference-element-contest.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  In diesem Dialog ist die einzige Auswahl
+	  <guilabel>ClassType</guilabel> zu selektieren und auf
+	  <guibutton>Finish</guibutton> zu klicken. Es öffnet sich
+	  ein weiterer Dialog zur Eingabe der Parameter einer Wettkampfklasse.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-classes-properties.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Gib den Namen der Wettkampfklasse im Feld
+	  <guilabel>Name</guilabel>ein. Der Name sollte sich eindeutig
+	  von anderen Wettkampfklassen unterscheiden und er sollte
+	  verständlich sein, da dieser Name später auch in Protokollen
+	  und anderen Wettkampflisten verwendet wird. Bei mir haben
+	  sich kurze prägnante Namen wie 'wJLK4' für weiblich Jugend
+	  LK4 durchgesetzt.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wenn es sich um eine spezielle Berechnung handelt, dann ist
+	  diese Berechnungsmethode im Feld
+	  <guilabel>Calculationkey</guilabel> einzugeben. Ist hier
+	  nichts eingetragen, so werden die einzelnen Wertungen
+	  einfach addiert. Eine spezielle Berechnungsmethode ist
+	  beispielsweise wenn nur die besten 3 Wertungen
+	  zusammenrechnen werden sollen. Welche Berechnungsmethoden
+	  möglich sind wird in der <link
+	  linkend="ref.calculationkey-class">Referenz zum
+	  "Calculationkey"</link> angegeben.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Mit <guibutton><inlinegraphic
+	  fileref="resources/icon-create-and-link.png"/></guibutton>
+	  werden einzelne Disziplinen zu einer Wettkampfklasse hinzugefügt.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-new-reference-element-diszipline.png"/>
+	</screenshot>
+	<substeps>
+	  <step>
+	    <simpara>
+	      Wähle die einzige Auswahl
+	      <guilabel>DisziplineType</guilabel> und drücke
+	      <guibutton>Finish</guibutton>. Es erscheint wiederum ein
+	      Dialog zur Eingabe der Informationen bezüglich einer Wettkampfdisziplin.
+	    </simpara>
+	    <screenshot>
+	      <graphic
+		  fileref="resources/dialog-diszipline-properties.png"/>
+	    </screenshot>
+	  </step>
+	  <step>
+	    <simpara>
+	      Gib im Feld <guilabel>Id</guilabel> einen eindeutigen
+	      Bezeichner für diese Disziplin ein. Dieser Bezeichner
+	      wird nur zum Referenzieren verwendet. Er darf keine
+	      Leerzeichen enthalten und muss mit einem Buchstaben oder
+	      einem Unterstrich beginnen. Bei mir hat sich eine
+	      Bezeichnung
+	      &lt;Wettkampfklasse&gt;-&lt;Disziplinname&gt;
+	      durchgesetzt. Also beispielsweise: 'wjlk4-boden'.
+	      Künftig wird GymCalc diese Id's verstecken und selbst generieren.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Im Feld <guilabel>Name</guilabel> ist der Name der
+	      Disziplin einzugeben. Für das Gerätturnen sollten das
+	      Sprung, Stuba, Balken, Boden, Pferd, Ringe, Barren oder
+	      Reck sein.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Drücke auf <guibutton><inlinegraphic
+	      fileref="resources/icon-link-element.png"/></guibutton> um
+	      der Disziplin ein Gerät bzw. eine Station zuzuordnen.
+	      Es wird angenommen, dass jede Disziplin an genau einer
+	      Station geturnt wird und von einem Kampfgericht bewertet wird.
+	    </simpara>
+	    <simpara>
+	      Hat man noch keine Stationen angelegt, dann kann muss
+	      die Zuordnung nachgeholt werden. Siehe <link
+	      linkend="procedure.create_stations">Anlegen einer Station</link>
+	    </simpara>
+	    <substeps>
+	      <step>
+		<simpara>
+		  Wähle die Station aus, an der die Disziplin geturnt wird
+		  und drücke <guilabel>Finish</guilabel>.
+		</simpara>
+		<screenshot>
+		  <graphic fileref="resources/dialog-select-station.png"/>
+		</screenshot>
+	      </step>
+	      <step>
+		<simpara>
+		  Drücke <guilabel>OK</guilabel>. Weder
+		  <guilabel>Id</guilabel> noch <guilabel>Name</guilabel>
+		  der Station bzw. des Gerätes sollen hier geändert werden.
+		</simpara>
+		<screenshot>
+		  <graphic fileref="resources/dialog-station-properties.png"/>
+		</screenshot>
+	      </step>
+	    </substeps>
+	  </step>
+	  <step>
+	    <simpara>
+	      Man kann noch keine
+	      <guilabel>Lookuptable</guilabel> in diesem Dialog
+	      hinzufügen. Lookuptable sind für spezielle Berechnungen
+	      notwendig. Spezielle Berechnungen wenn z.B. Zeiten beim
+	      Sprint in Punkte gemäß einer Tabelle umgerechnet werden sollen.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      <guilabel>Calculationkey</guilabel> ist wiederum für
+	      besondere Berechnungsmethoden einer Disziplin
+	      notwendig. Beispiel hier ist 'force', wenn diese
+	      Disziplin bei einer Berechnungsmethode nur die besten 3
+	      Wertungen auf alle Fälle mit dabei sein muss.
+	      Detailierte Informationen finden sich in der <link linkend="ref.calculationkey-diszipline">Referenz</link>.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Drücke auf <guibutton>OK</guibutton>.
+	    </simpara>
+	    <screenshot>
+	      <graphic
+		  fileref="resources/dialog-diszipline-properties-end.png"/>
+	    </screenshot>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wiederhole die vorigen Schritte zum Anlegen einer
+	      Disziplin, bis alle Disziplinen einer Wettkampfklasse
+	      hinzugefügt wurden.
+	    </simpara>
+	  </step>
+	</substeps>
+	
+      </step>
+      <step>
+	<simpara>
+	  Drücke <guibutton>OK</guibutton>, wenn alle Disziplinen hinzugefügt wurden.
+	</simpara>
+	<screenshot>
+	  <graphic
+	      fileref="resources/dialog-classes-properties-end.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wiederhole die vorigen Schritte zum Anlegen einer
+	  Wettkampfklasse, bis alle Wettkampfklassen
+	  hinzugefügt wurden.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.create_chains">
+      <title>Anlegen von Riegen</title>
+      <note>
+	<simpara>
+	  Folgende Schritte beziehen sich auf
+	  den geöffneten "Übersicht"-Editor. Ist dieser noch nicht
+	  offen, so kann er wie bei <link
+	  linkend="procedure.enter_name_and_date">Eingabe der
+	  Bezeichnung</link> geöffnet werden.
+	</simpara>
+      </note>
+      <step>
+	<simpara>
+	  Im Bereich <guilabel>Riegen</guilabel> klicke auf
+	  <guibutton><inlinegraphic
+	  fileref="resources/icon-create-and-link.png"/></guibutton>. Das
+	  Öffnen dauert leider einige Sekunden. Nach diesen
+	  ... Sekunden ... ist der <guilabel>New Reference
+	  Element</guilabel>-Dialog geöffnet. ... beim 2. Mal geht das
+	  deutlich schneller.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-new-reference-element-chain.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle die einzige Auswahl
+	  <guilabel>ChainType</guilabel> und drücke
+	  <guibutton>Finish</guibutton>. Es erscheint wiederum ein
+	  Dialog zur Eingabe der Informationen bezüglich einer Riege.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Im Feld <guilabel>Name</guilabel> ist der Name der
+	  Riege einzugeben. Gewöhnlich sind die Riegen einfach
+	  durchnummeriert in der Art: Riege 1, Riege 2 ...
+	</simpara>
+	<screenshot>
+	  <graphic
+	      fileref="resources/dialog-chain-properties.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Im Listenfeld <guilabel>Station</guilabel> ist die
+	  Geräteabfolge der Riege einzugeben.
+	</simpara>
+	<substeps>
+	  <step>
+	    <simpara>
+	      Drücke auf <guibutton><inlinegraphic fileref="resources/icon-link.png"/></guibutton>.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wähle die erste Station, bzw. das erste Gerät für diese
+	      Riege aus, drücke <guilabel>Finish</guilabel>.
+	    </simpara>
+	    <screenshot>
+	      <graphic fileref="resources/dialog-select-station.png"/>
+	    </screenshot>
+	  </step>
+	  <step>
+	    <simpara>
+	      Drücke <guilabel>OK</guilabel>. Weder
+	      <guilabel>Id</guilabel> noch <guilabel>Name</guilabel>
+	      der Station bzw. des Gerätes sollen hier geändert werden.
+	    </simpara>
+	    <screenshot>
+	      <graphic fileref="resources/dialog-station-properties.png"/>
+	    </screenshot>
+	  </step>
+	  <step>
+	    <simpara>
+	      Füge so alle Stationen für diese Riege ein. Beachte,
+	      dass die Stationen in der richtigen Reihenfolge
+	      referenziert werden. Leider ist ein Umsortieren mit dem
+	      "Übersicht"-Editor leider noch nicht möglich.
+	    </simpara>
+	    <screenshot>
+	      <graphic fileref="resources/dialog-chain-properties-end.png"/>
+	    </screenshot>
+	  </step>
+	</substeps>
+      </step>
+      <step>
+	<simpara>
+	  Drücke <guibutton>OK</guibutton>.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Diese Schritte sind für alle Geräte bzw. Stationen des
+	  Wettkampfes zu wiederholen. Sind im Wettkampf Pausengeräte,
+	  dann sollten auch diese eingetragen werden. Dies ist
+	  sinnvoll, da die Abfolge der Stationen nach der Zuordnung zu
+	  Riegen, in den Riegenlisten ausgegeben wird.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+    <simpara>
+      Das Resultat sollte nun ein fertig angelegter Wettkampf mit
+      einer Wettkampfklasse sein. Weitere Wettkampfklassen sind analog
+      zu <link linkend="procedure.create_classes">Anlegen von
+      Wettkampfklassen</link> anzulegen.
+    </simpara>
+    <screenshot>
+      <graphic fileref="resources/editor-overview-end.png"/>
+    </screenshot>
+  </section>
+  <section>
+    <title>Eingeben der Meldungen</title>
+    <para>
+      Ist eine Wettkampfdatei angelegt und eingerichtet (siehe
+      <link linkend="section.prepare_contest">Einrichten eines
+      Wettkampfes</link>), so können ankommende
+      Meldungen eingegeben werden. Die Aktiven werden über den Editor
+      "Wettkämpfer" und die Kampfrichter über den Editor "Kampfrichter"
+      getrennt eingegeben. Die Eingabe kann durch früher eingegebene
+      Kontakte unterstützt werden. Allerdings ist dazu ein spezielles
+      Modul notwendig, welches (aufgrund des frühen Entwicklungsstandes)
+      hier noch nicht publiziert werden soll.
+    </para>
+    <para>
+      Die entsprechenden Schritte zur Eingabe der Meldungen sind:
+      <itemizedlist>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.enter_athlet">
+	      Eingabe der Wettkämpfer
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.assign_athlet_to_chain">
+	      Zuordnen von Wettkämpfern zu Riegen / Riegeneinteilung.
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.assign_team_to_class">
+	      Zuordnen von Mannschaften zu Wettkampfklassen.
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.enter_jurist">
+	      Eingabe der Kampfrichter
+	    </link>
+	  </simpara>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <procedure id="procedure.enter_athlet">
+      <title>Eingabe der Wettkämpfer</title>
+      <simpara>Vorraussetung zur Eingabe der Wettkämpfer ist, dass
+      eine Wettkampfdatei angelegt und eingerichtet ist.</simpara>
+      <step>
+	<para>
+	  Öffne den "Wettkämpfer"-Editor. Hierfür gibt es mehrere
+	  Methoden:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		Drücke im "Übersicht"-Editor auf <guilabel>Wettkämpfer</guilabel>.
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		Wähle im Menu
+		<menuchoice>
+		  <guimenu>GymCalc</guimenu>
+		  <guimenuitem>Öffne Wettkämpferverwaltung</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<guibutton>Rechts
+		Klick auf die Wettkampfdatei im Navigator</guibutton>
+		<menuchoice>
+		  <guimenu>Open With</guimenu>
+		  <guimenuitem>Wettkämpfer</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Wähle im Menu
+	  <menuchoice>
+	    <shortcut>
+	      <keysym>Ctrl+n</keysym>
+	    </shortcut>
+	    <guimenu>GymCalc</guimenu>
+	    <guimenuitem>Neue(r) Wettkämpfer(In)...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Gib Verein, Vorname, Name, Geburtsdatum, Wettkampfklasse und
+	  Mannschaft ein. Das Datum muss der Form Jahr-Monat-Tag
+	  (JJJJ-MM-TT) also beispielsweise 1999-12-20 entsprechen. Ist
+	  der genaue Tag nicht bekannt, dann macht es sich gut wenn
+	  der 1.1. verwendet wird. Die Wettkampfklasse sollte bereits
+	  wie beim <link linkend="section.prepare_contest">Einrichten
+	  eines Wettkampfes</link> sein. Die Mannschaft ist hier ein
+	  frei wählbarer Name. Dieser sollte allerdings eindeutig
+	  sein. Ist der Wettkämpfer in keiner Mannschaft oder handelt
+	  es sich nicht um einen Mannschaftswettkampf, dann ist das
+	  Mannschaftsfeld leer zu lassen.
+	</simpara>
+	<note>
+	  <simpara>
+	    Alle eingegebenen Daten bis auf das Geburtsdatum lassen
+	    sich nachträglich ändern.
+	  </simpara>
+	  <simpara>
+	    Die Mannschaften (sofern noch nicht vorhanden) werden
+	    einer neuen, leeren Wettkampfklasse zugeordent. Die
+	    Zuordnung der Mannschaft zur richtigen Wettkampfklasse
+	    erfolgt im <link
+	    linkend="procedure.assign_team_to_class">Zuordnen der
+	    Mannschaften zu Wettkampfklassen</link>
+	  </simpara>
+	  <simpara>
+	    Wird als Wettkampfklasse ein Name verwendet, der noch
+	    nicht angelegt wurde, so wird eine neue Wettkampfklasse
+	    mit diesem Namen angelegt. Die neu angelegte
+	    Wettkampfklasse enthält aber noch keine Disziplinen. Das
+	    automatische Neuanlegen von Wettkampfklassen vereinfacht
+	    die Verwendung von GymCalc als Meldewerkzeug.
+	  </simpara>
+	</note>
+	<simpara>
+	  Drücke auf <guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-new-athlet-end.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wiederhole die vorigen Schritte bis alle Wettkämpfer der
+	  Meldung eingetragen sind.
+	</simpara>
+	<note>
+	  <simpara>
+	    Der Dialog zum Eingeben neuer Wettkämpfer wird mit den
+	    Daten des im "Wettkampf"-Editor selektierten Wettkämpfer
+	    befüllt. Dies erleichtert die Eingabe.
+	  </simpara>
+	</note>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/editor-athlet-end.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.assign_athlet_to_chain">
+      <title>Zuordnen von Wettkämpfern zu Riegen / Riegeneinteilung.</title>
+      <simpara>
+	Die Riegeneinteilung erfolgt in der Regel nachdem alle
+	Meldungen eingegangen sind und die Anzahl der Starter in den
+	einzelnen Wettkampfklassen bekannt ist. Die hier dargestellte
+	Riegeneinteilung besteht darin, dass nacheinander jeder
+	Wettkämpfer einer Riege zugeordnet wird.
+      </simpara>
+      <step>
+	<para>
+	  Öffne den "Wettkämpfer"-Editor. Hierfür gibt es mehrere
+	  Methoden:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		Drücke im "Übersicht"-Editor auf <guilabel>Wettkämpfer</guilabel>.
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		Wähle im Menu
+		<menuchoice>
+		  <guimenu>GymCalc</guimenu>
+		  <guimenuitem>Öffne Wettkämpferverwaltung</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<guibutton>Rechts
+		Klick auf die Wettkampfdatei im Navigator</guibutton>
+		<menuchoice>
+		  <guimenu>Open With</guimenu>
+		  <guimenuitem>Wettkämpfer</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Nun sind im "Wettkämpfer"-Editor durch Klick mit der Maus
+	  in die ensprechende Zelle die Riege für jeden
+	  einzelne Wettkämpfer zu wählen. Es ist darauf zu achten, dass
+	  die gewählte Riege auch die richtigen Stationen für den
+	  Wettkämpfer anläuft. Es macht wenig sinn, wenn ein Mädchen
+	  in einer Riege ist, die nur Jungsgeräte anläuft.
+	</simpara>
+	<note>
+	  <simpara>
+	    Die Zelle für die Riege ist auf der Rechten
+	    Seite. Entweder ist das Eingabefenster entsprechend zu
+	    vergrößern oder der untere Rollbalken muss ganz nach Links
+	    geschoben werden. Es ist auch möglich wie im Screenshot zu
+	    sehen die Spalten zusammenzuschieben.
+	  </simpara>
+	  <simpara>
+	    Drücken auf die Überschrift sortiert die gesamte Tabelle
+	    nach der entsprechenden Spalte. Damit können die
+	    Wettkämpfer einfach nach Verein oder Wettkampfklasse
+	    sortiert werden. Das hilft, wenn beispielsweise alle
+	    Wettkämpfer eines Vereines in einer Riege sein sollen.
+	  </simpara>
+	</note>
+	<screenshot>
+	  <graphic fileref="resources/editor-athlet-chain.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.assign_team_to_class">
+      <title>Zuordnen von Mannschaften zu Wettkampfklassen.</title>
+      <simpara>
+	Mit der Eingabe der Wettkämpfer werden auch die Mannschaften
+	angelegt. Diese neuen Mannschaften sind allerdings einer leeren
+	Wettkampfklasse zugeordnet und müssen demzufolge noch der
+	richtigen Wettkampfklasse zugeordnet werden.
+      </simpara>
+      <step>
+	<para>
+	  Öffne den "Mannschaften"-Editor. Hierfür gibt es mehrere
+	  Methoden:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		Drücke im "Übersicht"-Editor auf <guilabel>Mannshaft</guilabel>.
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		Wähle im Menu
+		<menuchoice>
+		  <guimenu>GymCalc</guimenu>
+		  <guimenuitem>Öffne Mannschaftsverwaltung</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<guibutton>Rechts
+		Klick auf die Wettkampfdatei im Navigator</guibutton>
+		<menuchoice>
+		  <guimenu>Open With</guimenu>
+		  <guimenuitem>Mannschaften</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Nun sind im "Mannschaften"-Editor durch Klick mit der Maus
+	  in die ensprechende Zelle die Wettkampfklassen für jede
+	  einzelne Mannschaft zu wählen. Es ist darauf zu achten, dass
+	  wirklich Wettkampfklassen, in denen Mannschaften bewertet
+	  werden, auszuwählen sind. Es macht keinen Sinn eine
+	  Mannschaft einer Wettkampfklasse für Einzelwertungen zuzuordnen.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/editor-team.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/editor-team-end.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.enter_jurist">
+      <title>Eingabe der Wettkämpfer</title>
+      <simpara>Vorraussetung zur Eingabe der Kampfrichter ist, dass
+      eine Wettkampfdatei angelegt ist.</simpara>
+      <step>
+	<para>
+	  Öffne den "Kampfrichter"-Editor. Hierfür gibt es mehrere
+	  Methoden:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		Drücke im "Übersicht"-Editor auf <guilabel>Kampfrichter</guilabel>.
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		Wähle im Menu
+		<menuchoice>
+		  <guimenu>GymCalc</guimenu>
+		  <guimenuitem>Öffne Kampfrichterverwaltung</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<guibutton>Rechts
+		Klick auf die Wettkampfdatei im Navigator</guibutton>
+		<menuchoice>
+		  <guimenu>Open With</guimenu>
+		  <guimenuitem>Kampfrichter</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Wähle im Menu
+	  <menuchoice>
+	    <guimenu>GymCalc</guimenu>
+	    <guimenuitem>Neue(r) Kampfrichter(In)...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Gib Verein, Vorname, Name und Kampfgericht ein.
+	  Das Kampfgericht ist hier ein frei wählbarer Name.
+	  Mit diesem Namen werden die Kampfrichter während der Meldung
+	  gruppiert. Hier ist es sinnvoll wie "weiblich" und
+	  "männlich" zu verwenden.
+	</simpara>
+	<note>
+	  <simpara>
+	    Alle eingegebenen Daten lassen sich nachträglich ändern.
+	  </simpara>
+	  <simpara>
+	    Gewöhnlich werden die Kampfgerichte durch die
+	    Hauptkampfrichter eingeteilt. Dazu werden die während der
+	    Meldung angegebenen Kampfrichter in deren Gruppen an die
+	    Hauptkampfrichter gegeben, dieser teilt die Kampfgerichte
+	    ein. Anschließend werden diese Kampfgerichte in einem
+	    späteren Schritt hier in GymCalc eingegeben.
+	  </simpara>
+	</note>
+	<simpara>
+	  Drücke auf <guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/dialog-new-jurist-end.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wiederhole die vorigen Schritte bis alle Kampfrichter der
+	  Meldung eingetragen sind.
+	</simpara>
+	<note>
+	  <simpara>
+	    Der Dialog zum Eingeben neuer Kampfrichter wird mit den
+	    Daten des im "Kampfrichter"-Editor selektierten Kampfrichter
+	    befüllt. Dies erleichtert die Eingabe.
+	  </simpara>
+	</note>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/editor-jurist-end.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+  </section>
+  <section id="section.print_contest_lists">
+    <title>Ausgabe von Wettkampflisten</title>
+    <para>
+      In der Vorbereitung eines Wettkampfes sind unterschiedliche
+      Listen auszudrucken. Dazu gehören Riegenlisten, die
+      veröffentlicht werden sollten, damit die Starter wissen in
+      welche Riege sie eingeteilt sind und in welcher Reihenfolge die
+      einzelnen Geräte bzw. Stationen absolviert werden. Weiterhin
+      sind Wertungslisten für die Kampfrichter notwendig und
+      ggf. Listen als Meldebestätigung oder zur Abrechnung von
+      Startgeldern.
+    </para>
+    <para>
+      GymCalc bietet eine sehr flexible Möglichkeit diese Listen
+      auszugeben. Diese Listen basieren allesamt auf "Schablonen" in
+      denen angegeben ist was und wie es ausgegeben werden soll. Hier
+      in der Einführung soll sich auf die Ausgabe von vorgefertigten
+      Schablonen beschränkt werden. Will man die Schablonen anpassen
+      oder eigene ausgefeiltere, zusätzliche, bessere Schablonen
+      anlegen, so sei auf die <link
+      linkend="section.templates">Abschnitt Schablonen</link> verwiesen.
+    </para>
+    <para>
+      <itemizedlist>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.prepare_templates">Schablonen vorbereiten</link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.print_registerlist">
+	      Ausgabe einer Meldeübersicht / Meldebestätigung
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.print_chainlist">
+	      Ausgabe einer Riegenliste
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.print_juryform">
+	      Ausgabe von Wertungslisten
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.print_jurylist">
+	      Ausgabe der Kampfrichterliste
+	    </link>
+	  </simpara>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <procedure id="procedure.prepare_templates">
+      <title>Schablonen vorbereiten</title>
+      <simpara>
+	Die Schablonen sind zur Zeit nicht Teil von GymCalc. Das ist
+	so gemacht, damit die Schablonen auch leicht geändert werden
+	können. Aus diesem Grund müssen sie aus dem Internet geladen
+	werden und in einem eigenen Verzeichnis abgelegt werden.
+      </simpara>
+      <step>
+	<para>
+	  Lade vorgefertigte Schablonen von <ulink
+	  url="http://www.gymcalc.de/schablonen">http://www.gymcalc.de/schablonen</ulink>
+	  und lege die Schablonen in einem Verzeichis (z.B. <filename>Eigene
+	  Dokumente\GymCalc Schablonen</filename>) ab.
+	  In diesem Verzeichniss sollten sich dann die Schablonen:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		<filename>
+		  registration-organization.odt
+		</filename>
+		für die Meldeübersicht / Meldebestätigung
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<filename>
+		  chain.odt
+		</filename>
+		für die Riegenliste
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<filename>
+		  juryform.odt
+		</filename>
+		für die Wertungslisten
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<filename>
+		  jury.odt
+		</filename>
+		für die Kampfrichterliste
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	  vorhanden sein.
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Das Verzeichniss, in dem sich die Schablonen befinden, muss
+	  GymCalc bekannt gemacht werden.
+	</simpara>
+	<substeps>
+	  <step>
+	    <simpara>
+	      Drücke dazu auf
+	      <menuchoice>
+		<guimenu>Window</guimenu>
+		<guimenuitem>Preferences</guimenuitem>
+	      </menuchoice>
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wähle auf der linken Seite <guilabel>Schablonen</guilabel>
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wähle unter <guilabel>Template Directory</guilabel> das
+	      Verzeichniss in dem sich die Schablonen befinden.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wähle unter <guilabel>Generation Directory</guilabel> ein
+	      Verzeichniss das temporäre Dateien enthält.
+	      Dieses Verzeichnis wird von GymCalc verwendet um
+	      teilweise ausgefüllte Schablonen
+	      zwischenzuspeichern. Das Verzeichniss sollte somit
+	      beschreibbar sein. Die dort angelegten Dateien können
+	      aber wieder getrost gelöscht werden.
+	    </simpara>
+	  </step>
+	</substeps>
+	<screenshot>
+	  <graphic fileref="resources/dialog-preferences-schablonen.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.print_registerlist">
+      <title>
+	Ausgabe einer Meldeübersicht / Meldebestätigung
+      </title>
+      <simpara>
+      </simpara>
+      <step>
+	<simpara>
+	  Öffne den "Übersicht"-Editor.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle aus dem Menu
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Mit Vorlage Drucken...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-registration-organization.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle als Vorlage
+	  <guilabel>registration-organization.odt</guilabel> nur
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Meldeübersicht bzw. Meldebestätigung abgelegt werden soll.
+	  Drücke<guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-registration-organization-enter-filename.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Ergebnis ist eine Datei mit ausgewähltem Namen im
+	  ausgewählten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  geöffnet werden kann.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/registration-organization-odt.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.print_chainlist">
+      <title>
+	Ausgabe der Riegenliste
+      </title>
+      <simpara>
+      </simpara>
+      <step>
+	<simpara>
+	  Öffne den "Übersicht"-Editor.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle aus dem Menu
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Mit Vorlage Drucken...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-chain.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle als Vorlage
+	  <guilabel>chain.odt</guilabel> nur
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Riegenliste abgelegt werden soll.
+	  Drücke<guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-chain-enter-filename.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Ergebnis ist eine Datei mit ausgewähltem Namen im
+	  ausgewählten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  geöffnet werden kann.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/chain-odt.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.print_juryform">
+      <title>
+	Ausgabe der Wertungslisten
+      </title>
+      <simpara>
+      </simpara>
+      <step>
+	<simpara>
+	  Öffne den "Übersicht"-Editor.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle aus dem Menu
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Mit Vorlage Drucken...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-juryform.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle als Vorlage
+	  <guilabel>juryform.odt</guilabel> nur
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Wertungslsiten abgelegt werden soll.
+	  Drücke<guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-juryform-enter-filename.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Ergebnis ist eine Datei mit ausgewähltem Namen im
+	  ausgewählten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  geöffnet werden kann.
+	</simpara>
+	<note>
+	  <simpara>
+	    Die Vorlage für die Wertungslisten ist so angelegt, dass
+	    jede Riege für jedes Gerät ein A5-Blatt erhält.
+	    Wird also auf A4-Blättern (wie üblich) gedruckt, so kann
+	    man mit LibreOffice zunächst die erste Hälfte der Seiten
+	    ausdrucken, das Papier nochmals aber anders herum einlegen
+	    und dann die zweite Hälfte der Seiten drucken.
+	  </simpara>
+	</note>
+	<screenshot>
+	  <graphic fileref="resources/juryform-odt.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.print_jurylist">
+      <title>
+	Ausgabe der Kampfrichterliste
+      </title>
+      <simpara>
+      </simpara>
+      <step>
+	<simpara>
+	  Öffne den "Übersicht"-Editor.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle aus dem Menu
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Mit Vorlage Drucken...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-jury.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle als Vorlage
+	  <guilabel>jury.odt</guilabel> nur
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Verändere in der Parameterseite nichts und 
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-jury-parameter.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Kampfrichterliste abgelegt werden soll.
+	  Drücke<guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-jury-enter-filename.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Ergebnis ist eine Datei mit ausgewähltem Namen im
+	  ausgewählten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  geöffnet werden kann.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/jury-odt.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Eingeben der Wertungen</title>
+    <para>
+      Bevor man beginnt die Wertungen einzugeben, sollte nochmals
+      überprüft werden, dass die Meldungen richtig und vollständig sind,
+      dass in allen Wettkampfklassen die Disziplinen richtig eingegeben
+      wurden, dass die Riegenzuordnung von Stationen bzw. Geräten und
+      Wettkämpfern stimmt. Kurz: die Struktur des Wettkampfes sollte
+      stimmen. Sobald Wertungen eingegeben wurden, wird das Ändern der
+      Struktur schwierig. Werden z.B. Wertungen für eine Wettkämpferin
+      in der Wettkampfklasse "weiblich P5" eingegeben, diese
+      Wettkämpferin aber nachträglich in die Wettkampfklasse "weiblich
+      P4" eingeordnet, dann ist dies nur mit großem Aufwand möglich
+      (sofern es überhaupt von der Wettkampfleitung erlaubt wird.)
+    </para>
+    <para>
+      Vorraussetzung für die Eingabe der Wertungen ist ein gut
+      vorbereitete Wettkampf-Datei und die geöffnete "Outline"-View.
+      <menuchoice>
+	<guimenu>Window</guimenu>
+	<guisubmenu>Show View</guisubmenu>
+	<guimenuitem>Outline</guimenuitem>
+      </menuchoice>
+    </para>
+    <para>
+      Die Wertungen werden mittels "Wertungs"-Editor eingegeben. Dabei
+      gibt es 2 alternative Eingabemöglichkeiten, die nach belieben
+      auch während der Eingabe gewechselt werden können.
+      Die beiden Möglichkeiten sind:
+      <itemizedlist>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.enter-result-per-chain">
+	      Eingabe der Wertungen riegenweise
+	    </link>
+	    Diese Eingabe empfiehlt sich, wenn die Eingabe
+	    entsprechend der Wertungslisten erfolgt.
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.enter-result-per-class">
+	      Eingabe der Wertungen wettkampfklassenweise
+	    </link>
+	    Diese Eingabe kann verwendet werden, wenn man sich das
+	    Anlegen von Riegen ersparen will oder wenn nachträglich
+	    Wertungen berichtigt werden sollen und die Riege nicht
+	    mehr bekannt ist.
+	  </simpara>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <procedure id="procedure.enter-result-per-chain">
+      <title>
+	Eingabe der Wertungen riegenweise
+      </title>
+      <simpara>
+      </simpara>
+      <step>
+	<para>
+	  Öffne den "Wertungs"-Editor. Hierfür gibt es mehrere
+	  Methoden:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		Drücke im "Übersicht"-Editor auf <guilabel>Wertungen</guilabel>.
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<guibutton>Rechts
+		Klick auf die Wettkampfdatei im Navigator</guibutton>
+		<menuchoice>
+		  <guimenu>Open With</guimenu>
+		  <guimenuitem>Contest Calculation</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Wähle die Lasche <guilabel>chain</guilabel>
+	  <inlinegraphic fileref="resources/part-tab-chain.png"/> aus.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle im "Outline"-View die Riege, für die die Wertungen
+	  eingegeben werden soll.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/view-outline-chain.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Gib die Wertung an der entsprechenden Stelle gemäß Wettkämpfer
+	  und Gerät bzw. Station ein.
+	</simpara>
+	<note>
+	  <simpara>
+	    Dezimale Werte müssen mit '.' anstelle von ',' eingegeben
+	    werden. Also z.B. '9.8'.
+	  </simpara>
+	  <simpara>
+	    Soll die Wertung eines Wettkämpfers in der
+	    Mannschaftswertung berücksichtigt werden, so ist ein 'm'
+	    dem Wert voranzustellen. Bei einer 6:4:3 Regel muss dieses
+	    'm' bei 4 Wettkämpfern eingegeben werden.
+	  </simpara>
+	</note>
+	<screenshot>
+	  <graphic fileref="resources/editor-value-chain-teamvalue.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Nach der Eingabe ist <keysym>Enter</keysym> zu drücken.
+	  Handelt es sich um eine Wertung, die zur Mannschaftswertung
+	  gehört, wird dies durch ein aktives Icon <inlinegraphic
+	  fileref="resources/icon-active-team.png"/>
+	  angezeigt. Handelt es sich um eine Wertung, die nicht zur
+	  Mannschaft gezählt werden soll, so wird dies bei
+	  Mannschaftkämpfern durch ein inaktives Icon <inlinegraphic
+	  fileref="resources/icon-inactive-team.png"/>
+	  angezeigt. Wertungen bei Einzelkämpfern erhalten kein Icon.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/editor-value-chain.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Fahre mit der Eingabe der Wertungen fort, bis alle Wertungen
+	  einer Wertungsliste eingegeben sind.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+    <procedure id="procedure.enter-result-per-class">
+      <title>
+	Eingabe der Wertungen wettkampfklassenweise
+      </title>
+      <simpara>
+	Diese Eingabe ist der riegenweisen Eingabe sehr ähnlich. Hier
+	sind einzig die Unterschiede erwähnt.
+      </simpara>
+      <step>
+	<para>
+	  Öffne den "Wertungs"-Editor. (siehe <link linkend="procedure.enter-result-per-chain">Eingabe der Wertungen riegenweise</link>).
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Wähle die Lasche <guilabel>class</guilabel>
+	  <inlinegraphic fileref="resources/part-tab-class.png"/> aus.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle im "Outline"-View die Wettkampfklasse, für die die Wertungen
+	  eingegeben werden soll.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/view-outline-class.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<para>
+	  Gib die Wertungen wie in <link linkend="procedure.enter-result-per-chain">Eingabe der Wertungen riegenweise</link>) ein.
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Berechnung von Wettkampfergegnissen</title>
+    <para>
+      Die Berechnung erfolg wettkampfklassenweise. Die Punkte
+      werden dabei entsprechend den Berechnungsvorschriften <link
+      linkend="section.calculationkey">siehe Berechnungsvorschriften</link>
+      zusammengezählt.
+      Ist keine besondere Berechnungsvorschrift für eine
+      Wettkampfklasse oder Disziplin angegeben, so werden alle
+      einzelnen Wertungen addiert.
+    </para>
+    <para>
+      Aus den Gesamtpunkten ergibt sich die Platzierung. Dabei entspricht die
+      höchste Punktzahl dem 1.Platz. Sind gleiche Punktzahlen
+      vorhanden, so entspricht das einer gleichen Platzierung. Sind
+      gleiche Punktzahlen bei Finals vorhanden, so wird die
+      Reihenfolge aus dem Mehrkampf ermittelt.
+      Wettkämpfer, die außer Konkurenz starten werden bei der
+      Platzierung nicht berücksichtigt.
+      Letztendlich werden die Wettkämpfer bzw. Mannschaften einer
+      Wettkampfklasse entsprechend ihrer Platzierung sortiert.
+    </para>
+    <procedure id="procedure.calc">
+      <title>Berechnung von Wettkampfergebnissen</title>
+      <step>
+	<para>
+	  Öffne den "Wertungs"-Editor. Hierfür gibt es mehrere
+	  Methoden:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		Drücke im "Übersicht"-Editor auf <guilabel>Wertungen</guilabel>.
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<guibutton>Rechts
+		Klick auf die Wettkampfdatei im Navigator</guibutton>
+		<menuchoice>
+		  <guimenu>Open With</guimenu>
+		  <guimenuitem>Contest Calculation</guimenuitem>
+		</menuchoice>
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Wähle die Lasche <guilabel>class</guilabel>
+	  <inlinegraphic fileref="resources/part-tab-class.png"/> aus.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle im "Outline"-View die Wettkampfklasse, für die die
+	  Berechnung und Sortierung durchgeführt werden soll.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/view-outline-class.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Selektiere einen Wettkämpfer in dieser Wettkampfklasse durch
+	  klicken der Maus auf den Namen des Wettkämpfers. Dabei ist
+	  es unerheblich welcher Wettkämpfer in der Klasse gewählt
+	  wird. Es ist nur wichtig, dass überhaupt ein Wettkämpfer in
+	  der Klasse selektiert ist.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/editor-value-class-select-winner.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<para>
+	  Berechne und sortiere die Wettkampfklasse mittels
+	  <menuchoice>
+	    <guimenu>Contest Editor</guimenu>
+	    <guimenuitem>Berechne Wettkampfklasse</guimenuitem>
+	  </menuchoice>
+	  <note>
+	    <simpara>
+	      Dieser Menueintrag ist nur verfügbar, wenn der
+	      "Wertungs"-Editor mit der Lasche
+	      <guilabel>Class</guilabel> im Vordergrund ist und ein
+	      Wettkämpfer in diesem Editor selektiert wurde.
+	    </simpara>
+	  </note>
+	</para>
+	<screenshot>
+	  <graphic fileref="resources/editor-value-class-calc.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wiederhole die Auswahl der Wettkampfklasse, selektieren
+	  eines Wettkämpfers, Berechnung (also die letzten 3 Schritte)
+	  für alle Wettkampfklassen.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Speichere die Datei mittels
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Save</guimenuitem>
+	  </menuchoice>
+	</simpara>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Ausgabe von Urkunden und Protokollen</title>
+    <para>
+      Die Ausgabe von Urkunden und Protokollen ähnelt der
+      <link linkend="section.print_contest_lists">Ausgabe von
+      Wettkampflisten</link>. Wichtigster Unterschied ist, dass andere
+      Schablonen verwendet werden.
+    </para>
+    <para>
+      <itemizedlist>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.prepare_result_templates">
+	      Schablonen für Protokoll und Urkunden vorbereiten
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.print_protocol">
+	      Ausgabe des Protokolles
+	    </link>
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    <link linkend="procedure.print_certificate">
+	      Ausgabe der Urkunden
+	    </link>
+	  </simpara>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <procedure id="procedure.prepare_result_templates">
+      <title>Schablonen vorbereiten</title>
+      <simpara>
+	Die Schablonen sind zur Zeit nicht Teil von GymCalc. Das ist
+	so gemacht, damit die Schablonen auch leicht geändert werden
+	können. Aus diesem Grund müssen sie aus dem Internet geladen
+	werden und in einem eigenen Verzeichnis abgelegt werden.
+      </simpara>
+      <step>
+	<para>
+	  Lade vorgefertigte Schablonen von <ulink
+	  url="http://www.gymcalc.de/schablonen">http://www.gymcalc.de/schablonen</ulink>
+	  und lege die Schablonen in einem Verzeichis (z.B. <filename>Eigene
+	  Dokumente\GymCalc Schablonen</filename>) ab.
+	  In diesem Verzeichniss sollten sich dann die Schablonen:
+	  <itemizedlist>
+	    <listitem>
+	      <simpara>
+		<filename>
+		  protokoll.odt
+		</filename>
+		für das Protokoll
+	      </simpara>
+	    </listitem>
+	    <listitem>
+	      <simpara>
+		<filename>
+		  urkunde.odt
+		</filename>
+		für die Urkunden
+	      </simpara>
+	    </listitem>
+	  </itemizedlist>
+	  vorhanden sein.
+	</para>
+      </step>
+      <step>
+	<simpara>
+	  Das Verzeichniss, in dem sich die Schablonen befinden, muss
+	  GymCalc bekannt gemacht werden.
+	</simpara>
+	<substeps>
+	  <step>
+	    <simpara>
+	      Drücke dazu auf
+	      <menuchoice>
+		<guimenu>Window</guimenu>
+		<guimenuitem>Preferences</guimenuitem>
+	      </menuchoice>
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wähle auf der linken Seite <guilabel>Schablonen</guilabel>
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wähle unter <guilabel>Template Directory</guilabel> das
+	      Verzeichniss in dem sich die Schablonen befinden.
+	    </simpara>
+	  </step>
+	  <step>
+	    <simpara>
+	      Wähle unter <guilabel>Generation Directory</guilabel> ein
+	      Verzeichniss das temporäre Dateien enthält.
+	      Dieses Verzeichnis wird von GymCalc verwendet um
+	      teilweise ausgefüllte Schablonen
+	      zwischenzuspeichern. Das Verzeichniss sollte somit
+	      beschreibbar sein. Die dort angelegten Dateien können
+	      aber wieder getrost gelöscht werden.
+	    </simpara>
+	  </step>
+	</substeps>
+	<screenshot>
+	  <graphic fileref="resources/dialog-preferences-schablonen.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.print_protocol">
+      <title>
+	Ausgabe des Protokolles
+      </title>
+      <step>
+	<simpara>
+	  Öffne den "Übersicht"-Editor.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle aus dem Menu
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Mit Vorlage Drucken...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-protocol.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle als Vorlage
+	  <guilabel>protokoll.odt</guilabel> nur
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Verändere in der Parameterseite nichts und 
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-jury-parameter.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem das Protokoll abgelegt werden soll.
+	  Drücke<guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-protocol-enter-filename.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Ergebnis ist eine Datei mit ausgewähltem Namen im
+	  ausgewählten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  geöffnet werden kann.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/protokoll-odt.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+    <procedure id="procedure.print_certificate">
+      <title>
+	Ausgabe der Urkunden
+      </title>
+      <step>
+	<simpara>
+	  Öffne den "Übersicht"-Editor.
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle aus dem Menu
+	  <menuchoice>
+	    <guimenu>File</guimenu>
+	    <guimenuitem>Mit Vorlage Drucken...</guimenuitem>
+	  </menuchoice>
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-certificate.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Wähle als Vorlage
+	  <guilabel>urkunde.odt</guilabel> nur
+	  drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle in der Parameterseite unter
+	  <guilabel>Maximaler Platz der Teilnehmer</guilabel> den
+	  Platz bis zu welchem die Urkunden gedruckt werden
+	  sollen. Voreingestellt sind Urkunden bis zum 6.Platz, dies
+	  kann jedoch durch Angabe eines anderen Platzes geändert
+	  werden. Wird an dieser Stelle -1 eingegeben, so werden die
+	  Urkunden für alle Teilnehmer gedruckt.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-certificate-parameter.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Drücke<guibutton>Next &gt;</guibutton>
+	</simpara>
+      </step>
+      <step>
+	<simpara>
+	  Wähle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Datei für die Urkunden abgelegt werden soll.
+	  Drücke<guibutton>Finish</guibutton>.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/wizard-print-certificate-enter-filename.png"/>
+	</screenshot>
+      </step>
+      <step>
+	<simpara>
+	  Ergebnis ist eine Datei mit ausgewähltem Namen im
+	  ausgewählten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  geöffnet werden kann.
+	  Beachte dabei, dass alle Urkunden in einer Datei gespeichert sind.
+	</simpara>
+	<screenshot>
+	  <graphic fileref="resources/urkunde-odt.png"/>
+	</screenshot>
+      </step>
+    </procedure>
+  </section>
+  <section id="section.templates">
+    <title>Schablonen</title>
+    <para>
+    </para>
+  </section>
+  <section id="section.calculationkey">
+    <title>Berechnungsvorschriften</title>
+    <para>
+    </para>
+  </section>
+  <section>
+    <title>Referenz</title>
+    <para>
+    </para>
+    <section id="ref.calculationkey-class">
+      <title>Calculationkey für Wettkampfklassen</title>
+      <para>
+      </para>
+    </section>
+    <section id="ref.calculationkey-diszipline">
+      <title>Calculationkey für Disziplines</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section>
+    <title>Systemvorraussetzungen</title>
+    <para>
+      <variablelist>
+	<varlistentry>
+	  <term>Betriebssystem</term>
+	  <listitem>
+	    <simpara>Linux, Mac OS X, Windows</simpara>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term>Installierte Software</term>
+	  <listitem>
+	    <simpara>
+	      <ulink url="http://www.eclipse.org">Eclipse</ulink>
+	    </simpara>
+	    <simpara>eines der Schreibprogramme
+	    <ulink url="http://www.libreoffice.org">LibreOffice</ulink>,
+	    <ulink url="http://office.microsoft.com/de-de/word/">Microsoft Word</ulink> oder
+	    <ulink url="http://www.openoffice.org">Apache OpenOffice</ulink></simpara>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </para>
+  </section>
+</article>

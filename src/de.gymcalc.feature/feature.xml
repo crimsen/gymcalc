@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.gymcalc.feature"
+      label="GymCalc"
+      version="1.4.0.qualifier"
+      provider-name="turnen-spremberg.de">
+
+   <description url="http://www.turnen-spremberg.de">
+      GymCalc ist ein Program zur Berechnung von Gerätturnwettkämpfen
+   </description>
+
+   <copyright url="http://www.turnen-spremberg.de">
+      can be used by everybody.
+   </copyright>
+
+   <license url="http://www.turnen-spremberg.de">
+      can be used by everybody.
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.datatools.sqltools.editor.core" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.validation.ocl" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.validation" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.search"/>
+      <import plugin="org.eclipse.core.databinding.property"/>
+      <import plugin="org.eclipse.jface.databinding"/>
+      <import plugin="org.eclipse.emf.databinding.edit" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.expressions" version="3.4.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.datatools.sqltools.data.core"/>
+      <import plugin="org.eclipse.core.expressions" version="3.4.401" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore" version="3.0.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.query.ocl" version="2.0.0" match="compatible"/>
+      <import plugin="org.eclipse.datatools.modelbase.sql"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.core.databinding.observable"/>
+      <import plugin="org.eclipse.core.databinding"/>
+      <import plugin="org.eclipse.emf.databinding"/>
+      <import feature="org.eclipse.emf.ecp.emfforms.runtime.feature" version="1.4.0.20140916-1322"/>
+      <import plugin="org.eclipse.emf.ecp.edit" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecp.ui.view.swt" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecp.view.model.provider.xmi"/>
+   </requires>
+
+   <plugin
+         id="de.spremberg.turnen.contact"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.spremberg.turnen.contact.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.spremberg.turnen.contact.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.gymcalc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.gymcalc.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.gymcalc.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.gymcalc.print"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.spremberg.turnen.contact.ocl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.spremberg.turnen.contact.print"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="de.spremberg.turnen.jodreports"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="de.spremberg.turnen.databinding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.gymcalc.help"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.gymcalc.viewmodel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

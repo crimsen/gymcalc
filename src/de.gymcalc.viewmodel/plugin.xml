@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
+   <extension point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
+<file filePath="viewmodels/Classes.view">
+   <filter key="viewmode" value="table">
+   </filter>
+</file>
+<file filePath="viewmodels/StationType.view"/>
+
+<file filePath="viewmodels/DisziplineType.view"/>
+
+<file filePath="viewmodels/ClassType.view">
+</file>
+
+<file filePath="viewmodels/ContestType.view"/>
+
+<file filePath="viewmodels/StationType.view"/>
+
+   </extension>
+
+<extension point="org.eclipse.emf.ecp.view.template">
+<viewTemplate xmi="viewmodels/Contest.template"/>
+</extension>
+</plugin>

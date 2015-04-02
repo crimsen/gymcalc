@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.gymcalc.de/contest/1.0" 
+       class = "de.gymcalc.contest.ContestPackage"
+       genModel = "model/contest.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <parser 
+       type="contest" 
+       class="de.gymcalc.contest.util.ContestResourceFactoryImpl" />
+  </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated contest -->
+      <package
+            uri="http://www.gymcalc.de/addressbook/1.0"
+            class="de.gymcalc.addressbook.AddressBookPackage"
+            genModel="model/contest.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated exercise -->
+      <package
+            uri="http://www.gymcalc.de/exercise/1.0"
+            class="de.gymcalc.exercise.ExercisePackage"
+            genModel="model/exercise.genmodel"/>
+   </extension>
+
+</plugin>
+

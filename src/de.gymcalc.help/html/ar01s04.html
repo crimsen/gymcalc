@@ -1,0 +1,318 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Eingeben der Meldungen</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title=""><link rel="up" href="index.html" title=""><link rel="prev" href="ar01s03.html" title="Einrichten eines Wettkampfes"><link rel="next" href="ar01s05.html" title="Ausgabe von Wettkampflisten"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e483"></a>Eingeben der Meldungen</h2></div></div></div>
+    
+    <p>
+      Ist eine Wettkampfdatei angelegt und eingerichtet (siehe
+      <a class="link" href="ar01s03.html" title="Einrichten eines Wettkampfes">Einrichten eines
+      Wettkampfes</a>), so k&ouml;nnen ankommende
+      Meldungen eingegeben werden. Die Aktiven werden &uuml;ber den Editor
+      "Wettk&auml;mpfer" und die Kampfrichter &uuml;ber den Editor "Kampfrichter"
+      getrennt eingegeben. Die Eingabe kann durch fr&uuml;her eingegebene
+      Kontakte unterst&uuml;tzt werden. Allerdings ist dazu ein spezielles
+      Modul notwendig, welches (aufgrund des fr&uuml;hen Entwicklungsstandes)
+      hier noch nicht publiziert werden soll.
+    </p>
+    <p>
+      Die entsprechenden Schritte zur Eingabe der Meldungen sind:
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	  
+	    <a class="link" href="ar01s04.html#procedure.enter_athlet" title="Procedure&nbsp;11.&nbsp;Eingabe der Wettk&auml;mpfer">
+	      Eingabe der Wettk&auml;mpfer
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s04.html#procedure.assign_athlet_to_chain" title="Procedure&nbsp;12.&nbsp;Zuordnen von Wettk&auml;mpfern zu Riegen / Riegeneinteilung.">
+	      Zuordnen von Wettk&auml;mpfern zu Riegen / Riegeneinteilung.
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s04.html#procedure.assign_team_to_class" title="Procedure&nbsp;13.&nbsp;Zuordnen von Mannschaften zu Wettkampfklassen.">
+	      Zuordnen von Mannschaften zu Wettkampfklassen.
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s04.html#procedure.enter_jurist" title="Procedure&nbsp;14.&nbsp;Eingabe der Wettk&auml;mpfer">
+	      Eingabe der Kampfrichter
+	    </a>
+	  
+	</li></ul></div><p>
+    </p>
+    <div class="procedure"><a name="procedure.enter_athlet"></a><p class="title"><b>Procedure&nbsp;11.&nbsp;Eingabe der Wettk&auml;mpfer</b></p><p>Vorraussetung zur Eingabe der Wettk&auml;mpfer ist, dass
+      eine Wettkampfdatei angelegt und eingerichtet ist.</p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "Wettk&auml;mpfer"-Editor. Hierf&uuml;r gibt es mehrere
+	  Methoden:
+	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	      
+		Dr&uuml;cke im "&Uuml;bersicht"-Editor auf <span class="guilabel">Wettk&auml;mpfer</span>.
+	      
+	    </li><li class="listitem">
+	      
+		W&auml;hle im Menu
+		<span class="guimenu">GymCalc</span> &#8594; <span class="guimenuitem">&Ouml;ffne Wettk&auml;mpferverwaltung</span>
+	      
+	    </li><li class="listitem">
+	      
+		<span class="guibutton">Rechts
+		Klick auf die Wettkampfdatei im Navigator</span>
+		<span class="guimenu">Open With</span> &#8594; <span class="guimenuitem">Wettk&auml;mpfer</span>
+	      
+	    </li></ul></div><p>
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle im Menu
+	  <span class="guimenu">GymCalc</span> &#8594; <span class="guimenuitem">Neue(r) Wettk&auml;mpfer(In)...</span> (<span class="shortcut"><strong>
+	      <span class="keysym">Ctrl+n</span>
+	    </strong></span>)
+	</p>
+      </li><li class="step">
+	<p>
+	  Gib Verein, Vorname, Name, Geburtsdatum, Wettkampfklasse und
+	  Mannschaft ein. Das Datum muss der Form Jahr-Monat-Tag
+	  (JJJJ-MM-TT) also beispielsweise 1999-12-20 entsprechen. Ist
+	  der genaue Tag nicht bekannt, dann macht es sich gut wenn
+	  der 1.1. verwendet wird. Die Wettkampfklasse sollte bereits
+	  wie beim <a class="link" href="ar01s03.html" title="Einrichten eines Wettkampfes">Einrichten
+	  eines Wettkampfes</a> sein. Die Mannschaft ist hier ein
+	  frei w&auml;hlbarer Name. Dieser sollte allerdings eindeutig
+	  sein. Ist der Wettk&auml;mpfer in keiner Mannschaft oder handelt
+	  es sich nicht um einen Mannschaftswettkampf, dann ist das
+	  Mannschaftsfeld leer zu lassen.
+	</p>
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	  <p>
+	    Alle eingegebenen Daten bis auf das Geburtsdatum lassen
+	    sich nachtr&auml;glich &auml;ndern.
+	  </p>
+	  <p>
+	    Die Mannschaften (sofern noch nicht vorhanden) werden
+	    einer neuen, leeren Wettkampfklasse zugeordent. Die
+	    Zuordnung der Mannschaft zur richtigen Wettkampfklasse
+	    erfolgt im <a class="link" href="ar01s04.html#procedure.assign_team_to_class" title="Procedure&nbsp;13.&nbsp;Zuordnen von Mannschaften zu Wettkampfklassen.">Zuordnen der
+	    Mannschaften zu Wettkampfklassen</a>
+	  </p>
+	  <p>
+	    Wird als Wettkampfklasse ein Name verwendet, der noch
+	    nicht angelegt wurde, so wird eine neue Wettkampfklasse
+	    mit diesem Namen angelegt. Die neu angelegte
+	    Wettkampfklasse enth&auml;lt aber noch keine Disziplinen. Das
+	    automatische Neuanlegen von Wettkampfklassen vereinfacht
+	    die Verwendung von GymCalc als Meldewerkzeug.
+	  </p>
+	</td></tr></table></div>
+	<p>
+	  Dr&uuml;cke auf <span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-new-athlet-end.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Wiederhole die vorigen Schritte bis alle Wettk&auml;mpfer der
+	  Meldung eingetragen sind.
+	</p>
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	  <p>
+	    Der Dialog zum Eingeben neuer Wettk&auml;mpfer wird mit den
+	    Daten des im "Wettkampf"-Editor selektierten Wettk&auml;mpfer
+	    bef&uuml;llt. Dies erleichtert die Eingabe.
+	  </p>
+	</td></tr></table></div>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/editor-athlet-end.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.assign_athlet_to_chain"></a><p class="title"><b>Procedure&nbsp;12.&nbsp;Zuordnen von Wettk&auml;mpfern zu Riegen / Riegeneinteilung.</b></p><p>
+	Die Riegeneinteilung erfolgt in der Regel nachdem alle
+	Meldungen eingegangen sind und die Anzahl der Starter in den
+	einzelnen Wettkampfklassen bekannt ist. Die hier dargestellte
+	Riegeneinteilung besteht darin, dass nacheinander jeder
+	Wettk&auml;mpfer einer Riege zugeordnet wird.
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "Wettk&auml;mpfer"-Editor. Hierf&uuml;r gibt es mehrere
+	  Methoden:
+	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	      
+		Dr&uuml;cke im "&Uuml;bersicht"-Editor auf <span class="guilabel">Wettk&auml;mpfer</span>.
+	      
+	    </li><li class="listitem">
+	      
+		W&auml;hle im Menu
+		<span class="guimenu">GymCalc</span> &#8594; <span class="guimenuitem">&Ouml;ffne Wettk&auml;mpferverwaltung</span>
+	      
+	    </li><li class="listitem">
+	      
+		<span class="guibutton">Rechts
+		Klick auf die Wettkampfdatei im Navigator</span>
+		<span class="guimenu">Open With</span> &#8594; <span class="guimenuitem">Wettk&auml;mpfer</span>
+	      
+	    </li></ul></div><p>
+	</p>
+      </li><li class="step">
+	<p>
+	  Nun sind im "Wettk&auml;mpfer"-Editor durch Klick mit der Maus
+	  in die ensprechende Zelle die Riege f&uuml;r jeden
+	  einzelne Wettk&auml;mpfer zu w&auml;hlen. Es ist darauf zu achten, dass
+	  die gew&auml;hlte Riege auch die richtigen Stationen f&uuml;r den
+	  Wettk&auml;mpfer anl&auml;uft. Es macht wenig sinn, wenn ein M&auml;dchen
+	  in einer Riege ist, die nur Jungsger&auml;te anl&auml;uft.
+	</p>
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	  <p>
+	    Die Zelle f&uuml;r die Riege ist auf der Rechten
+	    Seite. Entweder ist das Eingabefenster entsprechend zu
+	    vergr&ouml;&szlig;ern oder der untere Rollbalken muss ganz nach Links
+	    geschoben werden. Es ist auch m&ouml;glich wie im Screenshot zu
+	    sehen die Spalten zusammenzuschieben.
+	  </p>
+	  <p>
+	    Dr&uuml;cken auf die &Uuml;berschrift sortiert die gesamte Tabelle
+	    nach der entsprechenden Spalte. Damit k&ouml;nnen die
+	    Wettk&auml;mpfer einfach nach Verein oder Wettkampfklasse
+	    sortiert werden. Das hilft, wenn beispielsweise alle
+	    Wettk&auml;mpfer eines Vereines in einer Riege sein sollen.
+	  </p>
+	</td></tr></table></div>
+	<div class="screenshot">
+	  <div><img src="resources/editor-athlet-chain.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.assign_team_to_class"></a><p class="title"><b>Procedure&nbsp;13.&nbsp;Zuordnen von Mannschaften zu Wettkampfklassen.</b></p><p>
+	Mit der Eingabe der Wettk&auml;mpfer werden auch die Mannschaften
+	angelegt. Diese neuen Mannschaften sind allerdings einer leeren
+	Wettkampfklasse zugeordnet und m&uuml;ssen demzufolge noch der
+	richtigen Wettkampfklasse zugeordnet werden.
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "Mannschaften"-Editor. Hierf&uuml;r gibt es mehrere
+	  Methoden:
+	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	      
+		Dr&uuml;cke im "&Uuml;bersicht"-Editor auf <span class="guilabel">Mannshaft</span>.
+	      
+	    </li><li class="listitem">
+	      
+		W&auml;hle im Menu
+		<span class="guimenu">GymCalc</span> &#8594; <span class="guimenuitem">&Ouml;ffne Mannschaftsverwaltung</span>
+	      
+	    </li><li class="listitem">
+	      
+		<span class="guibutton">Rechts
+		Klick auf die Wettkampfdatei im Navigator</span>
+		<span class="guimenu">Open With</span> &#8594; <span class="guimenuitem">Mannschaften</span>
+	      
+	    </li></ul></div><p>
+	</p>
+      </li><li class="step">
+	<p>
+	  Nun sind im "Mannschaften"-Editor durch Klick mit der Maus
+	  in die ensprechende Zelle die Wettkampfklassen f&uuml;r jede
+	  einzelne Mannschaft zu w&auml;hlen. Es ist darauf zu achten, dass
+	  wirklich Wettkampfklassen, in denen Mannschaften bewertet
+	  werden, auszuw&auml;hlen sind. Es macht keinen Sinn eine
+	  Mannschaft einer Wettkampfklasse f&uuml;r Einzelwertungen zuzuordnen.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/editor-team.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/editor-team-end.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.enter_jurist"></a><p class="title"><b>Procedure&nbsp;14.&nbsp;Eingabe der Wettk&auml;mpfer</b></p><p>Vorraussetung zur Eingabe der Kampfrichter ist, dass
+      eine Wettkampfdatei angelegt ist.</p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "Kampfrichter"-Editor. Hierf&uuml;r gibt es mehrere
+	  Methoden:
+	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	      
+		Dr&uuml;cke im "&Uuml;bersicht"-Editor auf <span class="guilabel">Kampfrichter</span>.
+	      
+	    </li><li class="listitem">
+	      
+		W&auml;hle im Menu
+		<span class="guimenu">GymCalc</span> &#8594; <span class="guimenuitem">&Ouml;ffne Kampfrichterverwaltung</span>
+	      
+	    </li><li class="listitem">
+	      
+		<span class="guibutton">Rechts
+		Klick auf die Wettkampfdatei im Navigator</span>
+		<span class="guimenu">Open With</span> &#8594; <span class="guimenuitem">Kampfrichter</span>
+	      
+	    </li></ul></div><p>
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle im Menu
+	  <span class="guimenu">GymCalc</span> &#8594; <span class="guimenuitem">Neue(r) Kampfrichter(In)...</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  Gib Verein, Vorname, Name und Kampfgericht ein.
+	  Das Kampfgericht ist hier ein frei w&auml;hlbarer Name.
+	  Mit diesem Namen werden die Kampfrichter w&auml;hrend der Meldung
+	  gruppiert. Hier ist es sinnvoll wie "weiblich" und
+	  "m&auml;nnlich" zu verwenden.
+	</p>
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	  <p>
+	    Alle eingegebenen Daten lassen sich nachtr&auml;glich &auml;ndern.
+	  </p>
+	  <p>
+	    Gew&ouml;hnlich werden die Kampfgerichte durch die
+	    Hauptkampfrichter eingeteilt. Dazu werden die w&auml;hrend der
+	    Meldung angegebenen Kampfrichter in deren Gruppen an die
+	    Hauptkampfrichter gegeben, dieser teilt die Kampfgerichte
+	    ein. Anschlie&szlig;end werden diese Kampfgerichte in einem
+	    sp&auml;teren Schritt hier in GymCalc eingegeben.
+	  </p>
+	</td></tr></table></div>
+	<p>
+	  Dr&uuml;cke auf <span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-new-jurist-end.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Wiederhole die vorigen Schritte bis alle Kampfrichter der
+	  Meldung eingetragen sind.
+	</p>
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	  <p>
+	    Der Dialog zum Eingeben neuer Kampfrichter wird mit den
+	    Daten des im "Kampfrichter"-Editor selektierten Kampfrichter
+	    bef&uuml;llt. Dies erleichtert die Eingabe.
+	  </p>
+	</td></tr></table></div>
+      </li><li class="step">
+	<p>
+	  Speichere die Datei mittels
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Save</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/editor-jurist-end.png"></div>
+	</div>
+      </li></ol></div>
+  </div></body></html>

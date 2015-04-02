@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.gymcalc.de/contest/1.0" targetNamespace="http://www.gymcalc.de/contest/1.0">
+    <element name="contest">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" minOccurs="1" name="class" type="tns:classType">
+        </element>
+            </sequence>
+    </complexType>
+  </element>
+    <complexType name="classType">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="diszipline">
+        <complexType>
+          <attribute name="name" type="string"/>
+        </complexType>
+      </element>
+            <element maxOccurs="unbounded" minOccurs="0" name="person">
+        <complexType>
+                    <sequence>
+            <element minOccurs="0" name="date-of-birth">
+              <complexType>
+                <attribute name="value" type="string" use="required"/>
+              </complexType>
+            </element>
+                        <element name="result">
+              <complexType>
+                                <sequence>
+                  <element maxOccurs="unbounded" minOccurs="0" name="diszipline">
+                    <complexType>
+                      <attribute name="name" type="string" use="required"/>
+                                            <attribute name="points" type="string" use="required"/>
+                                        </complexType>
+                  </element>
+                </sequence>
+                                <attribute name="rank" type="string"/>
+                                <attribute name="points" type="string"/>
+                            </complexType>
+            </element>
+                    </sequence>
+                    <attribute name="id" type="string" use="required"/>
+                    <attribute name="name" type="string" use="required"/>
+                    <attribute name="firstname" type="string"/>
+                </complexType>
+      </element>
+        </sequence>
+  </complexType>
+</schema>

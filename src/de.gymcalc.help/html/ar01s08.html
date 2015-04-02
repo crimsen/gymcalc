@@ -1,0 +1,205 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Ausgabe von Urkunden und Protokollen</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title=""><link rel="up" href="index.html" title=""><link rel="prev" href="ar01s07.html" title="Berechnung von Wettkampfergegnissen"><link rel="next" href="ar01s09.html" title="Schablonen"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e957"></a>Ausgabe von Urkunden und Protokollen</h2></div></div></div>
+    
+    <p>
+      Die Ausgabe von Urkunden und Protokollen &auml;hnelt der
+      <a class="link" href="ar01s05.html" title="Ausgabe von Wettkampflisten">Ausgabe von
+      Wettkampflisten</a>. Wichtigster Unterschied ist, dass andere
+      Schablonen verwendet werden.
+    </p>
+    <p>
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	  
+	    <a class="link" href="ar01s08.html#procedure.prepare_result_templates" title="Procedure&nbsp;23.&nbsp;Schablonen vorbereiten">
+	      Schablonen f&uuml;r Protokoll und Urkunden vorbereiten
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s08.html#procedure.print_protocol" title="Procedure&nbsp;24.&nbsp; Ausgabe des Protokolles">
+	      Ausgabe des Protokolles
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s08.html#procedure.print_certificate" title="Procedure&nbsp;25.&nbsp; Ausgabe der Urkunden">
+	      Ausgabe der Urkunden
+	    </a>
+	  
+	</li></ul></div><p>
+    </p>
+    <div class="procedure"><a name="procedure.prepare_result_templates"></a><p class="title"><b>Procedure&nbsp;23.&nbsp;Schablonen vorbereiten</b></p><p>
+	Die Schablonen sind zur Zeit nicht Teil von GymCalc. Das ist
+	so gemacht, damit die Schablonen auch leicht ge&auml;ndert werden
+	k&ouml;nnen. Aus diesem Grund m&uuml;ssen sie aus dem Internet geladen
+	werden und in einem eigenen Verzeichnis abgelegt werden.
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  Lade vorgefertigte Schablonen von <a class="ulink" href="http://www.gymcalc.de/schablonen" target="_top">http://www.gymcalc.de/schablonen</a>
+	  und lege die Schablonen in einem Verzeichis (z.B. <code class="filename">Eigene
+	  Dokumente\GymCalc Schablonen</code>) ab.
+	  In diesem Verzeichniss sollten sich dann die Schablonen:
+	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	      
+		<code class="filename">
+		  protokoll.odt
+		</code>
+		f&uuml;r das Protokoll
+	      
+	    </li><li class="listitem">
+	      
+		<code class="filename">
+		  urkunde.odt
+		</code>
+		f&uuml;r die Urkunden
+	      
+	    </li></ul></div><p>
+	  vorhanden sein.
+	</p>
+      </li><li class="step">
+	<p>
+	  Das Verzeichniss, in dem sich die Schablonen befinden, muss
+	  GymCalc bekannt gemacht werden.
+	</p>
+	<ol type="a" class="substeps">
+	  <li class="step">
+	    <p>
+	      Dr&uuml;cke dazu auf
+	      <span class="guimenu">Window</span> &#8594; <span class="guimenuitem">Preferences</span>
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      W&auml;hle auf der linken Seite <span class="guilabel">Schablonen</span>
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      W&auml;hle unter <span class="guilabel">Template Directory</span> das
+	      Verzeichniss in dem sich die Schablonen befinden.
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      W&auml;hle unter <span class="guilabel">Generation Directory</span> ein
+	      Verzeichniss das tempor&auml;re Dateien enth&auml;lt.
+	      Dieses Verzeichnis wird von GymCalc verwendet um
+	      teilweise ausgef&uuml;llte Schablonen
+	      zwischenzuspeichern. Das Verzeichniss sollte somit
+	      beschreibbar sein. Die dort angelegten Dateien k&ouml;nnen
+	      aber wieder getrost gel&ouml;scht werden.
+	    </p>
+	  </li>
+	</ol>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-preferences-schablonen.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.print_protocol"></a><p class="title"><b>Procedure&nbsp;24.&nbsp;
+	Ausgabe des Protokolles
+      </b></p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "&Uuml;bersicht"-Editor.
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle aus dem Menu
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Mit Vorlage Drucken...</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-protocol.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle als Vorlage
+	  <span class="guilabel">protokoll.odt</span> nur
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  Ver&auml;ndere in der Parameterseite nichts und 
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-jury-parameter.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem das Protokoll abgelegt werden soll.
+	  Dr&uuml;cke<span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-protocol-enter-filename.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Ergebnis ist eine Datei mit ausgew&auml;hltem Namen im
+	  ausgew&auml;hlten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  ge&ouml;ffnet werden kann.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/protokoll-odt.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.print_certificate"></a><p class="title"><b>Procedure&nbsp;25.&nbsp;
+	Ausgabe der Urkunden
+      </b></p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "&Uuml;bersicht"-Editor.
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle aus dem Menu
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Mit Vorlage Drucken...</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-certificate.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle als Vorlage
+	  <span class="guilabel">urkunde.odt</span> nur
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle in der Parameterseite unter
+	  <span class="guilabel">Maximaler Platz der Teilnehmer</span> den
+	  Platz bis zu welchem die Urkunden gedruckt werden
+	  sollen. Voreingestellt sind Urkunden bis zum 6.Platz, dies
+	  kann jedoch durch Angabe eines anderen Platzes ge&auml;ndert
+	  werden. Wird an dieser Stelle -1 eingegeben, so werden die
+	  Urkunden f&uuml;r alle Teilnehmer gedruckt.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-certificate-parameter.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Datei f&uuml;r die Urkunden abgelegt werden soll.
+	  Dr&uuml;cke<span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-certificate-enter-filename.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Ergebnis ist eine Datei mit ausgew&auml;hltem Namen im
+	  ausgew&auml;hlten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  ge&ouml;ffnet werden kann.
+	  Beachte dabei, dass alle Urkunden in einer Datei gespeichert sind.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/urkunde-odt.png"></div>
+	</div>
+      </li></ol></div>
+  </div></body></html>
