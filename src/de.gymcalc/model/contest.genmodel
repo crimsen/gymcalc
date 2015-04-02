@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/contest/src" modelPluginID="contest" templateDirectory=""
+    forceOverwrite="true" modelName="Contest" featureMapWrapperInterface="" featureMapWrapperClass=""
+    testSuiteClass="de.gymcalc.contest.tests.ContestAllTests" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="7.0">
+  <foreignModel>contest.xsd</foreignModel>
+  <genPackages prefix="Contest" basePackage="de.gymcalc" resource="XML" disposableProviderFactory="true"
+      ecorePackage="contest.ecore#/">
+    <genClasses ecoreClass="contest.ecore#//ContestType">
+      <genFeatures createChild="false" propertyDescription="Eine Bezeichnung, die den Wettkampf eindeutig identifiziert der Form: '_&lt;Datum>-&lt;wettkampfname>' Beispiel '_2014-03-01-reife-jahresringe'. Darf keine Leerzeichen enthalten und muss mit einem Unterstrich oder Buchstaben beginnen. Die ID wird nur für maschinelle Weiterverarbeitung der Daten verwendet, beispielsweise wenn mehrere Wettkämpfe verglichen werden sollen."
+          ecoreFeature="ecore:EAttribute contest.ecore#//ContestType/id"/>
+      <genFeatures createChild="false" propertyDescription="Name des Wettkampfes wie er in Ausschreibungen und Protokollen erscheint."
+          ecoreFeature="ecore:EAttribute contest.ecore#//ContestType/name"/>
+      <genFeatures createChild="false" propertyDescription="Datum, an dem der Wettkampf stattfindet. Das Format ist 2014-03-01 für den 1.März 2014. Bei mehrtägigen Wettkämpfen ist der erste Tag anzugeben. Die angezeigte Uhrzeit ist nicht notwendig und programmatisch bedingt."
+          ecoreFeature="ecore:EAttribute contest.ecore#//ContestType/date"/>
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Wettkampfklassen sind jeweils Einteilungen, für die es eine Siegerehrung gibt. Beispielsweise 'Kinder weiblich KM4', 'Mannschaft weiblich KM4' aber auch 'Finale weiblich KM4 Boden'."
+          ecoreFeature="ecore:EReference contest.ecore#//ContestType/class"/>
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Riegen sind Gruppen von Wettkämpfern, die gemeinsam einen Gerätewechsel durchführen."
+          ecoreFeature="ecore:EReference contest.ecore#//ContestType/chain"/>
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Kampfgerichte sind Gruppen von Kampfrichtern, die gemeinsam eine oder mehrere Disziplinen bewerten."
+          ecoreFeature="ecore:EReference contest.ecore#//ContestType/juri"/>
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Eine Station oder auch Gerät ist ein Abschnitt im Wettkampf, zu dem die Riegen wechseln können. So gibt es beispielsweise bei einem Wettkampf mit 2 Gerätekreisen die Stationen: 'Sprung 1', 'Sprung 2', 'Stuba 1', 'Stuba 2', 'Balken 1', 'Balken 2', 'Boden 1', 'Boden 2'"
+          ecoreFeature="ecore:EReference contest.ecore#//ContestType/station"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//ContestType/addressbook"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//ContestType/lookuptables"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//ClassType">
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Wettkampfdisziplinen die innerhalb einer Wettkampfklasse durchgeführt werden. Beispiele sind 'Sprung', 'Stuba', 'Balken' und 'Boden'. Zu beachten ist, dass jede Wettkampfklasse eigene Disziplinen enthält. So ist die Disziplin 'Boden' in der Wettkampfklasse 'weiblich Kinder KM4' etwas anderes als die Disziplin 'Boden' in der Wettkampfklasse 'weiblich Jugend KM4' oder in der Wettkampfklasse 'Mannschaft weiblich KM4'"
+          ecoreFeature="ecore:EReference contest.ecore#//ClassType/diszipline"/>
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Wettkampfteilnehmer die in einer Wettkampfklasse die Besten ermitteln. Dabei kann ein Wettkampfteilnehmer ein einzelner Wettkämpfer als auch (bei Mannschaftswettkampfklassen) eine Mannschaft sein."
+          ecoreFeature="ecore:EReference contest.ecore#//ClassType/winner"/>
+      <genFeatures createChild="false" propertyDescription="Verständlicher Name der Wettkampfklasse. Dieser Name wird auch in Protokollen und Ausschreibungen verwendet. Beispiel 'weiblich Kinder KM4', 'Finale Boden weiblich Kinder KM4', 'Mannschaft KM4'"
+          ecoreFeature="ecore:EAttribute contest.ecore#//ClassType/name"/>
+      <genFeatures createChild="false" propertyDescription="Berechnungsschlüssel, wie die einzelnen Wertungen zusammengerechnet werden müssen. Beispiel, wenn nur die 3 besten Geräte gewertet werden sollen: 'best(3)', wenn nur die Finalwertung ( zeichnet sich aus, dass entsprechende Disziplin 'finals' in der id enthaelt ) genommen werden soll: 'finals'. 'bestofteam(3)' wenn die besten 3 Wertungen einer Mannschaft genommen werden sollen."
+          ecoreFeature="ecore:EAttribute contest.ecore#//ClassType/calculationkey"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//WinnerType">
+      <genFeatures createChild="false" propertyDescription="Eindeutige einzigartige Bezeichnung des Wettkämpfers. Diese ID wird zum Beispiel dafür verwendet, um einzelne Wettkämpfer Mannschaften zuzuordnen. Diese ID darf keine Leerzeichen enthalten und muss mit einem Buchstaben oder '_' beginnen. Beispiel ist 'starter-3451'"
+          ecoreFeature="ecore:EAttribute contest.ecore#//WinnerType/id"/>
+      <genFeatures createChild="false" propertyDescription="Name eines Wettkämpfers bzw. einer Mannschaft. Gewöhnlich wird der Name von Vor- und Familiennamen der Person abgeleitet."
+          ecoreFeature="ecore:EAttribute contest.ecore#//WinnerType/name"/>
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Die errechnete Gesamtwertung eines Wettkämpfers bzw. einer Mannschaft."
+          ecoreFeature="ecore:EReference contest.ecore#//WinnerType/result"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Verein, für den ein Wettkämpfer bzw. eine Mannschaft and den Start geht."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//WinnerType/organization"/>
+      <genFeatures createChild="false" propertyCategory="" propertyDescription="Sofern dieser Eintrag nicht leer ist, startet der Wettkämpfer ausser Konkurenz. Im Protokoll werden entsprechende Wettkämpfer am Ende mit Angabe dieses Eintrages aufgelistet. Beispiele sind: 'Ausser Konkurenz', 'Disqualifiziert'"
+          ecoreFeature="ecore:EAttribute contest.ecore#//WinnerType/disable"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyDescription="Wettkampfklasse in der der Wettkampfteilnehmer startet."
+          ecoreFeature="ecore:EReference contest.ecore#//WinnerType/class"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//AthletType">
+      <genFeatures notify="false" createChild="false" propertyDescription="Referenz auf eine Person. Der Unterschied zwischen Wettkämpfer und Person besteht darin, dass es nur eine Person 'Max Mustermann' geben kann. Es kann aber mehrere Wettkämpfer 'Max Mustermann' geben, z.B. ein 'Max Musterman' der in der Wettkampfklasse 'männlich Kinder KM4' startet und der (gleiche) 'Max Mustermann', der in der Wettkampfklasse 'Jedermannturnen bis 8 Jahre' startet."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//AthletType/person"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Referenz auf die Mannschaft, für die der Wettkämpfer startet. Der Eintrag kann leer sein, sofern der Wettkämpfer für keine Mannschaft startet."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//AthletType/team"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//TeamType">
+      <genFeatures children="true" createChild="false" propertyDescription="Wettkämpfer, die zu einer Mannschaft gehören."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//TeamType/athlet"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//ChainType">
+      <genFeatures createChild="false" propertyDescription="Name der Riege, beispielsweise 'Riege 1'"
+          ecoreFeature="ecore:EAttribute contest.ecore#//ChainType/name"/>
+      <genFeatures children="true" createChild="false" propertyDescription="Wettkämpfer, die in der Riege sind."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//ChainType/athlet"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Geräte, die nacheinander von der Riege angesteuert werden."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//ChainType/station"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//DisziplineType" labelFeature="#//contest/DisziplineType/id">
+      <genFeatures createChild="false" propertyDescription="Eindeutige, einzigartige Bezeichnung einer Disziplin. Disziplinen unterscheiden sich in Wettkampfklasse und Gerät. Beispiele sind: 'weiblich-kinder-km4-boden', 'finale-weiblich-kinder-km4-boden'. Der Bezeichner darf keine Leerzeichen enthalten und muss mit einem '_' oder Buchstaben beginnen."
+          ecoreFeature="ecore:EAttribute contest.ecore#//DisziplineType/id"/>
+      <genFeatures createChild="false" propertyDescription="Verständlicher Name der Disziplin. Mehrere Disziplinen können den gleichen Namen haben, beispielsweise 'Boden' für die Disziplin in der Wettkampfklasse 'weiblich Kinder KM4' und für die Disziplin in der Wettkampfklasse 'weiblich Kinder P5'"
+          ecoreFeature="ecore:EAttribute contest.ecore#//DisziplineType/name"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Gerät bzw. Station an dem die Disziplin geturnt wird. Beispielsweise 'Boden 1'"
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//DisziplineType/station"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Umrechnungstabelle, wenn die Punkte Disziplin für die Disziplin nach einer Umrechnungstabelle errechnet werden. Beispiel wenn in der Disziplin 'Sprint 30m' 2 Secunden 10 Punkten entspricht und 5 Sekunden 0 Punkten entspricht. Für einen Gerätturnwettkampf gibt es keine solche Umrechnungstabelle."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//DisziplineType/lookuptable"/>
+      <genFeatures createChild="false" propertyCategory="" propertyDescription="Berechnungsschlüssel, der für diese Disziplin gilt. Gültige Werte sind hier 'force', 'finals', 'lookuptable', 'bjs(\&quot;(lauf)|(.*)\&quot;,a,c,d,z)' die entsprechende Wertung muss enthalten sein, auch wenn nur die besten 3 Wertungen genommen werden sollen. 'finals' bedeuted, dass nur die Wertung dieser Disziplin genommen werden soll."
+          ecoreFeature="ecore:EAttribute contest.ecore#//DisziplineType/calculationkey"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//StationType">
+      <genFeatures createChild="false" propertyDescription="Eindeutige, einzigartige Bezeichnung eines Gerätes bzw. einer Station. Diese Bezeichung wird programmatisch zur Referenzierung verwendet. Beispiele sind: 'station-boden-1', 'station-pause'"
+          ecoreFeature="ecore:EAttribute contest.ecore#//StationType/id"/>
+      <genFeatures createChild="false" propertyDescription="Verständlicher Name des Gerätes bzw. der Station. Beispiele sind: 'Boden 1', 'Reck' oder auch 'Pause'"
+          ecoreFeature="ecore:EAttribute contest.ecore#//StationType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//ResultType">
+      <genFeatures createChild="false" propertyDescription="Numerischer Wert, der die Plazierung angibt. In der Regel wird diese Plazierung berechnet."
+          ecoreFeature="ecore:EAttribute contest.ecore#//ResultType/rank"/>
+      <genFeatures createChild="false" propertyDescription="Zusammengerechnete Punktzahl."
+          ecoreFeature="ecore:EAttribute contest.ecore#//ResultType/points"/>
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Einzelwertungen an den Disziplinen."
+          ecoreFeature="ecore:EReference contest.ecore#//ResultType/juriresult"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//AthletResultType"/>
+    <genClasses ecoreClass="contest.ecore#//TeamResultType"/>
+    <genClasses ecoreClass="contest.ecore#//JuriResultType">
+      <genFeatures notify="false" createChild="false" propertyDescription="Referenz auf die Disziplin, für die diese Wertung gilt."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuriResultType/diszipline"/>
+      <genFeatures createChild="false" propertyDescription="Vergebene Gesamtpunktzahl für diese Disziplin."
+          ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//TeamJuriResultType">
+      <genFeatures notify="false" children="true" createChild="false" propertyCategory=""
+          propertyDescription="Referenz auf die Gerätewertungen der einzelnen Mannschaftswettkämpfer, die für die Berechnung der Mannschaftswertung an einem Gerät betrachtet werden müssen. Bei einer Mannschaftsaufstellung 6-4-3 dürfen hier nur 4 Einzelwertungen referenziert werden."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//TeamJuriResultType/juriResult"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//JuristType">
+      <genFeatures notify="false" createChild="false" propertyCategory="" propertyDescription="Person, die als Kampfrichter fungiert."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuristType/person"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Verein, von dem der Kampfrichter gestellt wird."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuristType/organization"/>
+      <genOperations ecoreOperation="contest.ecore#//JuristType/getName"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//JuriType">
+      <genFeatures children="true" createChild="true" propertyDescription="Kampfrichter, die in diesem Kampfgericht wirken."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuriType/jurist"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Disziplinen, die dieses Kampfgericht bewertet."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuriType/diszipline"/>
+      <genFeatures createChild="false" propertyDescription="Verständlicher Name des Kampfgerichtes."
+          ecoreFeature="ecore:EAttribute contest.ecore#//JuriType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//LookupTablesType">
+      <genFeatures property="None" children="true" createChild="true" propertyDescription="Umrechnungstabellen, die in diesem Wettkampf verwendet werden. Umrechnungstabellen werden bei bestimmten Disziplinen (z.B. Athletikdisziplinen) verwendet. Dabei werden Messwerte linear in Punkte umgerechnet."
+          ecoreFeature="ecore:EReference contest.ecore#//LookupTablesType/table"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//LookupTableType">
+      <genFeatures createChild="false" propertyDescription="Eindeutiger, einzigartiger Bezeichner der Umrechnungstabelle."
+          ecoreFeature="ecore:EAttribute contest.ecore#//LookupTableType/id"/>
+      <genFeatures createChild="false" propertyDescription="Messwert, für den (noch) keine Punkte vergeben werden. Dies entspricht 0 Punkten."
+          ecoreFeature="ecore:EAttribute contest.ecore#//LookupTableType/minVal"/>
+      <genFeatures createChild="false" propertyDescription="Messwert, für den 10 Punkte vergeben wird."
+          ecoreFeature="ecore:EAttribute contest.ecore#//LookupTableType/maxVal"/>
+      <genFeatures notify="false" createChild="false" propertyDescription="Disziplinen, für die diese Umrechnungstabelle gilt."
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//LookupTableType/disziplines"/>
+      <genOperations ecoreOperation="contest.ecore#//LookupTableType/getValue"/>
+    </genClasses>
+    <nestedGenPackages prefix="AddressBook" basePackage="de.gymcalc" disposableProviderFactory="true"
+        ecorePackage="contest.ecore#//addressbook">
+      <genClasses ecoreClass="contest.ecore#//addressbook/AddressBookType">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//addressbook/AddressBookType/address"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//addressbook/AddressBookType/person"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//addressbook/AddressBookType/organization"/>
+      </genClasses>
+      <genClasses ecoreClass="contest.ecore#//addressbook/PersonType" labelFeature="#//contest/addressbook/PersonType/id">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/PersonType/id"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/PersonType/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/PersonType/firstname"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/PersonType/dateofbirth"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference contest.ecore#//addressbook/PersonType/address"/>
+      </genClasses>
+      <genClasses ecoreClass="contest.ecore#//addressbook/OrganizationType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/OrganizationType/id"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/OrganizationType/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference contest.ecore#//addressbook/OrganizationType/address"/>
+      </genClasses>
+      <genClasses ecoreClass="contest.ecore#//addressbook/AddressType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/AddressType/city"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/AddressType/zip"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/AddressType/street"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//addressbook/AddressType/id"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

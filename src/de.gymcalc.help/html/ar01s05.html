@@ -1,0 +1,318 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Ausgabe von Wettkampflisten</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title=""><link rel="up" href="index.html" title=""><link rel="prev" href="ar01s04.html" title="Eingeben der Meldungen"><link rel="next" href="ar01s06.html" title="Eingeben der Wertungen"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section.print_contest_lists"></a>Ausgabe von Wettkampflisten</h2></div></div></div>
+    
+    <p>
+      In der Vorbereitung eines Wettkampfes sind unterschiedliche
+      Listen auszudrucken. Dazu geh&ouml;ren Riegenlisten, die
+      ver&ouml;ffentlicht werden sollten, damit die Starter wissen in
+      welche Riege sie eingeteilt sind und in welcher Reihenfolge die
+      einzelnen Ger&auml;te bzw. Stationen absolviert werden. Weiterhin
+      sind Wertungslisten f&uuml;r die Kampfrichter notwendig und
+      ggf. Listen als Meldebest&auml;tigung oder zur Abrechnung von
+      Startgeldern.
+    </p>
+    <p>
+      GymCalc bietet eine sehr flexible M&ouml;glichkeit diese Listen
+      auszugeben. Diese Listen basieren allesamt auf "Schablonen" in
+      denen angegeben ist was und wie es ausgegeben werden soll. Hier
+      in der Einf&uuml;hrung soll sich auf die Ausgabe von vorgefertigten
+      Schablonen beschr&auml;nkt werden. Will man die Schablonen anpassen
+      oder eigene ausgefeiltere, zus&auml;tzliche, bessere Schablonen
+      anlegen, so sei auf die <a class="link" href="ar01s09.html" title="Schablonen">Abschnitt Schablonen</a> verwiesen.
+    </p>
+    <p>
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	  
+	    <a class="link" href="ar01s05.html#procedure.prepare_templates" title="Procedure&nbsp;15.&nbsp;Schablonen vorbereiten">Schablonen vorbereiten</a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s05.html#procedure.print_registerlist" title="Procedure&nbsp;16.&nbsp; Ausgabe einer Melde&uuml;bersicht / Meldebest&auml;tigung">
+	      Ausgabe einer Melde&uuml;bersicht / Meldebest&auml;tigung
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s05.html#procedure.print_chainlist" title="Procedure&nbsp;17.&nbsp; Ausgabe der Riegenliste">
+	      Ausgabe einer Riegenliste
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s05.html#procedure.print_juryform" title="Procedure&nbsp;18.&nbsp; Ausgabe der Wertungslisten">
+	      Ausgabe von Wertungslisten
+	    </a>
+	  
+	</li><li class="listitem">
+	  
+	    <a class="link" href="ar01s05.html#procedure.print_jurylist" title="Procedure&nbsp;19.&nbsp; Ausgabe der Kampfrichterliste">
+	      Ausgabe der Kampfrichterliste
+	    </a>
+	  
+	</li></ul></div><p>
+    </p>
+    <div class="procedure"><a name="procedure.prepare_templates"></a><p class="title"><b>Procedure&nbsp;15.&nbsp;Schablonen vorbereiten</b></p><p>
+	Die Schablonen sind zur Zeit nicht Teil von GymCalc. Das ist
+	so gemacht, damit die Schablonen auch leicht ge&auml;ndert werden
+	k&ouml;nnen. Aus diesem Grund m&uuml;ssen sie aus dem Internet geladen
+	werden und in einem eigenen Verzeichnis abgelegt werden.
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  Lade vorgefertigte Schablonen von <a class="ulink" href="http://www.gymcalc.de/schablonen" target="_top">http://www.gymcalc.de/schablonen</a>
+	  und lege die Schablonen in einem Verzeichis (z.B. <code class="filename">Eigene
+	  Dokumente\GymCalc Schablonen</code>) ab.
+	  In diesem Verzeichniss sollten sich dann die Schablonen:
+	  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+	      
+		<code class="filename">
+		  registration-organization.odt
+		</code>
+		f&uuml;r die Melde&uuml;bersicht / Meldebest&auml;tigung
+	      
+	    </li><li class="listitem">
+	      
+		<code class="filename">
+		  chain.odt
+		</code>
+		f&uuml;r die Riegenliste
+	      
+	    </li><li class="listitem">
+	      
+		<code class="filename">
+		  juryform.odt
+		</code>
+		f&uuml;r die Wertungslisten
+	      
+	    </li><li class="listitem">
+	      
+		<code class="filename">
+		  jury.odt
+		</code>
+		f&uuml;r die Kampfrichterliste
+	      
+	    </li></ul></div><p>
+	  vorhanden sein.
+	</p>
+      </li><li class="step">
+	<p>
+	  Das Verzeichniss, in dem sich die Schablonen befinden, muss
+	  GymCalc bekannt gemacht werden.
+	</p>
+	<ol type="a" class="substeps">
+	  <li class="step">
+	    <p>
+	      Dr&uuml;cke dazu auf
+	      <span class="guimenu">Window</span> &#8594; <span class="guimenuitem">Preferences</span>
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      W&auml;hle auf der linken Seite <span class="guilabel">Schablonen</span>
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      W&auml;hle unter <span class="guilabel">Template Directory</span> das
+	      Verzeichniss in dem sich die Schablonen befinden.
+	    </p>
+	  </li>
+	  <li class="step">
+	    <p>
+	      W&auml;hle unter <span class="guilabel">Generation Directory</span> ein
+	      Verzeichniss das tempor&auml;re Dateien enth&auml;lt.
+	      Dieses Verzeichnis wird von GymCalc verwendet um
+	      teilweise ausgef&uuml;llte Schablonen
+	      zwischenzuspeichern. Das Verzeichniss sollte somit
+	      beschreibbar sein. Die dort angelegten Dateien k&ouml;nnen
+	      aber wieder getrost gel&ouml;scht werden.
+	    </p>
+	  </li>
+	</ol>
+	<div class="screenshot">
+	  <div><img src="resources/dialog-preferences-schablonen.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.print_registerlist"></a><p class="title"><b>Procedure&nbsp;16.&nbsp;
+	Ausgabe einer Melde&uuml;bersicht / Meldebest&auml;tigung
+      </b></p><p>
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "&Uuml;bersicht"-Editor.
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle aus dem Menu
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Mit Vorlage Drucken...</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-registration-organization.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle als Vorlage
+	  <span class="guilabel">registration-organization.odt</span> nur
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Melde&uuml;bersicht bzw. Meldebest&auml;tigung abgelegt werden soll.
+	  Dr&uuml;cke<span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-registration-organization-enter-filename.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Ergebnis ist eine Datei mit ausgew&auml;hltem Namen im
+	  ausgew&auml;hlten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  ge&ouml;ffnet werden kann.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/registration-organization-odt.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.print_chainlist"></a><p class="title"><b>Procedure&nbsp;17.&nbsp;
+	Ausgabe der Riegenliste
+      </b></p><p>
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "&Uuml;bersicht"-Editor.
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle aus dem Menu
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Mit Vorlage Drucken...</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-chain.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle als Vorlage
+	  <span class="guilabel">chain.odt</span> nur
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Riegenliste abgelegt werden soll.
+	  Dr&uuml;cke<span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-chain-enter-filename.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Ergebnis ist eine Datei mit ausgew&auml;hltem Namen im
+	  ausgew&auml;hlten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  ge&ouml;ffnet werden kann.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/chain-odt.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.print_juryform"></a><p class="title"><b>Procedure&nbsp;18.&nbsp;
+	Ausgabe der Wertungslisten
+      </b></p><p>
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "&Uuml;bersicht"-Editor.
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle aus dem Menu
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Mit Vorlage Drucken...</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-juryform.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle als Vorlage
+	  <span class="guilabel">juryform.odt</span> nur
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Wertungslsiten abgelegt werden soll.
+	  Dr&uuml;cke<span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-juryform-enter-filename.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Ergebnis ist eine Datei mit ausgew&auml;hltem Namen im
+	  ausgew&auml;hlten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  ge&ouml;ffnet werden kann.
+	</p>
+	<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="assets/images/note.svg"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	  <p>
+	    Die Vorlage f&uuml;r die Wertungslisten ist so angelegt, dass
+	    jede Riege f&uuml;r jedes Ger&auml;t ein A5-Blatt erh&auml;lt.
+	    Wird also auf A4-Bl&auml;ttern (wie &uuml;blich) gedruckt, so kann
+	    man mit LibreOffice zun&auml;chst die erste H&auml;lfte der Seiten
+	    ausdrucken, das Papier nochmals aber anders herum einlegen
+	    und dann die zweite H&auml;lfte der Seiten drucken.
+	  </p>
+	</td></tr></table></div>
+	<div class="screenshot">
+	  <div><img src="resources/juryform-odt.png"></div>
+	</div>
+      </li></ol></div>
+    <div class="procedure"><a name="procedure.print_jurylist"></a><p class="title"><b>Procedure&nbsp;19.&nbsp;
+	Ausgabe der Kampfrichterliste
+      </b></p><p>
+      </p><ol class="procedure" type="1"><li class="step">
+	<p>
+	  &Ouml;ffne den "&Uuml;bersicht"-Editor.
+	</p>
+      </li><li class="step">
+	<p>
+	  W&auml;hle aus dem Menu
+	  <span class="guimenu">File</span> &#8594; <span class="guimenuitem">Mit Vorlage Drucken...</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-jury.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle als Vorlage
+	  <span class="guilabel">jury.odt</span> nur
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+      </li><li class="step">
+	<p>
+	  Ver&auml;ndere in der Parameterseite nichts und 
+	  dr&uuml;cke<span class="guibutton">Next &gt;</span>
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-jury-parameter.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  W&auml;hle ein Verzeichniss und gib einen Dateinamen ein, unter
+	  dem die Kampfrichterliste abgelegt werden soll.
+	  Dr&uuml;cke<span class="guibutton">Finish</span>.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/wizard-print-jury-enter-filename.png"></div>
+	</div>
+      </li><li class="step">
+	<p>
+	  Ergebnis ist eine Datei mit ausgew&auml;hltem Namen im
+	  ausgew&auml;hlten Verzeichnis. Diese Datei ist im "ODT"-Format,
+	  welches mit einem der Schreibprogramme wie "LibreOffice"
+	  ge&ouml;ffnet werden kann.
+	</p>
+	<div class="screenshot">
+	  <div><img src="resources/jury-odt.png"></div>
+	</div>
+      </li></ol></div>
+  </div></body></html>

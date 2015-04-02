@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/contest/src" modelPluginID="contest" modelName="Exercise"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/de.gymcalc.contest/model/contest.genmodel#//contest">
+  <foreignModel>exercise.ecore</foreignModel>
+  <genPackages prefix="Exercise" basePackage="de.gymcalc" disposableProviderFactory="true"
+      ecorePackage="exercise.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="exercise.ecore#//Difficulty">
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/TE"/>
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/NE"/>
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/A"/>
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/B"/>
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/C"/>
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/D"/>
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/E"/>
+      <genEnumLiterals ecoreEnumLiteral="exercise.ecore#//Difficulty/F"/>
+    </genEnums>
+    <genClasses ecoreClass="exercise.ecore#//Exercise">
+      <genFeatures children="true" createChild="true" propertyCategory="" propertyDescription=""
+          ecoreFeature="ecore:EReference exercise.ecore#//Exercise/elements"/>
+      <genFeatures children="true" createChild="true" propertyDescription="" ecoreFeature="ecore:EReference exercise.ecore#//Exercise/finalelement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//Exercise/ruleset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//Exercise/athlet"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//Exercise/diszipline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Exercise/initialValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Exercise/videoRef"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Exercise/events"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//IElement">
+      <genOperations ecoreOperation="exercise.ecore#//IElement/getGroup"/>
+      <genOperations ecoreOperation="exercise.ecore#//IElement/getName"/>
+      <genOperations ecoreOperation="exercise.ecore#//IElement/getDifficulty"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//Element">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//Element/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Element/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Element/difficulty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Element/id"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ElementInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//ElementInstance/element"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//Ruleset">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//Ruleset/rules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Ruleset/name"/>
+      <genOperations ecoreOperation="exercise.ecore#//Ruleset/getPoints">
+        <genParameters ecoreParameter="exercise.ecore#//Ruleset/getPoints/exercise"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Rule/name"/>
+      <genOperations ecoreOperation="exercise.ecore#//Rule/getPoints">
+        <genParameters ecoreParameter="exercise.ecore#//Rule/getPoints/exercise"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//RuleElements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//RuleElements/minDifficulty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//RuleElements/countOfElements"/>
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference exercise.ecore#//RuleElements/difficultyValueMap"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//RuleGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//RuleGroup/countOfGroups"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//RuleGroup/minDifficulty"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//RuleSpecialGroup">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//RuleSpecialGroup/groups"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//RuleFinalElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//RuleFinalElement/difficultyValueMap"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//InitialValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//InitialValue/excercise"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//InitialValue/ruleset"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ElementGroup">
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ElementGroup/elements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ElementGroup/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ElementGroup/number"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ElementReferenceGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ElementReferenceGroup/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//ElementReferenceGroup/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//Gadget">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Gadget/groups"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Gadget/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Gadget/referenceGroups"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ExerciseRuleCont">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ExerciseRuleCont/gadgets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ExerciseRuleCont/rulesets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ExerciseRuleCont/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ExerciseCont">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ExerciseCont/exercises"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//DifficultyValueEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//DifficultyValueEntry/difficulty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//DifficultyValueEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ExerciseEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ExerciseEvent/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ExerciseEvent/durationTime"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ElementEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//ElementEvent/element"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

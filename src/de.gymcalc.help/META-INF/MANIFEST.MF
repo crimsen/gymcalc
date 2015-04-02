@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-Version: 1.0.1.qualifier
+Bundle-Name: GymCalc Hilfe
+Bundle-SymbolicName: de.gymcalc.help;singleton:=true
+Bundle-Vendor: turnen-spremberg.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ManifestVersion: 2

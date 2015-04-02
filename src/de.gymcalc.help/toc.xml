@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<toc label="GymCalc Benutzerhandbuch" topic="html/index.html">
+   <topic label="Einführung" href="html/index.html#d5e2"/>
+   <topic label="Installation" href="html/ar01s02.html"/>
+   <topic label="Einrichten eines Wettkampfes" href="html/ar01s03.html"/>
+   <topic label="Eingeben der Meldungen" href="html/ar01s04.html"/>
+   <topic label="Ausgabe von Wettkampflisten" href="html/ar01s05.html"/>
+   <topic label="Eingeben der Wertungen" href="html/ar01s06.html"/>
+   <topic label="Berechnung von Wettkampfergegnissen" href="html/ar01s07.html"/>
+   <topic label="Ausgabe von Urkunden und Protokollen" href="html/ar01s08.html"/>
+   <topic label="Schablonen" href="html/ar01s09.html"/>
+   <topic label="Berechnungsvorschriften" href="html/ar01s10.html"/>
+   <topic label="Referenz" href="html/ar01s11.html">
+      <topic label="Calculationkey für Wettkampfklassen" href="html/ar01s11.html#ref.calculationkey-class"/>
+      <topic label="Calculationkey für Disziplines" href="html/ar01s11.html#ref.calculationkey-diszipline"/>
+   </topic>
+   <topic label="Systemvorraussetzungen" href="html/ar01s12.html"/>
+</toc>
