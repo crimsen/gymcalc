@@ -19,7 +19,7 @@ import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.StationType;
 
 public class ChainModel {
-	public static String modelName = "http://www.turnen-spremberg.de/ChainModel";
+	public static String modelName = "http://www.gymcalc.de/ChainModel";
 
 	public ChainModel( DialogSettings options ) {
 		this.options = options;

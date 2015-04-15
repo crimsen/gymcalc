@@ -25,7 +25,7 @@ import de.gymcalc.contest.JuristType;
 import de.gymcalc.contest.WinnerType;
 
 public class ProtocolModel {
-	public static String modelName = "http://www.turnen-spremberg.de/ProtocolModel";
+	public static String modelName = "http://www.gymcalc.de/ProtocolModel";
 	
 	public ProtocolModel( ) {
 		options = new DialogSettings( "" );

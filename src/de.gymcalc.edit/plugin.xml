@@ -12,7 +12,7 @@
     
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 
-       uri = "http://www.turnen-spremberg.de/contest" 
+       uri = "http://www.gymcalc.de/contest/1.0" 
        class = "de.gymcalc.contest.provider.ContestItemProviderAdapterFactory" 
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -25,7 +25,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated contest -->
       <factory
-            uri="http://www.turnen-spremberg.de/addressbook"
+            uri="http://www.gymcalc.de/addressbook/1.0"
             class="de.gymcalc.addressbook.provider.AddressBookItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -38,7 +38,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated exercise -->
       <factory
-            uri="http://www.turnen-spremberg.de/exercise/1.0"
+            uri="http://www.gymcalc.de/exercise/1.0"
             class="de.gymcalc.exercise.provider.ExerciseItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

@@ -24,7 +24,7 @@ import de.gymcalc.contest.TeamType;
 import de.gymcalc.contest.WinnerType;
 
 public class OrganizationModel {
-	public static String modelName = "http://www.turnen-spremberg.de/OrganizationModel";
+	public static String modelName = "http://www.gymcalc.de/OrganizationModel";
 
 	public OrganizationModel( DialogSettings options ) {
 		this.options = options;

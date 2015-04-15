@@ -5,15 +5,15 @@
       version="1.4.0.qualifier"
       provider-name="turnen-spremberg.de">
 
-   <description url="http://www.turnen-spremberg.de">
+   <description url="http://www.gymcalc.de">
       GymCalc ist ein Program zur Berechnung von Gerätturnwettkämpfen
    </description>
 
-   <copyright url="http://www.turnen-spremberg.de">
+   <copyright url="http://www.gymcalc.de">
       can be used by everybody.
    </copyright>
 
-   <license url="http://www.turnen-spremberg.de">
+   <license url="http://www.gymcalc.de">
       can be used by everybody.
    </license>
 
