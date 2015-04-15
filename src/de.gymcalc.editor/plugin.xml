@@ -14,7 +14,7 @@
   <extension
     point = "org.eclipse.ui.newWizards">
     <category
-      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      id = "de.gymcalc.Wizard.category.ID"
       name="%_UI_Wizard_category">
     </category>
     <wizard
@@ -298,21 +298,6 @@
         </menu>
 	  </menuContribution>
 	</extension>
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated contest -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="de.gymcalc.contest.presentation.ContestModelWizardID"
-            name="%_UI_ContestModelWizard_label"
-            class="de.gymcalc.contest.presentation.ContestModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ContestModelFile.gif">
-         <description>%_UI_ContestModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated contest -->
@@ -329,7 +314,7 @@
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated contest -->
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="de.gymcalc.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
             id="de.gymcalc.addressbook.presentation.AddressBookModelWizardID"
