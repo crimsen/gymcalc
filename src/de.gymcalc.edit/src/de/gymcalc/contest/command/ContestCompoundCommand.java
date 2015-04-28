@@ -85,11 +85,11 @@ public class ContestCompoundCommand extends DomainCompoundCommand {
 		while (i.hasNext ()) {
 			PersonType person = i.next();
 			if( null != person.getName( ) && 
-				null != person.getFirstname( ) && 
-				null != person.getDateofbirth() ) {
+				null != person.getFirstname( ) ) {
 				if( ( 0 == person.getName( ).compareTo( param.getName() ) ) &&
 					( 0 == person.getFirstname( ).compareTo( param.getFirstname() ) ) &&
 					( null == param.getDateOfBirth() ||
+						null == person.getDateofbirth() ||
 						( 0 == person.getDateofbirth().toString().compareTo( param.getDateOfBirth().toString() ) ) ) ) {
 					retVal = person;
 					break;
