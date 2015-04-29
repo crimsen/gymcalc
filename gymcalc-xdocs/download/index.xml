@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V2.0//EN" "http://forrest.apache.org/dtd/document-v20.dtd">
+<document>
+  <header>
+    <title>GymCalc - Download</title>
+  </header>
+  <body>
+    <section>
+      <p>
+	<ul>
+	  <li>
+	    Die ZIP-Datei, die für die Installation benötigt wird.
+	    <a href="contactfeature.zip">
+	      contactfeature.zip
+	    </a>
+	  </li>
+	  <li>
+	    Satz von Schablonen, um nicht alle einzeln laden zu müssen.
+	    <a href="gymcalc-schablonen.zip">
+	      gymcalc-schablonen.zip
+	    </a>
+	  </li>
+	  <li>
+	    Quellen, für alle die sich für die Entwicklung
+	    interessieren oder selbst entwickeln wollen.
+	    <a href="gymcalc-src.zip">
+	      gymcalc-src.zip
+	    </a>
+	  </li>
+	</ul>
+      </p>
+    </section>
+  </body>
+</document>
