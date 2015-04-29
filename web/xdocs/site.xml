@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site label="GymCalc" href="" tab=""
+  xmlns="http://apache.org/forrest/linkmap/1.0"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  >
+  <about label="About"/>
+  <doc label="Dokumentation" tab="doc" href="doc/index.html"/>
+  <template label="Schablonen" tab="template" href="template/index.html"/>
+  <contact label="Kontakt" tab="contact" href="contact/index.html"/>
+</site>
