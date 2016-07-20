@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="ASCII"?>
-<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.group.model="http://org/eclipse/emf/ecp/view/group/model" xmlns:org.eclipse.emf.ecp.view.horizontal.model="http://org/eclipse/emf/ecp/view/horizontal/model" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model" xmlns:org.eclipse.emf.ecp.view.vertical.model="http://org/eclipse/emf/ecp/view/vertical/model" ecorePath="/contest/model/contest.ecore">
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.group.model="http://org/eclipse/emf/ecp/view/group/model" xmlns:org.eclipse.emf.ecp.view.horizontal.model="http://org/eclipse/emf/ecp/view/horizontal/model" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmlns:org.eclipse.emf.ecp.view.vertical.model="http://org/eclipse/emf/ecp/view/vertical/model" xmi:id="_VoFgQE2EEea3-_4kb-8SSQ" ecorePath="/de.gymcalc/model/contest.ecore">
   <rootEClass href="http://www.gymcalc.de/contest/1.0#//ContestType"/>
-  <children xsi:type="org.eclipse.emf.ecp.view.horizontal.model:HorizontalLayout">
-    <children xsi:type="org.eclipse.emf.ecp.view.vertical.model:VerticalLayout">
-      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" name="Bezeichnung">
-        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control id">
-          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+  <children xsi:type="org.eclipse.emf.ecp.view.horizontal.model:HorizontalLayout" xmi:id="_VoGHUE2EEea3-_4kb-8SSQ">
+    <children xsi:type="org.eclipse.emf.ecp.view.vertical.model:VerticalLayout" xmi:id="_VoGHUU2EEea3-_4kb-8SSQ">
+      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" xmi:id="_VoGHUk2EEea3-_4kb-8SSQ" name="Bezeichnung">
+        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_VoGHU02EEea3-_4kb-8SSQ" name="Control id" labelAlignment="Left">
+          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_VoGHVE2EEea3-_4kb-8SSQ">
             <domainModelEFeature xsi:type="ecore:EAttribute" href="http://www.gymcalc.de/contest/1.0#//ContestType/id"/>
           </domainModelReference>
         </children>
-        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control name">
-          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_VoGHVU2EEea3-_4kb-8SSQ" name="Control name" labelAlignment="Left">
+          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_VoGHVk2EEea3-_4kb-8SSQ">
             <domainModelEFeature xsi:type="ecore:EAttribute" href="http://www.gymcalc.de/contest/1.0#//ContestType/name"/>
           </domainModelReference>
         </children>
-        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control date">
-          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_VoGHV02EEea3-_4kb-8SSQ" name="Control date" labelAlignment="Left">
+          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_VoGHWE2EEea3-_4kb-8SSQ">
             <domainModelEFeature xsi:type="ecore:EAttribute" href="http://www.gymcalc.de/contest/1.0#//ContestType/date"/>
           </domainModelReference>
         </children>
       </children>
-      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" name="Wettkampfklassen">
-        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Wettkampfklassen">
-          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" xmi:id="_VoGHWU2EEea3-_4kb-8SSQ" name="Wettkampfklassen">
+        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_VoGHWk2EEea3-_4kb-8SSQ" name="Wettkampfklassen" labelAlignment="Left">
+          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_VoGHW02EEea3-_4kb-8SSQ">
             <domainModelEFeature xsi:type="ecore:EReference" href="http://www.gymcalc.de/contest/1.0#//ContestType/class"/>
           </domainModelReference>
         </children>
       </children>
     </children>
-    <children xsi:type="org.eclipse.emf.ecp.view.vertical.model:VerticalLayout">
-      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" name="Riegen" collapsed="true">
-        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Riegen">
-          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+    <children xsi:type="org.eclipse.emf.ecp.view.vertical.model:VerticalLayout" xmi:id="_VoGHXE2EEea3-_4kb-8SSQ">
+      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" xmi:id="_VoGHXU2EEea3-_4kb-8SSQ" name="Riegen" collapsed="true">
+        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_VoGHXk2EEea3-_4kb-8SSQ" name="Riegen" labelAlignment="Left">
+          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_VoGHX02EEea3-_4kb-8SSQ">
             <domainModelEFeature xsi:type="ecore:EReference" href="http://www.gymcalc.de/contest/1.0#//ContestType/chain"/>
           </domainModelReference>
         </children>
       </children>
-      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" name="Ger&#xe4;te, Stationen" collapsed="true">
-        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Stationen">
-          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+      <children xsi:type="org.eclipse.emf.ecp.view.group.model:Group" xmi:id="_VoGHYE2EEea3-_4kb-8SSQ" name="Ger&#xe4;te, Stationen" collapsed="true">
+        <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_VoGHYU2EEea3-_4kb-8SSQ" name="Stationen" labelAlignment="Left">
+          <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_VoGuYE2EEea3-_4kb-8SSQ">
             <domainModelEFeature xsi:type="ecore:EReference" href="http://www.gymcalc.de/contest/1.0#//ContestType/station"/>
           </domainModelReference>
         </children>

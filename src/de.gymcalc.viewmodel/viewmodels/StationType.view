@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model" ecorePath="/contest/model/contest.ecore">
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmi:id="_5v9i0E2DEea3-_4kb-8SSQ" ecorePath="/de.gymcalc/model/contest.ecore">
   <rootEClass href="http://www.gymcalc.de/contest/1.0#//StationType"/>
-  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control id">
-    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_5v9i0U2DEea3-_4kb-8SSQ" name="Control id" labelAlignment="Left">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_5v9i0k2DEea3-_4kb-8SSQ">
       <domainModelEFeature xsi:type="ecore:EAttribute" href="http://www.gymcalc.de/contest/1.0#//StationType/id"/>
     </domainModelReference>
   </children>
-  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control name">
-    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference">
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_5v9i002DEea3-_4kb-8SSQ" name="Control name" labelAlignment="Left">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_5v9i1E2DEea3-_4kb-8SSQ">
       <domainModelEFeature xsi:type="ecore:EAttribute" href="http://www.gymcalc.de/contest/1.0#//StationType/name"/>
     </domainModelReference>
   </children>
