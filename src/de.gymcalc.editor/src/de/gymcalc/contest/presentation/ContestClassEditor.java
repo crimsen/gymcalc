@@ -13,6 +13,8 @@ import org.eclipse.emf.ecp.ui.view.swt.ECPSWTViewRenderer;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContext;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContextFactory;
 import org.eclipse.emf.ecp.view.spi.model.VView;
+import org.eclipse.emf.ecp.view.spi.model.VViewModelProperties;
+import org.eclipse.emf.ecp.view.spi.model.util.ViewModelPropertiesHelper;
 import org.eclipse.emf.ecp.view.spi.provider.ViewProviderHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
@@ -62,8 +64,8 @@ public class ContestClassEditor extends EmfMultiEditor {
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
 			ContestType contest = ( ( ContestType ) resource.getContents().get( 0 ) );
 
-			Map<String, Object> context = new HashMap<String, Object>();
-			context.put( "viewmode", new String( "table" ) );
+			VViewModelProperties context = ViewModelPropertiesHelper.getInhertitedPropertiesOrEmpty( null );
+			// TODO: context.put( "viewmode", new String( "table" ) );
 			final VView view = ViewProviderHelper.getView( contest, context );
 			DefaultReferenceService referenceService=new DefaultReferenceService();
 			ViewModelContext viewContext = ViewModelContextFactory.INSTANCE.createViewModelContext(view,
