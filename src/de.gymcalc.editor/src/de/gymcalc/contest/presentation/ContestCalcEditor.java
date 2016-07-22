@@ -108,10 +108,13 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
@@ -601,6 +604,7 @@ public class ContestCalcEditor
 	public ContestCalcEditor() {
 		super();
 
+		/*
 		// Create an adapter factory that yields item providers.
 		//
 		List<AdapterFactoryImpl> factories = new ArrayList<AdapterFactoryImpl>();
@@ -613,11 +617,11 @@ public class ContestCalcEditor
 
 		// Create the command stack that will notify this editor as commands are executed.
 		//
-		BasicCommandStack commandStack = new BasicCommandStack();
+		//BasicCommandStack commandStack = new BasicCommandStack();
 
 		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
 		//
-		commandStack.addCommandStackListener
+		 commandStack.addCommandStackListener
 			(new CommandStackListener() {
 				 public void commandStackChanged(final EventObject event) {
 					 getContainer().getDisplay().asyncExec
@@ -642,6 +646,7 @@ public class ContestCalcEditor
 		// Create the editing domain with a special command stack.
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		*/
 	}
 
 	/**
@@ -1434,12 +1439,53 @@ public class ContestCalcEditor
 	 * This is called during startup.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void init(IEditorSite site, IEditorInput editorInput) {
+	public void init(IEditorSite site, IEditorInput input)
+			throws PartInitException {
 		setSite(site);
-		setInputWithNotify(editorInput);
-		setPartName(editorInput.getName());
+		setInputWithNotify(input);
+		setPartName(input.getName());
+		/* look thru all editors if input is already open and provides a editingdomain
+		 */
+		IWorkbenchWindow windows[] = site.getWorkbenchWindow().getWorkbench().getWorkbenchWindows();
+		String name = null;
+		if( input instanceof IFileEditorInput ) {
+			name = ( ( IFileEditorInput )input ).getFile().getRawLocationURI().toString();
+		} else {
+			name = input.getName();
+		}
+		EditingDomain foreignDomain = null;
+		for( IWorkbenchWindow window : windows ) {
+			IWorkbenchPage pages[] = window.getPages();
+			for( IWorkbenchPage page : pages ) {
+				IEditorReference editors[] = page.getEditorReferences();
+				for( IEditorReference editor : editors ) {
+					IEditorInput foreignInput = editor.getEditorInput();
+					String foreignName = null;
+					if( foreignInput instanceof IFileEditorInput ) {
+						foreignName = ( ( IFileEditorInput )foreignInput ).getFile().getRawLocationURI().toString();
+					} else {
+						foreignName = foreignInput.getName();
+					}
+					if( 0 == name.compareTo( foreignName ) ) {
+						IEditorPart foreignEditor = editor.getEditor(false);
+						if( null != foreignEditor &&
+								foreignEditor instanceof IEditingDomainProvider &&
+								null != ( ( IEditingDomainProvider )foreignEditor).getEditingDomain() ) {
+							foreignDomain = ( ( IEditingDomainProvider )foreignEditor).getEditingDomain();
+							break;
+						}
+					}
+				}
+				if( null != foreignDomain ) {
+						break;
+				}
+			}
+			if( null != foreignDomain ) {
+				break;
+			}
+		}
+    	initializeEditingDomain( ( AdapterFactoryEditingDomain ) foreignDomain );
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
@@ -1720,6 +1766,45 @@ public class ContestCalcEditor
 			break;
 		}
 	}
+
+	protected void initializeEditingDomain( AdapterFactoryEditingDomain editingDomain ) {
+		// Create an adapter factory that yields item providers.
+		//
+		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ContestItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AddressBookItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
+		this.editingDomain = editingDomain;
+		if( null == editingDomain )	{
+			createEditingDomain();
+		}
+		{
+			commandStackListener = new CommandStackListener() {
+				public void commandStackChanged(final EventObject event) {
+					getContainer().getDisplay().asyncExec
+						(new Runnable() {
+							public void run() {
+								firePropertyChange(IEditorPart.PROP_DIRTY);
+							}
+						});
+				}
+			};
+			this.editingDomain.getCommandStack().addCommandStackListener( commandStackListener );
+		}
+	}
 	
+	protected void createEditingDomain() {
+
+		// Create the command stack that will notify this editor as commands are executed.
+		//
+		BasicCommandStack commandStack = new BasicCommandStack();
+		this.editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		createModel( );
+	}
+	
+    protected CommandStackListener commandStackListener = null;
 	private ContestType contest = null;
 }
