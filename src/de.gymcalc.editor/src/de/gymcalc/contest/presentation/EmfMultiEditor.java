@@ -273,7 +273,7 @@ public abstract class EmfMultiEditor extends EditorPart implements
 
 		// Create the command stack that will notify this editor as commands are executed.
 		//
-		BasicCommandStack commandStack = new BasicCommandStack();
+		BasicCommandStack commandStack = new SharedCommandStack();
 		this.editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
 		createModel( );
 	}
