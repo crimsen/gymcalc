@@ -29,7 +29,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.query.ocl,
  de.spremberg.turnen.databinding,
  org.eclipse.emf.ecp.edit;bundle-version="1.4.0",
- org.eclipse.emf.ecp.ui.view.swt;bundle-version="1.4.0"
+ org.eclipse.emf.ecp.ui.view.swt;bundle-version="1.4.0",
+ org.eclipse.emf.ecp.common.ui,
+ org.eclipse.emf.ecp.edit.swt
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Import-Package: de.spremberg.turnen.contact,

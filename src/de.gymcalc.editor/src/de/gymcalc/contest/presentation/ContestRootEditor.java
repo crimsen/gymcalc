@@ -5,7 +5,7 @@ package de.gymcalc.contest.presentation;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecp.ui.view.swt.DefaultReferenceService;
+import org.eclipse.emf.ecp.edit.spi.ReferenceService;
 import org.eclipse.emf.ecp.ui.view.swt.ECPSWTViewRenderer;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContext;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContextFactory;
@@ -20,9 +20,9 @@ import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
-import de.gymcalc.databinding.ui.Formkit;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
+import de.gymcalc.databinding.ui.Formkit;
 
 /**
  * @author thomas
@@ -70,7 +70,7 @@ public class ContestRootEditor extends EmfMultiEditor {
 			ContestType contest = ( ( ContestType ) resource.getContents().get( 0 ) );
 
 			final VView view = ViewProviderHelper.getView( contest, null );
-			DefaultReferenceService referenceService=new DefaultReferenceService();
+			ReferenceService referenceService=new ContestReferenceService();
 			ViewModelContext viewContext = ViewModelContextFactory.INSTANCE.createViewModelContext(view,
 					contest, referenceService );
 			ECPSWTViewRenderer.INSTANCE.render(emfFormComposite, viewContext);
