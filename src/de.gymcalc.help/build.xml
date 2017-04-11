@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="de.spremberg.turnen.contest.help" default="All">
+<project name="de.gymcalc.help" default="All">
 	
 	<property name="docbook.xml.file" value="gymcalc.docbook" />
 	<property name="docbook.xml.language" value="de" />
