@@ -185,6 +185,13 @@
             id="de.gymcalc.contest.editor.ResetAthletName"
             name="Setze Wettkämpfernamen zurück">
       </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.CalculateSelectionHandler"
+            description="Berechnet die selektierten Einträge"
+            id="de.gymcalc.contest.editor.CalculateSelection"
+            name="Berechne Selektion">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.services">
@@ -250,6 +257,11 @@
                  </or>
               </with>
            </visibleWhen>
+           <command
+                 commandId="de.gymcalc.contest.editor.CalculateSelection"
+                 label="%_UI_CalculateSelection_label"
+                 style="push">
+           </command>
            <command
                  commandId="de.gymcalc.contest.editor.ExportContacts"
                  label="%_UI_ExportContacts_label"
