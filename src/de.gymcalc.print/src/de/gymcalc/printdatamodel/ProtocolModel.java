@@ -3,6 +3,7 @@ package de.gymcalc.printdatamodel;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,13 +16,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.jface.dialogs.DialogSettings;
+import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
+import de.gymcalc.contest.AthletResultType;
 import de.gymcalc.contest.AthletType;
 import de.gymcalc.contest.ClassType;
 import de.gymcalc.contest.ContestType;
+import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.JuriType;
 import de.gymcalc.contest.JuristType;
+import de.gymcalc.contest.TeamJuriResultType;
+import de.gymcalc.contest.TeamType;
 import de.gymcalc.contest.WinnerType;
 
 public class ProtocolModel {
@@ -78,6 +85,9 @@ public class ProtocolModel {
 		 *     +-rank? fillRankAndPoints
 		 *     +-points? fillRankAndPoints
 		 *     +-diszipline[]? fillRankAndPoints
+		 *     +-teammember[]
+		 *     +-diszipline_detail[]? fillRankAndPoints
+		 *       +-[]
 		 * +-jury[]
 		 *   +-name
 		 *   +-jurist[]
@@ -148,13 +158,7 @@ public class ProtocolModel {
 									disable = "";
 								}
 								winner.put( "disable", disable );
-								String winnerName = "";
-								if( options.getBoolean( "firstNameFirst" ) && 
-										winnerSrc instanceof AthletType ) {
-									winnerName = ( ( AthletType )winnerSrc ).getPerson().getFirstname() + " " + ( ( AthletType )winnerSrc ).getPerson().getName(); 
-								} else {
-									winnerName = winnerSrc.getName ();
-								}
+								String winnerName = getWinnerName( winnerSrc );
 								winner.put( "name", winnerName );
 								if( winnerSrc instanceof AthletType ) {
 									winner.put( "date_of_birth", getDate( ( ( AthletType )winnerSrc ).getPerson().getDateofbirth() ) );
@@ -167,6 +171,20 @@ public class ProtocolModel {
 								}
 								winner.put( "organization", organizationName );
 								winner.put( "team", getTeamName( winnerSrc ) );
+								List<String> teamMember = new ArrayList<String>( );
+								winner.put( "teammember", teamMember );
+								EList< AthletType > athletsOfTeam = null;
+								if( winnerSrc instanceof TeamType ) {
+									TeamType teamSrc = ( TeamType )winnerSrc;
+									athletsOfTeam = teamSrc.getAthlet();
+									int i = 0;
+									for( AthletType athlet: athletsOfTeam ) {
+										String athletName = "(" + String.valueOf( Character.toChars( i + 'a' ) ) + "): ";
+										athletName = athletName + getWinnerName( athlet );
+										teamMember.add( athletName );
+										i = i + 1;
+									}
+								}
 								if( null == winnerSrc.getResult() ) {
 									winner.put( "rank", "");
 									winner.put("points", "" );
@@ -181,9 +199,12 @@ public class ProtocolModel {
 										List<String> winnerDiszipline = new ArrayList<String>();
 										winner.put("diszipline", winnerDiszipline);
 										for (int column = 4; maxColumn > column; ++column) {
-											String label = labelProvider.getColumnText( winnerSrc, column );
+											String label = getResultLabel( elementAdapter, winnerSrc, column );
 											winnerDiszipline.add( label );
 										}
+										//* here we fill for each diszipline the results of the athlets of the team
+										Object winnerDisziplineTeamMember = getDisziplineDetails( winnerSrc, maxColumn );
+										winner.put( "diszipline_detail", winnerDisziplineTeamMember );
 									}
 								}
 							}
@@ -242,6 +263,79 @@ public class ProtocolModel {
 					}
 				}
 			}
+		}
+		return retVal;
+	}
+	Object getDisziplineDetails( WinnerType winner, int maxColumn )
+	{
+		List< Object > retVal = new ArrayList< Object >();
+		if( winner instanceof TeamType ) {
+			TeamType team = ( TeamType )winner;
+			for (int column = 4; maxColumn > column; ++column) {
+				List< String > winnerDisziplineTeamResult = getTeamDisziplineDetail( team, winner, column );
+				retVal.add( winnerDisziplineTeamResult );
+			}
+		}
+		return retVal;
+	}
+	List< String > getTeamDisziplineDetail( TeamType team, WinnerType winner, int column )
+	{
+		List< String > retVal = new ArrayList< String >( );
+		ClassType classSrc = winner.getClass_();
+		EList< AthletType > athletsOfTeam = null;
+		athletsOfTeam = team.getAthlet();
+		JuriResultType juriResult = getJuriResult( classSrc, winner, column - 4 );
+		if( juriResult instanceof TeamJuriResultType ) {
+			EList< JuriResultType > athletJuriResults = ( ( TeamJuriResultType )juriResult ).getJuriResult();
+			for( JuriResultType athletJuriResult: athletJuriResults ) {
+				String label = "";
+				AthletResultType athletResult = ( AthletResultType ) athletJuriResult.eContainer();
+				AthletType athlet = ( AthletType )athletResult.eContainer();
+				label = "(" + String.valueOf( Character.toChars( athletsOfTeam.indexOf( athlet ) + 'a' ) ) + "): ";
+				label = label + Double.toString( athletJuriResult.getValue() );
+				retVal.add( label );
+			}
+		}
+		Collections.sort( retVal );
+		return retVal;
+	}
+	JuriResultType getJuriResult( ClassType classSrc, WinnerType winnerSrc, int column ) {
+		JuriResultType retVal = null;
+		EList< DisziplineType > disziplines = classSrc.getDiszipline();
+		if( column < disziplines.size( ) ) {
+			DisziplineType diszipline = disziplines.get( column );
+			EList< JuriResultType > juriResults = winnerSrc.getResult().getJuriresult();
+			for( JuriResultType juriResult: juriResults ) {
+				if( diszipline == juriResult.getDiszipline() ) {
+					retVal = juriResult;
+					break;
+				}
+			}
+		}
+		return retVal;
+	}
+
+	String getResultLabel( Object elementAdapter, WinnerType winnerSrc, int column ) {
+		String retVal = "";
+		if( elementAdapter instanceof ICellModifier ) {
+			// here the cellmodifier is used to get the 'm' at the end of values that are part of teamresults
+			Object o = ( ( ICellModifier )elementAdapter ).getValue( winnerSrc, Integer.toString(column) );
+			if( o instanceof String ) {
+				retVal = ( String )o;
+			}
+		} else {
+			ITableItemLabelProvider labelProvider = (ITableItemLabelProvider) elementAdapter;
+			retVal = labelProvider.getColumnText( winnerSrc, column );
+		}
+		return retVal;
+	}
+	String getWinnerName( WinnerType winner ) {
+		String retVal = new String( "" );
+		if( options.getBoolean( "firstNameFirst" ) &&
+			winner instanceof AthletType ) {
+			retVal = ( ( AthletType ) winner ).getPerson().getFirstname() + " " + ( ( AthletType ) winner ).getPerson().getName(); 
+		} else {
+			retVal = winner.getName ();
 		}
 		return retVal;
 	}
