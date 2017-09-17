@@ -6,6 +6,7 @@ package de.gymcalc.contest.command;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.command.Command;
@@ -16,6 +17,7 @@ import org.eclipse.emf.edit.command.CommandActionDelegate;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import de.gymcalc.contest.provider.ContestEditPlugin;
+import de.gymcalc.addressbook.OrganizationType;
 import de.gymcalc.contest.AthletResultType;
 import de.gymcalc.contest.AthletType;
 import de.gymcalc.contest.ChainType;
@@ -66,6 +68,7 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 	DisziplineType diszipline;
 	int nWinners = 6;
 	int nReserve = 2;
+	int winnerPerOrganization = 2;
 	
 	public static CreateDisziplineFinalsCommand create (EditingDomain domain, Collection<?> collection) {
 		CreateDisziplineFinalsCommand RetVal = null;
@@ -134,42 +137,86 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 		Arrays.sort(winners, new CompareWinner (diszipline.getId ()));
 		int start = 0;
 		int count = nWinners;
+		double lastPoints = 0.0; // the points that was added latest
+		double lastSum = 0.0; // the all-around points that was added latest
+		HashMap<OrganizationType,Integer> organizationMapCount = new HashMap<OrganizationType,Integer>();
 		for (int j = 0; j < 2; ++j) {
-			int n = calculateCountOfFinalsAthlet (winners, start, count);
-			for (int i = start; i < n; ++i) {
+			int i = start;
+			int end = count;
+			int countOfAthlets = 0;
+			for (; i < winners.length; ++i) {
 				if (winners[i] instanceof AthletType) {
 					AthletType originAthlet = (AthletType) winners[i];
-					/* apply the rule what happens if maximum number of athlets are in
-					 * the finals and athlets do have the same value.
-					 */
 					double points = getJuriResult (originAthlet, diszipline.getId ());
-					String athletId = winners[i].getId() + "-" + diszipline.getId ();
-					AthletType finalsAthlet = getFinalsAthlet (finalsClass, athletId);
-					if (null == finalsAthlet) {
-						finalsAthlet = createFinalsAthlet (finalsClass, athletId);
-						finalsAthlet.setPerson (originAthlet.getPerson ());
-						finalsAthlet.setName(originAthlet.getName());
-						finalsAthlet.setOrganization(originAthlet.getOrganization ());
+					// TODO: what happens to the organizationchek
+					// when multiple athlets of the same organization do have same points and same sum? 
+					{
+						/* apply the rule what happens if maximum number of athlets are in
+						 * the finals and athlets do have the same value.
+						 */
+						double sum = originAthlet.getResult ().getPoints ();
+						if (countOfAthlets >= end) {
+							if (points < lastPoints) {
+								break;
+							}
+							/*
+							 * if the value is equal then the better result in all-arround is applyed
+							 */
+							if (sum < lastSum) {
+								break;
+							}
+						}
+						lastPoints = points;
+						lastSum = sum;
 					}
-					if (1 == j) {
-						// second pass is for reserve
-						finalsAthlet.setDisable(ContestEditPlugin.INSTANCE.getString("_UI_Reserve"));
+					boolean skipAthlet = false;
+					{
+						// apply the rule that only a restricted number of winners per organization
+						// are allowed
+						OrganizationType originOrganization = originAthlet.getOrganization();
+						Integer organizationCount = organizationMapCount.get(originOrganization);
+						if (null == organizationCount) {
+							organizationCount = 0;
+						}
+						if (organizationCount >= winnerPerOrganization) {
+							// if there are already maximum winners per organization in the final
+							// then break the addition
+							skipAthlet = true;
+						} else {
+							organizationCount++;
+						}
+						organizationMapCount.put(originOrganization, organizationCount);
 					}
-					finalsChain.getAthlet ().add (finalsAthlet);
-					ResultType result = finalsAthlet.getResult ();
-					if (null == result) {
-						result = createFinalsResult (finalsAthlet);
+					if(!skipAthlet) {
+						String athletId = winners[i].getId() + "-" + diszipline.getId ();
+						AthletType finalsAthlet = getFinalsAthlet (finalsClass, athletId);
+						if (null == finalsAthlet) {
+							finalsAthlet = createFinalsAthlet (finalsClass, athletId);
+							finalsAthlet.setPerson (originAthlet.getPerson ());
+							finalsAthlet.setName(originAthlet.getName());
+							finalsAthlet.setOrganization(originAthlet.getOrganization ());
+						}
+						if (1 == j) {
+							// second pass is for reserve
+							finalsAthlet.setDisable(ContestEditPlugin.INSTANCE.getString("_UI_Reserve"));
+						}
+						finalsChain.getAthlet ().add (finalsAthlet);
+						countOfAthlets++;
+						ResultType result = finalsAthlet.getResult ();
+						if (null == result) {
+							result = createFinalsResult (finalsAthlet);
+						}
+						JuriResultType juriResult = getFinalsJuriResult (result, disziplineId);
+						if (null == juriResult) {
+							juriResult = createFinalsJuriResult (result);
+							juriResult.setDiszipline(finalsDiszipline);
+						}
+						juriResult.setValue(points);
 					}
-					JuriResultType juriResult = getFinalsJuriResult (result, disziplineId);
-					if (null == juriResult) {
-						juriResult = createFinalsJuriResult (result);
-						juriResult.setDiszipline(finalsDiszipline);
-					}
-					juriResult.setValue(points);
 				}
 			}
 			// second pass is reserves
-			start = n;
+			start = i;
 			count = nReserve;
 		}
 	}
