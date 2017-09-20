@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.DisziplineType#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.DisziplineType#getName <em>Name</em>}</li>
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.gymcalc.contest.DisziplineType#getLookuptable <em>Lookuptable</em>}</li>
  *   <li>{@link de.gymcalc.contest.DisziplineType#getCalculationkey <em>Calculationkey</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getDisziplineType()
  * @model

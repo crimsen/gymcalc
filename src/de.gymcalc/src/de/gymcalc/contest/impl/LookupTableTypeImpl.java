@@ -32,13 +32,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.LookupTableTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.LookupTableTypeImpl#getMinVal <em>Min Val</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.LookupTableTypeImpl#getMaxVal <em>Max Val</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.LookupTableTypeImpl#getDisziplines <em>Disziplines</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

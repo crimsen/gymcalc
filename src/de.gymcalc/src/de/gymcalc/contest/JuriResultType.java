@@ -6,6 +6,7 @@
  */
 package de.gymcalc.contest;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,11 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.JuriResultType#getDiszipline <em>Diszipline</em>}</li>
  *   <li>{@link de.gymcalc.contest.JuriResultType#getValue <em>Value</em>}</li>
+ *   <li>{@link de.gymcalc.contest.JuriResultType#getJuriResultDetail <em>Juri Result Detail</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getJuriResultType()
  * @model
@@ -77,5 +79,21 @@ public interface JuriResultType extends EObject {
 	 * @generated
 	 */
 	void setValue(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Juri Result Detail</b></em>' containment reference list.
+	 * The list contents are of type {@link de.gymcalc.contest.JuriResultDetailsType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Juri Result Detail</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Juri Result Detail</em>' containment reference list.
+	 * @see de.gymcalc.contest.ContestPackage#getJuriResultType_JuriResultDetail()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<JuriResultDetailsType> getJuriResultDetail();
 
 } // JuriResultType

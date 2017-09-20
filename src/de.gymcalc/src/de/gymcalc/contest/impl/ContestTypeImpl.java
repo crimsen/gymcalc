@@ -34,6 +34,7 @@ import de.gymcalc.contest.StationType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getName <em>Name</em>}</li>
@@ -46,7 +47,6 @@ import de.gymcalc.contest.StationType;
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getLookuptables <em>Lookuptables</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getVersion <em>Version</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

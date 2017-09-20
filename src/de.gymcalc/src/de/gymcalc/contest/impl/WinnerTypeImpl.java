@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.WinnerTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.WinnerTypeImpl#getName <em>Name</em>}</li>
@@ -37,7 +38,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link de.gymcalc.contest.impl.WinnerTypeImpl#getDisable <em>Disable</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.WinnerTypeImpl#getClass_ <em>Class</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

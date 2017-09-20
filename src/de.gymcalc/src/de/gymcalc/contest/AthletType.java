@@ -15,12 +15,12 @@ import de.gymcalc.addressbook.PersonType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.AthletType#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.contest.AthletType#getTeam <em>Team</em>}</li>
  *   <li>{@link de.gymcalc.contest.AthletType#getChain <em>Chain</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getAthletType()
  * @model

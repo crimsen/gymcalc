@@ -34,12 +34,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.ChainTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ChainTypeImpl#getAthlet <em>Athlet</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ChainTypeImpl#getStation <em>Station</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

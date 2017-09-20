@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getName <em>Name</em>}</li>
@@ -34,7 +35,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getLookuptable <em>Lookuptable</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getCalculationkey <em>Calculationkey</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.LookupTableType#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.LookupTableType#getMinVal <em>Min Val</em>}</li>
  *   <li>{@link de.gymcalc.contest.LookupTableType#getMaxVal <em>Max Val</em>}</li>
  *   <li>{@link de.gymcalc.contest.LookupTableType#getDisziplines <em>Disziplines</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getLookupTableType()
  * @model

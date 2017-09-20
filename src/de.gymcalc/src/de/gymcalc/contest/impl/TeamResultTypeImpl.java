@@ -15,8 +15,6 @@ import de.gymcalc.contest.TeamResultType;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Team Result Type</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

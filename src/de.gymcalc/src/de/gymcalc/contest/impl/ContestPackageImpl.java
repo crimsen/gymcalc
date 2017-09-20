@@ -22,6 +22,7 @@ import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.JuriResultDetailsType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.JuriType;
 import de.gymcalc.contest.JuristType;
@@ -159,6 +160,13 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * @generated
 	 */
 	private EClass lookupTableTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass juriResultDetailsTypeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -627,6 +635,15 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJuriResultType_JuriResultDetail() {
+		return (EReference)juriResultTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJuristType() {
 		return juristTypeEClass;
 	}
@@ -843,6 +860,33 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJuriResultDetailsType() {
+		return juriResultDetailsTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJuriResultDetailsType_Key() {
+		return (EAttribute)juriResultDetailsTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJuriResultDetailsType_Value() {
+		return (EAttribute)juriResultDetailsTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ContestFactory getContestFactory() {
 		return (ContestFactory)getEFactoryInstance();
 	}
@@ -928,6 +972,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		juriResultTypeEClass = createEClass(JURI_RESULT_TYPE);
 		createEReference(juriResultTypeEClass, JURI_RESULT_TYPE__DISZIPLINE);
 		createEAttribute(juriResultTypeEClass, JURI_RESULT_TYPE__VALUE);
+		createEReference(juriResultTypeEClass, JURI_RESULT_TYPE__JURI_RESULT_DETAIL);
 
 		teamJuriResultTypeEClass = createEClass(TEAM_JURI_RESULT_TYPE);
 		createEReference(teamJuriResultTypeEClass, TEAM_JURI_RESULT_TYPE__JURI_RESULT);
@@ -950,6 +995,10 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		createEAttribute(lookupTableTypeEClass, LOOKUP_TABLE_TYPE__MIN_VAL);
 		createEAttribute(lookupTableTypeEClass, LOOKUP_TABLE_TYPE__MAX_VAL);
 		createEReference(lookupTableTypeEClass, LOOKUP_TABLE_TYPE__DISZIPLINES);
+
+		juriResultDetailsTypeEClass = createEClass(JURI_RESULT_DETAILS_TYPE);
+		createEAttribute(juriResultDetailsTypeEClass, JURI_RESULT_DETAILS_TYPE__KEY);
+		createEAttribute(juriResultDetailsTypeEClass, JURI_RESULT_DETAILS_TYPE__VALUE);
 	}
 
 	/**
@@ -1055,6 +1104,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEClass(juriResultTypeEClass, JuriResultType.class, "JuriResultType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJuriResultType_Diszipline(), this.getDisziplineType(), null, "diszipline", null, 1, 1, JuriResultType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJuriResultType_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, JuriResultType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJuriResultType_JuriResultDetail(), this.getJuriResultDetailsType(), null, "juriResultDetail", null, 0, -1, JuriResultType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(teamJuriResultTypeEClass, TeamJuriResultType.class, "TeamJuriResultType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTeamJuriResultType_JuriResult(), this.getJuriResultType(), null, "juriResult", null, 1, -1, TeamJuriResultType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1081,6 +1131,10 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEReference(getLookupTableType_Disziplines(), this.getDisziplineType(), this.getDisziplineType_Lookuptable(), "disziplines", null, 0, -1, LookupTableType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(lookupTableTypeEClass, ecorePackage.getEDouble(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(juriResultDetailsTypeEClass, JuriResultDetailsType.class, "JuriResultDetailsType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJuriResultDetailsType_Key(), ecorePackage.getEString(), "key", null, 0, 1, JuriResultDetailsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJuriResultDetailsType_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, JuriResultDetailsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

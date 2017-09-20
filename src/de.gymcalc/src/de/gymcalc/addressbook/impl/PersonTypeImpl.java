@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.addressbook.impl.PersonTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.PersonTypeImpl#getName <em>Name</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.gymcalc.addressbook.impl.PersonTypeImpl#getDateofbirth <em>Dateofbirth</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.PersonTypeImpl#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -24,12 +24,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.addressbook.impl.OrganizationTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.OrganizationTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.OrganizationTypeImpl#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

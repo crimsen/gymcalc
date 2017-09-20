@@ -22,10 +22,10 @@ import de.gymcalc.contest.TeamJuriResultType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.TeamJuriResultTypeImpl#getJuriResult <em>Juri Result</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

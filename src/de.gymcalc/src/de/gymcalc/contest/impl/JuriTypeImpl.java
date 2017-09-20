@@ -30,12 +30,12 @@ import de.gymcalc.contest.JuristType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.JuriTypeImpl#getJurist <em>Jurist</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.JuriTypeImpl#getDiszipline <em>Diszipline</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.JuriTypeImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

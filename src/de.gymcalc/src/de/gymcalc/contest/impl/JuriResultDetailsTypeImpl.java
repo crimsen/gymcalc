@@ -1,13 +1,9 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
  */
 package de.gymcalc.contest.impl;
 
 import de.gymcalc.contest.ContestPackage;
-import de.gymcalc.contest.StationType;
+import de.gymcalc.contest.JuriResultDetailsType;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -18,65 +14,65 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Station Type</b></em>'.
+ * An implementation of the model object '<em><b>Juri Result Details Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.gymcalc.contest.impl.StationTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link de.gymcalc.contest.impl.StationTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.JuriResultDetailsTypeImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.JuriResultDetailsTypeImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StationTypeImpl extends EObjectImpl implements StationType {
+public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResultDetailsType {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getKey()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getKey()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected String key = KEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final double VALUE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StationTypeImpl() {
+	protected JuriResultDetailsTypeImpl() {
 		super();
 	}
 
@@ -87,7 +83,7 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContestPackage.Literals.STATION_TYPE;
+		return ContestPackage.Literals.JURI_RESULT_DETAILS_TYPE;
 	}
 
 	/**
@@ -95,8 +91,8 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
-		return id;
+	public String getKey() {
+		return key;
 	}
 
 	/**
@@ -104,11 +100,11 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setKey(String newKey) {
+		String oldKey = key;
+		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.STATION_TYPE__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY, oldKey, key));
 	}
 
 	/**
@@ -116,8 +112,8 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public double getValue() {
+		return value;
 	}
 
 	/**
@@ -125,11 +121,11 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setValue(double newValue) {
+		double oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.STATION_TYPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -140,10 +136,10 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContestPackage.STATION_TYPE__ID:
-				return getId();
-			case ContestPackage.STATION_TYPE__NAME:
-				return getName();
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+				return getKey();
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,11 +152,11 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContestPackage.STATION_TYPE__ID:
-				setId((String)newValue);
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+				setKey((String)newValue);
 				return;
-			case ContestPackage.STATION_TYPE__NAME:
-				setName((String)newValue);
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +170,11 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContestPackage.STATION_TYPE__ID:
-				setId(ID_EDEFAULT);
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+				setKey(KEY_EDEFAULT);
 				return;
-			case ContestPackage.STATION_TYPE__NAME:
-				setName(NAME_EDEFAULT);
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +188,10 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContestPackage.STATION_TYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case ContestPackage.STATION_TYPE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,12 +206,12 @@ public class StationTypeImpl extends EObjectImpl implements StationType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", name: ");
-		result.append(name);
+		result.append(" (key: ");
+		result.append(key);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
 
-} //StationTypeImpl
+} //JuriResultDetailsTypeImpl

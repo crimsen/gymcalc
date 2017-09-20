@@ -29,12 +29,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getJuri <em>Juri</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

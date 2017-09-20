@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.JuriType#getJurist <em>Jurist</em>}</li>
  *   <li>{@link de.gymcalc.contest.JuriType#getDiszipline <em>Diszipline</em>}</li>
  *   <li>{@link de.gymcalc.contest.JuriType#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getJuriType()
  * @model

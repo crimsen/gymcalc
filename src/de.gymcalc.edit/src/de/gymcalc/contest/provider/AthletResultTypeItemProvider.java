@@ -7,6 +7,7 @@
 package de.gymcalc.contest.provider;
 
 
+import de.gymcalc.contest.AthletResultType;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,13 +27,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class AthletResultTypeItemProvider
-	extends ResultTypeItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends ResultTypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

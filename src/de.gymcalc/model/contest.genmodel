@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/contest/src" modelPluginID="contest" templateDirectory=""
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.gymcalc/src" editDirectory="/de.gymcalc.edit/src"
+    editorDirectory="/de.gymcalc.editor/src" modelPluginID="de.gymcalc" templateDirectory=""
     forceOverwrite="true" modelName="Contest" featureMapWrapperInterface="" featureMapWrapperClass=""
     testSuiteClass="de.gymcalc.contest.tests.ContestAllTests" importerID="org.eclipse.xsd.ecore.importer"
-    complianceLevel="7.0">
+    complianceLevel="7.0" editorPluginID="de.gymcalc.editor" pluginKey="de.gymcalc">
   <foreignModel>contest.xsd</foreignModel>
   <genPackages prefix="Contest" basePackage="de.gymcalc" resource="XML" disposableProviderFactory="true"
       ecorePackage="contest.ecore#/">
@@ -24,6 +25,7 @@
           ecoreFeature="ecore:EReference contest.ecore#//ContestType/station"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//ContestType/addressbook"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//ContestType/lookuptables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//ContestType/version"/>
     </genClasses>
     <genClasses ecoreClass="contest.ecore#//ClassType">
       <genFeatures property="None" children="true" createChild="true" propertyDescription="Wettkampfdisziplinen die innerhalb einer Wettkampfklasse durchgeführt werden. Beispiele sind 'Sprung', 'Stuba', 'Balken' und 'Boden'. Zu beachten ist, dass jede Wettkampfklasse eigene Disziplinen enthält. So ist die Disziplin 'Boden' in der Wettkampfklasse 'weiblich Kinder KM4' etwas anderes als die Disziplin 'Boden' in der Wettkampfklasse 'weiblich Jugend KM4' oder in der Wettkampfklasse 'Mannschaft weiblich KM4'"
@@ -54,6 +56,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//AthletType/person"/>
       <genFeatures notify="false" createChild="false" propertyDescription="Referenz auf die Mannschaft, für die der Wettkämpfer startet. Der Eintrag kann leer sein, sofern der Wettkämpfer für keine Mannschaft startet."
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//AthletType/team"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//AthletType/chain"/>
     </genClasses>
     <genClasses ecoreClass="contest.ecore#//TeamType">
       <genFeatures children="true" createChild="false" propertyDescription="Wettkämpfer, die zu einer Mannschaft gehören."
@@ -100,6 +103,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuriResultType/diszipline"/>
       <genFeatures createChild="false" propertyDescription="Vergebene Gesamtpunktzahl für diese Disziplin."
           ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultType/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//JuriResultType/juriResultDetail"/>
     </genClasses>
     <genClasses ecoreClass="contest.ecore#//TeamJuriResultType">
       <genFeatures notify="false" children="true" createChild="false" propertyCategory=""
@@ -111,6 +115,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuristType/person"/>
       <genFeatures notify="false" createChild="false" propertyDescription="Verein, von dem der Kampfrichter gestellt wird."
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//JuristType/organization"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contest.ecore#//JuristType/juri"/>
       <genOperations ecoreOperation="contest.ecore#//JuristType/getName"/>
     </genClasses>
     <genClasses ecoreClass="contest.ecore#//JuriType">
@@ -135,6 +140,10 @@
       <genFeatures notify="false" createChild="false" propertyDescription="Disziplinen, für die diese Umrechnungstabelle gilt."
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//LookupTableType/disziplines"/>
       <genOperations ecoreOperation="contest.ecore#//LookupTableType/getValue"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//JuriResultDetailsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultDetailsType/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultDetailsType/value"/>
     </genClasses>
     <nestedGenPackages prefix="AddressBook" basePackage="de.gymcalc" disposableProviderFactory="true"
         ecorePackage="contest.ecore#//addressbook">

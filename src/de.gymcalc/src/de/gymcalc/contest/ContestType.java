@@ -18,8 +18,15 @@ import de.gymcalc.addressbook.AddressBookType;
  * A representation of the model object '<em><b>Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Contest Type is the representation of a contest in gymnastics.
+ * It is intended to cover all data that is needed for the calculation of the contest.
+ * It is the root and container for other data that is related to the contest.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.ContestType#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.ContestType#getName <em>Name</em>}</li>
@@ -32,7 +39,6 @@ import de.gymcalc.addressbook.AddressBookType;
  *   <li>{@link de.gymcalc.contest.ContestType#getLookuptables <em>Lookuptables</em>}</li>
  *   <li>{@link de.gymcalc.contest.ContestType#getVersion <em>Version</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getContestType()
  * @model

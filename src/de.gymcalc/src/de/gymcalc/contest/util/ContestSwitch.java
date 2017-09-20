@@ -6,6 +6,7 @@
  */
 package de.gymcalc.contest.util;
 
+import de.gymcalc.contest.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -67,7 +68,7 @@ public class ContestSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -190,6 +191,12 @@ public class ContestSwitch<T> extends Switch<T> {
 			case ContestPackage.LOOKUP_TABLE_TYPE: {
 				LookupTableType lookupTableType = (LookupTableType)theEObject;
 				T result = caseLookupTableType(lookupTableType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContestPackage.JURI_RESULT_DETAILS_TYPE: {
+				JuriResultDetailsType juriResultDetailsType = (JuriResultDetailsType)theEObject;
+				T result = caseJuriResultDetailsType(juriResultDetailsType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -449,6 +456,21 @@ public class ContestSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLookupTableType(LookupTableType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Juri Result Details Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Juri Result Details Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJuriResultDetailsType(JuriResultDetailsType object) {
 		return null;
 	}
 
