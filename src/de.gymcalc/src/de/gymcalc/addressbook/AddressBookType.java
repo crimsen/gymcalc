@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.addressbook.AddressBookType#getAddress <em>Address</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.AddressBookType#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.AddressBookType#getOrganization <em>Organization</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.addressbook.AddressBookPackage#getAddressBookType()
  * @model

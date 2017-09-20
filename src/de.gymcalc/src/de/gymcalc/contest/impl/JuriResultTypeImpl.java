@@ -8,15 +8,21 @@ package de.gymcalc.contest.impl;
 
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.JuriResultDetailsType;
 import de.gymcalc.contest.JuriResultType;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,11 +30,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.JuriResultTypeImpl#getDiszipline <em>Diszipline</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.JuriResultTypeImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.JuriResultTypeImpl#getJuriResultDetail <em>Juri Result Detail</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -62,6 +69,16 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 	 * @ordered
 	 */
 	protected double value = VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getJuriResultDetail() <em>Juri Result Detail</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJuriResultDetail()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<JuriResultDetailsType> juriResultDetail;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +163,32 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<JuriResultDetailsType> getJuriResultDetail() {
+		if (juriResultDetail == null) {
+			juriResultDetail = new EObjectContainmentEList<JuriResultDetailsType>(JuriResultDetailsType.class, this, ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL);
+		}
+		return juriResultDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL:
+				return ((InternalEList<?>)getJuriResultDetail()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -154,6 +197,8 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 				return basicGetDiszipline();
 			case ContestPackage.JURI_RESULT_TYPE__VALUE:
 				return getValue();
+			case ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL:
+				return getJuriResultDetail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +208,7 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -171,6 +217,10 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 				return;
 			case ContestPackage.JURI_RESULT_TYPE__VALUE:
 				setValue((Double)newValue);
+				return;
+			case ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL:
+				getJuriResultDetail().clear();
+				getJuriResultDetail().addAll((Collection<? extends JuriResultDetailsType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -190,6 +240,9 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 			case ContestPackage.JURI_RESULT_TYPE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL:
+				getJuriResultDetail().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +259,8 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 				return diszipline != null;
 			case ContestPackage.JURI_RESULT_TYPE__VALUE:
 				return value != VALUE_EDEFAULT;
+			case ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL:
+				return juriResultDetail != null && !juriResultDetail.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.ClassType#getDiszipline <em>Diszipline</em>}</li>
  *   <li>{@link de.gymcalc.contest.ClassType#getWinner <em>Winner</em>}</li>
  *   <li>{@link de.gymcalc.contest.ClassType#getName <em>Name</em>}</li>
  *   <li>{@link de.gymcalc.contest.ClassType#getCalculationkey <em>Calculationkey</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getClassType()
  * @model

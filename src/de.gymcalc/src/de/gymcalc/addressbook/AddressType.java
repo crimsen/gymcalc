@@ -15,13 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.addressbook.AddressType#getCity <em>City</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.AddressType#getZip <em>Zip</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.AddressType#getStreet <em>Street</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.AddressType#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.addressbook.AddressBookPackage#getAddressType()
  * @model

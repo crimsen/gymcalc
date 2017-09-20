@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.addressbook.PersonType#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.PersonType#getName <em>Name</em>}</li>
@@ -23,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.gymcalc.addressbook.PersonType#getDateofbirth <em>Dateofbirth</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.PersonType#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.addressbook.AddressBookPackage#getPersonType()
  * @model

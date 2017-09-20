@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.WinnerType#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.WinnerType#getName <em>Name</em>}</li>
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.gymcalc.contest.WinnerType#getDisable <em>Disable</em>}</li>
  *   <li>{@link de.gymcalc.contest.WinnerType#getClass_ <em>Class</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getWinnerType()
  * @model

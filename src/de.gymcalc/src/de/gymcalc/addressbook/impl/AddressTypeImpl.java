@@ -22,13 +22,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.addressbook.impl.AddressTypeImpl#getCity <em>City</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.AddressTypeImpl#getZip <em>Zip</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.AddressTypeImpl#getStreet <em>Street</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.AddressTypeImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

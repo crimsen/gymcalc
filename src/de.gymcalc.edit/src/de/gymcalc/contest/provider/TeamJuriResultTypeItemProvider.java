@@ -39,13 +39,7 @@ import de.gymcalc.contest.TeamType;
  * @generated
  */
 public class TeamJuriResultTypeItemProvider
-	extends JuriResultTypeItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends JuriResultTypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

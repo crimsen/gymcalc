@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
@@ -31,6 +33,7 @@ import org.eclipse.jface.action.SubContributionItem;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
@@ -253,14 +256,12 @@ public class ContestActionBarContributor
 		}
 		else {
 			selectionProvider = part.getSite().getSelectionProvider();
-			if( null != selectionProvider ) {
-				selectionProvider.addSelectionChangedListener(this);
-	
-				// Fake a selection changed event to update the menus.
-				//
-				if (selectionProvider.getSelection() != null) {
-					selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
-				}
+			selectionProvider.addSelectionChangedListener(this);
+
+			// Fake a selection changed event to update the menus.
+			//
+			if (selectionProvider.getSelection() != null) {
+				selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
 			}
 		}
 	}

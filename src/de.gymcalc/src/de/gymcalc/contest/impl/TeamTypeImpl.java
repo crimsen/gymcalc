@@ -25,10 +25,10 @@ import de.gymcalc.contest.TeamType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.TeamTypeImpl#getAthlet <em>Athlet</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

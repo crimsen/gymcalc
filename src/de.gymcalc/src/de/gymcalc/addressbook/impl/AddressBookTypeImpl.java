@@ -32,12 +32,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.addressbook.impl.AddressBookTypeImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.AddressBookTypeImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.addressbook.impl.AddressBookTypeImpl#getOrganization <em>Organization</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

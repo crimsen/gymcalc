@@ -30,13 +30,13 @@ import de.gymcalc.contest.WinnerType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.ClassTypeImpl#getDiszipline <em>Diszipline</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ClassTypeImpl#getWinner <em>Winner</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ClassTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ClassTypeImpl#getCalculationkey <em>Calculationkey</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -467,6 +467,29 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.JuriResultDetailsType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JuriResultDetailsTypeItemProvider juriResultDetailsTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.gymcalc.contest.JuriResultDetailsType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJuriResultDetailsTypeAdapter() {
+		if (juriResultDetailsTypeItemProvider == null) {
+			juriResultDetailsTypeItemProvider = new JuriResultDetailsTypeItemProvider(this);
+		}
+
+		return juriResultDetailsTypeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -582,6 +605,7 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 		if (juriTypeItemProvider != null) juriTypeItemProvider.dispose();
 		if (lookupTablesTypeItemProvider != null) lookupTablesTypeItemProvider.dispose();
 		if (lookupTableTypeItemProvider != null) lookupTableTypeItemProvider.dispose();
+		if (juriResultDetailsTypeItemProvider != null) juriResultDetailsTypeItemProvider.dispose();
 	}
 
 }

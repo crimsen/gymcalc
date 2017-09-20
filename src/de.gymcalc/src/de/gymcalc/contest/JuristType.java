@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.JuristType#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.contest.JuristType#getOrganization <em>Organization</em>}</li>
  *   <li>{@link de.gymcalc.contest.JuristType#getJuri <em>Juri</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getJuristType()
  * @model

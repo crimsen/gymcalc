@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.StationType#getId <em>Id</em>}</li>
  *   <li>{@link de.gymcalc.contest.StationType#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.gymcalc.contest.ContestPackage#getStationType()
  * @model

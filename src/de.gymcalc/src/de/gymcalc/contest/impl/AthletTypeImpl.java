@@ -24,12 +24,12 @@ import de.gymcalc.contest.TeamType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.gymcalc.contest.impl.AthletTypeImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.AthletTypeImpl#getTeam <em>Team</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.AthletTypeImpl#getChain <em>Chain</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
