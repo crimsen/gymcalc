@@ -140,8 +140,8 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 				return createLookupTableTypeAdapter();
 			}
 			@Override
-			public Adapter caseJuriResultDetailsType(JuriResultDetailsType object) {
-				return createJuriResultDetailsTypeAdapter();
+			public Adapter caseJuriResultDetailType(JuriResultDetailType object) {
+				return createJuriResultDetailTypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -402,16 +402,16 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.JuriResultDetailsType <em>Juri Result Details Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.JuriResultDetailType <em>Juri Result Detail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.gymcalc.contest.JuriResultDetailsType
+	 * @see de.gymcalc.contest.JuriResultDetailType
 	 * @generated
 	 */
-	public Adapter createJuriResultDetailsTypeAdapter() {
+	public Adapter createJuriResultDetailTypeAdapter() {
 		return null;
 	}
 

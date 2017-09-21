@@ -179,13 +179,13 @@ public interface ContestFactory extends EFactory {
 	LookupTableType createLookupTableType();
 
 	/**
-	 * Returns a new object of class '<em>Juri Result Details Type</em>'.
+	 * Returns a new object of class '<em>Juri Result Detail Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Juri Result Details Type</em>'.
+	 * @return a new object of class '<em>Juri Result Detail Type</em>'.
 	 * @generated
 	 */
-	JuriResultDetailsType createJuriResultDetailsType();
+	JuriResultDetailType createJuriResultDetailType();
 
 	/**
 	 * Returns the package supported by this factory.

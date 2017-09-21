@@ -6,6 +6,7 @@
  */
 package de.gymcalc.contest.calcprovider;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -36,6 +37,7 @@ import de.gymcalc.contest.ClassType;
 import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.ResultType;
 import de.gymcalc.contest.TeamJuriResultType;
@@ -218,7 +220,9 @@ public class WinnerTableItemProvider extends WinnerTypeItemProvider
 		default:
 			{
 				try {
-					Double d = ( Double )getColumnValue( columnIndex, adjustValue( ( String ) value ) );
+					// when the entered string contains spaces, then split it and interpret this as juriResdetails
+					String values[] = ( ( String )value ).split( "\\s" );
+					Double d = ( Double )getColumnValue( columnIndex, adjustValue( ( String ) values[0] ) );
 					JuriResultType juriresult = getJuriresult (element, columnIndex - 4, GETMODE.create);
 					EditingDomain editingDomain = getEditingDomain (juriresult);
 					editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, juriresult, ContestPackage.Literals.JURI_RESULT_TYPE__VALUE, d));
@@ -230,6 +234,33 @@ public class WinnerTableItemProvider extends WinnerTypeItemProvider
 							editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain, teamJuriResult, ContestPackage.Literals.JURI_RESULT_TYPE, juriresult));
 						}
 					}
+					{ 
+						// add all the details
+						EList<JuriResultDetailType> details = juriresult.getJuriResultDetail();
+						for( int i = 1; i < values.length; ++i ) {
+							if( details.size() < i ) {
+								JuriResultDetailType detail = ContestFactory.eINSTANCE.createJuriResultDetailType();
+								detail.setValue( Double.valueOf( values[i] ) );
+								editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, juriresult, ContestPackage.Literals.JURI_RESULT_DETAIL_TYPE, detail));
+							} else {
+								JuriResultDetailType detail = details.get( i - 1 );
+								d = Double.valueOf( values[ i ] );
+								editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, detail, ContestPackage.Literals.JURI_RESULT_DETAIL_TYPE__VALUE, d));
+							}
+						}
+					}
+					// delete all the details that are not entered
+					{
+						EList<JuriResultDetailType> details = juriresult.getJuriResultDetail();
+						ArrayList<JuriResultDetailType> removeDetails = new ArrayList<JuriResultDetailType>();
+						for( int i = values.length - 1; i < details.size(); ++i ) {
+							removeDetails.add(details.get( i ) );
+						}
+						if( 0 < removeDetails.size()) {
+							editingDomain.getCommandStack().execute(RemoveCommand.create(editingDomain, juriresult, ContestPackage.Literals.JURI_RESULT_DETAIL_TYPE, removeDetails));
+						}
+					}
+					
 				} catch (RuntimeException e) {
 				}
 			}

@@ -3,7 +3,7 @@
 package de.gymcalc.contest.impl;
 
 import de.gymcalc.contest.ContestPackage;
-import de.gymcalc.contest.JuriResultDetailsType;
+import de.gymcalc.contest.JuriResultDetailType;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.gymcalc.contest.impl.JuriResultDetailsTypeImpl#getKey <em>Key</em>}</li>
- *   <li>{@link de.gymcalc.contest.impl.JuriResultDetailsTypeImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.JuriResultDetailTypeImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.JuriResultDetailTypeImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResultDetailsType {
+public class JuriResultDetailTypeImpl extends EObjectImpl implements JuriResultDetailType {
 	/**
 	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,7 +72,7 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JuriResultDetailsTypeImpl() {
+	protected JuriResultDetailTypeImpl() {
 		super();
 	}
 
@@ -83,7 +83,7 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContestPackage.Literals.JURI_RESULT_DETAILS_TYPE;
+		return ContestPackage.Literals.JURI_RESULT_DETAIL_TYPE;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURI_RESULT_DETAIL_TYPE__KEY, oldKey, key));
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 		double oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURI_RESULT_DETAIL_TYPE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -136,9 +136,9 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__KEY:
 				return getKey();
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -152,10 +152,10 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__KEY:
 				setKey((String)newValue);
 				return;
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__VALUE:
 				setValue((Double)newValue);
 				return;
 		}
@@ -170,10 +170,10 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__KEY:
 				setKey(KEY_EDEFAULT);
 				return;
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -188,9 +188,9 @@ public class JuriResultDetailsTypeImpl extends EObjectImpl implements JuriResult
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__VALUE:
 				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

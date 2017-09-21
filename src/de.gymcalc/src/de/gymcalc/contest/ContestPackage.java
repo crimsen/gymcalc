@@ -1042,14 +1042,14 @@ public interface ContestPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link de.gymcalc.contest.impl.JuriResultDetailsTypeImpl <em>Juri Result Details Type</em>}' class.
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.JuriResultDetailTypeImpl <em>Juri Result Detail Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.gymcalc.contest.impl.JuriResultDetailsTypeImpl
-	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultDetailsType()
+	 * @see de.gymcalc.contest.impl.JuriResultDetailTypeImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultDetailType()
 	 * @generated
 	 */
-	int JURI_RESULT_DETAILS_TYPE = 17;
+	int JURI_RESULT_DETAIL_TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1058,7 +1058,7 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JURI_RESULT_DETAILS_TYPE__KEY = 0;
+	int JURI_RESULT_DETAIL_TYPE__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1067,17 +1067,16 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JURI_RESULT_DETAILS_TYPE__VALUE = 1;
+	int JURI_RESULT_DETAIL_TYPE__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Juri Result Details Type</em>' class.
+	 * The number of structural features of the '<em>Juri Result Detail Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JURI_RESULT_DETAILS_TYPE_FEATURE_COUNT = 2;
-
+	int JURI_RESULT_DETAIL_TYPE_FEATURE_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.ClassType <em>Class Type</em>}'.
@@ -1822,36 +1821,36 @@ public interface ContestPackage extends EPackage {
 	EReference getLookupTableType_Disziplines();
 
 	/**
-	 * Returns the meta object for class '{@link de.gymcalc.contest.JuriResultDetailsType <em>Juri Result Details Type</em>}'.
+	 * Returns the meta object for class '{@link de.gymcalc.contest.JuriResultDetailType <em>Juri Result Detail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Juri Result Details Type</em>'.
-	 * @see de.gymcalc.contest.JuriResultDetailsType
+	 * @return the meta object for class '<em>Juri Result Detail Type</em>'.
+	 * @see de.gymcalc.contest.JuriResultDetailType
 	 * @generated
 	 */
-	EClass getJuriResultDetailsType();
+	EClass getJuriResultDetailType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.JuriResultDetailsType#getKey <em>Key</em>}'.
+	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.JuriResultDetailType#getKey <em>Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Key</em>'.
-	 * @see de.gymcalc.contest.JuriResultDetailsType#getKey()
-	 * @see #getJuriResultDetailsType()
+	 * @see de.gymcalc.contest.JuriResultDetailType#getKey()
+	 * @see #getJuriResultDetailType()
 	 * @generated
 	 */
-	EAttribute getJuriResultDetailsType_Key();
+	EAttribute getJuriResultDetailType_Key();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.JuriResultDetailsType#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.JuriResultDetailType#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see de.gymcalc.contest.JuriResultDetailsType#getValue()
-	 * @see #getJuriResultDetailsType()
+	 * @see de.gymcalc.contest.JuriResultDetailType#getValue()
+	 * @see #getJuriResultDetailType()
 	 * @generated
 	 */
-	EAttribute getJuriResultDetailsType_Value();
+	EAttribute getJuriResultDetailType_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2462,14 +2461,14 @@ public interface ContestPackage extends EPackage {
 		EReference LOOKUP_TABLE_TYPE__DISZIPLINES = eINSTANCE.getLookupTableType_Disziplines();
 
 		/**
-		 * The meta object literal for the '{@link de.gymcalc.contest.impl.JuriResultDetailsTypeImpl <em>Juri Result Details Type</em>}' class.
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.JuriResultDetailTypeImpl <em>Juri Result Detail Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.gymcalc.contest.impl.JuriResultDetailsTypeImpl
-		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultDetailsType()
+		 * @see de.gymcalc.contest.impl.JuriResultDetailTypeImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultDetailType()
 		 * @generated
 		 */
-		EClass JURI_RESULT_DETAILS_TYPE = eINSTANCE.getJuriResultDetailsType();
+		EClass JURI_RESULT_DETAIL_TYPE = eINSTANCE.getJuriResultDetailType();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -2477,7 +2476,7 @@ public interface ContestPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JURI_RESULT_DETAILS_TYPE__KEY = eINSTANCE.getJuriResultDetailsType_Key();
+		EAttribute JURI_RESULT_DETAIL_TYPE__KEY = eINSTANCE.getJuriResultDetailType_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2485,7 +2484,7 @@ public interface ContestPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JURI_RESULT_DETAILS_TYPE__VALUE = eINSTANCE.getJuriResultDetailsType_Value();
+		EAttribute JURI_RESULT_DETAIL_TYPE__VALUE = eINSTANCE.getJuriResultDetailType_Value();
 
 	}
 

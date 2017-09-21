@@ -77,7 +77,7 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 			case ContestPackage.JURI_TYPE: return createJuriType();
 			case ContestPackage.LOOKUP_TABLES_TYPE: return createLookupTablesType();
 			case ContestPackage.LOOKUP_TABLE_TYPE: return createLookupTableType();
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE: return createJuriResultDetailsType();
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE: return createJuriResultDetailType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -258,9 +258,9 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JuriResultDetailsType createJuriResultDetailsType() {
-		JuriResultDetailsTypeImpl juriResultDetailsType = new JuriResultDetailsTypeImpl();
-		return juriResultDetailsType;
+	public JuriResultDetailType createJuriResultDetailType() {
+		JuriResultDetailTypeImpl juriResultDetailType = new JuriResultDetailTypeImpl();
+		return juriResultDetailType;
 	}
 
 	/**

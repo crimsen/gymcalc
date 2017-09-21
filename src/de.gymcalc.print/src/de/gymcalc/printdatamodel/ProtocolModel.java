@@ -24,6 +24,7 @@ import de.gymcalc.contest.AthletType;
 import de.gymcalc.contest.ClassType;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.JuriType;
 import de.gymcalc.contest.JuristType;
@@ -78,6 +79,7 @@ public class ProtocolModel {
 		 *   +-diszipline[]
 		 *   +-winner? .Result.Rank <= maximumRank ? additionalWinner[PerClass]
 		 *     +-name ?firstNameFirst : (AthletType)winner.person.{first,}name : winner.name
+		 *     +-date_of_birth
 		 *     +-disable
 		 *     +-class
 		 *     +-team
@@ -88,6 +90,7 @@ public class ProtocolModel {
 		 *     +-teammember[]
 		 *     +-diszipline_detail[]? fillRankAndPoints
 		 *       +-[]
+		 *     
 		 * +-jury[]
 		 *   +-name
 		 *   +-jurist[]
@@ -269,12 +272,19 @@ public class ProtocolModel {
 	Object getDisziplineDetails( WinnerType winner, int maxColumn )
 	{
 		List< Object > retVal = new ArrayList< Object >();
-		if( winner instanceof TeamType ) {
-			TeamType team = ( TeamType )winner;
-			for (int column = 4; maxColumn > column; ++column) {
-				List< String > winnerDisziplineTeamResult = getTeamDisziplineDetail( team, winner, column );
-				retVal.add( winnerDisziplineTeamResult );
+		for (int column = 4; maxColumn > column; ++column) {
+			List< String > disziplineDetail = new ArrayList< String > ();
+			JuriResultType juriResult = getJuriResult( winner.getClass_(), winner, column - 4 );
+			EList<JuriResultDetailType> details = juriResult.getJuriResultDetail();
+			for( JuriResultDetailType detail : details) {
+				disziplineDetail.add( Double.toString( detail.getValue()));
 			}
+			if( winner instanceof TeamType ) {
+				TeamType team = ( TeamType )winner;
+				List< String > winnerDisziplineTeamResult = getTeamDisziplineDetail( team, winner, column );
+				disziplineDetail.addAll( winnerDisziplineTeamResult );
+			}
+			retVal.add(disziplineDetail);
 		}
 		return retVal;
 	}
@@ -321,7 +331,8 @@ public class ProtocolModel {
 			// here the cellmodifier is used to get the 'm' at the end of values that are part of teamresults
 			Object o = ( ( ICellModifier )elementAdapter ).getValue( winnerSrc, Integer.toString(column) );
 			if( o instanceof String ) {
-				retVal = ( String )o;
+				String values[] = ( ( String ) o ).split("\\s");
+				retVal = values[ 0 ];
 			}
 		} else {
 			ITableItemLabelProvider labelProvider = (ITableItemLabelProvider) elementAdapter;

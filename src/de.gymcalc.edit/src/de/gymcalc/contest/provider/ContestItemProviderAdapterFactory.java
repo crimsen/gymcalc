@@ -467,26 +467,26 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.JuriResultDetailsType} instances.
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.JuriResultDetailType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JuriResultDetailsTypeItemProvider juriResultDetailsTypeItemProvider;
+	protected JuriResultDetailTypeItemProvider juriResultDetailTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.gymcalc.contest.JuriResultDetailsType}.
+	 * This creates an adapter for a {@link de.gymcalc.contest.JuriResultDetailType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createJuriResultDetailsTypeAdapter() {
-		if (juriResultDetailsTypeItemProvider == null) {
-			juriResultDetailsTypeItemProvider = new JuriResultDetailsTypeItemProvider(this);
+	public Adapter createJuriResultDetailTypeAdapter() {
+		if (juriResultDetailTypeItemProvider == null) {
+			juriResultDetailTypeItemProvider = new JuriResultDetailTypeItemProvider(this);
 		}
 
-		return juriResultDetailsTypeItemProvider;
+		return juriResultDetailTypeItemProvider;
 	}
 
 	/**
@@ -605,7 +605,7 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 		if (juriTypeItemProvider != null) juriTypeItemProvider.dispose();
 		if (lookupTablesTypeItemProvider != null) lookupTablesTypeItemProvider.dispose();
 		if (lookupTableTypeItemProvider != null) lookupTableTypeItemProvider.dispose();
-		if (juriResultDetailsTypeItemProvider != null) juriResultDetailsTypeItemProvider.dispose();
+		if (juriResultDetailTypeItemProvider != null) juriResultDetailTypeItemProvider.dispose();
 	}
 
 }
