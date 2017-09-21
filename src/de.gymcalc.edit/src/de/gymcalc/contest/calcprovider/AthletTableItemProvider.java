@@ -11,9 +11,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.jface.viewers.ICellModifier;
 
-import de.gymcalc.contest.provider.IAssociateAdapter;
+import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.TeamJuriResultType;
+import de.gymcalc.contest.provider.IAssociateAdapter;
 
 
 /**
@@ -68,6 +69,10 @@ public class AthletTableItemProvider extends WinnerTableItemProvider
 				if( jrs.contains(o)) {
 					retVal += 'm';
 				}
+			}
+			EList<JuriResultDetailType> details = ((JuriResultType)o).getJuriResultDetail();
+			for( JuriResultDetailType detail :details) {
+				retVal += " " + String.valueOf( detail.getValue() );
 			}
 		} 
 		return retVal;

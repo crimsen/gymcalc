@@ -82,7 +82,7 @@ public interface JuriResultType extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Juri Result Detail</b></em>' containment reference list.
-	 * The list contents are of type {@link de.gymcalc.contest.JuriResultDetailsType}.
+	 * The list contents are of type {@link de.gymcalc.contest.JuriResultDetailType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Juri Result Detail</em>' containment reference list isn't clear,
@@ -94,6 +94,6 @@ public interface JuriResultType extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<JuriResultDetailsType> getJuriResultDetail();
+	EList<JuriResultDetailType> getJuriResultDetail();
 
 } // JuriResultType

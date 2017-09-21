@@ -194,9 +194,9 @@ public class ContestSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE: {
-				JuriResultDetailsType juriResultDetailsType = (JuriResultDetailsType)theEObject;
-				T result = caseJuriResultDetailsType(juriResultDetailsType);
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE: {
+				JuriResultDetailType juriResultDetailType = (JuriResultDetailType)theEObject;
+				T result = caseJuriResultDetailType(juriResultDetailType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -460,17 +460,17 @@ public class ContestSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Juri Result Details Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Juri Result Detail Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Juri Result Details Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Juri Result Detail Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseJuriResultDetailsType(JuriResultDetailsType object) {
+	public T caseJuriResultDetailType(JuriResultDetailType object) {
 		return null;
 	}
 

@@ -4,7 +4,7 @@ package de.gymcalc.contest.provider;
 
 
 import de.gymcalc.contest.ContestPackage;
-import de.gymcalc.contest.JuriResultDetailsType;
+import de.gymcalc.contest.JuriResultDetailType;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.gymcalc.contest.JuriResultDetailsType} object.
+ * This is the item provider adapter for a {@link de.gymcalc.contest.JuriResultDetailType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class JuriResultDetailsTypeItemProvider 
+public class JuriResultDetailTypeItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +45,7 @@ public class JuriResultDetailsTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JuriResultDetailsTypeItemProvider(AdapterFactory adapterFactory) {
+	public JuriResultDetailTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,9 +77,9 @@ public class JuriResultDetailsTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JuriResultDetailsType_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JuriResultDetailsType_key_feature", "_UI_JuriResultDetailsType_type"),
-				 ContestPackage.Literals.JURI_RESULT_DETAILS_TYPE__KEY,
+				 getString("_UI_JuriResultDetailType_key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JuriResultDetailType_key_feature", "_UI_JuriResultDetailType_type"),
+				 ContestPackage.Literals.JURI_RESULT_DETAIL_TYPE__KEY,
 				 true,
 				 false,
 				 false,
@@ -99,9 +99,9 @@ public class JuriResultDetailsTypeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JuriResultDetailsType_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JuriResultDetailsType_value_feature", "_UI_JuriResultDetailsType_type"),
-				 ContestPackage.Literals.JURI_RESULT_DETAILS_TYPE__VALUE,
+				 getString("_UI_JuriResultDetailType_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JuriResultDetailType_value_feature", "_UI_JuriResultDetailType_type"),
+				 ContestPackage.Literals.JURI_RESULT_DETAIL_TYPE__VALUE,
 				 true,
 				 false,
 				 false,
@@ -111,14 +111,14 @@ public class JuriResultDetailsTypeItemProvider
 	}
 
 	/**
-	 * This returns JuriResultDetailsType.gif.
+	 * This returns JuriResultDetailType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/JuriResultDetailsType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/JuriResultDetailType"));
 	}
 
 	/**
@@ -129,10 +129,10 @@ public class JuriResultDetailsTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JuriResultDetailsType)object).getKey();
+		String label = ((JuriResultDetailType)object).getKey();
 		return label == null || label.length() == 0 ?
-			getString("_UI_JuriResultDetailsType_type") :
-			getString("_UI_JuriResultDetailsType_type") + " " + label;
+			getString("_UI_JuriResultDetailType_type") :
+			getString("_UI_JuriResultDetailType_type") + " " + label;
 	}
 	
 
@@ -147,9 +147,9 @@ public class JuriResultDetailsTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(JuriResultDetailsType.class)) {
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__KEY:
-			case ContestPackage.JURI_RESULT_DETAILS_TYPE__VALUE:
+		switch (notification.getFeatureID(JuriResultDetailType.class)) {
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__KEY:
+			case ContestPackage.JURI_RESULT_DETAIL_TYPE__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

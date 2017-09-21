@@ -206,7 +206,7 @@ public class JuriResultTypeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContestPackage.Literals.JURI_RESULT_TYPE__JURI_RESULT_DETAIL,
-				 ContestFactory.eINSTANCE.createJuriResultDetailsType()));
+				 ContestFactory.eINSTANCE.createJuriResultDetailType()));
 	}
 
 	/**

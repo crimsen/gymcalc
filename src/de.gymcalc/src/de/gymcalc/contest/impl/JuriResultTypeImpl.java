@@ -8,7 +8,7 @@ package de.gymcalc.contest.impl;
 
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.DisziplineType;
-import de.gymcalc.contest.JuriResultDetailsType;
+import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriResultType;
 
 import java.util.Collection;
@@ -78,7 +78,7 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<JuriResultDetailsType> juriResultDetail;
+	protected EList<JuriResultDetailType> juriResultDetail;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,9 +163,9 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<JuriResultDetailsType> getJuriResultDetail() {
+	public EList<JuriResultDetailType> getJuriResultDetail() {
 		if (juriResultDetail == null) {
-			juriResultDetail = new EObjectContainmentEList<JuriResultDetailsType>(JuriResultDetailsType.class, this, ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL);
+			juriResultDetail = new EObjectContainmentEList<JuriResultDetailType>(JuriResultDetailType.class, this, ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL);
 		}
 		return juriResultDetail;
 	}
@@ -220,7 +220,7 @@ public class JuriResultTypeImpl extends EObjectImpl implements JuriResultType {
 				return;
 			case ContestPackage.JURI_RESULT_TYPE__JURI_RESULT_DETAIL:
 				getJuriResultDetail().clear();
-				getJuriResultDetail().addAll((Collection<? extends JuriResultDetailsType>)newValue);
+				getJuriResultDetail().addAll((Collection<? extends JuriResultDetailType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

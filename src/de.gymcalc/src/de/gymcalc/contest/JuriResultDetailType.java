@@ -13,15 +13,15 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.gymcalc.contest.JuriResultDetailsType#getKey <em>Key</em>}</li>
- *   <li>{@link de.gymcalc.contest.JuriResultDetailsType#getValue <em>Value</em>}</li>
+ *   <li>{@link de.gymcalc.contest.JuriResultDetailType#getKey <em>Key</em>}</li>
+ *   <li>{@link de.gymcalc.contest.JuriResultDetailType#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see de.gymcalc.contest.ContestPackage#getJuriResultDetailsType()
+ * @see de.gymcalc.contest.ContestPackage#getJuriResultDetailType()
  * @model
  * @generated
  */
-public interface JuriResultDetailsType extends EObject {
+public interface JuriResultDetailType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,14 +32,14 @@ public interface JuriResultDetailsType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
-	 * @see de.gymcalc.contest.ContestPackage#getJuriResultDetailsType_Key()
+	 * @see de.gymcalc.contest.ContestPackage#getJuriResultDetailType_Key()
 	 * @model
 	 * @generated
 	 */
 	String getKey();
 
 	/**
-	 * Sets the value of the '{@link de.gymcalc.contest.JuriResultDetailsType#getKey <em>Key</em>}' attribute.
+	 * Sets the value of the '{@link de.gymcalc.contest.JuriResultDetailType#getKey <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Key</em>' attribute.
@@ -58,14 +58,14 @@ public interface JuriResultDetailsType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(double)
-	 * @see de.gymcalc.contest.ContestPackage#getJuriResultDetailsType_Value()
+	 * @see de.gymcalc.contest.ContestPackage#getJuriResultDetailType_Value()
 	 * @model
 	 * @generated
 	 */
 	double getValue();
 
 	/**
-	 * Sets the value of the '{@link de.gymcalc.contest.JuriResultDetailsType#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link de.gymcalc.contest.JuriResultDetailType#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
