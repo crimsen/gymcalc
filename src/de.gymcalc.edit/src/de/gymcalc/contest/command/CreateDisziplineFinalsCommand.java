@@ -66,7 +66,7 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 
 
 	DisziplineType diszipline;
-	int nWinners = 6;
+	int nWinners = 8;
 	int nReserve = 2;
 	int winnerPerOrganization = 2;
 	
