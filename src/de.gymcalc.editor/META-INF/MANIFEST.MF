@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.gymcalc.editor;singleton:=true
-Bundle-Version: 1.4.0.qualifier
+Bundle-Version: 1.4.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.gymcalc.contest.presentation.ContestEditorPlugin$Implementation
 Bundle-Vendor: %providerName
