@@ -6,7 +6,6 @@ package de.gymcalc.contest.command;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.command.Command;
@@ -17,7 +16,6 @@ import org.eclipse.emf.edit.command.CommandActionDelegate;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import de.gymcalc.contest.provider.ContestEditPlugin;
-import de.gymcalc.addressbook.OrganizationType;
 import de.gymcalc.contest.AthletResultType;
 import de.gymcalc.contest.AthletType;
 import de.gymcalc.contest.ChainType;
@@ -43,13 +41,24 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 			this.disziplineId = disziplineId; 
 		}
 		public int compare (WinnerType w1, WinnerType w2) {
-			int RetVal = Double.compare (getJuriResult (w2, this.disziplineId), 
-				getJuriResult (w1, this.disziplineId));
+			int RetVal = Double.compare (getJuriResultValue (w2, this.disziplineId), 
+				getJuriResultValue (w1, this.disziplineId));
 			if (0 == RetVal) {
+				JuriResultType r2 = getJuriResult (w2, this.disziplineId);
+				JuriResultType r1 =  getJuriResult (w1, this.disziplineId);
+				double d1 = 0.0;
+				if( null != r1 & null != r1.getJuriResultDetail() && r1.getJuriResultDetail().size() >= 2 ) {
+					d1 = r1.getJuriResultDetail().get(1).getValue();
+				}
+				double d2 = 0.0;
+				if( null != r2 & null != r2.getJuriResultDetail() && r2.getJuriResultDetail().size() >= 2 ) {
+					d2 = r2.getJuriResultDetail().get(1).getValue();
+				}
+				RetVal = Double.compare(d2,d1);
 				/* 
 				 * if juriresult is equal then the all-around result applies.
 				 */ 
-				RetVal = Double.compare(w2.getResult ().getPoints (), w1.getResult ().getPoints ());
+				//RetVal = Double.compare(w2.getResult ().getPoints (), w1.getResult ().getPoints ());
 			}
 			return RetVal;
 		}
@@ -66,9 +75,8 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 
 
 	DisziplineType diszipline;
-	int nWinners = 8;
+	int nWinners = 10;
 	int nReserve = 2;
-	int winnerPerOrganization = 2;
 	
 	public static CreateDisziplineFinalsCommand create (EditingDomain domain, Collection<?> collection) {
 		CreateDisziplineFinalsCommand RetVal = null;
@@ -137,86 +145,42 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 		Arrays.sort(winners, new CompareWinner (diszipline.getId ()));
 		int start = 0;
 		int count = nWinners;
-		double lastPoints = 0.0; // the points that was added latest
-		double lastSum = 0.0; // the all-around points that was added latest
-		HashMap<OrganizationType,Integer> organizationMapCount = new HashMap<OrganizationType,Integer>();
 		for (int j = 0; j < 2; ++j) {
-			int i = start;
-			int end = count;
-			int countOfAthlets = 0;
-			for (; i < winners.length; ++i) {
+			int n = calculateCountOfFinalsAthlet (winners, start, count);
+			for (int i = start; i < n; ++i) {
 				if (winners[i] instanceof AthletType) {
 					AthletType originAthlet = (AthletType) winners[i];
-					double points = getJuriResult (originAthlet, diszipline.getId ());
-					// TODO: what happens to the organizationchek
-					// when multiple athlets of the same organization do have same points and same sum? 
-					{
-						/* apply the rule what happens if maximum number of athlets are in
-						 * the finals and athlets do have the same value.
-						 */
-						double sum = originAthlet.getResult ().getPoints ();
-						if (countOfAthlets >= end) {
-							if (points < lastPoints) {
-								break;
-							}
-							/*
-							 * if the value is equal then the better result in all-arround is applyed
-							 */
-							if (sum < lastSum) {
-								break;
-							}
-						}
-						lastPoints = points;
-						lastSum = sum;
+					/* apply the rule what happens if maximum number of athlets are in
+					 * the finals and athlets do have the same value.
+					 */
+					double points = getJuriResultValue (originAthlet, diszipline.getId ());
+					String athletId = winners[i].getId() + "-" + diszipline.getId ();
+					AthletType finalsAthlet = getFinalsAthlet (finalsClass, athletId);
+					if (null == finalsAthlet) {
+						finalsAthlet = createFinalsAthlet (finalsClass, athletId);
+						finalsAthlet.setPerson (originAthlet.getPerson ());
+						finalsAthlet.setName(originAthlet.getName());
+						finalsAthlet.setOrganization(originAthlet.getOrganization ());
 					}
-					boolean skipAthlet = false;
-					{
-						// apply the rule that only a restricted number of winners per organization
-						// are allowed
-						OrganizationType originOrganization = originAthlet.getOrganization();
-						Integer organizationCount = organizationMapCount.get(originOrganization);
-						if (null == organizationCount) {
-							organizationCount = 0;
-						}
-						if (organizationCount >= winnerPerOrganization) {
-							// if there are already maximum winners per organization in the final
-							// then break the addition
-							skipAthlet = true;
-						} else {
-							organizationCount++;
-						}
-						organizationMapCount.put(originOrganization, organizationCount);
+					if (1 == j) {
+						// second pass is for reserve
+						finalsAthlet.setDisable(ContestEditPlugin.INSTANCE.getString("_UI_Reserve"));
 					}
-					if(!skipAthlet) {
-						String athletId = winners[i].getId() + "-" + diszipline.getId ();
-						AthletType finalsAthlet = getFinalsAthlet (finalsClass, athletId);
-						if (null == finalsAthlet) {
-							finalsAthlet = createFinalsAthlet (finalsClass, athletId);
-							finalsAthlet.setPerson (originAthlet.getPerson ());
-							finalsAthlet.setName(originAthlet.getName());
-							finalsAthlet.setOrganization(originAthlet.getOrganization ());
-						}
-						if (1 == j) {
-							// second pass is for reserve
-							finalsAthlet.setDisable(ContestEditPlugin.INSTANCE.getString("_UI_Reserve"));
-						}
-						finalsChain.getAthlet ().add (finalsAthlet);
-						countOfAthlets++;
-						ResultType result = finalsAthlet.getResult ();
-						if (null == result) {
-							result = createFinalsResult (finalsAthlet);
-						}
-						JuriResultType juriResult = getFinalsJuriResult (result, disziplineId);
-						if (null == juriResult) {
-							juriResult = createFinalsJuriResult (result);
-							juriResult.setDiszipline(finalsDiszipline);
-						}
-						juriResult.setValue(points);
+					finalsChain.getAthlet ().add (finalsAthlet);
+					ResultType result = finalsAthlet.getResult ();
+					if (null == result) {
+						result = createFinalsResult (finalsAthlet);
 					}
+					JuriResultType juriResult = getFinalsJuriResult (result, disziplineId);
+					if (null == juriResult) {
+						juriResult = createFinalsJuriResult (result);
+						juriResult.setDiszipline(finalsDiszipline);
+					}
+					juriResult.setValue(points);
 				}
 			}
 			// second pass is reserves
-			start = i;
+			start = n;
 			count = nReserve;
 		}
 	}
@@ -269,7 +233,7 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 				/* apply the rule what happens if maximum number of athlets are in
 				 * the finals and athlets do have the same value.
 				 */
-				double points = getJuriResult (originAthlet, diszipline.getId ());
+				double points = getJuriResultValue (originAthlet, diszipline.getId ());
 				double sum = originAthlet.getResult ().getPoints ();
 				if (i >= end) {
 					if (points < lastPoints) {
@@ -416,8 +380,23 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 		return RetVal;
 	}
 
-	private double getJuriResult (WinnerType w, String disziplineId) {
+	private double getJuriResultValue (WinnerType w, String disziplineId) {
 		double RetVal = 0.0;
+		JuriResultType result = getJuriResult(w, disziplineId);
+		if (null != result) {
+			RetVal = result.getValue ();
+			if( disziplineId.contains("ault")) {
+				double val = 0.0;
+				if( null != result.getJuriResultDetail() && result.getJuriResultDetail().size() >= 4 ) {
+					val = result.getJuriResultDetail().get(3).getValue();
+				}
+				RetVal = (RetVal + val) / 2;
+			}
+		}
+		return RetVal;
+	}
+	private JuriResultType getJuriResult (WinnerType w, String disziplineId) {
+		JuriResultType RetVal = null;
 		ResultType result = w.getResult ();
 		if (null != result) {
 			EList<?> juriResults = result.getJuriresult ();
@@ -426,7 +405,7 @@ public class CreateDisziplineFinalsCommand extends AbstractOverrideableCommand
 				JuriResultType juriResult = (JuriResultType) iJuriResult.next ();
 				DisziplineType diszipline = juriResult.getDiszipline (); 
 				if (0 == diszipline.getId ().compareTo(disziplineId)) {
-					RetVal = juriResult.getValue ();
+					RetVal = juriResult;
 					break;
 				}
 			}

@@ -19,7 +19,6 @@ public class CalculateTeamJuriResultCommand extends AbstractOverrideableCommand
 {
 
 	protected TeamJuriResultType result = null;
-	int count = 4;
 	/**
 	 * @param domain
 	 */
@@ -33,6 +32,8 @@ public class CalculateTeamJuriResultCommand extends AbstractOverrideableCommand
 		JuriResultType results[] = (JuriResultType[]) result.getJuriResult().toArray ();
 		if( 0 != results.length ){
 			// calculate only if there are some references to athlet-results
+			// by default take all results
+			double count = results.length;
 			double sum = 0.0;
 			java.util.Arrays.sort (results, new Comparator<JuriResultType> () {
 				public int compare (JuriResultType r1, JuriResultType r2) {
