@@ -275,9 +275,19 @@ public class ProtocolModel {
 		for (int column = 4; maxColumn > column; ++column) {
 			List< String > disziplineDetail = new ArrayList< String > ();
 			JuriResultType juriResult = getJuriResult( winner.getClass_(), winner, column - 4 );
-			EList<JuriResultDetailType> details = juriResult.getJuriResultDetail();
-			for( JuriResultDetailType detail : details) {
-				disziplineDetail.add( Double.toString( detail.getValue()));
+			if (null != juriResult) {
+				boolean isVault = juriResult.getDiszipline().getId().contains("finals-vault");
+				EList<JuriResultDetailType> details = juriResult.getJuriResultDetail();
+				int j = 0;
+				for( JuriResultDetailType detail : details) {
+					String s = getDetail(j);
+					if(isVault) {
+						s = getVaultDetail(j);
+					}
+					s += Double.toString( detail.getValue());
+					disziplineDetail.add( s );
+					j++;
+				}
 			}
 			if( winner instanceof TeamType ) {
 				TeamType team = ( TeamType )winner;
@@ -373,7 +383,54 @@ public class ProtocolModel {
 		}
 		return retVal;
 	}
-
+	static String getDetail(int i) {
+		String retVal = "";
+		switch(i) {
+		case 0: 
+			retVal = "(D): ";
+			break;
+		case 1:
+			retVal = "(E): ";
+			break;
+		case 2:
+			retVal = "(P): ";
+			break;
+		case 3:
+			retVal = "(2): ";
+			break;
+		}
+		return retVal;
+	}
+	static String getVaultDetail(int i) {
+		String retVal = "";
+		switch(i) {
+		case 0: 
+			retVal = "(1): ";
+			break;
+		case 1:
+			retVal = "(D1): ";
+			break;
+		case 2:
+			retVal = "(E1): ";
+			break;
+		case 3:
+			retVal = "(P1): ";
+			break;
+		case 4:
+			retVal = "(2): ";
+			break;
+		case 5:
+			retVal = "(D2): ";
+			break;
+		case 6:
+			retVal = "(E2): ";
+			break;
+		case 7:
+			retVal = "(P2): ";
+			break;
+		}
+		return retVal;
+	}
 	private boolean isSelected( EObject o ) {
 		boolean retVal = selected.isEmpty();
 		while( !retVal ) {
