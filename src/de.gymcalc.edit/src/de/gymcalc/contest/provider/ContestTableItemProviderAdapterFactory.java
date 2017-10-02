@@ -80,6 +80,16 @@ public class ContestTableItemProviderAdapterFactory extends
 	/* (non-Javadoc)
 	 */
 	@Override
+	public Adapter createFinalClassTypeAdapter() {
+		if (classTableItemProvider == null) {
+			classTableItemProvider = new ClassTableItemProvider(this);
+		}
+		return classTableItemProvider;
+	}
+
+	/* (non-Javadoc)
+	 */
+	@Override
 	public Adapter createChainTypeAdapter() {
 		if (chainTableItemProvider == null) {
 			chainTableItemProvider = new ChainTableItemProvider(this);

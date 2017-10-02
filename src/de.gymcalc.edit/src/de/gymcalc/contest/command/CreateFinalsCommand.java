@@ -18,7 +18,7 @@ import de.gymcalc.contest.DisziplineType;
  * @author groegert
  *
  */
-public class CreateFinalsCommand extends AbstractOverrideableCommand 
+public class CreateFinalsCommand extends ContestCompoundCommand 
 	implements CommandActionDelegate {
 
 	/**
@@ -30,8 +30,6 @@ public class CreateFinalsCommand extends AbstractOverrideableCommand
 	 * This cachaes the description.
 	 */
 	protected static final String DESCRIPTION = ContestEditPlugin.INSTANCE.getString("_UI_CreateFinalsCommand_description");
-
-	Collection<?> collection;
 	
 	public static CreateFinalsCommand create (EditingDomain domain, Collection<?> collection) {
 		CreateFinalsCommand RetVal = null;
@@ -43,62 +41,29 @@ public class CreateFinalsCommand extends AbstractOverrideableCommand
 	 * @param domain
 	 */
 	public CreateFinalsCommand(EditingDomain domain, Collection<?> collection) {
-		super(domain, LABEL, DESCRIPTION);
-		this.collection = collection; 
+		super(domain, collection, LABEL, DESCRIPTION);
+		this.resultIndex = LAST_COMMAND_ALL;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.command.AbstractOverrideableCommand#doExecute()
-	 */
 	@Override
-	public void doExecute() {
-		Iterator<?> i = collection.iterator ();
-		while (i.hasNext ()) {
-			Object o = i.next ();
-			if (o instanceof DisziplineType) {
-				Command cmd = CreateDisziplineFinalsCommand.create (domain, (DisziplineType) o);
-				cmd.execute ();
-			}
-		}
+	public void execute() {
+		Command cmd = CreateDisziplineFinalsCommand.create (getDomain(), collection);
+		this.appendAndExecute( cmd );
+		Collection<?> collection = cmd.getResult();
+		cmd = CreateFinalsChainCommand.create( getDomain(), collection );
+		this.appendAndExecute( cmd );
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.command.AbstractOverrideableCommand#doRedo()
-	 */
 	@Override
-	public void doRedo() {
-	}
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.command.AbstractOverrideableCommand#doUndo()
-	 */
-	@Override
-	public void doUndo() {
-	}
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.command.AbstractOverrideableCommand#doCanUndo()
-	 */
-	@Override
-	public boolean doCanUndo() {
-		return false;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.command.AbstractOverrideableCommand#doCanExecute()
-	 */
-	@Override
-	public boolean doCanExecute() {
-		boolean RetVal = false;
-		Iterator<?> i = collection.iterator ();
-		while (i.hasNext ()) {
-			Object o = i.next ();
-			if (o instanceof DisziplineType) {
-				RetVal = true;
+	public boolean prepare() {
+		boolean retVal = false;
+		for( Object o:this.collection) {
+			if( o instanceof DisziplineType) {
+				retVal = true;
 				break;
 			}
 		}
-		return RetVal;
+		return retVal;
 	}
 
 	public Object getImage() {

@@ -15,10 +15,14 @@ import de.gymcalc.addressbook.AddressBookType;
 import de.gymcalc.addressbook.OrganizationType;
 import de.gymcalc.addressbook.PersonType;
 import de.gymcalc.contest.AthletType;
+import de.gymcalc.contest.ChainType;
 import de.gymcalc.contest.ClassType;
 import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
+import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.FinalClassType;
+import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriType;
 import de.gymcalc.contest.JuristType;
 import de.gymcalc.contest.TeamType;
@@ -170,6 +174,44 @@ public class ContestCompoundCommand extends DomainCompoundCommand {
 		return retVal;
 	}
 	
+	protected FinalClassType getFinalClass( ContestType contest, String className ) {
+		FinalClassType retVal = null;
+		for( ClassType class_ : contest.getClass_() ) {
+			if( class_ instanceof FinalClassType ) {
+				if( null != class_.getName( ) ) {
+					if( 0 == class_.getName().compareTo( className ) ) {
+						retVal = ( FinalClassType ) class_;
+						break;
+					}
+				}
+				if (null == class_.getName() || 0 == class_.getName ().length()) {
+					retVal = ( FinalClassType ) class_;
+					break;
+				}
+			}
+		}
+		return retVal;
+	}
+	protected FinalClassType createFinalClass( String className ) {
+		FinalClassType retVal = ContestFactory.eINSTANCE.createFinalClassType();
+		retVal.setName( className );
+		return retVal;
+	}
+
+	protected ClassType getOrCreateFinalClass( ContestType contest, String className ) {
+		FinalClassType retVal = getFinalClass( contest, className );
+		if( null == retVal ) {
+			retVal = createFinalClass( className );
+			appendAndExecute( AddCommand.create(getDomain (), contest, ContestPackage.Literals.FINAL_CLASS_TYPE, retVal) );
+		}
+		return retVal;
+	}
+	protected ChainType createChain( String chainName ) {
+		ChainType retVal = ContestFactory.eINSTANCE.createChainType();
+		retVal.setName( chainName );
+		return retVal;
+	}
+	
 	protected TeamType getOrCreateTeam( ContestType contest ) {
 		TeamType retVal = null;
 		EList< ClassType > classes = contest.getClass_();
@@ -261,6 +303,35 @@ public class ContestCompoundCommand extends DomainCompoundCommand {
 		}
 		return retVal;
 	}
+
+	protected DisziplineType getDiszipline (ClassType class_, String Id) {
+		DisziplineType retVal = null;
+		for( DisziplineType diszipline:class_.getDiszipline ()) {
+			if (0 == diszipline.getId ().compareTo (Id)) {
+				retVal = diszipline;
+				break;
+			}
+		}
+		return retVal;
+	}
+	protected DisziplineType createDiszipline (String Id) {
+		DisziplineType retVal = ContestFactory.eINSTANCE.createDisziplineType ();
+		retVal.setId(Id);
+		return retVal;
+	}
+	protected DisziplineType getOrCreateDiszipline (ClassType class_, String Id) {
+		DisziplineType retVal = getDiszipline( class_, Id );
+		if( null == retVal ) {
+			retVal = createDiszipline( Id );
+			class_.getDiszipline().add(retVal);
+		}
+		return retVal;
+	}
+	protected JuriResultDetailType createJuriResultDetail( ) {
+		JuriResultDetailType retVal = ContestFactory.eINSTANCE.createJuriResultDetailType();
+		return retVal;
+	}
+	
 
 	protected ContestCommandParam param;
 	protected Collection<?> collection = null;

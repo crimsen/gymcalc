@@ -32,6 +32,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="calculationkey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalClassType" eSuperTypes="#//ClassType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originatingDiszipline"
+        eType="#//DisziplineType"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WinnerType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>

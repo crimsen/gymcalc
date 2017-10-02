@@ -62,6 +62,7 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 		switch (eClass.getClassifierID()) {
 			case ContestPackage.CONTEST_TYPE: return createContestType();
 			case ContestPackage.CLASS_TYPE: return createClassType();
+			case ContestPackage.FINAL_CLASS_TYPE: return createFinalClassType();
 			case ContestPackage.WINNER_TYPE: return createWinnerType();
 			case ContestPackage.ATHLET_TYPE: return createAthletType();
 			case ContestPackage.TEAM_TYPE: return createTeamType();
@@ -91,6 +92,16 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 	public ClassType createClassType() {
 		ClassTypeImpl classType = new ClassTypeImpl();
 		return classType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FinalClassType createFinalClassType() {
+		FinalClassTypeImpl finalClassType = new FinalClassTypeImpl();
+		return finalClassType;
 	}
 
 	/**

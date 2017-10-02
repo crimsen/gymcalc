@@ -273,6 +273,11 @@ public class ContestTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ContestPackage.Literals.CONTEST_TYPE__CLASS,
+				 ContestFactory.eINSTANCE.createFinalClassType()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ContestPackage.Literals.CONTEST_TYPE__CHAIN,
 				 ContestFactory.eINSTANCE.createChainType()));
 

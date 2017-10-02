@@ -224,6 +224,70 @@ public interface ContestPackage extends EPackage {
 	int CLASS_TYPE_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.FinalClassTypeImpl <em>Final Class Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gymcalc.contest.impl.FinalClassTypeImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getFinalClassType()
+	 * @generated
+	 */
+	int FINAL_CLASS_TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Diszipline</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CLASS_TYPE__DISZIPLINE = CLASS_TYPE__DISZIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Winner</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CLASS_TYPE__WINNER = CLASS_TYPE__WINNER;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CLASS_TYPE__NAME = CLASS_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Calculationkey</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CLASS_TYPE__CALCULATIONKEY = CLASS_TYPE__CALCULATIONKEY;
+
+	/**
+	 * The feature id for the '<em><b>Originating Diszipline</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CLASS_TYPE__ORIGINATING_DISZIPLINE = CLASS_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Final Class Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CLASS_TYPE_FEATURE_COUNT = CLASS_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.DisziplineTypeImpl <em>Diszipline Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,7 +295,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getDisziplineType()
 	 * @generated
 	 */
-	int DISZIPLINE_TYPE = 6;
+	int DISZIPLINE_TYPE = 7;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.ResultTypeImpl <em>Result Type</em>}' class.
@@ -241,7 +305,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getResultType()
 	 * @generated
 	 */
-	int RESULT_TYPE = 8;
+	int RESULT_TYPE = 9;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.WinnerTypeImpl <em>Winner Type</em>}' class.
@@ -251,7 +315,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getWinnerType()
 	 * @generated
 	 */
-	int WINNER_TYPE = 2;
+	int WINNER_TYPE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -324,7 +388,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getAthletType()
 	 * @generated
 	 */
-	int ATHLET_TYPE = 3;
+	int ATHLET_TYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -424,7 +488,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getTeamType()
 	 * @generated
 	 */
-	int TEAM_TYPE = 4;
+	int TEAM_TYPE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -506,7 +570,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getChainType()
 	 * @generated
 	 */
-	int CHAIN_TYPE = 5;
+	int CHAIN_TYPE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -606,7 +670,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getStationType()
 	 * @generated
 	 */
-	int STATION_TYPE = 7;
+	int STATION_TYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -679,7 +743,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getAthletResultType()
 	 * @generated
 	 */
-	int ATHLET_RESULT_TYPE = 9;
+	int ATHLET_RESULT_TYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Rank</b></em>' attribute.
@@ -725,7 +789,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getTeamResultType()
 	 * @generated
 	 */
-	int TEAM_RESULT_TYPE = 10;
+	int TEAM_RESULT_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Rank</b></em>' attribute.
@@ -771,7 +835,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultType()
 	 * @generated
 	 */
-	int JURI_RESULT_TYPE = 11;
+	int JURI_RESULT_TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Diszipline</b></em>' reference.
@@ -817,7 +881,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuristType()
 	 * @generated
 	 */
-	int JURIST_TYPE = 13;
+	int JURIST_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.JuriTypeImpl <em>Juri Type</em>}' class.
@@ -827,7 +891,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriType()
 	 * @generated
 	 */
-	int JURI_TYPE = 14;
+	int JURI_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.TeamJuriResultTypeImpl <em>Team Juri Result Type</em>}' class.
@@ -837,7 +901,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getTeamJuriResultType()
 	 * @generated
 	 */
-	int TEAM_JURI_RESULT_TYPE = 12;
+	int TEAM_JURI_RESULT_TYPE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Diszipline</b></em>' reference.
@@ -965,7 +1029,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupTablesType()
 	 * @generated
 	 */
-	int LOOKUP_TABLES_TYPE = 15;
+	int LOOKUP_TABLES_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' containment reference list.
@@ -993,7 +1057,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupTableType()
 	 * @generated
 	 */
-	int LOOKUP_TABLE_TYPE = 16;
+	int LOOKUP_TABLE_TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1049,7 +1113,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultDetailType()
 	 * @generated
 	 */
-	int JURI_RESULT_DETAIL_TYPE = 17;
+	int JURI_RESULT_DETAIL_TYPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1131,6 +1195,27 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getClassType_Calculationkey();
+
+	/**
+	 * Returns the meta object for class '{@link de.gymcalc.contest.FinalClassType <em>Final Class Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Final Class Type</em>'.
+	 * @see de.gymcalc.contest.FinalClassType
+	 * @generated
+	 */
+	EClass getFinalClassType();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.gymcalc.contest.FinalClassType#getOriginatingDiszipline <em>Originating Diszipline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Originating Diszipline</em>'.
+	 * @see de.gymcalc.contest.FinalClassType#getOriginatingDiszipline()
+	 * @see #getFinalClassType()
+	 * @generated
+	 */
+	EReference getFinalClassType_OriginatingDiszipline();
 
 	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.ContestType <em>Type</em>}'.
@@ -1915,6 +2000,24 @@ public interface ContestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLASS_TYPE__CALCULATIONKEY = eINSTANCE.getClassType_Calculationkey();
+
+		/**
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.FinalClassTypeImpl <em>Final Class Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gymcalc.contest.impl.FinalClassTypeImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getFinalClassType()
+		 * @generated
+		 */
+		EClass FINAL_CLASS_TYPE = eINSTANCE.getFinalClassType();
+
+		/**
+		 * The meta object literal for the '<em><b>Originating Diszipline</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FINAL_CLASS_TYPE__ORIGINATING_DISZIPLINE = eINSTANCE.getFinalClassType_OriginatingDiszipline();
 
 		/**
 		 * The meta object literal for the '{@link de.gymcalc.contest.impl.ContestTypeImpl <em>Type</em>}' class.

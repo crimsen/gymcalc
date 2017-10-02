@@ -22,6 +22,7 @@ import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.FinalClassType;
 import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.JuriType;
@@ -48,6 +49,13 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * @generated
 	 */
 	private EClass classTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass finalClassTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -277,6 +285,24 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 */
 	public EAttribute getClassType_Calculationkey() {
 		return (EAttribute)classTypeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFinalClassType() {
+		return finalClassTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFinalClassType_OriginatingDiszipline() {
+		return (EReference)finalClassTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -928,6 +954,9 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		createEAttribute(classTypeEClass, CLASS_TYPE__NAME);
 		createEAttribute(classTypeEClass, CLASS_TYPE__CALCULATIONKEY);
 
+		finalClassTypeEClass = createEClass(FINAL_CLASS_TYPE);
+		createEReference(finalClassTypeEClass, FINAL_CLASS_TYPE__ORIGINATING_DISZIPLINE);
+
 		winnerTypeEClass = createEClass(WINNER_TYPE);
 		createEAttribute(winnerTypeEClass, WINNER_TYPE__ID);
 		createEAttribute(winnerTypeEClass, WINNER_TYPE__NAME);
@@ -1035,6 +1064,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		finalClassTypeEClass.getESuperTypes().add(this.getClassType());
 		athletTypeEClass.getESuperTypes().add(this.getWinnerType());
 		teamTypeEClass.getESuperTypes().add(this.getWinnerType());
 		athletResultTypeEClass.getESuperTypes().add(this.getResultType());
@@ -1059,6 +1089,9 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEReference(getClassType_Winner(), this.getWinnerType(), this.getWinnerType_Class(), "winner", null, 0, -1, ClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClassType_Name(), ecorePackage.getEString(), "name", null, 1, 1, ClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClassType_Calculationkey(), ecorePackage.getEString(), "calculationkey", null, 0, 1, ClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(finalClassTypeEClass, FinalClassType.class, "FinalClassType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFinalClassType_OriginatingDiszipline(), this.getDisziplineType(), null, "originatingDiszipline", null, 0, 1, FinalClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(winnerTypeEClass, WinnerType.class, "WinnerType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWinnerType_Id(), ecorePackage.getEString(), "id", null, 1, 1, WinnerType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

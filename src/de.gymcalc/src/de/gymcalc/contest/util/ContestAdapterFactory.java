@@ -80,6 +80,10 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 				return createClassTypeAdapter();
 			}
 			@Override
+			public Adapter caseFinalClassType(FinalClassType object) {
+				return createFinalClassTypeAdapter();
+			}
+			@Override
 			public Adapter caseWinnerType(WinnerType object) {
 				return createWinnerTypeAdapter();
 			}
@@ -174,6 +178,20 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClassTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.FinalClassType <em>Final Class Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.gymcalc.contest.FinalClassType
+	 * @generated
+	 */
+	public Adapter createFinalClassTypeAdapter() {
 		return null;
 	}
 

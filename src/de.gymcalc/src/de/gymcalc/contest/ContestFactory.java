@@ -35,6 +35,15 @@ public interface ContestFactory extends EFactory {
 	ClassType createClassType();
 
 	/**
+	 * Returns a new object of class '<em>Final Class Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Final Class Type</em>'.
+	 * @generated
+	 */
+	FinalClassType createFinalClassType();
+
+	/**
 	 * Returns a new object of class '<em>Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

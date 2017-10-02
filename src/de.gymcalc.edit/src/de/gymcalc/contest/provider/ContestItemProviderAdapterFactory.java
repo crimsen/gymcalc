@@ -99,6 +99,29 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.FinalClassType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FinalClassTypeItemProvider finalClassTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.gymcalc.contest.FinalClassType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFinalClassTypeAdapter() {
+		if (finalClassTypeItemProvider == null) {
+			finalClassTypeItemProvider = new FinalClassTypeItemProvider(this);
+		}
+
+		return finalClassTypeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.ContestType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -590,6 +613,7 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 	public void dispose() {
 		if (contestTypeItemProvider != null) contestTypeItemProvider.dispose();
 		if (classTypeItemProvider != null) classTypeItemProvider.dispose();
+		if (finalClassTypeItemProvider != null) finalClassTypeItemProvider.dispose();
 		if (winnerTypeItemProvider != null) winnerTypeItemProvider.dispose();
 		if (athletTypeItemProvider != null) athletTypeItemProvider.dispose();
 		if (teamTypeItemProvider != null) teamTypeItemProvider.dispose();
