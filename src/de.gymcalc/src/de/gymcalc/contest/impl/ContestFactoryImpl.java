@@ -8,6 +8,7 @@ package de.gymcalc.contest.impl;
 
 import de.gymcalc.contest.*;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -67,6 +68,7 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 			case ContestPackage.ATHLET_TYPE: return createAthletType();
 			case ContestPackage.TEAM_TYPE: return createTeamType();
 			case ContestPackage.CHAIN_TYPE: return createChainType();
+			case ContestPackage.FINAL_CHAIN_TYPE: return createFinalChainType();
 			case ContestPackage.DISZIPLINE_TYPE: return createDisziplineType();
 			case ContestPackage.STATION_TYPE: return createStationType();
 			case ContestPackage.RESULT_TYPE: return createResultType();
@@ -78,7 +80,10 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 			case ContestPackage.JURI_TYPE: return createJuriType();
 			case ContestPackage.LOOKUP_TABLES_TYPE: return createLookupTablesType();
 			case ContestPackage.LOOKUP_TABLE_TYPE: return createLookupTableType();
+			case ContestPackage.LOOKUP_MAPS_TYPE: return createLookupMapsType();
+			case ContestPackage.LOOKUP_MAP_TYPE: return createLookupMapType();
 			case ContestPackage.JURI_RESULT_DETAIL_TYPE: return createJuriResultDetailType();
+			case ContestPackage.INT_TO_INT_ENTRY: return (EObject)createIntToIntEntry();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -162,6 +167,16 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 	public ChainType createChainType() {
 		ChainTypeImpl chainType = new ChainTypeImpl();
 		return chainType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FinalChainType createFinalChainType() {
+		FinalChainTypeImpl finalChainType = new FinalChainTypeImpl();
+		return finalChainType;
 	}
 
 	/**
@@ -269,9 +284,39 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LookupMapsType createLookupMapsType() {
+		LookupMapsTypeImpl lookupMapsType = new LookupMapsTypeImpl();
+		return lookupMapsType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LookupMapType createLookupMapType() {
+		LookupMapTypeImpl lookupMapType = new LookupMapTypeImpl();
+		return lookupMapType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JuriResultDetailType createJuriResultDetailType() {
 		JuriResultDetailTypeImpl juriResultDetailType = new JuriResultDetailTypeImpl();
 		return juriResultDetailType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<Integer, Integer> createIntToIntEntry() {
+		IntToIntEntryImpl intToIntEntry = new IntToIntEntryImpl();
+		return intToIntEntry;
 	}
 
 	/**

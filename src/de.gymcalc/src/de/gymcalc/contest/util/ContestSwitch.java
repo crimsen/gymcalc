@@ -7,6 +7,7 @@
 package de.gymcalc.contest.util;
 
 import de.gymcalc.contest.*;
+import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -132,6 +133,13 @@ public class ContestSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ContestPackage.FINAL_CHAIN_TYPE: {
+				FinalChainType finalChainType = (FinalChainType)theEObject;
+				T result = caseFinalChainType(finalChainType);
+				if (result == null) result = caseChainType(finalChainType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ContestPackage.DISZIPLINE_TYPE: {
 				DisziplineType disziplineType = (DisziplineType)theEObject;
 				T result = caseDisziplineType(disziplineType);
@@ -201,9 +209,27 @@ public class ContestSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ContestPackage.LOOKUP_MAPS_TYPE: {
+				LookupMapsType lookupMapsType = (LookupMapsType)theEObject;
+				T result = caseLookupMapsType(lookupMapsType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContestPackage.LOOKUP_MAP_TYPE: {
+				LookupMapType lookupMapType = (LookupMapType)theEObject;
+				T result = caseLookupMapType(lookupMapType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ContestPackage.JURI_RESULT_DETAIL_TYPE: {
 				JuriResultDetailType juriResultDetailType = (JuriResultDetailType)theEObject;
 				T result = caseJuriResultDetailType(juriResultDetailType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContestPackage.INT_TO_INT_ENTRY: {
+				@SuppressWarnings("unchecked") Map.Entry<Integer, Integer> intToIntEntry = (Map.Entry<Integer, Integer>)theEObject;
+				T result = caseIntToIntEntry(intToIntEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,6 +354,21 @@ public class ContestSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseChainType(ChainType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Final Chain Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Final Chain Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFinalChainType(FinalChainType object) {
 		return null;
 	}
 
@@ -482,6 +523,36 @@ public class ContestSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lookup Maps Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lookup Maps Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLookupMapsType(LookupMapsType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lookup Map Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lookup Map Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLookupMapType(LookupMapType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Juri Result Detail Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -493,6 +564,21 @@ public class ContestSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJuriResultDetailType(JuriResultDetailType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Int To Int Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Int To Int Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntToIntEntry(Map.Entry<Integer, Integer> object) {
 		return null;
 	}
 

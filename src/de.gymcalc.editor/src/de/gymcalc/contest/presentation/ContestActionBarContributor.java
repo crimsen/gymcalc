@@ -52,6 +52,8 @@ import de.gymcalc.contest.ui.action.EnterOrganizationAction;
 import de.gymcalc.contest.ui.action.SetTeamNameFromAthletAction;
 import de.gymcalc.contest.ui.action.ShuffleClassAction;
 import de.gymcalc.contest.ui.action.SortClassAction;
+import de.gymcalc.contest.ui.action.UpdateFinalAthletsAction;
+import de.gymcalc.contest.ui.action.UpdateFinalChainAction;
 
 /**
  * This is the action bar contributor for the Contest model editor.
@@ -169,6 +171,8 @@ public class ContestActionBarContributor
 	protected DelegatingCommandAction setTeamNameFromAthletAction = new DelegatingCommandAction (new SetTeamNameFromAthletAction ());
 	protected DelegatingCommandAction cleanupAction = new DelegatingCommandAction (new CleanupAction ());
 	protected DelegatingCommandAction combineAction = new DelegatingCommandAction( new CombineClassAction () );
+	protected DelegatingCommandAction updateFinalAthletsAction = new DelegatingCommandAction( new UpdateFinalAthletsAction () );
+	protected DelegatingCommandAction updateFinalChainAction = new DelegatingCommandAction( new UpdateFinalChainAction () );
 	
 	/**
 	 * This creates an instance of the contributor.
@@ -287,6 +291,8 @@ public class ContestActionBarContributor
 		setTeamNameFromAthletAction.setActiveWorkbenchPart(activeEditorPart);
 		cleanupAction.setActiveWorkbenchPart(activeEditorPart);
 		combineAction.setActiveWorkbenchPart(activeEditorPart);
+		updateFinalAthletsAction.setActiveWorkbenchPart(activeEditorPart);
+		updateFinalChainAction.setActiveWorkbenchPart(activeEditorPart);
 	}
 
 	/**
@@ -410,6 +416,8 @@ public class ContestActionBarContributor
 		menuManager.insertAfter("actions", shuffleClassAction);
 		menuManager.insertAfter("actions", calculateRankAction);
 		menuManager.insertAfter("actions", createFinalsAction);
+		menuManager.insertAfter("actions", updateFinalAthletsAction);
+		menuManager.insertAfter("actions", updateFinalChainAction);
 		menuManager.insertAfter("actions", createResultsAction);
 		menuManager.insertAfter("actions", setTeamNameFromAthletAction);
 		

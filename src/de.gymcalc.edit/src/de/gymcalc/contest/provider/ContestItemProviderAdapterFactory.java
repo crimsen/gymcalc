@@ -260,6 +260,29 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.FinalChainType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FinalChainTypeItemProvider finalChainTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.gymcalc.contest.FinalChainType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFinalChainTypeAdapter() {
+		if (finalChainTypeItemProvider == null) {
+			finalChainTypeItemProvider = new FinalChainTypeItemProvider(this);
+		}
+
+		return finalChainTypeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.StationType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -490,6 +513,52 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.LookupMapsType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LookupMapsTypeItemProvider lookupMapsTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.gymcalc.contest.LookupMapsType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLookupMapsTypeAdapter() {
+		if (lookupMapsTypeItemProvider == null) {
+			lookupMapsTypeItemProvider = new LookupMapsTypeItemProvider(this);
+		}
+
+		return lookupMapsTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.LookupMapType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LookupMapTypeItemProvider lookupMapTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.gymcalc.contest.LookupMapType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLookupMapTypeAdapter() {
+		if (lookupMapTypeItemProvider == null) {
+			lookupMapTypeItemProvider = new LookupMapTypeItemProvider(this);
+		}
+
+		return lookupMapTypeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.JuriResultDetailType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,6 +579,29 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 		}
 
 		return juriResultDetailTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntToIntEntryItemProvider intToIntEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntToIntEntryAdapter() {
+		if (intToIntEntryItemProvider == null) {
+			intToIntEntryItemProvider = new IntToIntEntryItemProvider(this);
+		}
+
+		return intToIntEntryItemProvider;
 	}
 
 	/**
@@ -618,6 +710,7 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 		if (athletTypeItemProvider != null) athletTypeItemProvider.dispose();
 		if (teamTypeItemProvider != null) teamTypeItemProvider.dispose();
 		if (chainTypeItemProvider != null) chainTypeItemProvider.dispose();
+		if (finalChainTypeItemProvider != null) finalChainTypeItemProvider.dispose();
 		if (disziplineTypeItemProvider != null) disziplineTypeItemProvider.dispose();
 		if (stationTypeItemProvider != null) stationTypeItemProvider.dispose();
 		if (resultTypeItemProvider != null) resultTypeItemProvider.dispose();
@@ -629,7 +722,10 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 		if (juriTypeItemProvider != null) juriTypeItemProvider.dispose();
 		if (lookupTablesTypeItemProvider != null) lookupTablesTypeItemProvider.dispose();
 		if (lookupTableTypeItemProvider != null) lookupTableTypeItemProvider.dispose();
+		if (lookupMapsTypeItemProvider != null) lookupMapsTypeItemProvider.dispose();
+		if (lookupMapTypeItemProvider != null) lookupMapTypeItemProvider.dispose();
 		if (juriResultDetailTypeItemProvider != null) juriResultDetailTypeItemProvider.dispose();
+		if (intToIntEntryItemProvider != null) intToIntEntryItemProvider.dispose();
 	}
 
 }

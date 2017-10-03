@@ -215,10 +215,10 @@ public class UpdateFinalAthletsCommand extends ContestCompoundCommand {
 	/**
 	 * This caches the label.
 	 */
-	protected static final String LABEL = ContestEditPlugin.INSTANCE.getString("_UI_CreateFinalsCommand_label");
+	protected static final String LABEL = ContestEditPlugin.INSTANCE.getString("_UI_UpdateFinalAthletsCommand_label");
 	
 	/**
 	 * This cachaes the description.
 	 */
-	protected static final String DESCRIPTION = ContestEditPlugin.INSTANCE.getString("_UI_CreateFinalsCommand_description");
+	protected static final String DESCRIPTION = ContestEditPlugin.INSTANCE.getString("_UI_UpdateFinalAthletsCommand_description");
 }

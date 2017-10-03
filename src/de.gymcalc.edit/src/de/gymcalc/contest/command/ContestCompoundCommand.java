@@ -21,6 +21,7 @@ import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.FinalChainType;
 import de.gymcalc.contest.FinalClassType;
 import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriType;
@@ -208,6 +209,11 @@ public class ContestCompoundCommand extends DomainCompoundCommand {
 	}
 	protected ChainType createChain( String chainName ) {
 		ChainType retVal = ContestFactory.eINSTANCE.createChainType();
+		retVal.setName( chainName );
+		return retVal;
+	}
+	protected FinalChainType createFinalChain( String chainName ) {
+		FinalChainType retVal = ContestFactory.eINSTANCE.createFinalChainType();
 		retVal.setName( chainName );
 		return retVal;
 	}

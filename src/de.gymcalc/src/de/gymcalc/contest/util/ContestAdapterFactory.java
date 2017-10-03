@@ -8,6 +8,7 @@ package de.gymcalc.contest.util;
 
 import de.gymcalc.contest.*;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -100,6 +101,10 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 				return createChainTypeAdapter();
 			}
 			@Override
+			public Adapter caseFinalChainType(FinalChainType object) {
+				return createFinalChainTypeAdapter();
+			}
+			@Override
 			public Adapter caseDisziplineType(DisziplineType object) {
 				return createDisziplineTypeAdapter();
 			}
@@ -144,8 +149,20 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 				return createLookupTableTypeAdapter();
 			}
 			@Override
+			public Adapter caseLookupMapsType(LookupMapsType object) {
+				return createLookupMapsTypeAdapter();
+			}
+			@Override
+			public Adapter caseLookupMapType(LookupMapType object) {
+				return createLookupMapTypeAdapter();
+			}
+			@Override
 			public Adapter caseJuriResultDetailType(JuriResultDetailType object) {
 				return createJuriResultDetailTypeAdapter();
+			}
+			@Override
+			public Adapter caseIntToIntEntry(Map.Entry<Integer, Integer> object) {
+				return createIntToIntEntryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -276,6 +293,20 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createChainTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.FinalChainType <em>Final Chain Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.gymcalc.contest.FinalChainType
+	 * @generated
+	 */
+	public Adapter createFinalChainTypeAdapter() {
 		return null;
 	}
 
@@ -420,6 +451,34 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.LookupMapsType <em>Lookup Maps Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.gymcalc.contest.LookupMapsType
+	 * @generated
+	 */
+	public Adapter createLookupMapsTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.LookupMapType <em>Lookup Map Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.gymcalc.contest.LookupMapType
+	 * @generated
+	 */
+	public Adapter createLookupMapTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.JuriResultDetailType <em>Juri Result Detail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -430,6 +489,20 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJuriResultDetailTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Int To Int Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createIntToIntEntryAdapter() {
 		return null;
 	}
 

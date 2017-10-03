@@ -37,6 +37,7 @@ import de.gymcalc.addressbook.AddressBookType;
  *   <li>{@link de.gymcalc.contest.ContestType#getStation <em>Station</em>}</li>
  *   <li>{@link de.gymcalc.contest.ContestType#getAddressbook <em>Addressbook</em>}</li>
  *   <li>{@link de.gymcalc.contest.ContestType#getLookuptables <em>Lookuptables</em>}</li>
+ *   <li>{@link de.gymcalc.contest.ContestType#getLookupmaps <em>Lookupmaps</em>}</li>
  *   <li>{@link de.gymcalc.contest.ContestType#getVersion <em>Version</em>}</li>
  * </ul>
  *
@@ -238,6 +239,32 @@ public interface ContestType extends EObject {
 	 * @generated
 	 */
 	void setLookuptables(LookupTablesType value);
+
+	/**
+	 * Returns the value of the '<em><b>Lookupmaps</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Lookupmaps</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Lookupmaps</em>' containment reference.
+	 * @see #setLookupmaps(LookupMapsType)
+	 * @see de.gymcalc.contest.ContestPackage#getContestType_Lookupmaps()
+	 * @model containment="true"
+	 * @generated
+	 */
+	LookupMapsType getLookupmaps();
+
+	/**
+	 * Sets the value of the '{@link de.gymcalc.contest.ContestType#getLookupmaps <em>Lookupmaps</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Lookupmaps</em>' containment reference.
+	 * @see #getLookupmaps()
+	 * @generated
+	 */
+	void setLookupmaps(LookupMapsType value);
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.

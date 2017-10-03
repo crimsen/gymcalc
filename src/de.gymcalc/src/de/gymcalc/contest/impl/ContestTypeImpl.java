@@ -25,6 +25,7 @@ import de.gymcalc.contest.ClassType;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.JuriType;
+import de.gymcalc.contest.LookupMapsType;
 import de.gymcalc.contest.LookupTablesType;
 import de.gymcalc.contest.StationType;
 
@@ -45,6 +46,7 @@ import de.gymcalc.contest.StationType;
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getStation <em>Station</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getAddressbook <em>Addressbook</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getLookuptables <em>Lookuptables</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getLookupmaps <em>Lookupmaps</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.ContestTypeImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
@@ -170,6 +172,16 @@ public class ContestTypeImpl extends EObjectImpl implements ContestType {
 	 * @ordered
 	 */
 	protected LookupTablesType lookuptables;
+
+	/**
+	 * The cached value of the '{@link #getLookupmaps() <em>Lookupmaps</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLookupmaps()
+	 * @generated
+	 * @ordered
+	 */
+	protected LookupMapsType lookupmaps;
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -412,6 +424,49 @@ public class ContestTypeImpl extends EObjectImpl implements ContestType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LookupMapsType getLookupmaps() {
+		return lookupmaps;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLookupmaps(LookupMapsType newLookupmaps, NotificationChain msgs) {
+		LookupMapsType oldLookupmaps = lookupmaps;
+		lookupmaps = newLookupmaps;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContestPackage.CONTEST_TYPE__LOOKUPMAPS, oldLookupmaps, newLookupmaps);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLookupmaps(LookupMapsType newLookupmaps) {
+		if (newLookupmaps != lookupmaps) {
+			NotificationChain msgs = null;
+			if (lookupmaps != null)
+				msgs = ((InternalEObject)lookupmaps).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContestPackage.CONTEST_TYPE__LOOKUPMAPS, null, msgs);
+			if (newLookupmaps != null)
+				msgs = ((InternalEObject)newLookupmaps).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContestPackage.CONTEST_TYPE__LOOKUPMAPS, null, msgs);
+			msgs = basicSetLookupmaps(newLookupmaps, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.CONTEST_TYPE__LOOKUPMAPS, newLookupmaps, newLookupmaps));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getVersion() {
 		return version;
 	}
@@ -448,6 +503,8 @@ public class ContestTypeImpl extends EObjectImpl implements ContestType {
 				return basicSetAddressbook(null, msgs);
 			case ContestPackage.CONTEST_TYPE__LOOKUPTABLES:
 				return basicSetLookuptables(null, msgs);
+			case ContestPackage.CONTEST_TYPE__LOOKUPMAPS:
+				return basicSetLookupmaps(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -478,6 +535,8 @@ public class ContestTypeImpl extends EObjectImpl implements ContestType {
 				return getAddressbook();
 			case ContestPackage.CONTEST_TYPE__LOOKUPTABLES:
 				return getLookuptables();
+			case ContestPackage.CONTEST_TYPE__LOOKUPMAPS:
+				return getLookupmaps();
 			case ContestPackage.CONTEST_TYPE__VERSION:
 				return getVersion();
 		}
@@ -524,6 +583,9 @@ public class ContestTypeImpl extends EObjectImpl implements ContestType {
 			case ContestPackage.CONTEST_TYPE__LOOKUPTABLES:
 				setLookuptables((LookupTablesType)newValue);
 				return;
+			case ContestPackage.CONTEST_TYPE__LOOKUPMAPS:
+				setLookupmaps((LookupMapsType)newValue);
+				return;
 			case ContestPackage.CONTEST_TYPE__VERSION:
 				setVersion((Integer)newValue);
 				return;
@@ -566,6 +628,9 @@ public class ContestTypeImpl extends EObjectImpl implements ContestType {
 			case ContestPackage.CONTEST_TYPE__LOOKUPTABLES:
 				setLookuptables((LookupTablesType)null);
 				return;
+			case ContestPackage.CONTEST_TYPE__LOOKUPMAPS:
+				setLookupmaps((LookupMapsType)null);
+				return;
 			case ContestPackage.CONTEST_TYPE__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
@@ -599,6 +664,8 @@ public class ContestTypeImpl extends EObjectImpl implements ContestType {
 				return addressbook != null;
 			case ContestPackage.CONTEST_TYPE__LOOKUPTABLES:
 				return lookuptables != null;
+			case ContestPackage.CONTEST_TYPE__LOOKUPMAPS:
+				return lookupmaps != null;
 			case ContestPackage.CONTEST_TYPE__VERSION:
 				return version != VERSION_EDEFAULT;
 		}

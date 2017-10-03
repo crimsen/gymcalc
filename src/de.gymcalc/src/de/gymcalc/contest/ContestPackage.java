@@ -161,13 +161,22 @@ public interface ContestPackage extends EPackage {
 	int CONTEST_TYPE__LOOKUPTABLES = 8;
 
 	/**
+	 * The feature id for the '<em><b>Lookupmaps</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEST_TYPE__LOOKUPMAPS = 9;
+
+	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEST_TYPE__VERSION = 9;
+	int CONTEST_TYPE__VERSION = 10;
 
 	/**
 	 * The number of structural features of the '<em>Type</em>' class.
@@ -176,7 +185,7 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEST_TYPE_FEATURE_COUNT = 10;
+	int CONTEST_TYPE_FEATURE_COUNT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Diszipline</b></em>' containment reference list.
@@ -295,7 +304,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getDisziplineType()
 	 * @generated
 	 */
-	int DISZIPLINE_TYPE = 7;
+	int DISZIPLINE_TYPE = 8;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.ResultTypeImpl <em>Result Type</em>}' class.
@@ -305,7 +314,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getResultType()
 	 * @generated
 	 */
-	int RESULT_TYPE = 9;
+	int RESULT_TYPE = 10;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.WinnerTypeImpl <em>Winner Type</em>}' class.
@@ -609,6 +618,70 @@ public interface ContestPackage extends EPackage {
 	int CHAIN_TYPE_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.FinalChainTypeImpl <em>Final Chain Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gymcalc.contest.impl.FinalChainTypeImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getFinalChainType()
+	 * @generated
+	 */
+	int FINAL_CHAIN_TYPE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CHAIN_TYPE__NAME = CHAIN_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Athlet</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CHAIN_TYPE__ATHLET = CHAIN_TYPE__ATHLET;
+
+	/**
+	 * The feature id for the '<em><b>Station</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CHAIN_TYPE__STATION = CHAIN_TYPE__STATION;
+
+	/**
+	 * The feature id for the '<em><b>Final Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CHAIN_TYPE__FINAL_CLASS = CHAIN_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Order Map</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CHAIN_TYPE__ORDER_MAP = CHAIN_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Final Chain Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_CHAIN_TYPE_FEATURE_COUNT = CHAIN_TYPE_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,7 +743,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getStationType()
 	 * @generated
 	 */
-	int STATION_TYPE = 8;
+	int STATION_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -743,7 +816,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getAthletResultType()
 	 * @generated
 	 */
-	int ATHLET_RESULT_TYPE = 10;
+	int ATHLET_RESULT_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Rank</b></em>' attribute.
@@ -789,7 +862,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getTeamResultType()
 	 * @generated
 	 */
-	int TEAM_RESULT_TYPE = 11;
+	int TEAM_RESULT_TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Rank</b></em>' attribute.
@@ -835,7 +908,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultType()
 	 * @generated
 	 */
-	int JURI_RESULT_TYPE = 12;
+	int JURI_RESULT_TYPE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Diszipline</b></em>' reference.
@@ -881,7 +954,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuristType()
 	 * @generated
 	 */
-	int JURIST_TYPE = 14;
+	int JURIST_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.JuriTypeImpl <em>Juri Type</em>}' class.
@@ -891,7 +964,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriType()
 	 * @generated
 	 */
-	int JURI_TYPE = 15;
+	int JURI_TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.TeamJuriResultTypeImpl <em>Team Juri Result Type</em>}' class.
@@ -901,7 +974,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getTeamJuriResultType()
 	 * @generated
 	 */
-	int TEAM_JURI_RESULT_TYPE = 13;
+	int TEAM_JURI_RESULT_TYPE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Diszipline</b></em>' reference.
@@ -1029,7 +1102,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupTablesType()
 	 * @generated
 	 */
-	int LOOKUP_TABLES_TYPE = 16;
+	int LOOKUP_TABLES_TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' containment reference list.
@@ -1057,7 +1130,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupTableType()
 	 * @generated
 	 */
-	int LOOKUP_TABLE_TYPE = 17;
+	int LOOKUP_TABLE_TYPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1106,6 +1179,80 @@ public interface ContestPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.LookupMapsTypeImpl <em>Lookup Maps Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gymcalc.contest.impl.LookupMapsTypeImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupMapsType()
+	 * @generated
+	 */
+	int LOOKUP_MAPS_TYPE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Map</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOKUP_MAPS_TYPE__MAP = 0;
+
+	/**
+	 * The number of structural features of the '<em>Lookup Maps Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOKUP_MAPS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.LookupMapTypeImpl <em>Lookup Map Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gymcalc.contest.impl.LookupMapTypeImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupMapType()
+	 * @generated
+	 */
+	int LOOKUP_MAP_TYPE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOKUP_MAP_TYPE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOKUP_MAP_TYPE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Entries</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOKUP_MAP_TYPE__ENTRIES = 2;
+
+	/**
+	 * The number of structural features of the '<em>Lookup Map Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOKUP_MAP_TYPE_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.JuriResultDetailTypeImpl <em>Juri Result Detail Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1113,7 +1260,7 @@ public interface ContestPackage extends EPackage {
 	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getJuriResultDetailType()
 	 * @generated
 	 */
-	int JURI_RESULT_DETAIL_TYPE = 18;
+	int JURI_RESULT_DETAIL_TYPE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1141,6 +1288,43 @@ public interface ContestPackage extends EPackage {
 	 * @ordered
 	 */
 	int JURI_RESULT_DETAIL_TYPE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.IntToIntEntryImpl <em>Int To Int Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gymcalc.contest.impl.IntToIntEntryImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getIntToIntEntry()
+	 * @generated
+	 */
+	int INT_TO_INT_ENTRY = 22;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_TO_INT_ENTRY__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_TO_INT_ENTRY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Int To Int Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_TO_INT_ENTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.ClassType <em>Class Type</em>}'.
@@ -1325,6 +1509,17 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContestType_Lookuptables();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.gymcalc.contest.ContestType#getLookupmaps <em>Lookupmaps</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Lookupmaps</em>'.
+	 * @see de.gymcalc.contest.ContestType#getLookupmaps()
+	 * @see #getContestType()
+	 * @generated
+	 */
+	EReference getContestType_Lookupmaps();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.ContestType#getVersion <em>Version</em>}'.
@@ -1551,6 +1746,38 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getChainType_Station();
+
+	/**
+	 * Returns the meta object for class '{@link de.gymcalc.contest.FinalChainType <em>Final Chain Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Final Chain Type</em>'.
+	 * @see de.gymcalc.contest.FinalChainType
+	 * @generated
+	 */
+	EClass getFinalChainType();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.gymcalc.contest.FinalChainType#getFinalClass <em>Final Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Final Class</em>'.
+	 * @see de.gymcalc.contest.FinalChainType#getFinalClass()
+	 * @see #getFinalChainType()
+	 * @generated
+	 */
+	EReference getFinalChainType_FinalClass();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.gymcalc.contest.FinalChainType#getOrderMap <em>Order Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Order Map</em>'.
+	 * @see de.gymcalc.contest.FinalChainType#getOrderMap()
+	 * @see #getFinalChainType()
+	 * @generated
+	 */
+	EReference getFinalChainType_OrderMap();
 
 	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.StationType <em>Station Type</em>}'.
@@ -1906,6 +2133,70 @@ public interface ContestPackage extends EPackage {
 	EReference getLookupTableType_Disziplines();
 
 	/**
+	 * Returns the meta object for class '{@link de.gymcalc.contest.LookupMapsType <em>Lookup Maps Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Lookup Maps Type</em>'.
+	 * @see de.gymcalc.contest.LookupMapsType
+	 * @generated
+	 */
+	EClass getLookupMapsType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.gymcalc.contest.LookupMapsType#getMap <em>Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Map</em>'.
+	 * @see de.gymcalc.contest.LookupMapsType#getMap()
+	 * @see #getLookupMapsType()
+	 * @generated
+	 */
+	EReference getLookupMapsType_Map();
+
+	/**
+	 * Returns the meta object for class '{@link de.gymcalc.contest.LookupMapType <em>Lookup Map Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Lookup Map Type</em>'.
+	 * @see de.gymcalc.contest.LookupMapType
+	 * @generated
+	 */
+	EClass getLookupMapType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.LookupMapType#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see de.gymcalc.contest.LookupMapType#getId()
+	 * @see #getLookupMapType()
+	 * @generated
+	 */
+	EAttribute getLookupMapType_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.LookupMapType#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.gymcalc.contest.LookupMapType#getName()
+	 * @see #getLookupMapType()
+	 * @generated
+	 */
+	EAttribute getLookupMapType_Name();
+
+	/**
+	 * Returns the meta object for the map '{@link de.gymcalc.contest.LookupMapType#getEntries <em>Entries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Entries</em>'.
+	 * @see de.gymcalc.contest.LookupMapType#getEntries()
+	 * @see #getLookupMapType()
+	 * @generated
+	 */
+	EReference getLookupMapType_Entries();
+
+	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.JuriResultDetailType <em>Juri Result Detail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1936,6 +2227,40 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJuriResultDetailType_Value();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Int To Int Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Int To Int Entry</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="org.eclipse.emf.ecore.EIntegerObject"
+	 *        valueDataType="org.eclipse.emf.ecore.EIntegerObject"
+	 * @generated
+	 */
+	EClass getIntToIntEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getIntToIntEntry()
+	 * @generated
+	 */
+	EAttribute getIntToIntEntry_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getIntToIntEntry()
+	 * @generated
+	 */
+	EAttribute getIntToIntEntry_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2100,6 +2425,14 @@ public interface ContestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTEST_TYPE__LOOKUPTABLES = eINSTANCE.getContestType_Lookuptables();
+
+		/**
+		 * The meta object literal for the '<em><b>Lookupmaps</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEST_TYPE__LOOKUPMAPS = eINSTANCE.getContestType_Lookupmaps();
 
 		/**
 		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
@@ -2278,6 +2611,32 @@ public interface ContestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CHAIN_TYPE__STATION = eINSTANCE.getChainType_Station();
+
+		/**
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.FinalChainTypeImpl <em>Final Chain Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gymcalc.contest.impl.FinalChainTypeImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getFinalChainType()
+		 * @generated
+		 */
+		EClass FINAL_CHAIN_TYPE = eINSTANCE.getFinalChainType();
+
+		/**
+		 * The meta object literal for the '<em><b>Final Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FINAL_CHAIN_TYPE__FINAL_CLASS = eINSTANCE.getFinalChainType_FinalClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Order Map</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FINAL_CHAIN_TYPE__ORDER_MAP = eINSTANCE.getFinalChainType_OrderMap();
 
 		/**
 		 * The meta object literal for the '{@link de.gymcalc.contest.impl.StationTypeImpl <em>Station Type</em>}' class.
@@ -2564,6 +2923,58 @@ public interface ContestPackage extends EPackage {
 		EReference LOOKUP_TABLE_TYPE__DISZIPLINES = eINSTANCE.getLookupTableType_Disziplines();
 
 		/**
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.LookupMapsTypeImpl <em>Lookup Maps Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gymcalc.contest.impl.LookupMapsTypeImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupMapsType()
+		 * @generated
+		 */
+		EClass LOOKUP_MAPS_TYPE = eINSTANCE.getLookupMapsType();
+
+		/**
+		 * The meta object literal for the '<em><b>Map</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOOKUP_MAPS_TYPE__MAP = eINSTANCE.getLookupMapsType_Map();
+
+		/**
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.LookupMapTypeImpl <em>Lookup Map Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gymcalc.contest.impl.LookupMapTypeImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getLookupMapType()
+		 * @generated
+		 */
+		EClass LOOKUP_MAP_TYPE = eINSTANCE.getLookupMapType();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOOKUP_MAP_TYPE__ID = eINSTANCE.getLookupMapType_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOOKUP_MAP_TYPE__NAME = eINSTANCE.getLookupMapType_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Entries</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOOKUP_MAP_TYPE__ENTRIES = eINSTANCE.getLookupMapType_Entries();
+
+		/**
 		 * The meta object literal for the '{@link de.gymcalc.contest.impl.JuriResultDetailTypeImpl <em>Juri Result Detail Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2588,6 +2999,32 @@ public interface ContestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JURI_RESULT_DETAIL_TYPE__VALUE = eINSTANCE.getJuriResultDetailType_Value();
+
+		/**
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.IntToIntEntryImpl <em>Int To Int Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gymcalc.contest.impl.IntToIntEntryImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getIntToIntEntry()
+		 * @generated
+		 */
+		EClass INT_TO_INT_ENTRY = eINSTANCE.getIntToIntEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INT_TO_INT_ENTRY__KEY = eINSTANCE.getIntToIntEntry_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INT_TO_INT_ENTRY__VALUE = eINSTANCE.getIntToIntEntry_Value();
 
 	}
 

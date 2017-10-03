@@ -98,6 +98,15 @@ public interface ContestFactory extends EFactory {
 	ChainType createChainType();
 
 	/**
+	 * Returns a new object of class '<em>Final Chain Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Final Chain Type</em>'.
+	 * @generated
+	 */
+	FinalChainType createFinalChainType();
+
+	/**
 	 * Returns a new object of class '<em>Station Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,6 +195,24 @@ public interface ContestFactory extends EFactory {
 	 * @generated
 	 */
 	LookupTableType createLookupTableType();
+
+	/**
+	 * Returns a new object of class '<em>Lookup Maps Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lookup Maps Type</em>'.
+	 * @generated
+	 */
+	LookupMapsType createLookupMapsType();
+
+	/**
+	 * Returns a new object of class '<em>Lookup Map Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lookup Map Type</em>'.
+	 * @generated
+	 */
+	LookupMapType createLookupMapType();
 
 	/**
 	 * Returns a new object of class '<em>Juri Result Detail Type</em>'.

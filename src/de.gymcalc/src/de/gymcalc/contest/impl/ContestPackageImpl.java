@@ -22,11 +22,14 @@ import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.FinalChainType;
 import de.gymcalc.contest.FinalClassType;
 import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.JuriType;
 import de.gymcalc.contest.JuristType;
+import de.gymcalc.contest.LookupMapType;
+import de.gymcalc.contest.LookupMapsType;
 import de.gymcalc.contest.LookupTableType;
 import de.gymcalc.contest.LookupTablesType;
 import de.gymcalc.contest.ResultType;
@@ -35,6 +38,7 @@ import de.gymcalc.contest.TeamJuriResultType;
 import de.gymcalc.contest.TeamResultType;
 import de.gymcalc.contest.TeamType;
 import de.gymcalc.contest.WinnerType;
+import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,6 +102,13 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * @generated
 	 */
 	private EClass chainTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass finalChainTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,7 +185,28 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass lookupMapsTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lookupMapTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass juriResultDetailTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass intToIntEntryEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -400,8 +432,17 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getContestType_Lookupmaps() {
+		return (EReference)contestTypeEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getContestType_Version() {
-		return (EAttribute)contestTypeEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)contestTypeEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -582,6 +623,33 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 */
 	public EReference getChainType_Station() {
 		return (EReference)chainTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFinalChainType() {
+		return finalChainTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFinalChainType_FinalClass() {
+		return (EReference)finalChainTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFinalChainType_OrderMap() {
+		return (EReference)finalChainTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -886,6 +954,60 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLookupMapsType() {
+		return lookupMapsTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLookupMapsType_Map() {
+		return (EReference)lookupMapsTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLookupMapType() {
+		return lookupMapTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLookupMapType_Id() {
+		return (EAttribute)lookupMapTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLookupMapType_Name() {
+		return (EAttribute)lookupMapTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLookupMapType_Entries() {
+		return (EReference)lookupMapTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJuriResultDetailType() {
 		return juriResultDetailTypeEClass;
 	}
@@ -906,6 +1028,33 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 */
 	public EAttribute getJuriResultDetailType_Value() {
 		return (EAttribute)juriResultDetailTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntToIntEntry() {
+		return intToIntEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntToIntEntry_Key() {
+		return (EAttribute)intToIntEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntToIntEntry_Value() {
+		return (EAttribute)intToIntEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -946,6 +1095,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		createEReference(contestTypeEClass, CONTEST_TYPE__STATION);
 		createEReference(contestTypeEClass, CONTEST_TYPE__ADDRESSBOOK);
 		createEReference(contestTypeEClass, CONTEST_TYPE__LOOKUPTABLES);
+		createEReference(contestTypeEClass, CONTEST_TYPE__LOOKUPMAPS);
 		createEAttribute(contestTypeEClass, CONTEST_TYPE__VERSION);
 
 		classTypeEClass = createEClass(CLASS_TYPE);
@@ -977,6 +1127,10 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		createEAttribute(chainTypeEClass, CHAIN_TYPE__NAME);
 		createEReference(chainTypeEClass, CHAIN_TYPE__ATHLET);
 		createEReference(chainTypeEClass, CHAIN_TYPE__STATION);
+
+		finalChainTypeEClass = createEClass(FINAL_CHAIN_TYPE);
+		createEReference(finalChainTypeEClass, FINAL_CHAIN_TYPE__FINAL_CLASS);
+		createEReference(finalChainTypeEClass, FINAL_CHAIN_TYPE__ORDER_MAP);
 
 		disziplineTypeEClass = createEClass(DISZIPLINE_TYPE);
 		createEAttribute(disziplineTypeEClass, DISZIPLINE_TYPE__ID);
@@ -1025,9 +1179,21 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		createEAttribute(lookupTableTypeEClass, LOOKUP_TABLE_TYPE__MAX_VAL);
 		createEReference(lookupTableTypeEClass, LOOKUP_TABLE_TYPE__DISZIPLINES);
 
+		lookupMapsTypeEClass = createEClass(LOOKUP_MAPS_TYPE);
+		createEReference(lookupMapsTypeEClass, LOOKUP_MAPS_TYPE__MAP);
+
+		lookupMapTypeEClass = createEClass(LOOKUP_MAP_TYPE);
+		createEAttribute(lookupMapTypeEClass, LOOKUP_MAP_TYPE__ID);
+		createEAttribute(lookupMapTypeEClass, LOOKUP_MAP_TYPE__NAME);
+		createEReference(lookupMapTypeEClass, LOOKUP_MAP_TYPE__ENTRIES);
+
 		juriResultDetailTypeEClass = createEClass(JURI_RESULT_DETAIL_TYPE);
 		createEAttribute(juriResultDetailTypeEClass, JURI_RESULT_DETAIL_TYPE__KEY);
 		createEAttribute(juriResultDetailTypeEClass, JURI_RESULT_DETAIL_TYPE__VALUE);
+
+		intToIntEntryEClass = createEClass(INT_TO_INT_ENTRY);
+		createEAttribute(intToIntEntryEClass, INT_TO_INT_ENTRY__KEY);
+		createEAttribute(intToIntEntryEClass, INT_TO_INT_ENTRY__VALUE);
 	}
 
 	/**
@@ -1067,6 +1233,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		finalClassTypeEClass.getESuperTypes().add(this.getClassType());
 		athletTypeEClass.getESuperTypes().add(this.getWinnerType());
 		teamTypeEClass.getESuperTypes().add(this.getWinnerType());
+		finalChainTypeEClass.getESuperTypes().add(this.getChainType());
 		athletResultTypeEClass.getESuperTypes().add(this.getResultType());
 		teamResultTypeEClass.getESuperTypes().add(this.getResultType());
 		teamJuriResultTypeEClass.getESuperTypes().add(this.getJuriResultType());
@@ -1082,6 +1249,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEReference(getContestType_Station(), this.getStationType(), null, "station", null, 0, -1, ContestType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContestType_Addressbook(), theAddressBookPackage.getAddressBookType(), null, "addressbook", null, 0, 1, ContestType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContestType_Lookuptables(), this.getLookupTablesType(), null, "lookuptables", null, 0, 1, ContestType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContestType_Lookupmaps(), this.getLookupMapsType(), null, "lookupmaps", null, 0, 1, ContestType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContestType_Version(), ecorePackage.getEInt(), "version", "1", 1, 1, ContestType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classTypeEClass, ClassType.class, "ClassType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1113,6 +1281,10 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEAttribute(getChainType_Name(), ecorePackage.getEString(), "name", null, 1, 1, ChainType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getChainType_Athlet(), this.getAthletType(), this.getAthletType_Chain(), "athlet", null, 0, -1, ChainType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getChainType_Station(), this.getStationType(), null, "station", null, 0, -1, ChainType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(finalChainTypeEClass, FinalChainType.class, "FinalChainType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFinalChainType_FinalClass(), this.getFinalClassType(), null, "finalClass", null, 0, 1, FinalChainType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFinalChainType_OrderMap(), this.getLookupMapType(), null, "orderMap", null, 0, 1, FinalChainType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(disziplineTypeEClass, DisziplineType.class, "DisziplineType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDisziplineType_Id(), ecorePackage.getEString(), "id", null, 1, 1, DisziplineType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1165,9 +1337,21 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 
 		addEOperation(lookupTableTypeEClass, ecorePackage.getEDouble(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(lookupMapsTypeEClass, LookupMapsType.class, "LookupMapsType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLookupMapsType_Map(), this.getLookupMapType(), null, "map", null, 0, -1, LookupMapsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lookupMapTypeEClass, LookupMapType.class, "LookupMapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLookupMapType_Id(), ecorePackage.getEString(), "id", null, 1, 1, LookupMapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLookupMapType_Name(), ecorePackage.getEString(), "name", null, 0, 1, LookupMapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLookupMapType_Entries(), this.getIntToIntEntry(), null, "entries", null, 0, -1, LookupMapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(juriResultDetailTypeEClass, JuriResultDetailType.class, "JuriResultDetailType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJuriResultDetailType_Key(), ecorePackage.getEString(), "key", null, 0, 1, JuriResultDetailType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJuriResultDetailType_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, JuriResultDetailType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(intToIntEntryEClass, Map.Entry.class, "IntToIntEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntToIntEntry_Key(), ecorePackage.getEIntegerObject(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntToIntEntry_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

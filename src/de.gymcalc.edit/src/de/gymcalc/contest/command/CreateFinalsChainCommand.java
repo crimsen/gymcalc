@@ -3,29 +3,14 @@
  */
 package de.gymcalc.contest.command;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import de.gymcalc.addressbook.OrganizationType;
-import de.gymcalc.contest.AthletResultType;
-import de.gymcalc.contest.AthletType;
-import de.gymcalc.contest.ChainType;
-import de.gymcalc.contest.ClassType;
-import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestPackage;
-import de.gymcalc.contest.ContestType;
-import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.FinalChainType;
 import de.gymcalc.contest.FinalClassType;
-import de.gymcalc.contest.JuriResultType;
-import de.gymcalc.contest.ResultType;
-import de.gymcalc.contest.WinnerType;
 import de.gymcalc.contest.provider.ContestEditPlugin;
 
 /**
@@ -65,9 +50,10 @@ public class CreateFinalsChainCommand extends ContestCompoundCommand {
 			if( o instanceof FinalClassType ) {
 				FinalClassType finalsClass = ( FinalClassType ) o;
 				String finalsName = finalsClass.getName ();
-				ChainType finalsChain = createChain( finalsName );
+				FinalChainType finalsChain = createFinalChain( finalsName );
+				finalsChain.setFinalClass(finalsClass);
 				finalsChain.getStation().add( finalsClass.getOriginatingDiszipline().getStation( ) );
-				appendAndExecute(AddCommand.create(getDomain (), getContest( finalsClass ), ContestPackage.Literals.CHAIN_TYPE, finalsChain));
+				appendAndExecute(AddCommand.create(getDomain (), getContest( finalsClass ), ContestPackage.Literals.FINAL_CHAIN_TYPE, finalsChain));
 			}
 		}
 	}
