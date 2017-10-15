@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
@@ -33,7 +31,6 @@ import org.eclipse.jface.action.SubContributionItem;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
@@ -49,6 +46,7 @@ import de.gymcalc.contest.ui.action.CreateResultsAction;
 import de.gymcalc.contest.ui.action.EnterAthletAction;
 import de.gymcalc.contest.ui.action.EnterJuristAction;
 import de.gymcalc.contest.ui.action.EnterOrganizationAction;
+import de.gymcalc.contest.ui.action.ReplaceFinalAthletAction;
 import de.gymcalc.contest.ui.action.SetTeamNameFromAthletAction;
 import de.gymcalc.contest.ui.action.ShuffleClassAction;
 import de.gymcalc.contest.ui.action.SortClassAction;
@@ -173,6 +171,7 @@ public class ContestActionBarContributor
 	protected DelegatingCommandAction combineAction = new DelegatingCommandAction( new CombineClassAction () );
 	protected DelegatingCommandAction updateFinalAthletsAction = new DelegatingCommandAction( new UpdateFinalAthletsAction () );
 	protected DelegatingCommandAction updateFinalChainAction = new DelegatingCommandAction( new UpdateFinalChainAction () );
+	protected DelegatingCommandAction replaceFinalAthletAction = new DelegatingCommandAction( new ReplaceFinalAthletAction () );
 	
 	/**
 	 * This creates an instance of the contributor.
@@ -293,6 +292,7 @@ public class ContestActionBarContributor
 		combineAction.setActiveWorkbenchPart(activeEditorPart);
 		updateFinalAthletsAction.setActiveWorkbenchPart(activeEditorPart);
 		updateFinalChainAction.setActiveWorkbenchPart(activeEditorPart);
+		replaceFinalAthletAction.setActiveWorkbenchPart(activeEditorPart);
 	}
 
 	/**
@@ -418,6 +418,7 @@ public class ContestActionBarContributor
 		menuManager.insertAfter("actions", createFinalsAction);
 		menuManager.insertAfter("actions", updateFinalAthletsAction);
 		menuManager.insertAfter("actions", updateFinalChainAction);
+		menuManager.insertAfter("actions", replaceFinalAthletAction);
 		menuManager.insertAfter("actions", createResultsAction);
 		menuManager.insertAfter("actions", setTeamNameFromAthletAction);
 		

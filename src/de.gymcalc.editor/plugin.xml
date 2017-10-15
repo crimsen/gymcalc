@@ -192,6 +192,34 @@
             id="de.gymcalc.contest.editor.CalculateSelection"
             name="Berechne Selektion">
       </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.CreateFinalsHandler"
+            description="%_UI_CreateFinals_description"
+            id="de.gymcalc.contest.editor.CreateFinals"
+            name="%_UI_CreateFinals_label">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.UpdateFinalChainHandler"
+            description="%_UI_UpdateFinalChain_description"
+            id="de.gymcalc.contest.editor.UpdateFinalChain"
+            name="%_UI_UpdateFinalChain_label">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.UpdateFinalAthletsHandler"
+            description="%_UI_UpdateFinalAthlets_description"
+            id="de.gymcalc.contest.editor.UpdateFinalAthlets"
+            name="%_UI_UpdateFinalAthlets_label">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.ReplaceFinalAthletHandler"
+            description="%_UI_ReplaceFinalAthlet_description"
+            id="de.gymcalc.contest.editor.ReplaceFinalAthlet"
+            name="%_UI_ReplaceFinalAthlet_label">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.services">
@@ -307,6 +335,29 @@
                  label="%_UI_ResetAthletName_label"
                  style="push">
            </command>
+           <menu
+                 label="%_UI_Final_menu">
+              <command
+                    commandId="de.gymcalc.contest.editor.CreateFinals"
+                    label="%_UI_CreateFinals_label"
+                    style="push">
+              </command>
+              <command
+                    commandId="de.gymcalc.contest.editor.UpdateFinalAthlets"
+                    label="%_UI_UpdateFinalAthlets_label"
+                    style="push">
+              </command>
+              <command
+                    commandId="de.gymcalc.contest.editor.UpdateFinalChain"
+                    label="%_UI_UpdateFinalChain_label"
+                    style="push">
+              </command>
+              <command
+                    commandId="de.gymcalc.contest.editor.ReplaceFinalAthlet"
+                    label="%_UI_ReplaceFinalAthlet_label"
+                    style="push">
+              </command>
+           </menu>
         </menu>
 	  </menuContribution>
 	</extension>
