@@ -2382,11 +2382,97 @@
     <section id="ref.calculationkey-class">
       <title>Calculationkey für Wettkampfklassen</title>
       <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>best(&lt;nummer&gt;)</term>
+	    <listitem>
+	      <simpara>Berechnet die Summe der besten &lt;nummer&gt;
+	      Wertungen der Disziplinen. Die Filter wie 'skip' oder
+	      'force' werden dabei vorher angewendet.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>bestofteam(&lt;nummer&gt;)</term>
+	    <listitem>
+	      <simpara>Berechnet die Summe der besten &lt;nummer&gt;
+	      Wertungen der Mannschaftswertung für jede Disziplin.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>finals</term>
+	    <listitem>
+	      <simpara>Sollte nicht mehr verwendet werden. Hier ist
+	      besser 'skip' in der entsprechenden Wettkampfdisziplin
+	      zu verwenden.
+	      </simpara>
+	      <simpara>
+		Wurde verwendet, um die Wettkampfklasse als Finale zu
+		markieren. Im Finale wird einzig die Disziplin mit
+		dem Calculationkey der 'finals' enthält als Endergebnis
+		verwendet. Weitere Disziplinen wie z.B. das
+		Mehrkampfergebnis werden nur zur Bestimmung der
+		Reihenfolge herangezogen.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
       </para>
     </section>
     <section id="ref.calculationkey-diszipline">
       <title>Calculationkey für Disziplines</title>
       <para>
+	<variablelist>
+	  <varlistentry>
+	    <term>force</term>
+	    <listitem>
+	      <simpara>
+		Spezifiziert, dass diese Disziplin in die Summe mit
+		eingehen muss, auch wenn sie bei einer 'best'
+		Berechnung nicht in den besten enthalten ist.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>skip</term>
+	    <listitem>
+	      <simpara>
+		Spezifiziert, dass diese Disziplin in die Summe nicht
+		mit eingeht. Dies ist beispielsweise die
+		Mehrkampfwertung im Finale.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>finals</term>
+	    <listitem>
+	      <simpara>
+		Sollte nicht mehr verwendet werden. Anstelle dessen
+		sollte 'skip' verwendet werden.
+		Spezifiziert, dass diese Disziplin in das Endergebnis eingeht.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>lookuptable</term>
+	    <listitem>
+	      <simpara>
+		Der Wert für die Disziplin wird entsprechend der
+		eingetragenen Wertetabelle berechnet.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>bjs({lauf,sprung,stoss,wurf},a,c,D,Z)</term>
+	    <listitem>
+	      <simpara>
+		formeln gemaess bundesjugendspiele 2013 siehe
+		<ulink url="http://www.bundesjugendspiele.de/wai1/showcontent.asp?ThemaID=4521">Bundesjugendspiele</ulink>
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
       </para>
     </section>
   </section>

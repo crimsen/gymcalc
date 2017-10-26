@@ -55,7 +55,8 @@ public class CalculateWinnerCommand extends AbstractOverrideableCommand
 					double points = juriresult.getValue();
 					points = calculatePoints( diszipline, disziplineCalculationKey, points );
 					forcepointitems.add( new Double( points ) );
-				} else if (!finals || disziplineCalculationKey.contains ("finals")) {
+				} else if ( (!finals || disziplineCalculationKey.contains ("finals") ) &&
+						!disziplineCalculationKey.contains ("skip") ) {
 					double points = juriresult.getValue();
 					points = calculatePoints( diszipline, disziplineCalculationKey, points );
 					pointitems.add(new Double(points));
