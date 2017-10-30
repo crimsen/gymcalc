@@ -8,6 +8,7 @@ package de.gymcalc.contest.impl;
 
 import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.DisziplineType;
+import de.gymcalc.contest.FunctionType;
 import de.gymcalc.contest.LookupTableType;
 import de.gymcalc.contest.StationType;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getStation <em>Station</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getLookuptable <em>Lookuptable</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getCalculationkey <em>Calculationkey</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.DisziplineTypeImpl#getCalculationFunction <em>Calculation Function</em>}</li>
  * </ul>
  *
  * @generated
@@ -118,6 +120,16 @@ public class DisziplineTypeImpl extends EObjectImpl implements DisziplineType {
 	 * @ordered
 	 */
 	protected String calculationkey = CALCULATIONKEY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCalculationFunction() <em>Calculation Function</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalculationFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected FunctionType calculationFunction;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -304,6 +316,49 @@ public class DisziplineTypeImpl extends EObjectImpl implements DisziplineType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FunctionType getCalculationFunction() {
+		return calculationFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCalculationFunction(FunctionType newCalculationFunction, NotificationChain msgs) {
+		FunctionType oldCalculationFunction = calculationFunction;
+		calculationFunction = newCalculationFunction;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION, oldCalculationFunction, newCalculationFunction);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCalculationFunction(FunctionType newCalculationFunction) {
+		if (newCalculationFunction != calculationFunction) {
+			NotificationChain msgs = null;
+			if (calculationFunction != null)
+				msgs = ((InternalEObject)calculationFunction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION, null, msgs);
+			if (newCalculationFunction != null)
+				msgs = ((InternalEObject)newCalculationFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION, null, msgs);
+			msgs = basicSetCalculationFunction(newCalculationFunction, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION, newCalculationFunction, newCalculationFunction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -325,6 +380,8 @@ public class DisziplineTypeImpl extends EObjectImpl implements DisziplineType {
 		switch (featureID) {
 			case ContestPackage.DISZIPLINE_TYPE__LOOKUPTABLE:
 				return basicSetLookuptable(null, msgs);
+			case ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION:
+				return basicSetCalculationFunction(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -349,6 +406,8 @@ public class DisziplineTypeImpl extends EObjectImpl implements DisziplineType {
 				return basicGetLookuptable();
 			case ContestPackage.DISZIPLINE_TYPE__CALCULATIONKEY:
 				return getCalculationkey();
+			case ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION:
+				return getCalculationFunction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -375,6 +434,9 @@ public class DisziplineTypeImpl extends EObjectImpl implements DisziplineType {
 				return;
 			case ContestPackage.DISZIPLINE_TYPE__CALCULATIONKEY:
 				setCalculationkey((String)newValue);
+				return;
+			case ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION:
+				setCalculationFunction((FunctionType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -403,6 +465,9 @@ public class DisziplineTypeImpl extends EObjectImpl implements DisziplineType {
 			case ContestPackage.DISZIPLINE_TYPE__CALCULATIONKEY:
 				setCalculationkey(CALCULATIONKEY_EDEFAULT);
 				return;
+			case ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION:
+				setCalculationFunction((FunctionType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -425,6 +490,8 @@ public class DisziplineTypeImpl extends EObjectImpl implements DisziplineType {
 				return lookuptable != null;
 			case ContestPackage.DISZIPLINE_TYPE__CALCULATIONKEY:
 				return CALCULATIONKEY_EDEFAULT == null ? calculationkey != null : !CALCULATIONKEY_EDEFAULT.equals(calculationkey);
+			case ContestPackage.DISZIPLINE_TYPE__CALCULATION_FUNCTION:
+				return calculationFunction != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -25,6 +25,7 @@
           ecoreFeature="ecore:EReference contest.ecore#//ContestType/station"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//ContestType/addressbook"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//ContestType/lookuptables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//ContestType/lookupmaps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//ContestType/version"/>
     </genClasses>
     <genClasses ecoreClass="contest.ecore#//ClassType">
@@ -36,6 +37,9 @@
           ecoreFeature="ecore:EAttribute contest.ecore#//ClassType/name"/>
       <genFeatures createChild="false" propertyDescription="Berechnungsschlüssel, wie die einzelnen Wertungen zusammengerechnet werden müssen. Beispiel, wenn nur die 3 besten Geräte gewertet werden sollen: 'best(3)', wenn nur die Finalwertung ( zeichnet sich aus, dass entsprechende Disziplin 'finals' in der id enthaelt ) genommen werden soll: 'finals'. 'bestofteam(3)' wenn die besten 3 Wertungen einer Mannschaft genommen werden sollen."
           ecoreFeature="ecore:EAttribute contest.ecore#//ClassType/calculationkey"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//FinalClassType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//FinalClassType/originatingDiszipline"/>
     </genClasses>
     <genClasses ecoreClass="contest.ecore#//WinnerType">
       <genFeatures createChild="false" propertyDescription="Eindeutige einzigartige Bezeichnung des Wettkämpfers. Diese ID wird zum Beispiel dafür verwendet, um einzelne Wettkämpfer Mannschaften zuzuordnen. Diese ID darf keine Leerzeichen enthalten und muss mit einem Buchstaben oder '_' beginnen. Beispiel ist 'starter-3451'"
@@ -70,6 +74,10 @@
       <genFeatures notify="false" createChild="false" propertyDescription="Geräte, die nacheinander von der Riege angesteuert werden."
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//ChainType/station"/>
     </genClasses>
+    <genClasses ecoreClass="contest.ecore#//FinalChainType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//FinalChainType/finalClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//FinalChainType/orderMap"/>
+    </genClasses>
     <genClasses ecoreClass="contest.ecore#//DisziplineType" labelFeature="#//contest/DisziplineType/id">
       <genFeatures createChild="false" propertyDescription="Eindeutige, einzigartige Bezeichnung einer Disziplin. Disziplinen unterscheiden sich in Wettkampfklasse und Gerät. Beispiele sind: 'weiblich-kinder-km4-boden', 'finale-weiblich-kinder-km4-boden'. Der Bezeichner darf keine Leerzeichen enthalten und muss mit einem '_' oder Buchstaben beginnen."
           ecoreFeature="ecore:EAttribute contest.ecore#//DisziplineType/id"/>
@@ -81,6 +89,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//DisziplineType/lookuptable"/>
       <genFeatures createChild="false" propertyCategory="" propertyDescription="Berechnungsschlüssel, der für diese Disziplin gilt. Gültige Werte sind hier 'force', 'finals', 'lookuptable', 'bjs(\&quot;(lauf)|(.*)\&quot;,a,c,d,z)' die entsprechende Wertung muss enthalten sein, auch wenn nur die besten 3 Wertungen genommen werden sollen. 'finals' bedeuted, dass nur die Wertung dieser Disziplin genommen werden soll."
           ecoreFeature="ecore:EAttribute contest.ecore#//DisziplineType/calculationkey"/>
+      <genFeatures notify="false" children="true" createChild="true" propertyDescription="Berechnungfunktion für Resultate dieser Disziplin"
+          propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//DisziplineType/calculationFunction"/>
     </genClasses>
     <genClasses ecoreClass="contest.ecore#//StationType">
       <genFeatures createChild="false" propertyDescription="Eindeutige, einzigartige Bezeichnung eines Gerätes bzw. einer Station. Diese Bezeichung wird programmatisch zur Referenzierung verwendet. Beispiele sind: 'station-boden-1', 'station-pause'"
@@ -141,9 +151,25 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//LookupTableType/disziplines"/>
       <genOperations ecoreOperation="contest.ecore#//LookupTableType/getValue"/>
     </genClasses>
-    <genClasses ecoreClass="contest.ecore#//JuriResultDetailsType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultDetailsType/key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultDetailsType/value"/>
+    <genClasses ecoreClass="contest.ecore#//LookupMapsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//LookupMapsType/map"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//LookupMapType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//LookupMapType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//LookupMapType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contest.ecore#//LookupMapType/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//JuriResultDetailType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultDetailType/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//JuriResultDetailType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//IntToIntEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//IntToIntEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contest.ecore#//IntToIntEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="contest.ecore#//FunctionType"/>
+    <genClasses ecoreClass="contest.ecore#//AverageFunctionType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contest.ecore#//AverageFunctionType/disziplines"/>
     </genClasses>
     <nestedGenPackages prefix="AddressBook" basePackage="de.gymcalc" disposableProviderFactory="true"
         ecorePackage="contest.ecore#//addressbook">

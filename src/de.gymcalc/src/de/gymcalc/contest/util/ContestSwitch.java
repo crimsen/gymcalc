@@ -233,6 +233,19 @@ public class ContestSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ContestPackage.FUNCTION_TYPE: {
+				FunctionType functionType = (FunctionType)theEObject;
+				T result = caseFunctionType(functionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContestPackage.AVERAGE_FUNCTION_TYPE: {
+				AverageFunctionType averageFunctionType = (AverageFunctionType)theEObject;
+				T result = caseAverageFunctionType(averageFunctionType);
+				if (result == null) result = caseFunctionType(averageFunctionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -579,6 +592,36 @@ public class ContestSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIntToIntEntry(Map.Entry<Integer, Integer> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFunctionType(FunctionType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Average Function Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Average Function Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAverageFunctionType(AverageFunctionType object) {
 		return null;
 	}
 

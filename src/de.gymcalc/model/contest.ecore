@@ -82,6 +82,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lookuptable" eType="#//LookupTableType"
         transient="true" eOpposite="#//LookupTableType/disziplines"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="calculationkey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calculationFunction" eType="#//FunctionType"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StationType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -159,6 +161,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="IntToIntEntry" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AverageFunctionType" eSuperTypes="#//FunctionType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="disziplines" upperBound="-1"
+        eType="#//DisziplineType"/>
   </eClassifiers>
   <eSubpackages name="addressbook" nsURI="http://www.gymcalc.de/addressbook/1.0" nsPrefix="addressbook">
     <eClassifiers xsi:type="ecore:EClass" name="AddressBookType">

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.gymcalc.contest.DisziplineType#getStation <em>Station</em>}</li>
  *   <li>{@link de.gymcalc.contest.DisziplineType#getLookuptable <em>Lookuptable</em>}</li>
  *   <li>{@link de.gymcalc.contest.DisziplineType#getCalculationkey <em>Calculationkey</em>}</li>
+ *   <li>{@link de.gymcalc.contest.DisziplineType#getCalculationFunction <em>Calculation Function</em>}</li>
  * </ul>
  *
  * @see de.gymcalc.contest.ContestPackage#getDisziplineType()
@@ -160,5 +161,31 @@ public interface DisziplineType extends EObject {
 	 * @generated
 	 */
 	void setCalculationkey(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Calculation Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Calculation Function</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Calculation Function</em>' containment reference.
+	 * @see #setCalculationFunction(FunctionType)
+	 * @see de.gymcalc.contest.ContestPackage#getDisziplineType_CalculationFunction()
+	 * @model containment="true"
+	 * @generated
+	 */
+	FunctionType getCalculationFunction();
+
+	/**
+	 * Sets the value of the '{@link de.gymcalc.contest.DisziplineType#getCalculationFunction <em>Calculation Function</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Calculation Function</em>' containment reference.
+	 * @see #getCalculationFunction()
+	 * @generated
+	 */
+	void setCalculationFunction(FunctionType value);
 
 } // DisziplineType

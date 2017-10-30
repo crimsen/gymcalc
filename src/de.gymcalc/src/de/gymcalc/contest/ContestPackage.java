@@ -727,13 +727,22 @@ public interface ContestPackage extends EPackage {
 	int DISZIPLINE_TYPE__CALCULATIONKEY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Calculation Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISZIPLINE_TYPE__CALCULATION_FUNCTION = 5;
+
+	/**
 	 * The number of structural features of the '<em>Diszipline Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISZIPLINE_TYPE_FEATURE_COUNT = 5;
+	int DISZIPLINE_TYPE_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link de.gymcalc.contest.impl.StationTypeImpl <em>Station Type</em>}' class.
@@ -1327,6 +1336,53 @@ public interface ContestPackage extends EPackage {
 	int INT_TO_INT_ENTRY_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.FunctionTypeImpl <em>Function Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gymcalc.contest.impl.FunctionTypeImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getFunctionType()
+	 * @generated
+	 */
+	int FUNCTION_TYPE = 23;
+
+	/**
+	 * The number of structural features of the '<em>Function Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_TYPE_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.gymcalc.contest.impl.AverageFunctionTypeImpl <em>Average Function Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gymcalc.contest.impl.AverageFunctionTypeImpl
+	 * @see de.gymcalc.contest.impl.ContestPackageImpl#getAverageFunctionType()
+	 * @generated
+	 */
+	int AVERAGE_FUNCTION_TYPE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Disziplines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVERAGE_FUNCTION_TYPE__DISZIPLINES = FUNCTION_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Average Function Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVERAGE_FUNCTION_TYPE_FEATURE_COUNT = FUNCTION_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.ClassType <em>Class Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1596,6 +1652,17 @@ public interface ContestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDisziplineType_Calculationkey();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.gymcalc.contest.DisziplineType#getCalculationFunction <em>Calculation Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Calculation Function</em>'.
+	 * @see de.gymcalc.contest.DisziplineType#getCalculationFunction()
+	 * @see #getDisziplineType()
+	 * @generated
+	 */
+	EReference getDisziplineType_CalculationFunction();
 
 	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.ResultType <em>Result Type</em>}'.
@@ -2263,6 +2330,37 @@ public interface ContestPackage extends EPackage {
 	EAttribute getIntToIntEntry_Value();
 
 	/**
+	 * Returns the meta object for class '{@link de.gymcalc.contest.FunctionType <em>Function Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Type</em>'.
+	 * @see de.gymcalc.contest.FunctionType
+	 * @generated
+	 */
+	EClass getFunctionType();
+
+	/**
+	 * Returns the meta object for class '{@link de.gymcalc.contest.AverageFunctionType <em>Average Function Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Average Function Type</em>'.
+	 * @see de.gymcalc.contest.AverageFunctionType
+	 * @generated
+	 */
+	EClass getAverageFunctionType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.gymcalc.contest.AverageFunctionType#getDisziplines <em>Disziplines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Disziplines</em>'.
+	 * @see de.gymcalc.contest.AverageFunctionType#getDisziplines()
+	 * @see #getAverageFunctionType()
+	 * @generated
+	 */
+	EReference getAverageFunctionType_Disziplines();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2491,6 +2589,14 @@ public interface ContestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DISZIPLINE_TYPE__CALCULATIONKEY = eINSTANCE.getDisziplineType_Calculationkey();
+
+		/**
+		 * The meta object literal for the '<em><b>Calculation Function</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISZIPLINE_TYPE__CALCULATION_FUNCTION = eINSTANCE.getDisziplineType_CalculationFunction();
 
 		/**
 		 * The meta object literal for the '{@link de.gymcalc.contest.impl.ResultTypeImpl <em>Result Type</em>}' class.
@@ -3025,6 +3131,34 @@ public interface ContestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INT_TO_INT_ENTRY__VALUE = eINSTANCE.getIntToIntEntry_Value();
+
+		/**
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.FunctionTypeImpl <em>Function Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gymcalc.contest.impl.FunctionTypeImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getFunctionType()
+		 * @generated
+		 */
+		EClass FUNCTION_TYPE = eINSTANCE.getFunctionType();
+
+		/**
+		 * The meta object literal for the '{@link de.gymcalc.contest.impl.AverageFunctionTypeImpl <em>Average Function Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gymcalc.contest.impl.AverageFunctionTypeImpl
+		 * @see de.gymcalc.contest.impl.ContestPackageImpl#getAverageFunctionType()
+		 * @generated
+		 */
+		EClass AVERAGE_FUNCTION_TYPE = eINSTANCE.getAverageFunctionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Disziplines</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AVERAGE_FUNCTION_TYPE__DISZIPLINES = eINSTANCE.getAverageFunctionType_Disziplines();
 
 	}
 

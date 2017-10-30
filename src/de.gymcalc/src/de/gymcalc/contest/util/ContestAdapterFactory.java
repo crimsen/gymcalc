@@ -165,6 +165,14 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 				return createIntToIntEntryAdapter();
 			}
 			@Override
+			public Adapter caseFunctionType(FunctionType object) {
+				return createFunctionTypeAdapter();
+			}
+			@Override
+			public Adapter caseAverageFunctionType(AverageFunctionType object) {
+				return createAverageFunctionTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -503,6 +511,34 @@ public class ContestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIntToIntEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.FunctionType <em>Function Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.gymcalc.contest.FunctionType
+	 * @generated
+	 */
+	public Adapter createFunctionTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.gymcalc.contest.AverageFunctionType <em>Average Function Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.gymcalc.contest.AverageFunctionType
+	 * @generated
+	 */
+	public Adapter createAverageFunctionTypeAdapter() {
 		return null;
 	}
 

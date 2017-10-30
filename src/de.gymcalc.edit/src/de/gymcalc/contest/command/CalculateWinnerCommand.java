@@ -51,14 +51,12 @@ public class CalculateWinnerCommand extends AbstractOverrideableCommand
 				JuriResultType juriresult = (JuriResultType)i.next();
 				DisziplineType diszipline = juriresult.getDiszipline( );
 				String disziplineCalculationKey = getDisziplineCalculationKey( diszipline );
+				double points = juriresult.getValue();
+				points = calculatePoints( diszipline, disziplineCalculationKey, juriresult );
 				if( disziplineCalculationKey.contains( "force" ) ) {
-					double points = juriresult.getValue();
-					points = calculatePoints( diszipline, disziplineCalculationKey, points );
 					forcepointitems.add( new Double( points ) );
 				} else if ( (!finals || disziplineCalculationKey.contains ("finals") ) &&
 						!disziplineCalculationKey.contains ("skip") ) {
-					double points = juriresult.getValue();
-					points = calculatePoints( diszipline, disziplineCalculationKey, points );
 					pointitems.add(new Double(points));
 				}
 			}
@@ -132,13 +130,19 @@ public class CalculateWinnerCommand extends AbstractOverrideableCommand
 	}
 	
 	private double calculatePoints( DisziplineType diszipline,
-			String calculationKey, double points )
+			String calculationKey, JuriResultType juriResult )
 	{
-		double retVal = points;
-		if( calculationKey.contains( "lookuptable" ) ) {
+		double retVal = 0.0;
+		if( null != juriResult )
+			retVal = juriResult.getValue();
+		if( null != diszipline.getCalculationFunction( ) ) {
+			CalculateFunctionCommand cmd = new CalculateFunctionCommand(getDomain(), winner, juriResult );
+			cmd.doExecute();
+			retVal = juriResult.getValue();
+		} else if( calculationKey.contains( "lookuptable" ) ) {
 			LookupTableType table = diszipline.getLookuptable();
 			if (null != table) {
-				retVal = table.getValue (points);
+				retVal = table.getValue (retVal);
 				double round = Math.round( retVal * 10 );
 				retVal = round / 10;
 			}

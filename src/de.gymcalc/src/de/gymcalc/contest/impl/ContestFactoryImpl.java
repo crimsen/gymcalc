@@ -84,6 +84,8 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 			case ContestPackage.LOOKUP_MAP_TYPE: return createLookupMapType();
 			case ContestPackage.JURI_RESULT_DETAIL_TYPE: return createJuriResultDetailType();
 			case ContestPackage.INT_TO_INT_ENTRY: return (EObject)createIntToIntEntry();
+			case ContestPackage.FUNCTION_TYPE: return createFunctionType();
+			case ContestPackage.AVERAGE_FUNCTION_TYPE: return createAverageFunctionType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -317,6 +319,26 @@ public class ContestFactoryImpl extends EFactoryImpl implements ContestFactory {
 	public Map.Entry<Integer, Integer> createIntToIntEntry() {
 		IntToIntEntryImpl intToIntEntry = new IntToIntEntryImpl();
 		return intToIntEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionType createFunctionType() {
+		FunctionTypeImpl functionType = new FunctionTypeImpl();
+		return functionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AverageFunctionType createAverageFunctionType() {
+		AverageFunctionTypeImpl averageFunctionType = new AverageFunctionTypeImpl();
+		return averageFunctionType;
 	}
 
 	/**

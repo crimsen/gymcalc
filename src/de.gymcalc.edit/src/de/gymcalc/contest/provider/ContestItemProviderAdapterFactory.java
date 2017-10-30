@@ -605,6 +605,52 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.FunctionType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FunctionTypeItemProvider functionTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.gymcalc.contest.FunctionType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFunctionTypeAdapter() {
+		if (functionTypeItemProvider == null) {
+			functionTypeItemProvider = new FunctionTypeItemProvider(this);
+		}
+
+		return functionTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.gymcalc.contest.AverageFunctionType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AverageFunctionTypeItemProvider averageFunctionTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.gymcalc.contest.AverageFunctionType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAverageFunctionTypeAdapter() {
+		if (averageFunctionTypeItemProvider == null) {
+			averageFunctionTypeItemProvider = new AverageFunctionTypeItemProvider(this);
+		}
+
+		return averageFunctionTypeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -726,6 +772,8 @@ public class ContestItemProviderAdapterFactory extends ContestAdapterFactory imp
 		if (lookupMapTypeItemProvider != null) lookupMapTypeItemProvider.dispose();
 		if (juriResultDetailTypeItemProvider != null) juriResultDetailTypeItemProvider.dispose();
 		if (intToIntEntryItemProvider != null) intToIntEntryItemProvider.dispose();
+		if (functionTypeItemProvider != null) functionTypeItemProvider.dispose();
+		if (averageFunctionTypeItemProvider != null) averageFunctionTypeItemProvider.dispose();
 	}
 
 }

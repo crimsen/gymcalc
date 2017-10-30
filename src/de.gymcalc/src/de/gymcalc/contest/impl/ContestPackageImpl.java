@@ -16,6 +16,7 @@ import de.gymcalc.addressbook.AddressBookPackage;
 import de.gymcalc.addressbook.impl.AddressBookPackageImpl;
 import de.gymcalc.contest.AthletResultType;
 import de.gymcalc.contest.AthletType;
+import de.gymcalc.contest.AverageFunctionType;
 import de.gymcalc.contest.ChainType;
 import de.gymcalc.contest.ClassType;
 import de.gymcalc.contest.ContestFactory;
@@ -24,6 +25,7 @@ import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.DisziplineType;
 import de.gymcalc.contest.FinalChainType;
 import de.gymcalc.contest.FinalClassType;
+import de.gymcalc.contest.FunctionType;
 import de.gymcalc.contest.JuriResultDetailType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.JuriType;
@@ -207,6 +209,20 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * @generated
 	 */
 	private EClass intToIntEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass averageFunctionTypeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -497,6 +513,15 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 */
 	public EAttribute getDisziplineType_Calculationkey() {
 		return (EAttribute)disziplineTypeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDisziplineType_CalculationFunction() {
+		return (EReference)disziplineTypeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1062,6 +1087,33 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFunctionType() {
+		return functionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAverageFunctionType() {
+		return averageFunctionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAverageFunctionType_Disziplines() {
+		return (EReference)averageFunctionTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ContestFactory getContestFactory() {
 		return (ContestFactory)getEFactoryInstance();
 	}
@@ -1138,6 +1190,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		createEReference(disziplineTypeEClass, DISZIPLINE_TYPE__STATION);
 		createEReference(disziplineTypeEClass, DISZIPLINE_TYPE__LOOKUPTABLE);
 		createEAttribute(disziplineTypeEClass, DISZIPLINE_TYPE__CALCULATIONKEY);
+		createEReference(disziplineTypeEClass, DISZIPLINE_TYPE__CALCULATION_FUNCTION);
 
 		stationTypeEClass = createEClass(STATION_TYPE);
 		createEAttribute(stationTypeEClass, STATION_TYPE__ID);
@@ -1194,6 +1247,11 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		intToIntEntryEClass = createEClass(INT_TO_INT_ENTRY);
 		createEAttribute(intToIntEntryEClass, INT_TO_INT_ENTRY__KEY);
 		createEAttribute(intToIntEntryEClass, INT_TO_INT_ENTRY__VALUE);
+
+		functionTypeEClass = createEClass(FUNCTION_TYPE);
+
+		averageFunctionTypeEClass = createEClass(AVERAGE_FUNCTION_TYPE);
+		createEReference(averageFunctionTypeEClass, AVERAGE_FUNCTION_TYPE__DISZIPLINES);
 	}
 
 	/**
@@ -1237,6 +1295,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		athletResultTypeEClass.getESuperTypes().add(this.getResultType());
 		teamResultTypeEClass.getESuperTypes().add(this.getResultType());
 		teamJuriResultTypeEClass.getESuperTypes().add(this.getJuriResultType());
+		averageFunctionTypeEClass.getESuperTypes().add(this.getFunctionType());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(contestTypeEClass, ContestType.class, "ContestType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1292,6 +1351,7 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEReference(getDisziplineType_Station(), this.getStationType(), null, "station", null, 0, 1, DisziplineType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDisziplineType_Lookuptable(), this.getLookupTableType(), this.getLookupTableType_Disziplines(), "lookuptable", null, 0, 1, DisziplineType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDisziplineType_Calculationkey(), ecorePackage.getEString(), "calculationkey", null, 0, 1, DisziplineType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDisziplineType_CalculationFunction(), this.getFunctionType(), null, "calculationFunction", null, 0, 1, DisziplineType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stationTypeEClass, StationType.class, "StationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStationType_Id(), ecorePackage.getEString(), "id", null, 1, 1, StationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1352,6 +1412,11 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEClass(intToIntEntryEClass, Map.Entry.class, "IntToIntEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntToIntEntry_Key(), ecorePackage.getEIntegerObject(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntToIntEntry_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(functionTypeEClass, FunctionType.class, "FunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(averageFunctionTypeEClass, AverageFunctionType.class, "AverageFunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAverageFunctionType_Disziplines(), this.getDisziplineType(), null, "disziplines", null, 0, -1, AverageFunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

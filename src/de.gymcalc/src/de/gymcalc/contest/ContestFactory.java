@@ -224,6 +224,24 @@ public interface ContestFactory extends EFactory {
 	JuriResultDetailType createJuriResultDetailType();
 
 	/**
+	 * Returns a new object of class '<em>Function Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Type</em>'.
+	 * @generated
+	 */
+	FunctionType createFunctionType();
+
+	/**
+	 * Returns a new object of class '<em>Average Function Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Average Function Type</em>'.
+	 * @generated
+	 */
+	AverageFunctionType createAverageFunctionType();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
