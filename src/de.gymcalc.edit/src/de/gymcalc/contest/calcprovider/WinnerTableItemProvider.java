@@ -303,10 +303,31 @@ public class WinnerTableItemProvider extends WinnerTypeItemProvider
 			AthletType a = (AthletType)object;
 			TeamType team = a.getTeam();
 			if( null != team ) {
-				JuriResultType teamJuriResult = this.getJuriresult(team, columnIndex - 4, mode);
-				if( null != teamJuriResult && 
-						teamJuriResult instanceof TeamJuriResultType ) {
-					retVal = (TeamJuriResultType) teamJuriResult;
+				int skips = 0;
+				boolean skip = false;
+				{
+					// do count the skips, to prevent then in the team column index
+					int myCount = 4;
+					for( DisziplineType diszipline : a.getClass_().getDiszipline() ) {
+						if( isSkipDiszipline( diszipline ) ) {
+							++skips;
+							if( columnIndex == myCount ) {
+								skip = true;
+							}
+						}
+						if( columnIndex == myCount ) {
+							break;
+						}
+						++myCount;
+					}
+				}
+				if( !skip ) {
+					// if we are in a skip column then do not return a teamresult
+					JuriResultType teamJuriResult = this.getJuriresult(team, columnIndex - 4 - skips, mode);
+					if( null != teamJuriResult && 
+							teamJuriResult instanceof TeamJuriResultType ) {
+						retVal = (TeamJuriResultType) teamJuriResult;
+					}
 				}
 			}
 		}
@@ -492,5 +513,14 @@ public class WinnerTableItemProvider extends WinnerTypeItemProvider
 		String retVal = val;
 		return retVal;
 	}
-
+	
+	private boolean isSkipDiszipline( DisziplineType diszipline ) {
+		boolean retVal = false;
+		String calculationKey = diszipline.getCalculationkey();
+		if( null != calculationKey && calculationKey.contains( "skip" ) ) {
+			retVal = true;
+		}
+		return retVal;
+	}
+	
 }
