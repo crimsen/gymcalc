@@ -5,12 +5,17 @@ package de.gymcalc.contest.command;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.AbstractOverrideableCommand;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import de.gymcalc.contest.ClassType;
+import de.gymcalc.contest.ContestFactory;
+import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.DisziplineType;
 import de.gymcalc.contest.JuriResultType;
 import de.gymcalc.contest.LookupTableType;
@@ -39,25 +44,54 @@ public class CalculateWinnerCommand extends AbstractOverrideableCommand
 		if (null != result) {
 			String calculationKey =((ClassType) winner.eContainer ()).getCalculationkey (); 
 			double sum = 0.0;
-			/* in finals the allaround does not count */
-			boolean finals = false;
-			if (null != calculationKey && (0 == calculationKey.compareTo("finals"))) {
-				finals = true;
-			}
-			Iterator<?> i = result.getJuriresult().iterator();
 			ArrayList<Double> pointitems = new ArrayList<Double>();
 			ArrayList< Double > forcepointitems = new ArrayList< Double >( );
-			while (i.hasNext()) {
-				JuriResultType juriresult = (JuriResultType)i.next();
-				DisziplineType diszipline = juriresult.getDiszipline( );
-				String disziplineCalculationKey = getDisziplineCalculationKey( diszipline );
-				double points = juriresult.getValue();
-				points = calculatePoints( diszipline, disziplineCalculationKey, juriresult );
-				if( disziplineCalculationKey.contains( "force" ) ) {
-					forcepointitems.add( new Double( points ) );
-				} else if ( (!finals || disziplineCalculationKey.contains ("finals") ) &&
-						!disziplineCalculationKey.contains ("skip") ) {
-					pointitems.add(new Double(points));
+			HashSet< DisziplineType > calculatedDisziplines = new HashSet< DisziplineType >( );
+			{
+				// first pass, legacy: iterate thru results
+				/* in finals the allaround does not count */
+				boolean finals = false;
+				if (null != calculationKey && (0 == calculationKey.compareTo("finals"))) {
+					finals = true;
+				}
+				Iterator<?> i = result.getJuriresult().iterator();
+				while (i.hasNext()) {
+					JuriResultType juriresult = (JuriResultType)i.next();
+					DisziplineType diszipline = juriresult.getDiszipline( );
+					calculatedDisziplines.add(diszipline);
+					String disziplineCalculationKey = getDisziplineCalculationKey( diszipline );
+					double points = juriresult.getValue();
+					points = calculatePoints( diszipline, disziplineCalculationKey, juriresult );
+					if( disziplineCalculationKey.contains( "force" ) ) {
+						forcepointitems.add( new Double( points ) );
+					} else if ( (!finals || disziplineCalculationKey.contains ("finals") ) &&
+							!disziplineCalculationKey.contains ("skip") ) {
+						pointitems.add(new Double(points));
+					}
+				}
+			}
+			{
+				// second pass: iterate thru disziplines
+				for( DisziplineType diszipline : ((ClassType) winner.eContainer ()).getDiszipline()) {
+					if( !calculatedDisziplines.contains( diszipline ) ) {
+						JuriResultType juriResult = null;
+						if( null != diszipline.getCalculationFunction() ) {
+							// do only create a juriresult if the juriresult is calculated
+							juriResult = getOrCreateJuriResult( winner.getResult(), diszipline );
+						} else {
+							juriResult = getJuriResult(winner.getResult(), diszipline );
+						}
+						if( null != juriResult ) {
+							String disziplineCalculationKey = getDisziplineCalculationKey( diszipline );
+							double points = juriResult.getValue();
+							points = calculatePoints( diszipline, disziplineCalculationKey, juriResult );
+							if( disziplineCalculationKey.contains( "force" ) ) {
+								forcepointitems.add( new Double( points ) );
+							} else if ( !disziplineCalculationKey.contains ("skip") ) {
+								pointitems.add(new Double(points));
+							}
+						}
+					}
 				}
 			}
 			int count = -1;
@@ -124,6 +158,30 @@ public class CalculateWinnerCommand extends AbstractOverrideableCommand
 			LookupTableType table = diszipline.getLookuptable();
 			if( null != table ) {
 				retVal += "lookuptable;";
+			}
+		}
+		return retVal;
+	}
+	
+	private JuriResultType getOrCreateJuriResult( ResultType result, DisziplineType diszipline )
+	{
+		JuriResultType retVal = getJuriResult( result, diszipline );
+		if( null == retVal ) {
+			retVal = ContestFactory.eINSTANCE.createJuriResultType();
+			retVal.setDiszipline(diszipline);
+			Command cmd = AddCommand.create(getDomain(), result, ContestPackage.Literals.RESULT_TYPE__JURIRESULT, retVal);
+			cmd.execute();
+		}
+		return retVal;
+	}
+
+	private static JuriResultType getJuriResult( ResultType result, DisziplineType diszipline )
+	{
+		JuriResultType retVal = null;
+		for( JuriResultType juriResult: result.getJuriresult()) {
+			if( diszipline.equals(juriResult.getDiszipline() ) ) {
+				retVal = juriResult;
+				break;
 			}
 		}
 		return retVal;

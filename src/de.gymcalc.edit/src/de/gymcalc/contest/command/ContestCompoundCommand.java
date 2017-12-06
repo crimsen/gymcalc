@@ -337,7 +337,14 @@ public class ContestCompoundCommand extends DomainCompoundCommand {
 		JuriResultDetailType retVal = ContestFactory.eINSTANCE.createJuriResultDetailType();
 		return retVal;
 	}
-	
+	protected boolean isIntermediate( DisziplineType diszipline ) {
+		boolean retVal = false;
+		String calculationKey = diszipline.getCalculationkey();
+		if( null != calculationKey && calculationKey.contains( "intermediate" ) ) {
+			retVal = true;
+		}
+		return retVal;
+	}
 
 	protected ContestCommandParam param;
 	protected Collection<?> collection = null;

@@ -69,10 +69,12 @@ public class CreateDisziplineFinalsCommand extends ContestCompoundCommand {
 					DisziplineType finalsDiszipline = createDiszipline (disziplineId);
 					finalsDisziplines.add(finalsDiszipline);
 					finalsDiszipline.setName (ContestEditPlugin.INSTANCE.getString("_UI_AllAround") + " " + diszipline.getName());
+					finalsDiszipline.setCalculationkey("generated;skip;");
 					disziplineId = "allaround-Aa-" + diszipline.getId ();
 					DisziplineType aaDiszipline = createDiszipline (disziplineId);
 					finalsDisziplines.add(aaDiszipline);
 					aaDiszipline.setName (ContestEditPlugin.INSTANCE.getString("_UI_AllAround"));
+					aaDiszipline.setCalculationkey("generated;skip;");
 					String tdisziplineId = "finals-" + diszipline.getId ();
 					DisziplineType tfinalsDiszipline = createDiszipline (tdisziplineId);
 					tfinalsDiszipline.setName (ContestEditPlugin.INSTANCE.getString("_UI_Finals"));

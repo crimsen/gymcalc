@@ -220,6 +220,13 @@
             id="de.gymcalc.contest.editor.ReplaceFinalAthlet"
             name="%_UI_ReplaceFinalAthlet_label">
       </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.CompactFinalsHandler"
+            description="%_UI_CompactFinals_description"
+            id="de.gymcalc.contest.editor.CompactFinals"
+            name="%_UI_CompactFinals_label">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.services">
@@ -355,6 +362,11 @@
               <command
                     commandId="de.gymcalc.contest.editor.ReplaceFinalAthlet"
                     label="%_UI_ReplaceFinalAthlet_label"
+                    style="push">
+              </command>
+              <command
+                    commandId="de.gymcalc.contest.editor.CompactFinals"
+                    label="%_UI_CompactFinals_label"
                     style="push">
               </command>
            </menu>
