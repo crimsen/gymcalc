@@ -45,6 +45,8 @@ public class EnterJuristPage extends WizardPage {
 		firstname = createText( composite, "firstname" );
 		name = createText( composite, "name" );
 		juri = createText( composite, "juri" );
+		license = createText( composite, "license" );
+		wishApparatus = createText( composite, "wishApparatus" );
 		composite.setLayout( layout );
 
 		/* the proposals */
@@ -100,6 +102,12 @@ public class EnterJuristPage extends WizardPage {
 	}
 	public String getJuri() {
 		return juri.getText( );
+	}
+	public String getLicense() {
+		return license.getText( );
+	}
+	public String getWishApparatus() {
+		return wishApparatus.getText( );
 	}
 
 	public void setDatabase(DatabaseType database) {
@@ -208,6 +216,8 @@ public class EnterJuristPage extends WizardPage {
 	private Text name;
 	private Text organization;
 	private Text juri;
+	private Text license;
+	private Text wishApparatus;
 	
 	private ContentProposalAdapter organizationProposal;
 }

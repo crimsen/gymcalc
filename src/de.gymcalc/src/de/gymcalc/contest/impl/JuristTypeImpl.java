@@ -34,6 +34,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getJuri <em>Juri</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getWishApparatus <em>Wish Apparatus</em>}</li>
+ *   <li>{@link de.gymcalc.contest.impl.JuristTypeImpl#getLicense <em>License</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +60,46 @@ public class JuristTypeImpl extends EObjectImpl implements JuristType {
 	 * @ordered
 	 */
 	protected OrganizationType organization;
+
+	/**
+	 * The default value of the '{@link #getWishApparatus() <em>Wish Apparatus</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWishApparatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String WISH_APPARATUS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getWishApparatus() <em>Wish Apparatus</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWishApparatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected String wishApparatus = WISH_APPARATUS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLicense() <em>License</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLicense()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LICENSE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLicense() <em>License</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLicense()
+	 * @generated
+	 * @ordered
+	 */
+	protected String license = LICENSE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,6 +240,48 @@ public class JuristTypeImpl extends EObjectImpl implements JuristType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getWishApparatus() {
+		return wishApparatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWishApparatus(String newWishApparatus) {
+		String oldWishApparatus = wishApparatus;
+		wishApparatus = newWishApparatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURIST_TYPE__WISH_APPARATUS, oldWishApparatus, wishApparatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLicense() {
+		return license;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLicense(String newLicense) {
+		String oldLicense = license;
+		license = newLicense;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContestPackage.JURIST_TYPE__LICENSE, oldLicense, license));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public String getName() {
 		String RetVal = getPerson().getName ();
@@ -266,6 +350,10 @@ public class JuristTypeImpl extends EObjectImpl implements JuristType {
 				return basicGetOrganization();
 			case ContestPackage.JURIST_TYPE__JURI:
 				return getJuri();
+			case ContestPackage.JURIST_TYPE__WISH_APPARATUS:
+				return getWishApparatus();
+			case ContestPackage.JURIST_TYPE__LICENSE:
+				return getLicense();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -286,6 +374,12 @@ public class JuristTypeImpl extends EObjectImpl implements JuristType {
 				return;
 			case ContestPackage.JURIST_TYPE__JURI:
 				setJuri((JuriType)newValue);
+				return;
+			case ContestPackage.JURIST_TYPE__WISH_APPARATUS:
+				setWishApparatus((String)newValue);
+				return;
+			case ContestPackage.JURIST_TYPE__LICENSE:
+				setLicense((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,6 +402,12 @@ public class JuristTypeImpl extends EObjectImpl implements JuristType {
 			case ContestPackage.JURIST_TYPE__JURI:
 				setJuri((JuriType)null);
 				return;
+			case ContestPackage.JURIST_TYPE__WISH_APPARATUS:
+				setWishApparatus(WISH_APPARATUS_EDEFAULT);
+				return;
+			case ContestPackage.JURIST_TYPE__LICENSE:
+				setLicense(LICENSE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -326,8 +426,30 @@ public class JuristTypeImpl extends EObjectImpl implements JuristType {
 				return organization != null;
 			case ContestPackage.JURIST_TYPE__JURI:
 				return getJuri() != null;
+			case ContestPackage.JURIST_TYPE__WISH_APPARATUS:
+				return WISH_APPARATUS_EDEFAULT == null ? wishApparatus != null : !WISH_APPARATUS_EDEFAULT.equals(wishApparatus);
+			case ContestPackage.JURIST_TYPE__LICENSE:
+				return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (wishApparatus: ");
+		result.append(wishApparatus);
+		result.append(", license: ");
+		result.append(license);
+		result.append(')');
+		return result.toString();
 	}
 
 } //JuristTypeImpl

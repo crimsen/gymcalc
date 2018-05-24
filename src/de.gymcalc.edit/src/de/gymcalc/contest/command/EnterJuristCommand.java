@@ -6,6 +6,7 @@ package de.gymcalc.contest.command;
 import java.util.Collection;
 import java.util.Iterator;
 
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import de.gymcalc.contest.provider.ContestEditPlugin;
@@ -15,6 +16,7 @@ import de.gymcalc.addressbook.PersonType;
 import de.gymcalc.contest.AthletType;
 import de.gymcalc.contest.ChainType;
 import de.gymcalc.contest.ClassType;
+import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.JuriType;
 import de.gymcalc.contest.JuristType;
@@ -53,6 +55,15 @@ public class EnterJuristCommand extends ContestCompoundCommand {
 			PersonType person = getOrCreatePerson( addressBook );
 			JuriType juri = getOrCreateJuri( contest, param.getJuri() );
 			jurist = createJurist( organization, person, juri );
+			if( param instanceof EnterJuristCommandParam ) {
+				EnterJuristCommandParam eParam = ( EnterJuristCommandParam ) param;
+				if( eParam.getLicense( ) != null ) {
+					this.appendAndExecute( new SetCommand(getDomain(), jurist, ContestPackage.Literals.JURIST_TYPE__LICENSE, eParam.getLicense()));
+				}
+				if( eParam.getWishApparatus( ) != null ) {
+					this.appendAndExecute( new SetCommand(getDomain(), jurist, ContestPackage.Literals.JURIST_TYPE__WISH_APPARATUS, eParam.getWishApparatus()));
+				}
+			}
 		}
 	}
 

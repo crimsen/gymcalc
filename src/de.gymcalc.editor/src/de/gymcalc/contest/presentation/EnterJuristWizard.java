@@ -80,6 +80,8 @@ public class EnterJuristWizard extends Wizard {
 		this.param.setName( this.enterJuristPage.getName( ) );
 		this.param.setOrganization( this.enterJuristPage.getOrganization( ) );
 		this.param.setJuri( this.enterJuristPage.getJuri( ) );
+		this.param.setLicense( this.enterJuristPage.getLicense( ) );
+		this.param.setWishApparatus( this.enterJuristPage.getWishApparatus( ) );
 		retVal = validateParam( param );
 		return retVal;
 	}

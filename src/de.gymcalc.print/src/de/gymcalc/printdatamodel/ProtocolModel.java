@@ -96,6 +96,8 @@ public class ProtocolModel {
 		 *   +-jurist[]
 		 *     +-name
 		 *     +-organization? useOrganization
+		 *     +-license
+		 *     +-wishApparatus
 		 *     
 		 */
 		Map<String, Object> retVal = null;
@@ -261,6 +263,8 @@ public class ProtocolModel {
 								}
 								jurist.put( "organization", organizationName );
 								jurist.put( "jury", name );
+								jurist.put( "license", juristSrc.getLicense() );
+								jurist.put( "wishApparatus", juristSrc.getWishApparatus() );
 							}
 						}
 					}

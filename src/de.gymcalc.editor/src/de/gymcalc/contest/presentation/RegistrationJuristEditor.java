@@ -132,6 +132,14 @@ public class RegistrationJuristEditor extends EmfMultiEditor {
 				isetSelection( event.getSelection() );
 			}
 	    });
+	    {
+			Formkit.createColumnWithTextEditor( editingDomain, viewer, columnIndex, ctx, os, ContestPackage.Literals.JURIST_TYPE__LICENSE );
+		    ++columnIndex;
+ 	    }
+	    {
+			Formkit.createColumnWithTextEditor( editingDomain, viewer, columnIndex, ctx, os, ContestPackage.Literals.JURIST_TYPE__WISH_APPARATUS );
+		    ++columnIndex;
+ 	    }
 	    updateInput();
 	}
 

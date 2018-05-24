@@ -799,6 +799,24 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJuristType_WishApparatus() {
+		return (EAttribute)juristTypeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJuristType_License() {
+		return (EAttribute)juristTypeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJuriType() {
 		return juriTypeEClass;
 	}
@@ -1217,6 +1235,8 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		createEReference(juristTypeEClass, JURIST_TYPE__PERSON);
 		createEReference(juristTypeEClass, JURIST_TYPE__ORGANIZATION);
 		createEReference(juristTypeEClass, JURIST_TYPE__JURI);
+		createEAttribute(juristTypeEClass, JURIST_TYPE__WISH_APPARATUS);
+		createEAttribute(juristTypeEClass, JURIST_TYPE__LICENSE);
 
 		juriTypeEClass = createEClass(JURI_TYPE);
 		createEReference(juriTypeEClass, JURI_TYPE__JURIST);
@@ -1378,6 +1398,8 @@ public class ContestPackageImpl extends EPackageImpl implements ContestPackage {
 		initEReference(getJuristType_Person(), theAddressBookPackage.getPersonType(), null, "person", null, 1, 1, JuristType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJuristType_Organization(), theAddressBookPackage.getOrganizationType(), null, "organization", null, 0, 1, JuristType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJuristType_Juri(), this.getJuriType(), this.getJuriType_Jurist(), "juri", null, 1, 1, JuristType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJuristType_WishApparatus(), ecorePackage.getEString(), "wishApparatus", null, 0, 1, JuristType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJuristType_License(), ecorePackage.getEString(), "license", null, 0, 1, JuristType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(juristTypeEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
 

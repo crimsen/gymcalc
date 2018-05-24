@@ -120,6 +120,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="organization" eType="#//addressbook/OrganizationType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="juri" lowerBound="1" eType="#//JuriType"
         transient="true" eOpposite="#//JuriType/jurist"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wishApparatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="license" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JuriType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jurist" upperBound="-1"

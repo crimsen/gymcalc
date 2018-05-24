@@ -1058,13 +1058,31 @@ public interface ContestPackage extends EPackage {
 	int JURIST_TYPE__JURI = 2;
 
 	/**
+	 * The feature id for the '<em><b>Wish Apparatus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JURIST_TYPE__WISH_APPARATUS = 3;
+
+	/**
+	 * The feature id for the '<em><b>License</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JURIST_TYPE__LICENSE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Jurist Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JURIST_TYPE_FEATURE_COUNT = 3;
+	int JURIST_TYPE_FEATURE_COUNT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Jurist</b></em>' containment reference list.
@@ -1985,6 +2003,28 @@ public interface ContestPackage extends EPackage {
 	EReference getJuristType_Juri();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.JuristType#getWishApparatus <em>Wish Apparatus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Wish Apparatus</em>'.
+	 * @see de.gymcalc.contest.JuristType#getWishApparatus()
+	 * @see #getJuristType()
+	 * @generated
+	 */
+	EAttribute getJuristType_WishApparatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.gymcalc.contest.JuristType#getLicense <em>License</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>License</em>'.
+	 * @see de.gymcalc.contest.JuristType#getLicense()
+	 * @see #getJuristType()
+	 * @generated
+	 */
+	EAttribute getJuristType_License();
+
+	/**
 	 * Returns the meta object for class '{@link de.gymcalc.contest.JuriType <em>Juri Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2857,6 +2897,22 @@ public interface ContestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JURIST_TYPE__JURI = eINSTANCE.getJuristType_Juri();
+
+		/**
+		 * The meta object literal for the '<em><b>Wish Apparatus</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JURIST_TYPE__WISH_APPARATUS = eINSTANCE.getJuristType_WishApparatus();
+
+		/**
+		 * The meta object literal for the '<em><b>License</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JURIST_TYPE__LICENSE = eINSTANCE.getJuristType_License();
 
 		/**
 		 * The meta object literal for the '{@link de.gymcalc.contest.impl.JuriTypeImpl <em>Juri Type</em>}' class.

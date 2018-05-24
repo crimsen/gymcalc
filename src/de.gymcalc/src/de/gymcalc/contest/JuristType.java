@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.gymcalc.contest.JuristType#getPerson <em>Person</em>}</li>
  *   <li>{@link de.gymcalc.contest.JuristType#getOrganization <em>Organization</em>}</li>
  *   <li>{@link de.gymcalc.contest.JuristType#getJuri <em>Juri</em>}</li>
+ *   <li>{@link de.gymcalc.contest.JuristType#getWishApparatus <em>Wish Apparatus</em>}</li>
+ *   <li>{@link de.gymcalc.contest.JuristType#getLicense <em>License</em>}</li>
  * </ul>
  *
  * @see de.gymcalc.contest.ContestPackage#getJuristType()
@@ -109,6 +111,58 @@ public interface JuristType extends EObject {
 	 * @generated
 	 */
 	void setJuri(JuriType value);
+
+	/**
+	 * Returns the value of the '<em><b>Wish Apparatus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Wish Apparatus</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wish Apparatus</em>' attribute.
+	 * @see #setWishApparatus(String)
+	 * @see de.gymcalc.contest.ContestPackage#getJuristType_WishApparatus()
+	 * @model
+	 * @generated
+	 */
+	String getWishApparatus();
+
+	/**
+	 * Sets the value of the '{@link de.gymcalc.contest.JuristType#getWishApparatus <em>Wish Apparatus</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Wish Apparatus</em>' attribute.
+	 * @see #getWishApparatus()
+	 * @generated
+	 */
+	void setWishApparatus(String value);
+
+	/**
+	 * Returns the value of the '<em><b>License</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>License</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>License</em>' attribute.
+	 * @see #setLicense(String)
+	 * @see de.gymcalc.contest.ContestPackage#getJuristType_License()
+	 * @model
+	 * @generated
+	 */
+	String getLicense();
+
+	/**
+	 * Sets the value of the '{@link de.gymcalc.contest.JuristType#getLicense <em>License</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>License</em>' attribute.
+	 * @see #getLicense()
+	 * @generated
+	 */
+	void setLicense(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
