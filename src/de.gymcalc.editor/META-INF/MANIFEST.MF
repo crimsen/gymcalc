@@ -38,7 +38,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecp.view.util.swt,
  org.eclipse.emf.ecp.view.template.model,
  org.eclipse.emfforms.localization,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.cdo.ui,
+ org.eclipse.ui.workbench
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Import-Package: de.spremberg.turnen.contact,

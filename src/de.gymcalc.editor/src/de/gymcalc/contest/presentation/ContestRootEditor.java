@@ -15,7 +15,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
@@ -60,15 +59,19 @@ public class ContestRootEditor extends EmfMultiEditor {
 
 	private void updateInput( )
 	{
-		IFileEditorInput modelFile = (IFileEditorInput)this.getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI( modelFile.getFile().getFullPath().toString(), true );;
+		URI resourceURI = EmfUtil.getEmfResourceUriFromEditorInput(this.getEditorInput());
 		Resource resource = null;
 		try {
 			// Load the resource through the editing domain.
-			//
+			// be aware cdo resources can not be loaded this way. they need to be loaded through the cdoview
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-			ContestType contest = ( ( ContestType ) resource.getContents().get( 0 ) );
-
+			ContestType contest = null;
+			if( 0 < resource.getContents().size() ) {
+				Object o = resource.getContents().get(0);
+				if( o instanceof ContestType ) {
+					contest = ( ContestType ) o;
+				}
+			}
 			final VView view = ViewProviderHelper.getView( contest, null );
 			ReferenceService referenceService=new ContestReferenceService();
 			ViewModelContext viewContext = ViewModelContextFactory.INSTANCE.createViewModelContext(view,
@@ -77,7 +80,7 @@ public class ContestRootEditor extends EmfMultiEditor {
 
 			//ECPSWTViewRenderer.INSTANCE.render(emfFormComposite, contest );
 			
-			String name = modelFile.getName();
+			String name = this.getEditorInput().getName();
 		    name += " (" + ContestEditorPlugin.INSTANCE.getString("_UI_ContestRootEditor_label") + ")";
 		    this.setPartName( name );
 		} catch( Exception e ) {

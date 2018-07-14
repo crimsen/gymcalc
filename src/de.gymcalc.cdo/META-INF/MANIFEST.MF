@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cdo
+Bundle-SymbolicName: de.gymcalc.cdo;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.gymcalc.cdo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.cdo.ui,
+ org.eclipse.emf.cdo.explorer,
+ org.eclipse.emf.cdo.explorer.ui,
+ org.eclipse.emf.cdo

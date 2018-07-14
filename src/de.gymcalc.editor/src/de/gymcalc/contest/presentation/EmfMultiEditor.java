@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.cdo.eresource.CDOResource;
+import org.eclipse.emf.cdo.eresource.provider.EresourceItemProviderAdapterFactory;
+import org.eclipse.emf.cdo.ui.CDOEditorInput;
+import org.eclipse.emf.cdo.view.CDOView;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
@@ -266,6 +270,7 @@ public abstract class EmfMultiEditor extends EditorPart implements
 		//
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
+		adapterFactory.addAdapterFactory( new EresourceItemProviderAdapterFactory() );
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ContestItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AddressBookItemProviderAdapterFactory());
@@ -284,24 +289,27 @@ public abstract class EmfMultiEditor extends EditorPart implements
 	}
 
 	public void createModel() {
-		// Assumes that the input is a file object.
-		//
-		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI( modelFile.getFile().getFullPath().toString(), true );;
+		IEditorInput editorInput = this.getEditorInput();
+		if( editorInput instanceof CDOEditorInput ) {
+			CDOEditorInput input = ( CDOEditorInput) editorInput;
+			// here we need to load the cdoresource explicitely because it is not loaded by the emf framework
+			CDOResource resource = input.getView().getResource(input.getResourcePath(),true);
+			editingDomain.getResourceSet().getResources().add(resource);
+		}
+		URI resourceURI = EmfUtil.getEmfResourceUriFromEditorInput(this.getEditorInput());
 		try {
 			editingDomain.getResourceSet().getResource(resourceURI, true);
 		}
 		catch (Exception e) {
 			editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
-
 	}
-
 	static final String bindingContextId = "de.gymcalc.contest.editor";
 	protected EditingDomain editingDomain;            // the domain covering the model
     protected Composite container;                    // the main widget of this editor
 	protected ComposedAdapterFactory adapterFactory;  // the adapter factory for this editor
     protected CommandStackListener commandStackListener = null;
+    protected CDOView cdoView = null;
 	/**
 	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
 	 */
