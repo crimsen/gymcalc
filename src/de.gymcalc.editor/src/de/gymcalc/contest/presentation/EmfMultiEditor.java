@@ -7,6 +7,8 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.eresource.provider.EresourceItemProviderAdapterFactory;
@@ -20,13 +22,16 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Composite;
@@ -166,6 +171,9 @@ public abstract class EmfMultiEditor extends EditorPart implements
 
     	initializeEditingDomain( foreignDomain );
 	    site.setSelectionProvider( this );
+	    // TODO:
+		//site.getPage().addPartListener(partListener);
+		//ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/* (non-Javadoc)
@@ -179,6 +187,10 @@ public abstract class EmfMultiEditor extends EditorPart implements
 		IWorkbenchPartSite site = this.getSite();
 		IContextService bindingContextService = ( IContextService ) site.getService( IContextService.class );
     	bindingContextService.deactivateContext( activationContext );
+    	// TODO:
+    	//ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
+		//getSite().getPage().removePartListener(partListener);
+		adapterFactory.dispose();
 		super.dispose();
 	}
 
@@ -242,6 +254,39 @@ public abstract class EmfMultiEditor extends EditorPart implements
 		for (ISelectionChangedListener listener : selectionChangedListeners) {
 			listener.selectionChanged(new SelectionChangedEvent(this, selection));
 		}
+		setStatusLineManager(selection);
+	}
+
+	public void setStatusLineManager(ISelection selection) {
+		// TODO:
+		/*
+		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
+			contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
+
+		if (statusLineManager != null) {
+			if (selection instanceof IStructuredSelection) {
+				Collection<?> collection = ((IStructuredSelection)selection).toList();
+				switch (collection.size()) {
+					case 0: {
+						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
+						break;
+					}
+					case 1: {
+						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
+						break;
+					}
+					default: {
+						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+						break;
+					}
+				}
+			}
+			else {
+				statusLineManager.setMessage("");
+			}
+		}
+		*/
 	}
 
 	protected Composite getContainer() {
@@ -324,6 +369,10 @@ public abstract class EmfMultiEditor extends EditorPart implements
 	protected String getInputName( ) {
 		String retVal = getEditorInput().getName();
 		return retVal;
+	}
+	
+	protected String getString( String s ) {
+		return ContestEditorPlugin.INSTANCE.getString(s);
 	}
 	static final String bindingContextId = "de.gymcalc.contest.editor";
 	protected EditingDomain editingDomain;            // the domain covering the model
