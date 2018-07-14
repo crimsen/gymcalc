@@ -55,15 +55,12 @@ public class RegistrationEditor extends EmfMultiEditor {
 		viewer = new TableViewer(parent, SWT.FULL_SELECTION);
 	    viewer.getTable().setHeaderVisible(true);
 	    viewer.getTable().setLinesVisible(true);
-//      ListBuilder listBuilder = new MergedAthletListBuilder( );
-//	    MergedListContentProvider cp = new MergedListContentProvider( listBuilder );
     	OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
 
 		final TableComparator comparator = new TableComparator( );
 		viewer.setComparator( comparator );
 	    int columnIndex = 0;
 	    ComputedSet os = new ComputedSet( AthletType.class ) {
-			@SuppressWarnings("rawtypes")
 			@Override
 			protected Set calculate() {
  	        	WritableSet retVal = WritableSet.withElementType(AthletType.class);
@@ -244,25 +241,18 @@ public class RegistrationEditor extends EmfMultiEditor {
 
 	private void updateInput( )
 	{
-		IFileEditorInput modelFile = (IFileEditorInput)this.getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI( modelFile.getFile().getFullPath().toString(), true );;
-		Resource resource = null;
 		try {
-			// Load the resource through the editing domain.
-			//
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-			ContestType contest = ( ( ContestType ) resource.getContents().get( 0 ) );
+			ContestType contest = getRootElement(ContestType.class);
 			master.setValue( contest );
 		    organizationEditor.setInput( contest );
 		    classesEditor.setInput( contest );
 		    teamEditor.setInput( contest );
 		    chainEditor.setInput( contest );
-		    String name = modelFile.getName();
+		    String name = getInputName();
 		    name += " (" + ContestEditorPlugin.INSTANCE.getString("_UI_RegistrationEditor_label") + ")";
 		    this.setPartName( name );
 		} catch( Exception e ) {
 			e.printStackTrace();
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 		
 	}
@@ -270,7 +260,7 @@ public class RegistrationEditor extends EmfMultiEditor {
 	private static String bindingContextId="de.gymcalc.contest.editor.registration";
 	EMFDataBindingContext ctx = new EMFDataBindingContext();
     private TableViewer viewer = null;
-    private final IObservableValue master = new WritableValue();
+    private final IObservableValue<ContestType> master = new WritableValue<ContestType>();
     private SingleReferenceTableCell organizationEditor = null;
     private SingleReferenceTableCell classesEditor = null;
     private SingleReferenceTableCell teamEditor = null;

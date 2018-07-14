@@ -15,6 +15,7 @@ import org.eclipse.emf.cdo.view.CDOView;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -44,6 +45,7 @@ import org.eclipse.ui.contexts.IContextService;
 import org.eclipse.ui.part.EditorPart;
 
 import de.gymcalc.addressbook.provider.AddressBookItemProviderAdapterFactory;
+import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.provider.ContestItemProviderAdapterFactory;
 
 
@@ -303,6 +305,25 @@ public abstract class EmfMultiEditor extends EditorPart implements
 		catch (Exception e) {
 			editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
+	}
+	
+	protected <rootType> rootType getRootElement(Class<rootType> myClass) {
+		rootType retVal = null;
+		URI resourceURI = EmfUtil.getEmfResourceUriFromEditorInput(this.getEditorInput());
+		// Load the resource through the editing domain.
+		// be aware cdo resources can not be loaded this way. they need to be loaded through the cdoview
+		Resource resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+		if( 0 < resource.getContents().size() ) {
+			EObject o = resource.getContents().get(0);
+			if( myClass.isAssignableFrom(o.getClass())) {
+				retVal = (rootType) o;
+			}
+		}
+		return retVal;
+	}
+	protected String getInputName( ) {
+		String retVal = getEditorInput().getName();
+		return retVal;
 	}
 	static final String bindingContextId = "de.gymcalc.contest.editor";
 	protected EditingDomain editingDomain;            // the domain covering the model

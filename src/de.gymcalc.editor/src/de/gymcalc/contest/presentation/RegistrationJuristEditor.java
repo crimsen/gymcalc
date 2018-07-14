@@ -55,8 +55,6 @@ public class RegistrationJuristEditor extends EmfMultiEditor {
 		viewer = new TableViewer(parent, SWT.FULL_SELECTION);
 	    viewer.getTable().setHeaderVisible(true);
 	    viewer.getTable().setLinesVisible(true);
-//      ListBuilder listBuilder = new MergedAthletListBuilder( );
-//	    MergedListContentProvider cp = new MergedListContentProvider( listBuilder );
     	OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
 
 		final TableComparator comparator = new TableComparator( );
@@ -157,30 +155,25 @@ public class RegistrationJuristEditor extends EmfMultiEditor {
 
 	private void updateInput( )
 	{
-		IFileEditorInput modelFile = (IFileEditorInput)this.getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI( modelFile.getFile().getFullPath().toString(), true );;
-		Resource resource = null;
 		try {
 			// Load the resource through the editing domain.
 			//
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-			ContestType contest = ( ( ContestType ) resource.getContents().get( 0 ) );
+			ContestType contest = getRootElement(ContestType.class);
 			master.setValue( contest );
 		    organizationEditor.setInput( contest );
 		    juriesEditor.setInput( contest );
-		    String name = modelFile.getName();
+		    String name = getInputName();
 		    name += " (" + ContestEditorPlugin.INSTANCE.getString("_UI_RegistrationJuristEditor_label") + ")";
 		    this.setPartName( name );
 		} catch( Exception e ) {
 			e.printStackTrace();
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 		
 	}
 	
 	EMFDataBindingContext ctx = new EMFDataBindingContext();
     private TableViewer viewer = null;
-    private final IObservableValue master = new WritableValue();
+    private final IObservableValue<ContestType> master = new WritableValue<ContestType>();
     private SingleReferenceTableCell organizationEditor = null;
     private SingleReferenceTableCell juriesEditor = null;
 }

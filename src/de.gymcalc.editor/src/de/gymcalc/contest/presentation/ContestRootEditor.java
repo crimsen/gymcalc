@@ -59,19 +59,8 @@ public class ContestRootEditor extends EmfMultiEditor {
 
 	private void updateInput( )
 	{
-		URI resourceURI = EmfUtil.getEmfResourceUriFromEditorInput(this.getEditorInput());
-		Resource resource = null;
 		try {
-			// Load the resource through the editing domain.
-			// be aware cdo resources can not be loaded this way. they need to be loaded through the cdoview
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-			ContestType contest = null;
-			if( 0 < resource.getContents().size() ) {
-				Object o = resource.getContents().get(0);
-				if( o instanceof ContestType ) {
-					contest = ( ContestType ) o;
-				}
-			}
+			ContestType contest = getRootElement(ContestType.class);
 			final VView view = ViewProviderHelper.getView( contest, null );
 			ReferenceService referenceService=new ContestReferenceService();
 			ViewModelContext viewContext = ViewModelContextFactory.INSTANCE.createViewModelContext(view,
@@ -80,12 +69,11 @@ public class ContestRootEditor extends EmfMultiEditor {
 
 			//ECPSWTViewRenderer.INSTANCE.render(emfFormComposite, contest );
 			
-			String name = this.getEditorInput().getName();
+			String name = getInputName();
 		    name += " (" + ContestEditorPlugin.INSTANCE.getString("_UI_ContestRootEditor_label") + ")";
 		    this.setPartName( name );
 		} catch( Exception e ) {
 			e.printStackTrace();
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 		
 	}
