@@ -15,6 +15,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -62,6 +65,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import de.gymcalc.contest.ChainType;
 import de.gymcalc.contest.ClassType;
+import de.gymcalc.contest.ContestPackage;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.calcprovider.ChainTableItemProvider;
 import de.gymcalc.contest.calcprovider.ContestChainItemProviderAdapterFactory;
@@ -114,6 +118,7 @@ public class ContestCalcEditor
 					}
 				}
 				else if (p == ContestCalcEditor.this) {
+					handleActivate();
 				}
 			}
 			public void partBroughtToTop(IWorkbenchPart p) {
@@ -126,7 +131,10 @@ public class ContestCalcEditor
 			}
 		};
 
-  
+	protected void handleActivate() {
+		setSelection(getSelection());
+	}
+		
 	/**
 	 * This creates a model editor.
 	 */
@@ -413,13 +421,6 @@ public class ContestCalcEditor
 			updateInput( getActivePage() );
 			contentOutlineViewer.addSelectionChangedListener(this);
 
-			if (!editingDomain.getResourceSet().getResources().isEmpty()) {
-			  // Select the root object in the view.
-			  //
-			  ArrayList<Object> selection = new ArrayList<Object>();
-			  selection.add(editingDomain.getResourceSet().getResources().get(0));
-			  contentOutlineViewer.setSelection(new StructuredSelection(selection), true);
-			}
 		}
 
 		public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
@@ -432,26 +433,75 @@ public class ContestCalcEditor
 			getActionBarContributor().shareGlobalActions(this, actionBars);
 		}
 		
-		public void updateInput( int page ) {
+	    @Override
+		public void selectionChanged(SelectionChangedEvent event) {
+	    	if( !isChanging ) {
+	        	super.selectionChanged(event);
+	    	}
+	    }
+
+	    public void updateInput( int page ) {
 			// Set up the tree viewer.
 			//
-			List<ContestTableItemProviderAdapterFactory> factories = new ArrayList<ContestTableItemProviderAdapterFactory>();
-	//		factories.add(new ResourceItemProviderAdapterFactory());
+			List<AdapterFactoryImpl> factories = new ArrayList<AdapterFactoryImpl>();
+			factories.add( new ContestTableItemProviderAdapterFactory() );
+			EStructuralFeature feature = null;
 			switch ( page ) {
 			case 0:
-				factories.add( new ContestClassItemProviderAdapterFactory( ) );
+				feature = ContestPackage.Literals.CONTEST_TYPE__CLASS;
 				break;
 			case 1:
-				factories.add(new ContestChainItemProviderAdapterFactory( ) );
+				feature = ContestPackage.Literals.CONTEST_TYPE__CHAIN;
 				break;
 			}
+			final EStructuralFeature f = feature;
+			IContentProvider contentProvider = new ITreeContentProvider( ) {
+				@Override
+				public Object[] getElements(Object inputElement) {
+					if( inputElement instanceof ContestType ) {
+						return (( EList<?> )(( ContestType )inputElement).eGet(f)).toArray();
+					}
+					return null;
+				}
+				@Override
+				public Object[] getChildren(Object parentElement) {
+					if( parentElement instanceof ContestType ) {
+						return (( EList<?> )(( ContestType )parentElement).eGet(f)).toArray();
+					}
+					return null;
+				}
+				@Override
+				public Object getParent(Object element) {
+					if( element instanceof EObject ) {
+						return (( EObject )element).eContainer();
+					}
+					return null;
+				}
+				@Override
+				public boolean hasChildren(Object element) {
+					if( element instanceof ContestType ) {
+						return !((EList<?>)(( ContestType )element).eGet(f)).isEmpty();
+					}
+					return false;
+				}
+			};
 
 			ComposedAdapterFactory factory = new ComposedAdapterFactory( factories );
 			
-			contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(factory));
+			isChanging = true;
+			contentOutlineViewer.setContentProvider(contentProvider);
 			contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(factory));
 			contentOutlineViewer.setInput( contest );
+			isChanging = false;
+			updateSelection();
 		}
+		
+		public void updateSelection() {
+			StructuredSelection selection = new StructuredSelection(currentViewer.getInput());
+			setSelection(selection);
+		}
+		
+		protected boolean isChanging = false;
 	}
 	/**
 	 * This accesses a cached version of the content outliner.
@@ -581,15 +631,7 @@ public class ContestCalcEditor
 					if( null == element && 0 < contest.getClass_().size( ) ) {
 						element = contest.getClass_().get( 0 );
 					}
-					if( null == selectedElement) {
-						// force refresh
-						gridViewer.setInput( null );
-					}
-					if( element != gridViewer.getInput() ) {
-						gridViewer.setInput( element );
-						updateViewerColumn( gridViewer );
-						//currentViewerPane.setTitle( element );
-					}
+					setViewerInput( gridViewer, selectedElement );
 				}
 			}
 			break;
@@ -606,26 +648,32 @@ public class ContestCalcEditor
 					if( null == element && 0 < contest.getChain().size( ) ) {
 						element = contest.getChain().get( 0 );
 					}
-					if( null == selectedElement) {
-						// force refresh
-						gridViewer.setInput( null );
-					}
-					if( element != gridViewer.getInput() ) {
-						gridViewer.setInput( element );
-						updateViewerColumn( gridViewer );
-						//currentViewerPane.setTitle( element );
-					}
+					setViewerInput( gridViewer, selectedElement );
 				}
 			}
 			break;
 		}
 	}
 
+	protected void setViewerInput( GridViewer viewer, Object input ) {
+		if( null == input) {
+			// force refresh
+			viewer.setInput( null );
+		}
+		if( input != viewer.getInput() ) {
+			viewer.setInput( input );
+			updateViewerColumn( viewer );
+		}
+	}
+	
 	private void updateInput( )
 	{
 		try {
 			contest = getRootElement(ContestType.class);
-
+			ClassType class_ = contest.getClass_().isEmpty() ? null : contest.getClass_().get(0);
+			setViewerInput( classViewer, class_ );
+			ChainType chain = contest.getChain().isEmpty() ? null : contest.getChain().get(0);
+			setViewerInput( chainViewer, chain );
 			setCurrentViewer( viewers.get(currentPage) );
 			String name = getInputName();
 		    name += " (" + ContestEditorPlugin.INSTANCE.getString("_UI_ContestCalcEditor_label") + ")";
