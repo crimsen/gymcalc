@@ -1,6 +1,7 @@
 package de.gymcalc.rcp.juriclient.parts;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -16,8 +17,6 @@ import de.gymcalc.contest.provider.ContestItemProviderAdapterFactory;
 import de.gymcalc.rcp.IModel;
 
 public class JuriView {
-
-	private TableViewer tableViewer;
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
@@ -37,8 +36,18 @@ public class JuriView {
 		tableViewer.getTable().setFocus();
 	}
 
-	private Object createInitialDataModel() {
-		ContestType contest = IModel.INSTANCE.getContest();
-		return contest;
+	public void dispose() {
+		contestModel.closeConnection();
 	}
+	
+	private Object createInitialDataModel() {
+		ContestType retVal = null;
+		contestModel.openConnection();
+		retVal = contestModel.getContest();
+		return retVal;
+	}
+
+	private TableViewer tableViewer;
+	@Inject
+	private IModel contestModel;
 }

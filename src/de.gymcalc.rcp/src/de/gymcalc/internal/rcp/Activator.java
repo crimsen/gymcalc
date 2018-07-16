@@ -50,7 +50,6 @@ public class Activator extends AbstractUIPlugin {
 			fis.close();
 		}
 
-		Model.INSTANCE.activate();
 	}
 
 	/*
@@ -61,7 +60,6 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		Model.INSTANCE.deactivate();
 		plugin = null;
 		super.stop(context);
 	}

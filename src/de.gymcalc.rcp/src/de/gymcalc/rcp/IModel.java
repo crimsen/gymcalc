@@ -11,16 +11,16 @@ import de.gymcalc.contest.ContestType;
 /**
  */
 public interface IModel {
-	public static final IModel INSTANCE = de.gymcalc.internal.rcp.Model.INSTANCE;
-
-	public AdapterFactory getAdapterFactory();
 
 	public ContestType getContest();
 
-	public <T extends CDOObject> Object modify(T object, ITransactionalOperation<T> operation);
+	// cdo connection handling
+	public boolean openConnection();
+	public boolean closeConnection();
+	public boolean isConnected();
 
-	/**
-	 */
+	public AdapterFactory getAdapterFactory();
+	public <T extends CDOObject> Object modify(T object, ITransactionalOperation<T> operation);
 	public interface ITransactionalOperation<T extends CDOObject> {
 		public Object execute(T object);
 	}

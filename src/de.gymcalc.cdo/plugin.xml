@@ -6,9 +6,9 @@
       <editorOpener
             class="de.gymcalc.cdo.RootEditorOpener"
             id="de.gymcalc.cdo.RootEditorOpener"
-            name="%_UI_ContestRootEditor_label"
+            name="GymCalc Übersicht"
             priority="500"
-            regex="cdo\.checkout://.*">
+            regex="cdo\.checkout://.*\.gymcalc">
       </editorOpener>
    </extension>
 

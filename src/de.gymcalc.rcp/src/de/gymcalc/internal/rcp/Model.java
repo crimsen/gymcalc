@@ -29,7 +29,6 @@ import de.gymcalc.rcp.IModel;
 /**
  */
 public class Model extends Lifecycle implements IModel {
-	public static final Model INSTANCE = new Model();
 
 	private final ComposedAdapterFactory adapterFactory;
 
@@ -39,7 +38,7 @@ public class Model extends Lifecycle implements IModel {
 
 	private ContestType contest;
 
-	private Model() {
+	public Model() {
 		adapterFactory = new ComposedAdapterFactory(EMFEditPlugin.getComposedAdapterFactoryDescriptorRegistry());
 	}
 
@@ -72,6 +71,39 @@ public class Model extends Lifecycle implements IModel {
 		}
 
 		return contest;
+	}
+
+	@Override
+	public boolean openConnection() {
+		boolean retVal = isActive();
+		if (!retVal) {
+			try {
+				activate();
+			} catch( Exception e ) {
+				
+			}
+			retVal = isActive();
+		}
+		return retVal;
+	}
+
+	@Override
+	public boolean closeConnection() {
+		boolean retVal = isActive();
+		if (retVal) {
+			try {
+				deactivate();
+			} catch( Exception e ) {
+				
+			}
+			retVal = isActive();
+		}
+		return retVal;
+	}
+
+	@Override
+	public boolean isConnected() {
+		return isActive();
 	}
 
 	public <T extends CDOObject> Object modify(T object, ITransactionalOperation<T> operation) {
