@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GymCalc Rcp
+Bundle-SymbolicName: de.gymcalc.rcp; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.gymcalc.internal.rcp.Activator
+Automatic-Module-Name: de.gymcalc.rcp
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)";visibility:=reexport,
+ org.eclipse.emf.cdo.net4j;bundle-version="[4.0.0,5.0.0)";visibility:=reexport,
+ org.eclipse.net4j.tcp;bundle-version="[2.0.0,5.0.0)";visibility:=reexport,
+ org.eclipse.ui;bundle-version="[3.5.0,4.0.0)";visibility:=reexport,
+ org.eclipse.emf.edit.ui;bundle-version="[2.5.0,3.0.0)";visibility:=reexport,
+ de.gymcalc
+Export-Package: de.gymcalc.rcp;version="1.0.0"
