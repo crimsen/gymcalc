@@ -14,6 +14,8 @@ import org.eclipse.swt.widgets.Composite;
 
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.provider.ContestItemProviderAdapterFactory;
+import de.gymcalc.rcp.IActiveObjectListener;
+import de.gymcalc.rcp.IActiveObjectService;
 import de.gymcalc.rcp.IContestService;
 
 public class JuriView {
@@ -29,6 +31,15 @@ public class JuriView {
 		tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(factory));
 		tableViewer.setInput(createInitialDataModel());
 		tableViewer.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
+		
+		activeObjectService.addListener( ContestType.class, new IActiveObjectListener() {
+
+			@Override
+			public void onActiveObjectChanged(Object type, Object object) {
+				updateContestData((ContestType)object);
+			}
+			
+		});
 	}
 
 	@Focus
@@ -40,14 +51,20 @@ public class JuriView {
 		contestService.closeConnection();
 	}
 	
+	protected void updateContestData(ContestType contest) {
+		tableViewer.setInput( contest );
+	}
 	private Object createInitialDataModel() {
 		ContestType retVal = null;
 		contestService.openConnection();
 		retVal = contestService.getContest();
+		activeObjectService.setActiveObject(ContestType.class, retVal);
 		return retVal;
 	}
 
 	private TableViewer tableViewer;
 	@Inject
 	private IContestService contestService;
+	@Inject
+	private IActiveObjectService activeObjectService;
 }

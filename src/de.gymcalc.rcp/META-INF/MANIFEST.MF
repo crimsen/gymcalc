@@ -18,4 +18,5 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)";visibili
  org.eclipse.e4.core.di,
  org.eclipse.osgi.services
 Export-Package: de.gymcalc.rcp;version="1.0.0"
-Service-Component: OSGI-INF/ContestServiceContextFunction.xml
+Service-Component: OSGI-INF/ContestServiceContextFunction.xml,
+ OSGI-INF/ActiveObjectServiceContextFunction.xml
