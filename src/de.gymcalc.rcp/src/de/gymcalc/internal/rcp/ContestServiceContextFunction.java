@@ -7,20 +7,20 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.osgi.service.component.annotations.Component;
 
-import de.gymcalc.rcp.IModel;
+import de.gymcalc.rcp.IContestService;
 
-@Component(name = "ContestServiceContextFunction", service = IContextFunction.class, property = "service.context.key=de.gymcalc.rcp.IModel")
+@Component(name = "ContestServiceContextFunction", service = IContextFunction.class, property = "service.context.key=de.gymcalc.rcp.IContestService")
 public class ContestServiceContextFunction extends ContextFunction {
 
 	@Override
 	public Object compute(IEclipseContext context, String contextKey) {
-		IModel ContestService = ContextInjectionFactory.make(Model.class, context);
+		IContestService contestService = ContextInjectionFactory.make(ContestService.class, context);
 
 		MApplication app = context.get(MApplication.class);
 		IEclipseContext appCtx = app.getContext();
-		appCtx.set(IModel.class, ContestService);
+		appCtx.set(IContestService.class, contestService);
 
-		return ContestService;
+		return contestService;
 	}
 
 }

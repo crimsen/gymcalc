@@ -24,11 +24,11 @@ import org.eclipse.net4j.util.lifecycle.Lifecycle;
 import de.gymcalc.contest.ContestFactory;
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.rcp.IConfiguration;
-import de.gymcalc.rcp.IModel;
+import de.gymcalc.rcp.IContestService;
 
 /**
  */
-public class Model extends Lifecycle implements IModel {
+public class ContestService extends Lifecycle implements IContestService {
 
 	private final ComposedAdapterFactory adapterFactory;
 
@@ -38,7 +38,7 @@ public class Model extends Lifecycle implements IModel {
 
 	private ContestType contest;
 
-	public Model() {
+	public ContestService() {
 		adapterFactory = new ComposedAdapterFactory(EMFEditPlugin.getComposedAdapterFactoryDescriptorRegistry());
 	}
 

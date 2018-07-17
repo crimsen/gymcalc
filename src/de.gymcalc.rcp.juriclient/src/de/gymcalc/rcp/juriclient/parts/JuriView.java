@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.contest.provider.ContestItemProviderAdapterFactory;
-import de.gymcalc.rcp.IModel;
+import de.gymcalc.rcp.IContestService;
 
 public class JuriView {
 
@@ -37,17 +37,17 @@ public class JuriView {
 	}
 
 	public void dispose() {
-		contestModel.closeConnection();
+		contestService.closeConnection();
 	}
 	
 	private Object createInitialDataModel() {
 		ContestType retVal = null;
-		contestModel.openConnection();
-		retVal = contestModel.getContest();
+		contestService.openConnection();
+		retVal = contestService.getContest();
 		return retVal;
 	}
 
 	private TableViewer tableViewer;
 	@Inject
-	private IModel contestModel;
+	private IContestService contestService;
 }

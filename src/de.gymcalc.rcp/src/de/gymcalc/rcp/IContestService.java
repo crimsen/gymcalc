@@ -10,7 +10,7 @@ import de.gymcalc.contest.ContestType;
 
 /**
  */
-public interface IModel {
+public interface IContestService {
 
 	public ContestType getContest();
 
