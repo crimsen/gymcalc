@@ -3,6 +3,7 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.window.main" label="GymCalc JuriClient" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.partsashcontainer.sample" horizontal="true">
       <children xsi:type="basic:Part" xmi:id="_d8tewIhTEeiDN6M4qiC0Hw" elementId="de.gymcalc.rcp.juriclient.part.juriview" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.parts.AthletView" label="JuriView"/>
+      <children xsi:type="basic:Part" xmi:id="_37kNQIqfEei4auS02WZucA" elementId="de.gymcalc.rcp.juriclient.part.resultview" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.parts.ResultView" label="ResultView"/>
     </children>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
