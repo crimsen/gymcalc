@@ -9,7 +9,7 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Label;
 
 import de.gymcalc.contest.ContestType;
 import de.gymcalc.rcp.IActiveObjectListener;
@@ -23,13 +23,12 @@ public class ComboToolControl {
 	public void createGui(Composite parent, String name) {
 		Composite me = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(2, false);
-		layout.marginWidth = 0;
 		layout.marginHeight = 0;
 		me.setLayout(layout);
-		Text text = new Text(me,SWT.READ_ONLY);
+		Label text = new Label(me,SWT.NONE);
 		text.setText(name + ":");
 		combo = new Combo(me, SWT.DROP_DOWN | SWT.READ_ONLY);
-		GridDataFactory.fillDefaults().hint(200, SWT.DEFAULT).applyTo(combo);
+		GridDataFactory.fillDefaults().grab(true, false).minSize(300, SWT.DEFAULT).applyTo(combo);
 		combo.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {

@@ -7,20 +7,16 @@
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.part.sample" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.parts.SamplePart" label="Sample Part"/>
       </children>
     </children>
-    <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
-      <children xsi:type="menu:Menu" xmi:id="_6wlLisgZEeSyMNYR5xypkQ" elementId="file" label="File">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.handleditem.file.open" label="Open" iconURI="platform:/plugin/de.gymcalc.rcp.juriclient/icons/sample.png"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.handleditem.save" label="Save" iconURI="platform:/plugin/de.gymcalc.rcp.juriclient/icons/save_edit.png"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
-      </children>
-      <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
-      </children>
-    </mainMenu>
+    <mainMenu xmi:id="_pFKCYIqOEei4auS02WZucA" elementId="de.gymcalc.rcp.juriclient.menu.0"/>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_jIS8QInnEeinYss6n0F8Lw" elementId="de.gymcalc.rcp.juriclient.handledtoolitem.ConnectServer" label="Anschalten" iconURI="platform:/plugin/de.gymcalc.rcp.juriclient/icons/onoff.png" tooltip="Anschalten und Verbindung zum Server aufnehmen" command="_K6IUoInSEeinYss6n0F8Lw"/>
-        <children xsi:type="menu:ToolControl" xmi:id="_xNS2IInpEeinYss6n0F8Lw" elementId="de.gymcalc.rcp.juriclient.toolcontrol.StationToolControl" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.handlers.StationToolControl"/>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_xNS2IInpEeinYss6n0F8Lw" elementId="de.gymcalc.rcp.juriclient.toolcontrol.StationToolControl" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.handlers.StationToolControl">
+        <tags>stretch</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_bvN1cIphEei4auS02WZucA" elementId="de.gymcalc.rcp.juriclient.toolcontrol.ChainToolControl" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.handlers.ChainToolControl">
+        <tags>stretch</tags>
       </children>
     </trimBars>
   </children>
