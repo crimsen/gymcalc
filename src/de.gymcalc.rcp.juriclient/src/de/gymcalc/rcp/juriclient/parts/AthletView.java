@@ -21,7 +21,7 @@ import de.gymcalc.contest.provider.ContestItemProviderAdapterFactory;
 import de.gymcalc.rcp.IActiveObjectListener;
 import de.gymcalc.rcp.IActiveObjectService;
 
-public class JuriView {
+public class AthletView {
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
