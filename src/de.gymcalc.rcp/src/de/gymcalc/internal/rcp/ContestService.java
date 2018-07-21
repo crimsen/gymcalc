@@ -106,6 +106,20 @@ public class ContestService extends Lifecycle implements IContestService {
 		return isActive();
 	}
 
+	@Override
+	public boolean flushConnection() {
+		boolean retVal = true;
+		if( view.isDirty() && view instanceof CDOTransaction ) {
+			try {
+				((CDOTransaction)view).commit();
+			} catch (CommitException e) {
+				retVal = false;
+				e.printStackTrace();
+			}
+		}
+		return retVal;
+	}
+
 	public <T extends CDOObject> Object modify(T object, ITransactionalOperation<T> operation) {
 		CDOTransaction transaction = session.openTransaction();
 
@@ -139,7 +153,8 @@ public class ContestService extends Lifecycle implements IContestService {
 		config.setRepositoryName(repository);
 
 		session = config.openNet4jSession();
-		view = session.openView();
+//		view = session.openView();
+		view = session.openTransaction();
 		view.options().addChangeSubscriptionPolicy(CDOAdapterPolicy.ALL);
 	}
 

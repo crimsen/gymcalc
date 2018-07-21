@@ -19,6 +19,8 @@ public interface IContestService {
 	public boolean closeConnection();
 	public boolean isConnected();
 
+	public boolean flushConnection();
+
 	public AdapterFactory getAdapterFactory();
 	public <T extends CDOObject> Object modify(T object, ITransactionalOperation<T> operation);
 	public interface ITransactionalOperation<T extends CDOObject> {

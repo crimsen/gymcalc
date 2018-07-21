@@ -38,6 +38,7 @@ import de.gymcalc.contest.StationType;
 import de.gymcalc.contest.util.ContestUtil;
 import de.gymcalc.rcp.IActiveObjectListener;
 import de.gymcalc.rcp.IActiveObjectService;
+import de.gymcalc.rcp.IContestService;
 
 public class ResultView {
 
@@ -208,7 +209,7 @@ public class ResultView {
 		}
 		protected void writeDataToResult() { 
 			if( null != result) {
-				result.setValue(wa.getValue());
+				result.setValue(ws.getValue());
 				ArrayList<JuriResultDetailType> addList = new ArrayList<JuriResultDetailType>();
 				ArrayList<String> keysSet = new ArrayList<String>();
 				for (DetailEntry e : values) {
@@ -291,6 +292,7 @@ public class ResultView {
 		if( null != resultA ) {
 			resultA.setValue(wa.getValue());
 		}
+		flushData();
 	}
 
 	protected void updateDataFromAthlet(AthletType athlet) {
@@ -327,6 +329,10 @@ public class ResultView {
 			ta.setEnabled(true);
 		}
 	}
+	boolean flushData() {
+		boolean retVal = contestService.flushConnection();
+		return retVal;
+	}
 	protected DataBindingContext dbc;
 	protected AthletType athlet;
 	protected JuriResultType resultA; // the average of jumps
@@ -335,6 +341,8 @@ public class ResultView {
 
 	@Inject
 	IActiveObjectService activeObjectService;
+	@Inject
+	IContestService contestService;
 
 	UpdateValueStrategy toDoubleUpdateStrategy;
 	UpdateValueStrategy fromDoubleUpdateStrategy;
