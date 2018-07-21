@@ -11,7 +11,6 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-import de.gymcalc.contest.ContestType;
 import de.gymcalc.rcp.IActiveObjectListener;
 import de.gymcalc.rcp.IActiveObjectService;
 
@@ -20,7 +19,7 @@ public class ComboToolControl {
 	@Inject
 	IActiveObjectService activeObjectService;
 
-	public void createGui(Composite parent, String name) {
+	public void createGui(Composite parent, String name, Object masterClass) {
 		Composite me = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(2, false);
 		layout.marginHeight = 0;
@@ -40,22 +39,17 @@ public class ComboToolControl {
 			}
 			
 		});
-		activeObjectService.addListener(ContestType.class, new IActiveObjectListener() {
+		activeObjectService.addListener(masterClass, new IActiveObjectListener() {
 	
 			@Override
 			public void onActiveObjectChanged(Object type, Object object) {
-				ContestType contest = null;
-				if( null != object ) {
-					contest = (ContestType)object;
-				}
-				updateCombo(contest);
-				
+				updateCombo(object);
 			}
 			
 		});
 	}
 
-	protected void updateCombo(ContestType contest) {
+	protected void updateCombo(Object object) {
 	}
 	protected void updateActiveObject(int index) {
 	}
