@@ -98,6 +98,22 @@ public class ResultView {
 			public void widgetDefaultSelected(SelectionEvent e) {
 			}
 		});
+		formBody.setTabList(new Control[] {
+				resultColumn1.td1,
+				resultColumn1.te1,
+				resultColumn1.te2,
+				resultColumn1.td2,
+				resultColumn1.tp,
+				resultColumn1.ts,
+				resultColumn2.td1,
+				resultColumn2.te1,
+				resultColumn2.te2,
+				resultColumn2.td2,
+				resultColumn2.tp,
+				resultColumn2.ts,
+				ta,
+				commitButton
+				});
 		bindData();
 
 		activeObjectService.addListener(AthletType.class, new IActiveObjectListener() {
