@@ -2,6 +2,7 @@
 package de.gymcalc.rcp.juriclient.parts;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -11,6 +12,8 @@ import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.IConverter;
 import org.eclipse.core.databinding.conversion.NumberToStringConverter;
 import org.eclipse.core.databinding.conversion.StringToNumberConverter;
+import org.eclipse.core.databinding.observable.ChangeEvent;
+import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
@@ -54,18 +57,18 @@ public class ResultView {
 		tk.createLabel(formBody,"");
 		resultColumn1.th = tk.createLabel(formBody, "");
 		resultColumn2.th = tk.createLabel(formBody, "");
-		tk.createLabel(formBody, "D1", SWT.RIGHT);
+		tk.createLabel(formBody, "D", SWT.RIGHT);
 		resultColumn1.td1 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		resultColumn2.td1 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
-		tk.createLabel(formBody, "D2", SWT.RIGHT);
-		resultColumn1.td2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
-		resultColumn2.td2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		tk.createLabel(formBody, "E1", SWT.RIGHT);
 		resultColumn1.te1 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		resultColumn2.te1 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		tk.createLabel(formBody, "E2", SWT.RIGHT);
 		resultColumn1.te2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		resultColumn2.te2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
+		tk.createLabel(formBody, "E", SWT.RIGHT);
+		resultColumn1.td2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
+		resultColumn2.td2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		tk.createLabel(formBody, "Penalty", SWT.RIGHT);
 		resultColumn1.tp = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		resultColumn2.tp = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
@@ -83,7 +86,8 @@ public class ResultView {
 		ta = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		tk.createLabel(formBody,"");
 
-		Button commitButton = tk.createButton(formBody, "Veröffentlichen", SWT.PUSH);
+		Button commitButton = tk.createButton(formBody, "Daten übertragen", SWT.PUSH|SWT.CENTER);
+		GridDataFactory.fillDefaults().span(3, 0).applyTo(commitButton);
 		
 		commitButton.addSelectionListener(new SelectionListener() {
 			@Override
@@ -123,39 +127,84 @@ public class ResultView {
 
 	protected class ResultColumn {
 		protected class DetailEntry {
-			protected DetailEntry(String aKey, WritableValue<Double> aValue, boolean available) {
+			protected DetailEntry(int aSetOrder, String aKey, WritableValue<Double> aValue, boolean available) {
+				setOrder = aSetOrder;
 				key = aKey;
 				value = aValue;
 				isAvailable = available;
 			}
 
+			// values have to be set in the correct order because some are calculated from other values
+			// when calculated values are loaded then they must not be overwritten be the calculation, 
+			// so these values have to be set after the source values of the calculation
+			// example: e1 and e2 calculates d2, when d2 is loaded then it has to be set after e1, e2 and the calculation 
+			protected int setOrder;
 			protected String key; // the key in juridetail
 			protected WritableValue<Double> value; // the value that corresponds to the key
 			protected boolean isAvailable; // marker if the key is available in the orgination details
 		}
+		protected class SetValue {
+			protected SetValue( WritableValue<Double> awValue, Double aValue ) {
+				wValue = awValue;
+				value = aValue;
+			}
+			protected WritableValue<Double> wValue;
+			protected Double value;
+		}
 
+		protected ResultColumn( ) {
+			wh.setValue("");
+			wd1.setValue(Double.NaN);
+			wd2.setValue(Double.NaN);
+			we1.setValue(Double.NaN);
+			we2.setValue(Double.NaN);
+			wp.setValue(Double.NaN);
+			ws.setValue(Double.NaN);
+		}
 		protected void bindData( ) {
-			values.add(new DetailEntry("D", wd1, true));
-//			values.add(new DetailEntry("D2", wd2, true));
-			values.add(new DetailEntry("E", we1, true));
-//			values.add(new DetailEntry("E2", we2, true));
-			values.add(new DetailEntry("P", wp, true));
-			dbc.bindValue(wh, WidgetProperties.text().observe(th));
-			bindDouble2String(dbc, wd1, WidgetProperties.text(SWT.Modify).observe(td1));
-			bindDouble2String(dbc, wd2, WidgetProperties.text(SWT.Modify).observe(td2));
-			bindDouble2String(dbc, we1, WidgetProperties.text(SWT.Modify).observe(te1));
-			bindDouble2String(dbc, we2, WidgetProperties.text(SWT.Modify).observe(te2));
-			bindDouble2String(dbc, wp, WidgetProperties.text(SWT.Modify).observe(tp));
-			bindDouble2String(dbc, ws, WidgetProperties.text(SWT.Modify).observe(ts));
+			values.add(new DetailEntry(3, "D", wd1, true));
+			values.add(new DetailEntry(2, "E", wd2, true));
+			values.add(new DetailEntry(4, "P", wp, true));
+			values.add(new DetailEntry(0, ".E1", we1, true));
+			values.add(new DetailEntry(1, ".E2", we2, true));
+			dbc.bindValue(WidgetProperties.text().observe(th), wh);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(td1), wd1);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(td2), wd2);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(te1), we1);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(te2), we2);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(tp), wp);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(ts), ws);
+			
+			IChangeListener summaryCalculation = new IChangeListener( ) {
+				@Override
+				public void handleChange(ChangeEvent event) {
+					calcSummary();
+				}
+			};
+			wd1.addChangeListener(summaryCalculation);
+			wd2.addChangeListener(summaryCalculation);
+			wp.addChangeListener(summaryCalculation);
+
+			IChangeListener averageCalculation = new IChangeListener( ) {
+				@Override
+				public void handleChange(ChangeEvent event) {
+					calcAverageOfExecution();
+				}
+			};
+			we1.addChangeListener(averageCalculation);
+			we2.addChangeListener(averageCalculation);
 		}
 		protected void updateDataFromResult(JuriResultType result) {
 			this.result = result;
 			if (null == result) {
+				// assure the correct sequence
+				// e1 and e2 sets d2, so d2 has to be set after e1 and e2
+				// d1, d2 and p sets s so s has to be set after d1, d2 and p
 				wh.setValue("");
-				wd1.setValue(Double.NaN);
-				wd2.setValue(Double.NaN);
 				we1.setValue(Double.NaN);
 				we2.setValue(Double.NaN);
+				wd1.setValue(Double.NaN);
+				wd2.setValue(Double.NaN);
 				wp.setValue(Double.NaN);
 				ws.setValue(Double.NaN);
 				th.setEnabled(false);
@@ -167,8 +216,10 @@ public class ResultView {
 				ts.setEnabled(false);
 			} else {
 				wh.setValue(result.getDiszipline().getName());
-				ws.setValue(result.getValue());
-				ArrayList<String> keysSet = new ArrayList<String>();
+				SetValue[] orderedSetValues = new SetValue[values.size()];
+				for( DetailEntry e : values) {
+					orderedSetValues[e.setOrder] = new SetValue( e.value, Double.NaN);
+				}
 				int emptyIdx = 0;
 				for (JuriResultDetailType d : result.getJuriResultDetail()) {
 					String key = d.getKey();
@@ -188,16 +239,14 @@ public class ResultView {
 						}
 					}
 					if (null != de) {
-						de.value.setValue(d.getValue());
-						keysSet.add(de.key);
+						orderedSetValues[de.setOrder].value = d.getValue();
 					}
 				}
-				// set all values that are not in detials to NAN
-				for (DetailEntry e : values) {
-					if (!keysSet.contains(e.key)) {
-						e.value.setValue(Double.NaN);
-					}
+				// finally set all the values in the correct order
+				for( SetValue s:orderedSetValues) {
+					s.wValue.setValue(s.value);
 				}
+				ws.setValue(result.getValue());
 				th.setEnabled(true);
 				td1.setEnabled(true);
 				td2.setEnabled(true);
@@ -243,6 +292,37 @@ public class ResultView {
 				result.getJuriResultDetail().addAll(addList);
 			}
 		}
+		protected void calcSummary() {
+			Double summary = 0.0;
+			int count = 0;
+			Double val = getDoubleFromWritable( wd1 );
+			if( !val.isNaN() ) {
+				summary +=val;
+				count++;
+			}
+			val = getDoubleFromWritable( wd2 );
+			if( !val.isNaN() ) {
+				summary +=val;
+				count++;
+			}
+			val = getDoubleFromWritable( wp );
+			if( !val.isNaN() ) {
+				summary +=val;
+				count++;
+			}
+			if( 0 < count ) {
+				ws.setValue(summary);
+			}
+		}
+		protected void calcAverageOfExecution() {
+			ArrayList<WritableValue<Double>> a = new ArrayList<WritableValue<Double>>();
+			a.add(we1);
+			a.add(we2);
+			Double average = calcAverage(a);
+			if( !average.isNaN() ) {
+				wd2.setValue(average);
+			}
+		}
 		protected JuriResultType result;
 		
 		protected Label th;
@@ -266,7 +346,32 @@ public class ResultView {
 
 		ArrayList<DetailEntry> values = new ArrayList<DetailEntry>();
 	}
+	protected static Double calcAverage(Collection<WritableValue<Double>> wValues) {
+		Double retVal = Double.NaN;
+		Double average = 0.0;
+		int count = 0;
+		for( WritableValue<Double> wVal : wValues) {
+			Double val = getDoubleFromWritable( wVal );
+			if( !val.isNaN() ) {
+				average +=val;
+				count++;
+			}
+		}
+		if( count != 0 ) {
+			retVal = average / count;
+		}
+		return retVal;
+	}
+	protected static Double getDoubleFromWritable(WritableValue<Double> wVal) {
+		Double retVal = Double.NaN;
+		Object val = wVal.getValue();
+		if( val instanceof Double ) {
+			retVal = ( Double )val;
+		}
+		return retVal;
+	}
 	protected void bindData() {
+		wa.setValue(Double.NaN);
 		IConverter toDoubleConverter = StringToNumberConverter.toDouble(true);
 		IConverter fromDoubleConverter = NumberToStringConverter.fromDouble(true);
 		toDoubleUpdateStrategy = new UpdateValueStrategy().setConverter(toDoubleConverter);
@@ -274,12 +379,20 @@ public class ResultView {
 		dbc = new DataBindingContext();
 		resultColumn1.bindData();
 		resultColumn2.bindData();
-		bindDouble2String(dbc, wa, WidgetProperties.text(SWT.Modify).observe(ta));
+		bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(ta), wa);
+		IChangeListener averageCalculation = new IChangeListener( ) {
+			@Override
+			public void handleChange(ChangeEvent event) {
+				calcAverageOfSummary();
+			}
+		};
+		resultColumn1.ws.addChangeListener(averageCalculation);
+		resultColumn2.ws.addChangeListener(averageCalculation);
 	}
 	
-	protected void bindDouble2String(DataBindingContext dbc, IObservableValue<?> doubleValue, IObservableValue<?> stringValue) {
-		dbc.bindValue( doubleValue, stringValue,
-				fromDoubleUpdateStrategy, toDoubleUpdateStrategy );
+	protected void bindString2Double(DataBindingContext dbc, IObservableValue<?> stringValue, IObservableValue<?> doubleValue ) {
+		dbc.bindValue( stringValue, doubleValue, 
+				toDoubleUpdateStrategy, fromDoubleUpdateStrategy );
 	}
 
 	protected void writeDataToAthlet() {
@@ -332,6 +445,17 @@ public class ResultView {
 	boolean flushData() {
 		boolean retVal = contestService.flushConnection();
 		return retVal;
+	}
+	protected void calcAverageOfSummary() {
+		if( null != resultA ) {
+			ArrayList<WritableValue<Double>> a = new ArrayList<WritableValue<Double>>();
+			a.add(resultColumn1.ws);
+			a.add(resultColumn2.ws);
+			Double average = calcAverage(a);
+			if( !average.isNaN() ) {
+				wa.setValue(average);
+			}
+		}
 	}
 	protected DataBindingContext dbc;
 	protected AthletType athlet;
