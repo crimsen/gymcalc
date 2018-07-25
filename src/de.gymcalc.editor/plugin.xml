@@ -227,6 +227,13 @@
             id="de.gymcalc.contest.editor.CompactFinals"
             name="%_UI_CompactFinals_label">
       </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.SaveCopyHandler"
+            description="%_UI_SaveCopy_description"
+            id="de.gymcalc.contest.editor.SaveCopy"
+            name="%_UI_SaveCopy_label">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.services">
@@ -268,6 +275,12 @@
                  label="%_UI_OpenCalcEditor_label"
                  mnemonic="C"
                  style="push">
+           </command>
+           <command
+                 commandId="de.gymcalc.contest.editor.SaveCopy"
+                 label="%_UI_SaveCopy_label"
+                 style="push"
+                 tooltip="%_UI_SaveCopy_description">
            </command>
            <visibleWhen
                  checkEnabled="false">
