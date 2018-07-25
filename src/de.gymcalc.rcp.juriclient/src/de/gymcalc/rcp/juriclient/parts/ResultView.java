@@ -327,7 +327,7 @@ public class ResultView {
 				count++;
 			}
 			if( 0 < count ) {
-				ws.setValue(summary);
+				ws.setValue(((int)(summary*10000))/10000.0);
 			}
 		}
 		protected void calcAverageOfExecution() {
@@ -375,6 +375,7 @@ public class ResultView {
 		}
 		if( count != 0 ) {
 			retVal = average / count;
+			retVal = ((int)(retVal*10000))/10000.0;
 		}
 		return retVal;
 	}
