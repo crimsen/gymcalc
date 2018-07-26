@@ -9,8 +9,8 @@
             name="de.gymcalc.rcp.juriclient"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
-               name="applicationCSS"
-               value="platform:/plugin/de.gymcalc.rcp.juriclient/css/default.css">
+               name="appName"
+               value="de.gymcalc.rcp.juriclient">
          </property>
       </product>
    </extension>
