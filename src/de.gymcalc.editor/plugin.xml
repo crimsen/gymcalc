@@ -98,6 +98,13 @@
           id="de.gymcalc.contest.presentation.RegistrationTeamEditorID"
           name="%_UI_RegistrationTeamEditor_label">
     </editor>
+    <editor
+          class="de.gymcalc.contest.presentation.AthletsEditor"
+          extensions="gymcalc"
+          icon="icons/full/obj16/ContestModelFile.gif"
+          id="de.gymcalc.contest.presentation.AthletEditorID"
+          name="Wettkämpfereinteilung">
+    </editor>
   </extension>
   <extension
         point="org.eclipse.ui.importWizards">
@@ -141,6 +148,13 @@
       </command>
       <command
             categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.OpenAthletsEditorHandler"
+            description="Open Athlet Editor"
+            id="de.gymcalc.contest.editor.OpenAthletEditor"
+            name="Open Athlet Editor">
+      </command>
+      <command
+            categoryId="de.gymcalc.contest"
             defaultHandler="de.gymcalc.contest.ui.handler.OpenCalcEditorHandler"
             description="Open Calculation Editor"
             id="de.gymcalc.contest.editor.OpenCalcEditor"
@@ -181,7 +195,7 @@
       <command
             categoryId="de.gymcalc.contest"
             defaultHandler="de.gymcalc.contest.ui.handler.ResetAthletNameHandler"
-            description="Stetzt Wettkämpfernamen gemäß Personennamen"
+            description="Setzt Wettkämpfernamen gemäß Personennamen"
             id="de.gymcalc.contest.editor.ResetAthletName"
             name="Setze Wettkämpfernamen zurück">
       </command>
@@ -234,6 +248,19 @@
             id="de.gymcalc.contest.editor.SaveCopy"
             name="%_UI_SaveCopy_label">
       </command>
+      <command
+            categoryId="de.gymcalc.contest"
+            defaultHandler="de.gymcalc.contest.ui.handler.AddFinalsAthletHandler"
+            description="Fügt einen Finalwettkämpfer einer ausgewählten Finalriege hinzu"
+            id="de.gymcalc.contest.editor.AddFinalsAthlet"
+            name="Füge Finalwettkämpfer hinzu ...">
+         <commandParameter
+               id="de.gymcalc.contest.editor.AddFinalsAthlet.FinalChain"
+               name="Finalriege"
+               optional="true"
+               values="de.gymcalc.contest.ui.handler.SelectFinalsChain">
+         </commandParameter>
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.services">
@@ -271,6 +298,11 @@
                  style="push">
            </command>
            <command
+                 commandId="de.gymcalc.contest.editor.OpenAthletEditor"
+                 label="Öffne Wettkämpfereinteilung"
+                 style="push">
+           </command>
+           <command
                  commandId="de.gymcalc.contest.editor.OpenCalcEditor"
                  label="%_UI_OpenCalcEditor_label"
                  mnemonic="C"
@@ -301,6 +333,9 @@
                     </equals>
                     <equals
                           value="de.gymcalc.contest.presentation.ContestRootEditorID">
+                    </equals>
+                    <equals
+                          value="de.gymcalc.contest.presentation.AthletEditorID">
                     </equals>
                  </or>
               </with>
@@ -378,6 +413,11 @@
                     style="push">
               </command>
               <command
+                    commandId="de.gymcalc.contest.editor.AddFinalsAthlet"
+                    label="Füge Finalisten hinzu"
+                    style="push">
+              </command>
+              <command
                     commandId="de.gymcalc.contest.editor.CompactFinals"
                     label="%_UI_CompactFinals_label"
                     style="push">
@@ -416,17 +456,6 @@
    </extension>
 
 
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated de.gymcalc -->
-      <editor
-            id="de.gymcalc.contest.presentation.ContestEditorID"
-            name="%_UI_ContestEditor_label"
-            icon="icons/full/obj16/ContestModelFile.gif"
-            extensions="contest"
-            class="de.gymcalc.contest.presentation.ContestEditor"
-            contributorClass="de.gymcalc.contest.presentation.ContestActionBarContributor">
-      </editor>
-   </extension>
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated contest -->
       <category
@@ -443,29 +472,7 @@
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated de.gymcalc -->
-      <editor
-            id="de.gymcalc.addressbook.presentation.AddressBookEditorID"
-            name="%_UI_AddressBookEditor_label"
-            icon="icons/full/obj16/AddressBookModelFile.gif"
-            extensions="addressbook"
-            class="de.gymcalc.addressbook.presentation.AddressBookEditor"
-            contributorClass="de.gymcalc.addressbook.presentation.AddressBookActionBarContributor">
-      </editor>
-   </extension>
 
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated exercise -->
-      <editor
-            id="de.gymcalc.exercise.presentation.ExerciseEditorID"
-            name="%_UI_ExerciseEditor_label"
-            icon="icons/full/obj16/ExerciseModelFile.gif"
-            extensions="exercise"
-            class="de.gymcalc.exercise.presentation.ExerciseEditor"
-            contributorClass="de.gymcalc.exercise.presentation.ExerciseActionBarContributor">
-      </editor>
-   </extension>
 
    <extension
          point="org.eclipse.ui.preferencePages">

@@ -1,8 +1,5 @@
 package de.gymcalc.contest.ui.handler;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -13,25 +10,25 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.ISources;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import de.gymcalc.contest.command.CreateFinalsCommand;
-import de.gymcalc.contest.presentation.ApplicationContext;
-
 public abstract class CommandHandler extends AbstractHandler {
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		this.event = event;
 		EditingDomain domain = getEditingDomain( event );
 		if( null != domain ) {
 		    Command command = getCommand( domain, event );
 	       	domain.getCommandStack().execute( command );
 		}
+		this.event = null;
 		return null;
 	}
 
-	protected abstract Command createCommand( EditingDomain domain, Collection<?> selection );
+	protected abstract Command createCommand( EditingDomain domain, IStructuredSelection selection );
 
 	protected EditingDomain getEditingDomain( Object context ) {
 		EditingDomain retVal = null;
@@ -41,17 +38,17 @@ public abstract class CommandHandler extends AbstractHandler {
 		}
 		return retVal;
 	}
-	protected Collection<?> getSelection( Object context ) {
-		Collection<?> retVal = null;
+	protected IStructuredSelection getSelection( Object context ) {
+		IStructuredSelection retVal = null;
 		IEditorPart editor = getEditor( context );
 	    if( editor instanceof ISelectionProvider ) {
 	    	ISelection s = ( ( ISelectionProvider ) editor ).getSelection();
 	    	if( s instanceof IStructuredSelection ) {
-	    		retVal = ( ( IStructuredSelection ) s ).toList();
+	    		retVal = ( ( IStructuredSelection ) s );
 	    	}
 	    }
 	    if( null == retVal ) {
-	    	retVal = new ArrayList<Object>();
+	    	retVal = StructuredSelection.EMPTY;
 	    }
 		return retVal;
 	}
@@ -71,15 +68,15 @@ public abstract class CommandHandler extends AbstractHandler {
 		Command retVal = null;
 		EditingDomain domain = getEditingDomain( context );
 		if( null != domain ) {
-			Collection<?> collection = getSelection( context );
-			retVal = createCommand( domain, collection );
+			IStructuredSelection selection = getSelection( context );
+			retVal = createCommand( domain, selection );
 		}
 		return retVal;
 	}
 	protected Command getCommand( EditingDomain domain, Object context ) {
 		Command retVal = null;
-		Collection<?> collection = getSelection( context );
-		retVal = createCommand( domain, collection );
+		IStructuredSelection selection = getSelection( context );
+		retVal = createCommand( domain, selection );
 		return retVal;
 	}
 	@Override
@@ -91,5 +88,6 @@ public abstract class CommandHandler extends AbstractHandler {
 		}
 		setBaseEnabled( enabled );
 	}
+	protected ExecutionEvent event;
 
 }
