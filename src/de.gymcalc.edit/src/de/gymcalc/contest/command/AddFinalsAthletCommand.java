@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandActionDelegate;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import de.gymcalc.contest.AthletType;
@@ -44,6 +45,7 @@ implements CommandActionDelegate {
 			for( Object o:this.collection) {
 				if( o instanceof FinalChainType) {
 					this.appendAndExecute(AddCommand.create(getDomain(), o, ContestPackage.Literals.CHAIN_TYPE__ATHLET, athlet));
+					this.appendAndExecute(SetCommand.create(getDomain(), athlet, ContestPackage.Literals.WINNER_TYPE__DISABLE, ""));
 				}
 			}
 		}

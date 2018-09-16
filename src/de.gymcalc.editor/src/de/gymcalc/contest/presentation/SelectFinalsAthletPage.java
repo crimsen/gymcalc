@@ -7,7 +7,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.wizard.WizardPage;
@@ -50,8 +52,7 @@ public class SelectFinalsAthletPage extends WizardPage {
 
 			@Override
 			public Object[] getElements(Object inputElement) {
-				// TODO Auto-generated method stub
-				return null;
+				return getSelectableAthlets().toArray();
 			}
 
 			@Override
@@ -74,6 +75,7 @@ public class SelectFinalsAthletPage extends WizardPage {
 			
 		});
 		table.setLayoutData(new GridData(GridData.FILL_BOTH));
+		table.getViewer().setInput(chain);
 		composite.setLayout( layout );
 
 	}
@@ -81,6 +83,13 @@ public class SelectFinalsAthletPage extends WizardPage {
 	public AthletType getAthlet( )
 	{
 		AthletType retVal = null;
+		ISelection selection = table.getViewer().getSelection();
+		if( selection instanceof IStructuredSelection ) {
+			Object o = ( ( IStructuredSelection ) selection ).getFirstElement();
+			if( null != o && o instanceof AthletType ) {
+				retVal = ( AthletType ) o;
+			}
+		}
 		return retVal;
 	}
 	

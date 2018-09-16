@@ -6,13 +6,18 @@ package de.gymcalc.contest.presentation;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.jface.dialogs.DialogSettings;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 
+import de.gymcalc.addressbook.provider.AddressBookItemProviderAdapterFactory;
 import de.gymcalc.contest.AthletType;
 import de.gymcalc.contest.FinalChainType;
 import de.gymcalc.contest.command.ContestCommandParam;
+import de.gymcalc.contest.provider.ContestItemProviderAdapterFactory;
 
 /**
  * @author thomas
@@ -26,6 +31,9 @@ public class SelectFinalsAthletWizard extends Wizard {
 		setDialogSettings( new DialogSettings( "athlet" ) );
 		this.editingDomain = editingDomain; // used to create adapters
 		this.selection = selection;
+		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+		adapterFactory.addAdapterFactory(new ContestItemProviderAdapterFactory());
 	}
 
 	/* (non-Javadoc)
@@ -68,7 +76,7 @@ public class SelectFinalsAthletWizard extends Wizard {
 	
 	private EditingDomain editingDomain;
 	private IStructuredSelection selection;
-	private AdapterFactory adapterFactory;
+	private ComposedAdapterFactory adapterFactory;
 	private SelectFinalsAthletPage selectFinalsAthletPage;
 	
 	private ContestCommandParam param = new ContestCommandParam( );
