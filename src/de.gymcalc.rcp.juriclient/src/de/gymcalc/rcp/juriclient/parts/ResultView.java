@@ -3,6 +3,8 @@ package de.gymcalc.rcp.juriclient.parts;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -66,6 +68,12 @@ public class ResultView {
 		tk.createLabel(formBody, "E2", SWT.RIGHT);
 		resultColumn1.te2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		resultColumn2.te2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
+		tk.createLabel(formBody, "E3", SWT.RIGHT);
+		resultColumn1.te3 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
+		resultColumn2.te3 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
+		tk.createLabel(formBody, "E4", SWT.RIGHT);
+		resultColumn1.te4 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
+		resultColumn2.te4 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		tk.createLabel(formBody, "E", SWT.RIGHT);
 		resultColumn1.td2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
 		resultColumn2.td2 = tk.createText(formBody, "", SWT.BORDER | SWT.RIGHT);
@@ -102,12 +110,16 @@ public class ResultView {
 				resultColumn1.td1,
 				resultColumn1.te1,
 				resultColumn1.te2,
+				resultColumn1.te3,
+				resultColumn1.te4,
 				resultColumn1.td2,
 				resultColumn1.tp,
 				resultColumn1.ts,
 				resultColumn2.td1,
 				resultColumn2.te1,
 				resultColumn2.te2,
+				resultColumn2.te3,
+				resultColumn2.te4,
 				resultColumn2.td2,
 				resultColumn2.tp,
 				resultColumn2.ts,
@@ -174,20 +186,26 @@ public class ResultView {
 			wd2.setValue(Double.NaN);
 			we1.setValue(Double.NaN);
 			we2.setValue(Double.NaN);
+			we3.setValue(Double.NaN);
+			we4.setValue(Double.NaN);
 			wp.setValue(Double.NaN);
 			ws.setValue(Double.NaN);
 		}
 		protected void bindData( ) {
-			values.add(new DetailEntry(3, "D", wd1, true));
-			values.add(new DetailEntry(2, "E", wd2, true));
-			values.add(new DetailEntry(4, "P", wp, true));
+			values.add(new DetailEntry(5, "D", wd1, true));
+			values.add(new DetailEntry(4, "E", wd2, true));
+			values.add(new DetailEntry(6, "P", wp, true));
 			values.add(new DetailEntry(0, ".E1", we1, true));
 			values.add(new DetailEntry(1, ".E2", we2, true));
+			values.add(new DetailEntry(2, ".E3", we3, true));
+			values.add(new DetailEntry(3, ".E4", we4, true));
 			dbc.bindValue(WidgetProperties.text().observe(th), wh);
 			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(td1), wd1);
 			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(td2), wd2);
 			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(te1), we1);
 			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(te2), we2);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(te3), we3);
+			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(te4), we4);
 			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(tp), wp);
 			bindString2Double(dbc, WidgetProperties.text(SWT.Modify).observe(ts), ws);
 			
@@ -209,6 +227,8 @@ public class ResultView {
 			};
 			we1.addChangeListener(averageCalculation);
 			we2.addChangeListener(averageCalculation);
+			we3.addChangeListener(averageCalculation);
+			we4.addChangeListener(averageCalculation);
 		}
 		protected void updateDataFromResult(JuriResultType result) {
 			this.result = result;
@@ -219,6 +239,8 @@ public class ResultView {
 				wh.setValue("");
 				we1.setValue(Double.NaN);
 				we2.setValue(Double.NaN);
+				we3.setValue(Double.NaN);
+				we4.setValue(Double.NaN);
 				wd1.setValue(Double.NaN);
 				wd2.setValue(Double.NaN);
 				wp.setValue(Double.NaN);
@@ -228,6 +250,8 @@ public class ResultView {
 				td2.setEnabled(false);
 				te1.setEnabled(false);
 				te2.setEnabled(false);
+				te3.setEnabled(false);
+				te4.setEnabled(false);
 				tp.setEnabled(false);
 				ts.setEnabled(false);
 			} else {
@@ -268,6 +292,8 @@ public class ResultView {
 				td2.setEnabled(true);
 				te1.setEnabled(true);
 				te2.setEnabled(true);
+				te3.setEnabled(true);
+				te4.setEnabled(true);
 				tp.setEnabled(true);
 				ts.setEnabled(true);
 			}
@@ -327,13 +353,15 @@ public class ResultView {
 				count++;
 			}
 			if( 0 < count ) {
-				ws.setValue(((int)(summary*10000))/10000.0);
+				ws.setValue( Math.round( summary * 10000 ) / 10000.0 );
 			}
 		}
 		protected void calcAverageOfExecution() {
 			ArrayList<WritableValue<Double>> a = new ArrayList<WritableValue<Double>>();
 			a.add(we1);
 			a.add(we2);
+			a.add(we3);
+			a.add(we4);
 			Double average = calcAverage(a);
 			if( !average.isNaN() ) {
 				wd2.setValue(average);
@@ -348,6 +376,8 @@ public class ResultView {
 		protected Text td2;
 		protected Text te1;
 		protected Text te2;
+		protected Text te3;
+		protected Text te4;
 		protected Text tp;
 		protected Text ts;
 
@@ -357,6 +387,8 @@ public class ResultView {
 		protected WritableValue<Double> wd2 = new WritableValue<Double>();
 		protected WritableValue<Double> we1 = new WritableValue<Double>();
 		protected WritableValue<Double> we2 = new WritableValue<Double>();
+		protected WritableValue<Double> we3 = new WritableValue<Double>();
+		protected WritableValue<Double> we4 = new WritableValue<Double>();
 		protected WritableValue<Double> wp = new WritableValue<Double>();
 		protected WritableValue<Double> ws = new WritableValue<Double>();
 
@@ -364,19 +396,51 @@ public class ResultView {
 	}
 	protected static Double calcAverage(Collection<WritableValue<Double>> wValues) {
 		Double retVal = Double.NaN;
+		ArrayList<Double> values = new ArrayList<Double>();
 		Double average = 0.0;
-		int count = 0;
 		for( WritableValue<Double> wVal : wValues) {
 			Double val = getDoubleFromWritable( wVal );
-			if( !val.isNaN() ) {
-				average +=val;
-				count++;
+			if( !val.isNaN()  && 0.0 < val ) {
+				// take only valid values
+				values.add(val);
 			}
 		}
-		if( count != 0 ) {
-			retVal = average / count;
-			retVal = ((int)(retVal*10000))/10000.0;
+		switch( values.size() ) {
+		case 4:	{
+				Collections.sort(values);
+				average = ( values.get(1) + values.get(2) ) / 2;
+			}
+			break;
+		case 3:	{
+			/* rule for 3 jurists is quite complicated:
+			 * take the 2 results with the minimum difference
+			 * if the differences are equal, take the middle value
+			 */
+				Collections.sort(values);
+				double diff1 = Math.round( ( values.get(1) - values.get(0) ) * 1000000 ) / 1000000.0;
+				double diff3 = Math.round( ( values.get(2) - values.get(1) ) * 1000000 ) / 1000000.0;
+				int compare = Double.compare( diff1, diff3 );
+				if( 0 < compare  ) {
+					average = ( values.get( 1 ) + values.get( 2 ) ) / 2;
+				} else if( 0 > compare ) {
+					average = ( values.get( 0 ) + values.get( 1 ) ) / 2;
+				} else {
+					average = values.get(1);
+				}
+			}
+			break;
+		case 2:	{
+				average = ( values.get(0) + values.get(1) ) / 2;
+			}
+			break;
+		case 1:
+			{
+				average = values.get(0);
+			}
+			break;
 		}
+		retVal = average;
+		retVal = Math.round( retVal * 10000 ) / 10000.0;
 		return retVal;
 	}
 	protected static Double getDoubleFromWritable(WritableValue<Double> wVal) {

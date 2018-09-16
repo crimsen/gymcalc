@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.window.main" label="GymCalc JuriClient" width="800" height="600">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.window.main" label="GymCalc JuriClient" width="800" height="620">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="de.gymcalc.rcp.juriclient.partsashcontainer.sample" horizontal="true">
       <children xsi:type="basic:Part" xmi:id="_d8tewIhTEeiDN6M4qiC0Hw" elementId="de.gymcalc.rcp.juriclient.part.juriview" containerData="300" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.parts.AthletView" label="JuriView"/>
       <children xsi:type="basic:Part" xmi:id="_37kNQIqfEei4auS02WZucA" elementId="de.gymcalc.rcp.juriclient.part.resultview" containerData="500" contributionURI="bundleclass://de.gymcalc.rcp.juriclient/de.gymcalc.rcp.juriclient.parts.ResultView" label="ResultView"/>
