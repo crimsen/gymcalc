@@ -2,7 +2,7 @@
 <feature
       id="de.gymcalc.feature"
       label="GymCalc"
-      version="1.4.2.qualifier"
+      version="1.5.0.qualifier"
       provider-name="turnen-spremberg.de">
 
    <description url="http://www.gymcalc.de">
