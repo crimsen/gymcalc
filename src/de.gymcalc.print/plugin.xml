@@ -99,6 +99,15 @@
                   <equals
                         value="de.gymcalc.contest.presentation.ContestRootEditorID">
                   </equals>
+                  <equals
+                        value="de.gymcalc.contest.presentation.AthletEditorID">
+                  </equals>
+                  <equals
+                        value="de.gymcalc.contest.presentation.ContestCalcEditorID">
+                  </equals>
+                  <equals
+                        value="de.gymcalc.contest.presentation.ContestClassEditorID">
+                  </equals>
                </or>
             </with>
          </activeWhen>

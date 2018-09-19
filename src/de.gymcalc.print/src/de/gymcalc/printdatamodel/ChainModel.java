@@ -49,6 +49,7 @@ public class ChainModel {
 		 *     +-class
 		 *     +-organization
 		 *     +-team
+		 *     +-stationsort_[0...] startnummer an der jeweiligen station
 		 */
 		Map<String, Object> retVal = null;
 		if (src instanceof ContestType) {
@@ -77,6 +78,9 @@ public class ChainModel {
 				EList<AthletType> winnersSrc = chainSrc.getAthlet ();
 				List<Object> winners = new ArrayList<Object>();
 				chain.put( "winner", winners );
+				int winnerIdx = 0;
+				int winnerCnt = winnersSrc.size();
+				int stationCnt = stationsSrc.size();
 				for( Iterator<AthletType> iWinner = winnersSrc.iterator (); iWinner.hasNext (); ){
 					AthletType winnerSrc = iWinner.next ();
 					Map<String, Object> winner = new HashMap<String, Object>();
@@ -102,6 +106,15 @@ public class ChainModel {
 						teamName = winnerSrc.getTeam().getName ();
 					}
 					winner.put( "team", teamName );
+					
+					for (int stationIdx = 0; stationIdx < stationCnt; ++stationIdx ) {
+						int stationSort = ( winnerIdx - stationIdx ) % winnerCnt;
+						if( 0 > stationSort ) {
+							stationSort += winnerCnt;
+						}
+						winner.put( "stationsort_" + Integer.toString(stationIdx), stationSort );
+					}
+					++winnerIdx;
 				}
 			}
 		}
