@@ -122,7 +122,7 @@ public class UpdateFinalChainCommand extends ContestCompoundCommand {
 						try {
 							int chainIdx = orderMap.get(Integer.valueOf(idx));
 							if( 0 < chainIdx && sortedAthlets.size() >= chainIdx ) {
-								sortedAthlets.add( chainIdx - 1, a );
+								sortedAthlets.set( chainIdx - 1, a );
 							} else {
 								// if there is no valid map entry then append it to the unassigned athlets
 								unkAthlets.add( a );
