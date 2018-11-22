@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandActionDelegate;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
@@ -44,7 +45,17 @@ implements CommandActionDelegate {
 		if( athlet instanceof AthletType ) {
 			for( Object o:this.collection) {
 				if( o instanceof FinalChainType) {
-					this.appendAndExecute(AddCommand.create(getDomain(), o, ContestPackage.Literals.CHAIN_TYPE__ATHLET, athlet));
+					int index = CommandParameter.NO_INDEX;
+					FinalChainType finalChain = ( FinalChainType ) o;
+					if( null != finalChain.getOrderMap( ) ) {
+						Integer jokerIndex = finalChain.getOrderMap( ).getEntries( ).get( new Integer( -1 ) );
+						 if( null != jokerIndex ) {
+							 index = jokerIndex.intValue();
+							 // OrderMap index is 1 based but we do need a 0 based index
+							 --index;
+						 }
+					}
+					this.appendAndExecute(AddCommand.create(getDomain(), o, ContestPackage.Literals.CHAIN_TYPE__ATHLET, athlet, index));
 					this.appendAndExecute(SetCommand.create(getDomain(), athlet, ContestPackage.Literals.WINNER_TYPE__DISABLE, ""));
 				}
 			}
