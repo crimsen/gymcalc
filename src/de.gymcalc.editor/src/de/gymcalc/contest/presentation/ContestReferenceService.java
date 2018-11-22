@@ -19,6 +19,7 @@ import org.eclipse.emf.ecp.view.spi.provider.ViewProviderHelper;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emfforms.common.Optional;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
@@ -69,29 +70,37 @@ public class ContestReferenceService implements ReferenceService {
 
 	@Override
 	public void addNewModelElements(EObject eObject, EReference eReference) {
-		final EObject newMEInstance = getNewModelElementInstance(eReference);
+		addNewModelElements( eObject, eReference, true );
+	}
 
-		if (newMEInstance == null) {
-			return;
+	@Override
+	public Optional<EObject> addNewModelElements(EObject eObject, EReference eReference, boolean openInNewContext) {
+		final EObject retVal = getNewModelElementInstance(eReference);
+
+		if (retVal == null) {
+			return Optional.empty();
 		}
 
 		if (eReference.isContainer()) {
 			// TODO language
 			MessageDialog.openError(Display.getDefault().getActiveShell(), "Error", //$NON-NLS-1$
 				"Operation not permitted for container references!");//$NON-NLS-1$
-			return;
+			return Optional.empty();
 		}
 
 		if (!eReference.isContainment()) {
 			// TODO language
 			MessageDialog.openError(Display.getDefault().getActiveShell(), "Error", //$NON-NLS-1$
 				"Hier kann kein neues Element angelegt werden. Verwende Button \'Link\' anstelle von \'Neu\'.");//$NON-NLS-1$
-			return;
+			return Optional.empty();
 		}
 
-		ECPControlHelper.addModelElementInReference(eObject, newMEInstance, eReference,
+		ECPControlHelper.addModelElementInReference(eObject, retVal, eReference,
 			editingDomain);
-		openInNewContext(newMEInstance);
+		if( openInNewContext ) {
+			openInNewContext(retVal);
+		}
+		return Optional.of(retVal);
 	}
 
 	/**
@@ -214,4 +223,5 @@ public class ContestReferenceService implements ReferenceService {
 		return eReference.getEReferenceType().getEPackage().getEFactoryInstance()
 			.create(eReference.getEReferenceType());
 	}
+
 }
