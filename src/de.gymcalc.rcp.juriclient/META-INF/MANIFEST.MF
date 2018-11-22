@@ -22,7 +22,8 @@ Require-Bundle: javax.inject;bundle-version="0.0.0",
  org.eclipse.core.databinding.property;bundle-version="1.6.100",
  de.gymcalc.rcp,
  de.gymcalc,
- de.gymcalc.edit 
+ de.gymcalc.edit,
+ com.ibm.icu
 Automatic-Module-Name: de.gymcalc.rcp.juriclient
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
