@@ -284,12 +284,23 @@ public class ProtocolModel {
 				EList<JuriResultDetailType> details = juriResult.getJuriResultDetail();
 				int j = 0;
 				for( JuriResultDetailType detail : details) {
-					String s = getDetail(j);
-					if(isVault) {
-						s = getVaultDetail(j);
+					boolean skip = false;
+					String s = detail.getKey();
+					if( s.isEmpty() ) {
+						s = getDetail(j);
+						if(isVault) {
+							s = getVaultDetail(j);
+						}
+					} else {
+						if( s.startsWith(".") ) {
+							skip = true;
+						}
+						s += ": ";
 					}
-					s += Double.toString( detail.getValue());
-					disziplineDetail.add( s );
+					if( !skip ) {
+						s += Double.toString( detail.getValue());
+						disziplineDetail.add( s );
+					}
 					j++;
 				}
 			}
