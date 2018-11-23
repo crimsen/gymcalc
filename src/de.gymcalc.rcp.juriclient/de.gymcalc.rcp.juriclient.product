@@ -3,6 +3,7 @@
 
 <product name="de.gymcalc.rcp.juriclient" id="de.gymcalc.rcp.juriclient.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.1.qualifier" useFeatures="false" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -19,14 +20,16 @@
 
    <windowImages/>
 
+
    <launcher name="gymcalc-juriclient">
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10</linux>
    </vm>
 
    <plugins>
@@ -41,13 +44,20 @@
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
       <plugin id="lpg.runtime.java"/>
-      <plugin id="org.apache.batik.css" version="1.8.0.v20170214-1941"/>
-      <plugin id="org.apache.batik.util" version="1.8.0.v20170214-1941"/>
+      <plugin id="org.apache.batik.constants" version="1.10.0.v20180703-1553"/>
+      <plugin id="org.apache.batik.css" version="1.10.0.v20180703-1553"/>
+      <plugin id="org.apache.batik.i18n" version="1.10.0.v20180703-1553"/>
+      <plugin id="org.apache.batik.util" version="1.10.0.v20180703-1553"/>
+      <plugin id="org.apache.commons.io"/>
       <plugin id="org.apache.commons.jxpath"/>
+      <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.felix.gogo.runtime"/>
       <plugin id="org.apache.felix.scr"/>
+      <plugin id="org.apache.log4j"/>
       <plugin id="org.apache.lucene.analyzers-common"/>
-      <plugin id="org.apache.lucene.core" version="6.1.0.v20170814-1820"/>
+      <plugin id="org.apache.lucene.core"/>
       <plugin id="org.apache.lucene.queryparser"/>
+      <plugin id="org.apache.xmlgraphics"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.compare.core"/>
       <plugin id="org.eclipse.core.commands"/>
@@ -92,7 +102,6 @@
       <plugin id="org.eclipse.e4.ui.workbench"/>
       <plugin id="org.eclipse.e4.ui.workbench.addons.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench.renderers.swt"/>
-      <plugin id="org.eclipse.e4.ui.workbench.renderers.swt.cocoa" fragment="true"/>
       <plugin id="org.eclipse.e4.ui.workbench.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench3"/>
       <plugin id="org.eclipse.emf.cdo"/>
@@ -122,9 +131,6 @@
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.security"/>
       <plugin id="org.eclipse.equinox.security.linux.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.equinox.security.macosx" fragment="true"/>
-      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.equinox.security.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.equinox.supplement"/>
       <plugin id="org.eclipse.equinox.transforms.hook" fragment="true"/>
       <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
@@ -144,22 +150,16 @@
       <plugin id="org.eclipse.osgi.util"/>
       <plugin id="org.eclipse.pde.ds.lib"/>
       <plugin id="org.eclipse.swt"/>
-      <plugin id="org.eclipse.swt.cocoa.macosx.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.ppc64" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.ppc64le" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.team.core"/>
       <plugin id="org.eclipse.text"/>
       <plugin id="org.eclipse.ui"/>
-      <plugin id="org.eclipse.ui.cocoa" fragment="true"/>
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.ide"/>
       <plugin id="org.eclipse.ui.trace"/>
       <plugin id="org.eclipse.ui.views"/>
       <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.xtext.logging" fragment="true"/>
       <plugin id="org.tukaani.xz"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.events"/>

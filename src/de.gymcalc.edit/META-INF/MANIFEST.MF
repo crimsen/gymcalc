@@ -18,7 +18,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.gymcalc;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.jface,
- de.spremberg.turnen.contact,
+ de.spremberg.turnen.contact;resolution:=optional,
  org.eclipse.emf.common
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
