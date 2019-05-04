@@ -56,6 +56,8 @@ public class OrganizationModel {
 		 *   +-jurist
 		 *     +-name
 		 *     +-jury
+		 *     +-wishApparatus
+		 *     +-license
 		 */
 		if( src instanceof ContestType ) {
 			ContestType contestsrc = (ContestType) src;
@@ -114,6 +116,8 @@ public class OrganizationModel {
 							jurists.add(jurist);
 							jurist.put("name", juristSrc.getName());
 							jurist.put("jury", juryName);
+							jurist.put("wishApparatus", juristSrc.getWishApparatus());
+							jurist.put("license", juristSrc.getLicense());
 						}
 					}
 				}
