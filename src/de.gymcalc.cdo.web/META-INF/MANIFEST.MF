@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Web
+Bundle-SymbolicName: de.gymcalc.cdo.web;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.gymcalc.cdo.web
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.equinox.http.registry
