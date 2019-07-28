@@ -1,0 +1,24 @@
+<%@ jet
+	class="ContestTemplate"
+	package="templates"
+	imports="de.gymcalc.contest.* de.gymcalc.server.internal.web.*" %>
+
+<% ContestType contest = (ContestType)argument; %>
+
+<html>
+  <header>
+	  <title>
+			<%=GymCalcServlet.html(contest.getName())%>
+	  </title>
+	<header>
+<body>
+
+<h1><%=GymCalcServlet.html(contest.getName())%></h1>
+<table border="0" width="400">
+<%for (ClassType class_ : contest.getClass_()) {%>
+	<tr><td colspan="3"><h2><%=GymCalcServlet.html(class_.getName())%></h2></td></tr>
+<%}%>
+</table>
+
+</body>
+</html>

@@ -8,5 +8,13 @@
             base-name="/index.html">
       </resource>
    </extension>
+   <extension
+         point="org.eclipse.equinox.http.registry.servlets">
+      <servlet
+            alias="/gymcalc"
+            class="de.gymcalc.server.internal.web.GymCalcServlet"
+            load-on-startup="true">
+      </servlet>
+   </extension>
 
 </plugin>
