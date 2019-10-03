@@ -13,8 +13,6 @@
  */
 package de.gymcalc.server.internal.web;
 
-import de.gymcalc.contest.ContestType;
-import de.gymcalc.server.GymCalcServer;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,6 +40,10 @@ import org.eclipse.net4j.util.container.IPluginContainer;
 import org.eclipse.net4j.util.io.IOUtil;
 import org.eclipse.net4j.util.om.OMPlatform;
 
+import de.gymcalc.contest.ClassType;
+import de.gymcalc.contest.ContestType;
+import de.gymcalc.server.GymCalcServer;
+import templates.ClassResultTemplate;
 import templates.ContestTemplate;
 
 /**
@@ -62,6 +64,7 @@ public class GymCalcServlet extends HttpServlet
   private ContestType contest;
 
   private ContestTemplate template = ContestTemplate.create(StringUtil.NL);
+  private ClassResultTemplate classResultTemplate = ClassResultTemplate.create(StringUtil.NL);
 
   private IRepository repository;
 
@@ -145,21 +148,36 @@ public class GymCalcServlet extends HttpServlet
     doPost(req, resp);
   }
 
-  @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-  {
-    PrintWriter writer = resp.getWriter();
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+	{
+		String request = req.getParameter("class");
+		PrintWriter writer = resp.getWriter();
+		ClassType class_ = null;
 
-    try
-    {
-      String html = template.generate(getContest());
-      writer.print(html);
-    }
-    finally
-    {
-      IOUtil.close(writer);
-    }
-  }
+	    try
+	    {
+	    	if( !request.isEmpty()) {
+	    		for( ClassType c : getContest().getClass_() ) {
+	    			if( 0 == c.getName().compareTo( request ) ) {
+	    				class_ = c;
+	    				break;
+	    			}
+	    		}
+	    	}
+	    	String html = null;
+	    	if( null != class_ ) {
+	    		html = classResultTemplate.generate(class_);
+	    	} else {
+	    		html = template.generate(getContest());
+	    	}
+	    	writer.print(html);
+	    }
+	    finally
+	    {
+	      IOUtil.close(writer);
+	    }
+	}
 
   public static String getContestName() throws ServletException
   {
